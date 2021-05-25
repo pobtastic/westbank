@@ -1,0 +1,79 @@
+;
+; SkoolKit ref file for West Bank
+;
+; To build the HTML disassembly, run these commands:
+;   tap2sna.py @westbank.t2s
+;   sna2skool.py -H -c westbank.ctl WestBank.z80 > westbank.skool
+;   skool2html.py -H westbank.skool -T dark
+
+[Game]
+Game=West Bank
+Logo=#SCR2,4,0,16,3,$4000,$5800(/images/logo)
+Copyright=&copy; DINAMIC SOFTWARE 1985
+StyleSheet=skoolkit.css;skoolkit-dark.css;westbank.css
+
+[PageHeaders]
+GameIndex=The complete<>RAM disassembly (work in progress)
+
+[Index]
+MemoryMaps
+Graphics
+DataTables
+Reference
+
+[Index:Graphics:Graphics]
+Bandits
+Customers
+Playfield
+Bang
+
+[Links]
+Bandits=[Bandits]
+Customers=[Customers]
+Playfield=[Playfield]
+Bang=[Bang]
+
+[Page:Bandits]
+SectionPrefix=Bandits
+
+[Page:Customers]
+SectionPrefix=Customers
+
+[Page:Playfield]
+SectionPrefix=Playfield
+
+[Page:Bang]
+SectionPrefix=Bang
+
+[Page:Pokes]
+SectionType=ListItems
+[Poke:Pokes]
+Assorted POKEs for the game
+<p>Starting lives;<br>#TABLE(default) { =h Address | =h Poke/ Alteration | =h New Code | =h Old Code } { 51210 | #SPACE(1) | #SPACE(1) | LD A, <i>$FF</i> } { $6317 | <i>$FF</i> (or whatever you want it to be) | LD A, $FF | ^^ } TABLE#</p>
+<p>Infinite lives;<br>#TABLE(default) { =h Address | =h Poke/ Alteration | =h New Code | =h Old Code } {  | #SPACE(1) | #SPACE(1) | LD A, <i>$04</i> } { $6317 | <i>$FF</i> (or whatever you want it to be) | LD A, $FF | ^^ } TABLE#</p>
+<p>Fix Kempston joystick "issue" where the port read isn't compatible with all joystick models;
+<br>#TABLE(default)
+  { =h Address | =h Poke/ Alteration | =h New Code | =h Old Code }
+  { #R$D395 | POKE $D396,$1F | LD A, <i>31</i> | LD A, <i>12</i> }
+TABLE#</p>
+
+
+NInfinite lives
+Z 8 52518 182 0
+NLives
+Z 8 51210 256 0
+N255 Lives
+Z 8 51210 0 0
+NShots in the bank will not kill you
+Z 8 52574 0 0
+NDon't die if you kill innocents
+Z 8 52544 0 0
+NDon't die in duels
+M 8 50829 0 0
+Z 8 50931 0 0
+
+
+[Page:Changelog]
+SectionType=BulletPoints
+[Changelog:20200913]
+- First draft created in SkoolKit 8.2.
