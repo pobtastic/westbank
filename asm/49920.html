@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C300</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49888.html">C2E0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#49920">Map</a></td>
+<td class="next">
+Next: <a href="50112.html">C3C0</a>
+</td>
+</tr>
+</table>
+<div class="description">C300: Draw Playfield</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="52282.html">CC3A</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="49920"></span>C300</td>
+<td class="instruction">LD L,(IX+$00)</td>
+<td class="comment-1" rowspan="3">Set <a href="54758.html">D5E6</a> as the destination address at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49923"></span>C303</td>
+<td class="instruction">LD H,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49926"></span>C306</td>
+<td class="instruction">LD ($C3B8),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49929"></span>C309</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Clears the screen buffer by writing $00 to all 6912 memory locations.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49932"></span>C30C</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49935"></span>C30F</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49938"></span>C312</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49940"></span>C314</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49942"></span>
+<div class="comments">
+<div class="paragraph">
+Draws the numbering of the deposit boxes on the left and right of the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49942"></span>C316</td>
+<td class="instruction">LD HL,$4001</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4001 (screen buffer) and <span class="register">DE</span> to <a href="57248.html">DFA0</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49945"></span>C319</td>
+<td class="instruction">LD DE,$DFA0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49948"></span>C31C</td>
+<td class="instruction">LD BC,$080C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49951"></span>C31F</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49954"></span>C322</td>
+<td class="instruction">LD HL,$4013</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4013 (screen buffer) and <span class="register">DE</span> to <a href="57248.html#57344">E000</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49957"></span>C325</td>
+<td class="instruction">LD DE,$E000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49960"></span>C328</td>
+<td class="instruction">LD BC,$080C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49963"></span>C32B</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49966"></span>
+<div class="comments">
+<div class="paragraph">
+Draws the centrepiece "till" image.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49966"></span>C32E</td>
+<td class="instruction">LD HL,$400E</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $400E (screen buffer) and <span class="register">DE</span> to <a href="57440.html">E060</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49969"></span>C331</td>
+<td class="instruction">LD DE,$E060</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49972"></span>C334</td>
+<td class="instruction">LD B,$18</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49974"></span>C336</td>
+<td class="instruction">LD C,$04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49976"></span>C338</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49979"></span>
+<div class="comments">
+<div class="paragraph">
+Draws the game play area (doors and wall sections).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49979"></span>C33B</td>
+<td class="instruction">LD HL,$4060</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4060 (screen buffer) and <span class="register">DE</span> to <a href="57536.html">E0C0</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49982"></span>C33E</td>
+<td class="instruction">LD DE,$E0C0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49985"></span>C341</td>
+<td class="instruction">LD BC,$0820</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49988"></span>C344</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49991"></span>C347</td>
+<td class="instruction">LD HL,$4080</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4080 (screen buffer) and <span class="register">DE</span> to <a href="57792.html">E1C0</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49994"></span>C34A</td>
+<td class="instruction">LD DE,$E1C0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49997"></span>C34D</td>
+<td class="instruction">LD B,$58</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49999"></span>C34F</td>
+<td class="instruction">LD C,$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50001"></span>C351</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50004"></span>C354</td>
+<td class="instruction">LD HL,$4089</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4089 (screen buffer) and <span class="register">DE</span> to <a href="57968.html">E270</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50007"></span>C357</td>
+<td class="instruction">LD DE,$E270</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50010"></span>C35A</td>
+<td class="instruction">LD B,$58</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50012"></span>C35C</td>
+<td class="instruction">LD C,$04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50014"></span>C35E</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50017"></span>C361</td>
+<td class="instruction">LD HL,$4094</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4094 (screen buffer) and <span class="register">DE</span> to <a href="57968.html">E270</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50020"></span>C364</td>
+<td class="instruction">LD DE,$E270</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50023"></span>C367</td>
+<td class="instruction">LD B,$58</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50025"></span>C369</td>
+<td class="instruction">LD C,$04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50027"></span>C36B</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50030"></span>C36E</td>
+<td class="instruction">LD HL,$409F</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $409F (screen buffer) and <span class="register">DE</span> to <a href="58320.html">E3D0</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50033"></span>C371</td>
+<td class="instruction">LD DE,$E3D0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50036"></span>C374</td>
+<td class="instruction">LD B,$58</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50038"></span>C376</td>
+<td class="instruction">LD C,$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50040"></span>C378</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50043"></span>C37B</td>
+<td class="instruction">LD HL,$48E0</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $48E0 (screen buffer) and <span class="register">DE</span> to <a href="58408.html">E428</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50046"></span>C37E</td>
+<td class="instruction">LD DE,$E428</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50049"></span>C381</td>
+<td class="instruction">LD BC,$0820</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50052"></span>C384</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50055"></span>
+<div class="comments">
+<div class="paragraph">
+Draws the Bank Teller desks.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50055"></span>C387</td>
+<td class="instruction">LD HL,$5020</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $5020 (screen buffer) and <span class="register">DE</span> to <a href="58664.html">E528</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50058"></span>C38A</td>
+<td class="instruction">LD DE,$E528</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50061"></span>C38D</td>
+<td class="instruction">LD BC,$2020</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50064"></span>C390</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50067"></span>
+<div class="comments">
+<div class="paragraph">
+Writes the "SCORE" and "LIVES" labels (these aren't text, they're images).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50067"></span>C393</td>
+<td class="instruction">LD HL,$50C1</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $50C1 (screen buffer) and <span class="register">DE</span> to <a href="59688.html">E928</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50070"></span>C396</td>
+<td class="instruction">LD DE,$E928</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50073"></span>C399</td>
+<td class="instruction">LD BC,$1006</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50076"></span>C39C</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50079"></span>C39F</td>
+<td class="instruction">LD HL,$50B0</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $50B0 (screen buffer) and <span class="register">DE</span> to <a href="59784.html">E988</a>, then calls the routine at <a href="49920.html#50103">C3B7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50082"></span>C3A2</td>
+<td class="instruction">LD DE,$E988</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50085"></span>C3A5</td>
+<td class="instruction">LD BC,$1606</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50088"></span>C3A8</td>
+<td class="instruction">CALL $C3B7</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50091"></span>
+<div class="comments">
+<div class="paragraph">
+Copies attribute data to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50091"></span>C3AB</td>
+<td class="instruction">LD HL,$ED00</td>
+<td class="comment-1" rowspan="4">Copies $300 bytes of attribute data from <a href="60672.html">ED00</a> to $5800.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50094"></span>C3AE</td>
+<td class="instruction">LD DE,$5800</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50097"></span>C3B1</td>
+<td class="instruction">LD BC,$0300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50100"></span>C3B4</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50102"></span>C3B6</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="50103"></span>C3B7</td>
+<td class="instruction">CALL <a href="54758.html">$D5E6</a></td>
+<td class="comment-1" rowspan="1">Draws the image pointed to in <span class="register">DE</span> to the screen location in <span class="register">HL</span> using the dimensions in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50106"></span>C3BA</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50107"></span>C3BB</td>
+<td class="instruction">JP $EA90</td>
+<td class="comment-1" rowspan="3">Unused.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50110"></span>C3BE</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50111"></span>C3BF</td>
+<td class="instruction">NOP</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49888.html">C2E0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#49920">Map</a></td>
+<td class="next">
+Next: <a href="50112.html">C3C0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

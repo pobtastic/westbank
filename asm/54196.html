@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at D3B4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54171.html">D39B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54196">Map</a></td>
+<td class="next">
+Next: <a href="54219.html">D3CB</a>
+</td>
+</tr>
+</table>
+<div class="description">D3B4: Draw Gun Shot Mask.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="54023.html">D307</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54196"></span>D3B4</td>
+<td class="instruction">LD DE,$FF58</td>
+<td class="comment-1" rowspan="2">Point to <a href="65368.html">FF58</a> and set the image dimensions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54199"></span>D3B7</td>
+<td class="instruction">LD BC,$0802</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54202"></span>D3BA</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash the screen location.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54203"></span>D3BB</td>
+<td class="instruction">CALL <a href="54778.html">$D5FA</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="54778.html">D5FA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54206"></span>D3BE</td>
+<td class="instruction">HALT</td>
+<td class="comment-1" rowspan="2">Very short pause.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54207"></span>D3BF</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54208"></span>D3C0</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Grab the screen location.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54209"></span>D3C1</td>
+<td class="instruction">LD DE,$FF58</td>
+<td class="comment-1" rowspan="2">Point to <a href="65368.html">FF58</a> and set the image dimensions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54212"></span>D3C4</td>
+<td class="instruction">LD BC,$0802</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54215"></span>D3C7</td>
+<td class="instruction">CALL <a href="54778.html">$D5FA</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="54778.html">D5FA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54218"></span>D3CA</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54171.html">D39B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54196">Map</a></td>
+<td class="next">
+Next: <a href="54219.html">D3CB</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

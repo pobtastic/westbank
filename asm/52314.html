@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CC5A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52313.html">CC59</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52314">Map</a></td>
+<td class="next">
+Next: <a href="52365.html">CC8D</a>
+</td>
+</tr>
+</table>
+<div class="description">CC5A: Display The "Life" Images.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="23427.html">5B83</a>, <a href="51136.html">C7C0</a> and <a href="52507.html">CD1B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52314"></span>CC5A</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="2">Set up counter=$05 screen buffer=$50B6.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52316"></span>CC5C</td>
+<td class="instruction">LD HL,$50B6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52319"></span>CC5F</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="7">jjjss</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52320"></span>CC60</td>
+<td class="instruction">LD DE,$5B00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52323"></span>CC63</td>
+<td class="instruction">CALL $CC84</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52326"></span>CC66</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52327"></span>CC67</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52328"></span>CC68</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52329"></span>CC69</td>
+<td class="instruction">DJNZ $CC5F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52331"></span>CC6B</td>
+<td class="instruction">LD A,($CC59)</td>
+<td class="comment-1" rowspan="3">If <a href="52313.html">CC59</a> are zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52334"></span>CC6E</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52335"></span>CC6F</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52336"></span>CC70</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="2">If <a href="52313.html">CC59</a> is more than or equal to "6" then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52338"></span>CC72</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52339"></span>CC73</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52340"></span>CC74</td>
+<td class="instruction">LD HL,$50B6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52343"></span>CC77</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52344"></span>CC78</td>
+<td class="instruction">CALL $CC81</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52347"></span>CC7B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52348"></span>CC7C</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52349"></span>CC7D</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52350"></span>CC7E</td>
+<td class="instruction">DJNZ $CC77</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52352"></span>CC80</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52353"></span>CC81</td>
+<td class="instruction">LD DE,$FFB8</td>
+<td class="comment-1" rowspan="4">Point at the <a href="65464.html">FFB8</a> and call <a href="54758.html">D5E6</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52356"></span>CC84</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52357"></span>CC85</td>
+<td class="instruction">LD BC,$1802</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52360"></span>CC88</td>
+<td class="instruction">CALL <a href="54758.html">$D5E6</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52363"></span>CC8B</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52364"></span>CC8C</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52313.html">CC59</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52314">Map</a></td>
+<td class="next">
+Next: <a href="52365.html">CC8D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

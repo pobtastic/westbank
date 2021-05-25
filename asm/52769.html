@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CE21</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52763.html">CE1B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52769">Map</a></td>
+<td class="next">
+Next: <a href="52920.html">CEB8</a>
+</td>
+</tr>
+</table>
+<div class="description">CE21: Choose Door Character.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51136.html">C7C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52769"></span>
+<div class="comments">
+<div class="paragraph">
+The characters available on a particular level are determined by <a href="52763.html#52767">CE1F</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Initialisation Routine</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="52769.html#52802">CE42</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="52769.html#52877">CE8D</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53642">D18A</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52769"></span>CE21</td>
+<td class="instruction">LD HL,$CE1E</td>
+<td class="comment-1" rowspan="4">Decrease <a href="52763.html#52766">CE1E</a> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52772"></span>CE24</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52773"></span>CE25</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52774"></span>CE26</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52775"></span>CE27</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52776"></span>CE28</td>
+<td class="instruction">LD A,($CE1B)</td>
+<td class="comment-1" rowspan="2">Copies <a href="52763.html">CE1B</a> into <a href="52763.html#52766">CE1E</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52779"></span>CE2B</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52780"></span>CE2C</td>
+<td class="instruction">LD A,(IX+$09)</td>
+<td class="comment-1" rowspan="3">Decrease ????? by one. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53614">D16E</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53628">D17C</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53642">D18A</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52783"></span>CE2F</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52784"></span>CE30</td>
+<td class="instruction">LD (IX+$09),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52787"></span>CE33</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if not zero.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52788"></span>
+<div class="comments">
+<div class="paragraph">
+f
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52788"></span>CE34</td>
+<td class="instruction">CALL <a href="55472.html">$D8B0</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">D8B0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52791"></span>CE37</td>
+<td class="instruction">AND $1F</td>
+<td class="comment-1" rowspan="1">Keep bits 0-4 (so 0-31).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52793"></span>CE39</td>
+<td class="instruction">OR $08</td>
+<td class="comment-1" rowspan="2">Set bit 3 and write the resulting value to; <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53614">D16E</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53628">D17C</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53642">D18A</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52795"></span>CE3B</td>
+<td class="instruction">LD (IX+$09),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52798"></span>CE3E</td>
+<td class="instruction">LD HL,($CE1F)</td>
+<td class="comment-1" rowspan="2">Jump to the memory address contained at <a href="52763.html#52767">CE1F</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52801"></span>CE41</td>
+<td class="instruction">JP (HL)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52802"></span>
+<div class="comments">
+<div class="paragraph">
+Handles choosing one of the initial "default" characters. A character is always chosen here, so this is the end of the choosing routine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52802"></span>CE42</td>
+<td class="instruction">CALL <a href="56047.html">$DAEF</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56047.html">DAEF</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52805"></span>CE45</td>
+<td class="instruction">AND $03</td>
+<td class="comment-1" rowspan="1">Keep only bits 0 and 1 (which determine the type of character).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52807"></span>CE47</td>
+<td class="instruction">JR Z,<a href="52920.html">$CEB8</a></td>
+<td class="comment-1" rowspan="7">Determines which character initialisation to run; <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Initialisation Routine</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52920.html">CEB8</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52920.html#52988">CEFC</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52920.html#53086">CF5E</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52920.html#53035">CF2B</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52809"></span>CE49</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52810"></span>CE4A</td>
+<td class="instruction">JP Z,<a href="52920.html#52988">$CEFC</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52813"></span>CE4D</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52814"></span>CE4E</td>
+<td class="instruction">JP Z,<a href="52920.html#53086">$CF5E</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52817"></span>CE51</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52818"></span>CE52</td>
+<td class="instruction">JP <a href="52920.html#53035">$CF2B</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52821"></span>
+<div class="comments">
+<div class="paragraph">
+Handles whether or not to choose Julius.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52821"></span>CE55</td>
+<td class="instruction">CALL <a href="55472.html">$D8B0</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">D8B0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52824"></span>CE58</td>
+<td class="instruction">AND $0C</td>
+<td class="comment-1" rowspan="2">Keep only bits 2 and 3. Jump to the next character "test" if this is a non-zero number at <a href="52769.html#52831">CE5F</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52826"></span>CE5A</td>
+<td class="instruction">JR NZ,$CE5F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52828"></span>CE5C</td>
+<td class="instruction">JP <a href="52920.html#53175">$CFB7</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52920.html#53175">CFB7</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52831"></span>
+<div class="comments">
+<div class="paragraph">
+Handles whether or not to choose Bandit 2.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52831"></span>CE5F</td>
+<td class="instruction">CALL <a href="55472.html">$D8B0</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">D8B0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52834"></span>CE62</td>
+<td class="instruction">AND $98</td>
+<td class="comment-1" rowspan="2">Keep only bits 3, 4 and 7. Jump to the next character "test" if this is a non-zero number at <a href="52769.html#52847">CE6F</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52836"></span>CE64</td>
+<td class="instruction">JR NZ,$CE6F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52838"></span>CE66</td>
+<td class="instruction">LD HL,$D119</td>
+<td class="comment-1" rowspan="1">Set source character data to <a href="53373.html#53529">D119</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52841"></span>CE69</td>
+<td class="instruction">LD DE,$D124</td>
+<td class="comment-1" rowspan="1">Set target character buffer to <a href="53373.html#53540">D124</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52844"></span>CE6C</td>
+<td class="instruction">JP $CEA9</td>
+<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">CEA9</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52847"></span>
+<div class="comments">
+<div class="paragraph">
+Handles whether or not to choose Bandit 3.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52847"></span>CE6F</td>
+<td class="instruction">CALL <a href="55472.html">$D8B0</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">D8B0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52850"></span>CE72</td>
+<td class="instruction">AND $31</td>
+<td class="comment-1" rowspan="2">Keep only bits 0, 4 and 5. Jump to the next character "test" if this is a non-zero number then jump back to the <a href="52769.html#52802">CE42</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52852"></span>CE74</td>
+<td class="instruction">JR NZ,$CE42</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52854"></span>CE76</td>
+<td class="instruction">LD HL,$D0C1</td>
+<td class="comment-1" rowspan="1">Set source character data to <a href="53373.html#53441">D0C1</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52857"></span>CE79</td>
+<td class="instruction">LD DE,$D0CC</td>
+<td class="comment-1" rowspan="1">Set target character buffer to <a href="53373.html#53452">D0CC</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52860"></span>CE7C</td>
+<td class="instruction">JR $CEA9</td>
+<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">CEA9</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52862"></span>
+<div class="comments">
+<div class="paragraph">
+Handles whether or not to choose Bandit 4.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52862"></span>CE7E</td>
+<td class="instruction">CALL <a href="55472.html">$D8B0</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">D8B0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52865"></span>CE81</td>
+<td class="instruction">AND $83</td>
+<td class="comment-1" rowspan="2">Keep only bits 0, 1 and 7. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52821">CE55</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52867"></span>CE83</td>
+<td class="instruction">JR NZ,$CE55</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52869"></span>CE85</td>
+<td class="instruction">LD HL,$D0D7</td>
+<td class="comment-1" rowspan="1">Set source character data to <a href="53373.html#53463">D0D7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52872"></span>CE88</td>
+<td class="instruction">LD DE,$D0E2</td>
+<td class="comment-1" rowspan="1">Set target character buffer to <a href="53373.html#53474">D0E2</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52875"></span>CE8B</td>
+<td class="instruction">JR $CEA9</td>
+<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">CEA9</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52877"></span>
+<div class="comments">
+<div class="paragraph">
+Handles whether or not to choose Bandit 5.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52877"></span>CE8D</td>
+<td class="instruction">CALL <a href="55472.html">$D8B0</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">D8B0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52880"></span>CE90</td>
+<td class="instruction">AND $58</td>
+<td class="comment-1" rowspan="2">Keep only bits 3, 4 and 6. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52862">CE7E</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52882"></span>CE92</td>
+<td class="instruction">JR NZ,$CE7E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52884"></span>CE94</td>
+<td class="instruction">LD HL,$D0ED</td>
+<td class="comment-1" rowspan="1">Set source character data to <a href="53373.html#53485">D0ED</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52887"></span>CE97</td>
+<td class="instruction">LD DE,$D0F8</td>
+<td class="comment-1" rowspan="1">Set target character buffer to <a href="53373.html#53496">D0F8</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52890"></span>CE9A</td>
+<td class="instruction">JR $CEA9</td>
+<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">CEA9</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52892"></span>
+<div class="comments">
+<div class="paragraph">
+Handles whether or not to choose Bandit 6.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52892"></span>CE9C</td>
+<td class="instruction">CALL <a href="55472.html">$D8B0</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">D8B0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52895"></span>CE9F</td>
+<td class="instruction">AND $71</td>
+<td class="comment-1" rowspan="2">Keep only bits 0, 4, 5 and 6. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52877">CE8D</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52897"></span>CEA1</td>
+<td class="instruction">JR NZ,$CE8D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52899"></span>CEA3</td>
+<td class="instruction">LD HL,$D103</td>
+<td class="comment-1" rowspan="1">Set source character data to <a href="53373.html#53507">D103</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52902"></span>CEA6</td>
+<td class="instruction">LD DE,$D10E</td>
+<td class="comment-1" rowspan="1">Set target character buffer to <a href="53373.html#53518">D10E</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52905"></span>
+<div class="comments">
+<div class="paragraph">
+Stashes the chosen character source/ buffer to the door state buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52905"></span>CEA9</td>
+<td class="instruction">LD (IX+$0C),L</td>
+<td class="comment-1" rowspan="2">Writes the character source memory address to one of the following (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53617">D171</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53631">D17F</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53645">D18D</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52908"></span>CEAC</td>
+<td class="instruction">LD (IX+$0D),H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52911"></span>CEAF</td>
+<td class="instruction">LD (IX+$0A),E</td>
+<td class="comment-1" rowspan="2">Writes the character target/ buffer memory address to one of the following (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53615">D16F</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53629">D17D</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53643">D18B</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52914"></span>CEB2</td>
+<td class="instruction">LD (IX+$0B),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52917"></span>CEB5</td>
+<td class="instruction">JP <a href="53273.html">$D019</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="53273.html">D019</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52763.html">CE1B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52769">Map</a></td>
+<td class="next">
+Next: <a href="52920.html">CEB8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

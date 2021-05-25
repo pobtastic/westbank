@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CC3A</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52280.html">CC38</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52282">Map</a></td>
+<td class="next">
+Next: <a href="52313.html">CC59</a>
+</td>
+</tr>
+</table>
+<div class="description">CC3A: Main Playfield Initialisation.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51136.html">C7C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52282"></span>
+<div class="comments">
+<div class="paragraph">
+Draws Main Playfield with all three doors closed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52282"></span>CC3A</td>
+<td class="instruction">LD IX,$CC38</td>
+<td class="comment-1" rowspan="2">Draw the main game playfield.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52286"></span>CC3E</td>
+<td class="instruction">CALL <a href="49920.html">$C300</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52289"></span>CC41</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="3">Calls <a href="54884.html">D664</a> with <a href="52762.html">CE1A</a> set to $01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52291"></span>CC43</td>
+<td class="instruction">LD ($CE1A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52294"></span>CC46</td>
+<td class="instruction">CALL <a href="54884.html">$D664</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52297"></span>CC49</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="3">Calls <a href="54884.html">D664</a> with <a href="52762.html">CE1A</a> set to $02.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52299"></span>CC4B</td>
+<td class="instruction">LD ($CE1A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52302"></span>CC4E</td>
+<td class="instruction">CALL <a href="54884.html">$D664</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52305"></span>CC51</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="3">Jump to <a href="54884.html">D664</a> with <a href="52762.html">CE1A</a> set to $03.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52307"></span>CC53</td>
+<td class="instruction">LD ($CE1A),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52310"></span>CC56</td>
+<td class="instruction">JP <a href="54884.html">$D664</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52280.html">CC38</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52282">Map</a></td>
+<td class="next">
+Next: <a href="52313.html">CC59</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

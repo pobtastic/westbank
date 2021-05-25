@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CD47</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52507.html">CD1B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52551">Map</a></td>
+<td class="next">
+Next: <a href="52580.html">CD64</a>
+</td>
+</tr>
+</table>
+<div class="description">CD47: Routine at CD47</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51136.html">C7C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52551"></span>CD47</td>
+<td class="instruction">LD A,($D2FE)</td>
+<td class="comment-1" rowspan="3">If bit 2 of <a href="53967.html#54014">D2FE</a> is zero then jump to <a href="52551.html#52563">CD53</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52554"></span>CD4A</td>
+<td class="instruction">BIT 2,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52556"></span>CD4C</td>
+<td class="instruction">JR Z,$CD53</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52558"></span>CD4E</td>
+<td class="instruction">CALL <a href="63616.html">$F880</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52561"></span>CD51</td>
+<td class="instruction">JR $CD56</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52563"></span>CD53</td>
+<td class="instruction">CALL <a href="49152.html">$C000</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52566"></span>CD56</td>
+<td class="instruction">CALL <a href="52584.html">$CD68</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52569"></span>CD59</td>
+<td class="instruction">LD HL,$CC59</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52572"></span>CD5C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52573"></span>CD5D</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52574"></span>CD5E</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52575"></span>CD5F</td>
+<td class="instruction">JP NZ,<a href="51136.html#51915">$CACB</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52578"></span>CD62</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52579"></span>CD63</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52507.html">CD1B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52551">Map</a></td>
+<td class="next">
+Next: <a href="52580.html">CD64</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

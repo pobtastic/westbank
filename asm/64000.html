@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at FA00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63824.html">F950</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64000">Map</a></td>
+<td class="next">
+Next: <a href="64376.html">FB78</a>
+</td>
+</tr>
+</table>
+<div class="description">FA00: High Score Entry.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51136.html">C7C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64000"></span>FA00</td>
+<td class="instruction">CALL $FA06</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64003"></span>FA03</td>
+<td class="instruction">JP $FB62</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64006"></span>FA06</td>
+<td class="instruction">LD DE,$5B80</td>
+<td class="comment-1" rowspan="3">Copies $40 bytes of data from <span class="register">HL</span> to <a href="23424.html">5B80</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64009"></span>FA09</td>
+<td class="instruction">LD BC,$0040</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64012"></span>FA0C</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64014"></span>FA0E</td>
+<td class="instruction">LD A,$30</td>
+<td class="comment-1" rowspan="2">Writes "0" ($30 in ASCII) to <a href="64376.html#64404">FB94</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64016"></span>FA10</td>
+<td class="instruction">LD ($FB94),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64019"></span>FA13</td>
+<td class="instruction">CALL $FAD4</td>
+<td class="comment-1" rowspan="1">Call <a href="64000.html#64212">FAD4</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64022"></span>FA16</td>
+<td class="instruction">LD HL,$4040</td>
+<td class="comment-1" rowspan="2">Writes $4040 to <a href="64469.html#64496">FBF0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64025"></span>FA19</td>
+<td class="instruction">LD ($FBF0),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64028"></span>FA1C</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64030"></span>FA1E</td>
+<td class="instruction">CALL <a href="64469.html#64521">$FC09</a></td>
+<td class="comment-1" rowspan="1">Call <a href="64469.html#64521">FC09</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64033"></span>FA21</td>
+<td class="instruction">LD ($FB57),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64036"></span>FA24</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64038"></span>FA26</td>
+<td class="instruction">CP $1F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64040"></span>FA28</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64042"></span>FA2A</td>
+<td class="instruction">JP Z,$FAB0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64045"></span>FA2D</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64048"></span>FA30</td>
+<td class="instruction">LD ($FBF0),HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64051"></span>FA33</td>
+<td class="instruction">LD A,($FB57)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64054"></span>FA36</td>
+<td class="instruction">CALL $FB19</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64057"></span>FA39</td>
+<td class="instruction">LD DE,$61EF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64060"></span>FA3C</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64061"></span>FA3D</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64062"></span>FA3E</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64063"></span>FA3F</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64065"></span>FA41</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64066"></span>FA42</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64067"></span>FA43</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64068"></span>FA44</td>
+<td class="instruction">LD DE,$61FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64071"></span>FA47</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64072"></span>FA48</td>
+<td class="instruction">LDDR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64074"></span>FA4A</td>
+<td class="instruction">LD A,($FB57)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64077"></span>FA4D</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64078"></span>FA4E</td>
+<td class="instruction">CALL <a href="64469.html#64511">$FBFF</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64081"></span>FA51</td>
+<td class="instruction">LD DE,$62F9</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64084"></span>FA54</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64085"></span>FA55</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64086"></span>FA56</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64087"></span>FA57</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64089"></span>FA59</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64090"></span>FA5A</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64091"></span>FA5B</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64092"></span>FA5C</td>
+<td class="instruction">LD DE,$62FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64095"></span>FA5F</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64096"></span>FA60</td>
+<td class="instruction">LDDR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64098"></span>FA62</td>
+<td class="instruction">LD A,($FB57)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64101"></span>FA65</td>
+<td class="instruction">CALL <a href="64469.html#64511">$FBFF</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64104"></span>FA68</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64105"></span>FA69</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64106"></span>FA6A</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64108"></span>FA6C</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64109"></span>FA6D</td>
+<td class="instruction">LD B,$06</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64111"></span>FA6F</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64112"></span>FA70</td>
+<td class="instruction">ADD A,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64114"></span>FA72</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64115"></span>FA73</td>
+<td class="instruction">DEC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64116"></span>FA74</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64117"></span>FA75</td>
+<td class="instruction">DJNZ $FA6F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64119"></span>FA77</td>
+<td class="instruction">LD HL,$5BC0</td>
+<td class="comment-1" rowspan="5">Overwrites the text at <a href="23488.html">5BC0</a> with spaces to "blank" it out ($12 characters).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64122"></span>FA7A</td>
+<td class="instruction">LD DE,$5BC1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64125"></span>FA7D</td>
+<td class="instruction">LD BC,$0011</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64128"></span>FA80</td>
+<td class="instruction">LD (HL),$20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64130"></span>FA82</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64132"></span>FA84</td>
+<td class="instruction">LD (HL),$FF</td>
+<td class="comment-1" rowspan="1">Set a string termination character ($FF) at the end of the string.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64134"></span>FA86</td>
+<td class="instruction">CALL $FAD4</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64137"></span>FA89</td>
+<td class="instruction">LD HL,$FB78</td>
+<td class="comment-1" rowspan="4">Points to <a href="64376.html">FB78</a> and sends it to <a href="23424.html">5B80</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="" colspan="1" rowspan="1">$03</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64140"></span>FA8C</td>
+<td class="instruction">LD DE,$4802</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64143"></span>FA8F</td>
+<td class="instruction">LD BC,$0703</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64146"></span>FA92</td>
+<td class="instruction">CALL <a href="23424.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64149"></span>FA95</td>
+<td class="instruction">CALL $FB26</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64152"></span>FA98</td>
+<td class="instruction">CALL $FAD4</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64155"></span>FA9B</td>
+<td class="instruction">LD A,($FB57)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64158"></span>FA9E</td>
+<td class="instruction">CALL $FB19</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64161"></span>FAA1</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64162"></span>FAA2</td>
+<td class="instruction">LD HL,$5BC0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64165"></span>FAA5</td>
+<td class="instruction">LD BC,$0010</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64168"></span>FAA8</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64170"></span>FAAA</td>
+<td class="instruction">SUB $05</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64172"></span>FAAC</td>
+<td class="instruction">JR NC,$FABD</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64174"></span>FAAE</td>
+<td class="instruction">JR $FABC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64176"></span>FAB0</td>
+<td class="instruction">LD HL,$FBB5</td>
+<td class="comment-1" rowspan="4">Points to <a href="64376.html#64437">FBB5</a> and sends it to <a href="23424.html">5B80</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$06</td>
+<td class="" colspan="1" rowspan="1">$06</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64179"></span>FAB3</td>
+<td class="instruction">LD DE,$4000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64182"></span>FAB6</td>
+<td class="instruction">LD BC,$0706</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64185"></span>FAB9</td>
+<td class="instruction">CALL <a href="23424.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64188"></span>FABC</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64189"></span>FABD</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64190"></span>FABE</td>
+<td class="instruction">LD B,$0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64192"></span>FAC0</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64193"></span>FAC1</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64194"></span>FAC2</td>
+<td class="instruction">CALL $FAE2</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64197"></span>FAC5</td>
+<td class="instruction">LD DE,$FB94</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64200"></span>FAC8</td>
+<td class="instruction">CALL <a href="64469.html">$FBD5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64203"></span>FACB</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64204"></span>FACC</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64205"></span>FACD</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64206"></span>FACE</td>
+<td class="instruction">CP $1F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64208"></span>FAD0</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64209"></span>FAD1</td>
+<td class="instruction">DJNZ $FAC0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64211"></span>FAD3</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64212"></span>FAD4</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="6">Clears the screen buffer by writing $00 to all 6912 memory locations.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64215"></span>FAD7</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64218"></span>FADA</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64221"></span>FADD</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64223"></span>FADF</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64225"></span>FAE1</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64226"></span>FAE2</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64227"></span>FAE3</td>
+<td class="instruction">LD HL,$FB94</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64230"></span>FAE6</td>
+<td class="instruction">SUB $0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64232"></span>FAE8</td>
+<td class="instruction">JR C,$FAFA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64234"></span>FAEA</td>
+<td class="instruction">LD (HL),$31</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64236"></span>FAEC</td>
+<td class="instruction">SUB $0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64238"></span>FAEE</td>
+<td class="instruction">JR C,$FAFA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64240"></span>FAF0</td>
+<td class="instruction">LD (HL),$32</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64242"></span>FAF2</td>
+<td class="instruction">SUB $0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64244"></span>FAF4</td>
+<td class="instruction">JR C,$FAFA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64246"></span>FAF6</td>
+<td class="instruction">LD (HL),$33</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64248"></span>FAF8</td>
+<td class="instruction">SUB $0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64250"></span>FAFA</td>
+<td class="instruction">ADD A,$0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64252"></span>FAFC</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64253"></span>FAFD</td>
+<td class="instruction">ADD A,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64255"></span>FAFF</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64256"></span>FB00</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64257"></span>FB01</td>
+<td class="instruction">CALL $FB19</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64260"></span>FB04</td>
+<td class="instruction">LD DE,$FB9A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64263"></span>FB07</td>
+<td class="instruction">LD BC,$0010</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64266"></span>FB0A</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64268"></span>FB0C</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64269"></span>FB0D</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64270"></span>FB0E</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64271"></span>FB0F</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64272"></span>FB10</td>
+<td class="instruction">CALL <a href="64469.html#64511">$FBFF</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64275"></span>FB13</td>
+<td class="instruction">LD BC,$0006</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64278"></span>FB16</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64280"></span>FB18</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="64281"></span>
+<div class="comments">
+<div class="paragraph">
+Works out where in the high score table to place the score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64281"></span>FB19</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="9">Using <a href="24576.html">6000</a> as a base, work out where to place the new score. <ul class="">
+<li>Decrease $1B by one...</li>
+<li>Loads $1A as the low-order byte; <span class="register">HL</span>=$001A</li>
+<li>Times by $10; <span class="register">HL</span>=$1A0</li>
+<li>Add $6000=<a href="24576.html#24992">61A0</a></li>
+</ul></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64282"></span>FB1A</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64283"></span>FB1B</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64285"></span>FB1D</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64286"></span>FB1E</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64287"></span>FB1F</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64288"></span>FB20</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64289"></span>FB21</td>
+<td class="instruction">LD DE,$6000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64292"></span>FB24</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64293"></span>FB25</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64294"></span>FB26</td>
+<td class="instruction">LD HL,$5BC0</td>
+<td class="comment-1" rowspan="3">Stores <a href="23488.html">5BC0</a> at <a href="64000.html#64341">FB55</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64297"></span>FB29</td>
+<td class="instruction">LD ($FB55),HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64300"></span>FB2C</td>
+<td class="instruction">CALL <a href="64469.html#64498">$FBF2</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64303"></span>FB2F</td>
+<td class="instruction">CALL $FB62</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64306"></span>FB32</td>
+<td class="instruction">LD HL,($FB55)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64309"></span>FB35</td>
+<td class="instruction">CP $0D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64311"></span>FB37</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64312"></span>FB38</td>
+<td class="instruction">CP $0C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64314"></span>FB3A</td>
+<td class="instruction">JR Z,$FB58</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64316"></span>FB3C</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64317"></span>FB3D</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64318"></span>FB3E</td>
+<td class="instruction">CP $D1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64320"></span>FB40</td>
+<td class="instruction">JR NC,$FB29</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64322"></span>FB42</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64323"></span>FB43</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64325"></span>FB45</td>
+<td class="instruction">JR Z,$FB51</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64327"></span>FB47</td>
+<td class="instruction">CP $61</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64329"></span>FB49</td>
+<td class="instruction">JR C,$FB29</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64331"></span>FB4B</td>
+<td class="instruction">CP $7B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64333"></span>FB4D</td>
+<td class="instruction">JR NC,$FB29</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64335"></span>FB4F</td>
+<td class="instruction">SUB $20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64337"></span>FB51</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64338"></span>FB52</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64339"></span>FB53</td>
+<td class="instruction">JR $FB29</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64341"></span>FB55</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Cache.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64343"></span>FB57</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="64344"></span>FB58</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64345"></span>FB59</td>
+<td class="instruction">CP $C1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64347"></span>FB5B</td>
+<td class="instruction">JR C,$FB29</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64349"></span>FB5D</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64350"></span>FB5E</td>
+<td class="instruction">LD (HL),$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64352"></span>FB60</td>
+<td class="instruction">JR $FB29</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="64354"></span>
+<div class="comments">
+<div class="paragraph">
+Returns a single keypress.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64354"></span>FB62</td>
+<td class="instruction">LD HL,$5C08</td>
+<td class="comment-1" rowspan="6">Keep looping around until <em>any</em> input is detected. This is achieved by writing $00 to <a href="https://skoolkid.github.io/rom/asm/5C08.html">LAST_K</a> and looping until it's non-zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64357"></span>FB65</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-2"><span id="64359"></span>FB67</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64360"></span>FB68</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64361"></span>FB69</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64362"></span>FB6A</td>
+<td class="instruction">JR Z,$FB67</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64364"></span>FB6C</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Store it on the stack for now.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64365"></span>FB6D</td>
+<td class="instruction">LD DE,$0010</td>
+<td class="comment-1" rowspan="3">Makes a noise using the <a href="https://skoolkid.github.io/rom/asm/03B5.html">BEEP</a> routine. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Pitch</th>
+<th colspan="1" rowspan="1">Duration</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$00C0</td>
+<td class="" colspan="1" rowspan="1">$0010</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="64368"></span>FB70</td>
+<td class="instruction">LD HL,$00C0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64371"></span>FB73</td>
+<td class="instruction">CALL $03B5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64374"></span>FB76</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="2">Return with the keypress in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="64375"></span>FB77</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63824.html">F950</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64000">Map</a></td>
+<td class="next">
+Next: <a href="64376.html">FB78</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

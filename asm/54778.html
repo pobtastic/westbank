@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at D5FA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54758.html">D5E6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54778">Map</a></td>
+<td class="next">
+Next: <a href="54800.html">D610</a>
+</td>
+</tr>
+</table>
+<div class="description">D5FA: Merge Gun Shot Onto Background.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="23445.html">5B95</a>, <a href="54196.html">D3B4</a> and <a href="54219.html">D3CB</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54778"></span>D5FA</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="2">Store <span class="register">BC</span> and <span class="register">HL</span> for later.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54779"></span>D5FB</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54780"></span>D5FC</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Loads the contents of the source address held in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54781"></span>D5FD</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-1" rowspan="1">Performs a bit-by-bit XOR comparison against the contents of the destination address held by <span class="register">HL</span>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span> register bit</th>
+<th colspan="1" rowspan="1">Comparison bit</th>
+<th colspan="1" rowspan="1"><span class="register">A</span> bit set to</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54782"></span>D5FE</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Stores the result at the destination address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54783"></span>D5FF</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="4">Increase the source and destination addresses by one, decrease the counter by one. Loop back to <a href="54778.html#54780">D5FC</a> until the <span class="register">C</span> counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54784"></span>D600</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54785"></span>D601</td>
+<td class="instruction">DEC C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54786"></span>D602</td>
+<td class="instruction">JR NZ,$D5FC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54788"></span>D604</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> with the original destination address.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54789"></span>D605</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="4">Increase the high-order byte of <span class="register">HL</span> by one, if this is on a screen third boundary (@todo what's the term for this?) then call <a href="54800.html">D610</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54790"></span>D606</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54791"></span>D607</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54793"></span>D609</td>
+<td class="instruction">CALL Z,<a href="54800.html">$D610</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54796"></span>D60C</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Decrease the <span class="register">B</span> counter by one and loop back to <a href="54778.html">D5FA</a> until it is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54797"></span>D60D</td>
+<td class="instruction">DJNZ $D5FA</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54799"></span>D60F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54758.html">D5E6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54778">Map</a></td>
+<td class="next">
+Next: <a href="54800.html">D610</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

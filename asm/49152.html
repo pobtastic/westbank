@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C000</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49064.html">BFA8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#49152">Map</a></td>
+<td class="next">
+Next: <a href="49312.html">C0A0</a>
+</td>
+</tr>
+</table>
+<div class="description">C000: BANG!</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="50823.html">C687</a> and <a href="52551.html">CD47</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="49152"></span>C000</td>
+<td class="instruction">CALL $C046</td>
+<td class="comment-1" rowspan="1">Clear the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49155"></span>C003</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="3">Pass <a href="61440.html">F000</a> to <a href="49152.html#49249">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49157"></span>C005</td>
+<td class="instruction">LD HL,$F000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49160"></span>C008</td>
+<td class="instruction">CALL $C061</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49163"></span>C00B</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="3">Pass <a href="61440.html#61696">F100</a> to <a href="49152.html#49249">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49165"></span>C00D</td>
+<td class="instruction">LD HL,$F100</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49168"></span>C010</td>
+<td class="instruction">CALL $C061</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49171"></span>C013</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="3">Pass <a href="61440.html#61952">F200</a> to <a href="49152.html#49249">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49173"></span>C015</td>
+<td class="instruction">LD HL,$F200</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49176"></span>C018</td>
+<td class="instruction">CALL $C061</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49179"></span>C01B</td>
+<td class="instruction">CALL <a href="25856.html#25858">$6502</a></td>
+<td class="comment-1" rowspan="2">Calls $6502 twice.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49182"></span>C01E</td>
+<td class="instruction">CALL <a href="25856.html#25858">$6502</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="49185"></span>C021</td>
+<td class="instruction">LD B,$06</td>
+<td class="comment-1" rowspan="3">Pass <a href="61440.html#62208">F300</a> to <a href="49152.html#49249">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49187"></span>C023</td>
+<td class="instruction">LD HL,$F300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49190"></span>C026</td>
+<td class="instruction">CALL $C061</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49193"></span>C029</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="3">Pass <a href="61440.html#62464">F400</a> to <a href="49152.html#49249">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49195"></span>C02B</td>
+<td class="instruction">LD HL,$F400</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49198"></span>C02E</td>
+<td class="instruction">CALL $C061</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49201"></span>C031</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="3">Pass <a href="61440.html#62720">F500</a> to <a href="49152.html#49249">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49203"></span>C033</td>
+<td class="instruction">LD HL,$F500</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49206"></span>C036</td>
+<td class="instruction">CALL $C061</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49209"></span>C039</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="3">Blanks the display by passing a "clear" part of the screen buffer to <a href="49152.html#49249">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49211"></span>C03B</td>
+<td class="instruction">LD HL,$5000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49214"></span>C03E</td>
+<td class="instruction">CALL $C061</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49217"></span>C041</td>
+<td class="instruction">LD B,$40</td>
+<td class="comment-1" rowspan="2">Jump to <a href="49152.html#49261">C06D</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49219"></span>C043</td>
+<td class="instruction">JP $C06D</td>
+</tr>
+<tr>
+<td class="address-2"><span id="49222"></span>C046</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49225"></span>C049</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49228"></span>C04C</td>
+<td class="instruction">LD BC,$17FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49231"></span>C04F</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49233"></span>C051</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49235"></span>C053</td>
+<td class="instruction">LD HL,$5800</td>
+<td class="comment-1" rowspan="5">Continues into the attributes buffer, and writes $02 (red ink) to every location. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="49238"></span>C056</td>
+<td class="instruction">LD DE,$5801</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49241"></span>C059</td>
+<td class="instruction">LD BC,$02FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49244"></span>C05C</td>
+<td class="instruction">LD (HL),$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49246"></span>C05E</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49248"></span>C060</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Returns.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="49249"></span>C061</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="8">Sets the screen location and the bang image frame sizing, then calls <a href="49152.html#49265">C071</a>, issues a short pause and ...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49250"></span>C062</td>
+<td class="instruction">LD BC,$2008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49253"></span>C065</td>
+<td class="instruction">LD DE,$480C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49256"></span>C068</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49257"></span>C069</td>
+<td class="instruction">CALL $C071</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49260"></span>C06C</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="49261"></span>C06D</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49262"></span>C06E</td>
+<td class="instruction">DJNZ $C06D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49264"></span>C070</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">...returns.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="49265"></span>C071</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="13">Copy the bang image frame to the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49266"></span>C072</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49267"></span>C073</td>
+<td class="instruction">LD B,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49269"></span>C075</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49270"></span>C076</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49272"></span>C078</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49273"></span>C079</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49274"></span>C07A</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49275"></span>C07B</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49276"></span>C07C</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49278"></span>C07E</td>
+<td class="instruction">CALL Z,$C085</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49281"></span>C081</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49282"></span>C082</td>
+<td class="instruction">DJNZ $C071</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49284"></span>C084</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="49285"></span>C085</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="10">Handles working out the next line progressively in the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49286"></span>C086</td>
+<td class="instruction">SUB $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49288"></span>C088</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49289"></span>C089</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49290"></span>C08A</td>
+<td class="instruction">ADD A,$20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49292"></span>C08C</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49293"></span>C08D</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49294"></span>C08E</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49295"></span>C08F</td>
+<td class="instruction">ADD A,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49297"></span>C091</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49298"></span>C092</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="49299"></span>C093</td>
+<td class="instruction">DEFB $C3,$90,$EA,$04,$33,$49,$44,$46</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="49307"></span>C09B</td>
+<td class="instruction">DEFB $47,$B1,$D2,$04,$32</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49064.html">BFA8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#49152">Map</a></td>
+<td class="next">
+Next: <a href="49312.html">C0A0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

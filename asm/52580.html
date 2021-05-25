@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CD64</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52551.html">CD47</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52580">Map</a></td>
+<td class="next">
+Next: <a href="52584.html">CD68</a>
+</td>
+</tr>
+</table>
+<div class="description">CD64: Configurable "pause".</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="51136.html">C7C0</a> and <a href="52507.html">CD1B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52580"></span>
+<div class="comments">
+<div class="paragraph">
+Loops back on itself using <span class="register">B</span> as a counter.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52580"></span>CD64</td>
+<td class="instruction">HALT</td>
+<td class="comment-1" rowspan="3">Short interrupt driven pause, and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52581"></span>CD65</td>
+<td class="instruction">DJNZ $CD64</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52583"></span>CD67</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52551.html">CD47</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52580">Map</a></td>
+<td class="next">
+Next: <a href="52584.html">CD68</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

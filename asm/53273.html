@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at D019</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52920.html">CEB8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53273">Map</a></td>
+<td class="next">
+Next: <a href="53303.html">D037</a>
+</td>
+</tr>
+</table>
+<div class="description">D019: Routine at D019</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="52769.html">CE21</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53273"></span>D019</td>
+<td class="instruction">LD DE,$D289</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html#53897">D289</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">CE14</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">CE16</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">CE18</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53276"></span>D01C</td>
+<td class="instruction">LD L,(IX+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53279"></span>D01F</td>
+<td class="instruction">LD H,(IX+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53282"></span>D022</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53283"></span>D023</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53284"></span>D024</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53285"></span>D025</td>
+<td class="instruction">LD L,(IX+$0C)</td>
+<td class="comment-1" rowspan="6">Copies $000B bytes of data from (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Source</th>
+<th colspan="1" rowspan="1">Destination</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53617">D171</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">D167</a></td>
+<td class="" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53631">D17F</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">D175</a></td>
+<td class="" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53645">D18D</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">D183</a></td>
+<td class="" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53288"></span>D028</td>
+<td class="instruction">LD H,(IX+$0D)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53291"></span>D02B</td>
+<td class="instruction">LD E,(IX+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53294"></span>D02E</td>
+<td class="instruction">LD D,(IX+$03)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53297"></span>D031</td>
+<td class="instruction">LD BC,$000B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53300"></span>D034</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53302"></span>D036</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52920.html">CEB8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53273">Map</a></td>
+<td class="next">
+Next: <a href="53303.html">D037</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C6D3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50865.html">C6B1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50899">Map</a></td>
+<td class="next">
+Next: <a href="50912.html">C6E0</a>
+</td>
+</tr>
+</table>
+<div class="description">C6D3: Write "Countdown" text.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="50210.html">C422</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="50899"></span>C6D3</td>
+<td class="instruction">LD HL,$C6E0</td>
+<td class="comment-1" rowspan="4">Helper routine used for writing <a href="50912.html">C6E0</a> to the screen using the colours held in <span class="register">BC</span>; <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="" colspan="1" rowspan="1">$03</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50902"></span>C6D6</td>
+<td class="instruction">LD DE,$404F</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50905"></span>C6D9</td>
+<td class="instruction">LD BC,$0703</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50908"></span>C6DC</td>
+<td class="instruction">CALL <a href="23424.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50911"></span>C6DF</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50865.html">C6B1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50899">Map</a></td>
+<td class="next">
+Next: <a href="50912.html">C6E0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

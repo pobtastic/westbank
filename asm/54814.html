@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at D61E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54800.html">D610</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54814">Map</a></td>
+<td class="next">
+Next: <a href="54884.html">D664</a>
+</td>
+</tr>
+</table>
+<div class="description">D61E: Write Character And Door To Buffer.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Door frames 2 and 3 both contain a "section" of a game character. This is copied into a buffer by first drawing the game character fully to <a href="60048.html">EA90</a>. Then the door frame is drawn over the top (in the correct position).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54814"></span>
+<div class="comments">
+<div class="paragraph">
+Draws the game character together with door frame 2.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54814"></span>D61E</td>
+<td class="instruction">CALL <a href="54704.html">$D5B0</a></td>
+<td class="comment-1" rowspan="2">On entry <span class="register">A</span> points to a character index. The call to <a href="54704.html">D5B0</a> translates this to the memory location of the character frame data (held in <span class="register">HL</span>) and then calls <a href="54814.html#54868">D654</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54817"></span>D621</td>
+<td class="instruction">CALL $D654</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54820"></span>D624</td>
+<td class="instruction">LD HL,$BCE8</td>
+<td class="comment-1" rowspan="10">Copies <a href="48360.html">BCE8</a> into the <a href="60048.html">EA90</a> (+2 bytes ~ $EA92).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54823"></span>D627</td>
+<td class="instruction">LD DE,$EA92</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54826"></span>D62A</td>
+<td class="instruction">LD B,$58</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54828"></span>D62C</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54829"></span>D62D</td>
+<td class="instruction">LD BC,$0005</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54832"></span>D630</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54834"></span>D632</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54835"></span>D633</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54836"></span>D634</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54837"></span>D635</td>
+<td class="instruction">DJNZ $D62C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54839"></span>D637</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54840"></span>
+<div class="comments">
+<div class="paragraph">
+Draws the game character together with door frame 3.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54840"></span>D638</td>
+<td class="instruction">CALL <a href="54704.html">$D5B0</a></td>
+<td class="comment-1" rowspan="2">On entry <span class="register">A</span> points to a character index. The call to <a href="54704.html">D5B0</a> translates this to the memory location of the character frame data (held in <span class="register">HL</span>) and then calls <a href="54814.html#54868">D654</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54843"></span>D63B</td>
+<td class="instruction">CALL $D654</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54846"></span>D63E</td>
+<td class="instruction">LD HL,$BEA0</td>
+<td class="comment-1" rowspan="12">Copies <a href="48800.html">BEA0</a> into the <a href="60048.html">EA90</a> (+4 bytes ~ $EA94).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54849"></span>D641</td>
+<td class="instruction">LD DE,$EA94</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54852"></span>D644</td>
+<td class="instruction">LD B,$58</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54854"></span>D646</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54855"></span>D647</td>
+<td class="instruction">LD BC,$0003</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54858"></span>D64A</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54860"></span>D64C</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54861"></span>D64D</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54862"></span>D64E</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54863"></span>D64F</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54864"></span>D650</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54865"></span>D651</td>
+<td class="instruction">DJNZ $D646</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54867"></span>D653</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54868"></span>
+<div class="comments">
+<div class="paragraph">
+Draws the game character alone to the door frame buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54868"></span>D654</td>
+<td class="instruction">LD DE,$EA90</td>
+<td class="comment-1" rowspan="9">Draws a character into the <a href="60048.html">EA90</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54871"></span>D657</td>
+<td class="instruction">LD B,$58</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54873"></span>D659</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54874"></span>D65A</td>
+<td class="instruction">LD BC,$0006</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54877"></span>D65D</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54879"></span>D65F</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54880"></span>D660</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54881"></span>D661</td>
+<td class="instruction">DJNZ $D659</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54883"></span>D663</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54800.html">D610</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54814">Map</a></td>
+<td class="next">
+Next: <a href="54884.html">D664</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

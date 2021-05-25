@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CBD0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51136.html">C7C0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52176">Map</a></td>
+<td class="next">
+Next: <a href="52267.html">CC2B</a>
+</td>
+</tr>
+</table>
+<div class="description">CBD0: Draw Text.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52176"></span>CBD0</td>
+<td class="instruction">DEFW $0705</td>
+<td class="comment-1" rowspan="1">Stores the attributes; top attribute/ bottom attribute.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52178"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="23424.html">5B80</a> and <a href="51136.html">C7C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52178"></span>CBD2</td>
+<td class="instruction">LD ($CBD0),BC</td>
+<td class="comment-1" rowspan="1">Stash the attributes at <a href="52176.html">CBD0</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52182"></span>CBD6</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Grab the next character in the string, if it's $FF then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52183"></span>CBD7</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52185"></span>CBD9</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52186"></span>CBDA</td>
+<td class="instruction">CP $30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52188"></span>CBDC</td>
+<td class="instruction">JR NZ,$CBE0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52190"></span>CBDE</td>
+<td class="instruction">LD A,$3A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52192"></span>CBE0</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52193"></span>CBE1</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52194"></span>CBE2</td>
+<td class="instruction">CALL $CBFC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52197"></span>CBE5</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52198"></span>CBE6</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52199"></span>CBE7</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52200"></span>CBE8</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52201"></span>CBE9</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52202"></span>CBEA</td>
+<td class="instruction">AND $1F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52204"></span>CBEC</td>
+<td class="instruction">JR NZ,$CBD6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52206"></span>CBEE</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52207"></span>CBEF</td>
+<td class="instruction">ADD A,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52209"></span>CBF1</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52210"></span>CBF2</td>
+<td class="instruction">AND $E0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52212"></span>CBF4</td>
+<td class="instruction">JR NZ,$CBD6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52214"></span>CBF6</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52215"></span>CBF7</td>
+<td class="instruction">ADD A,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52217"></span>CBF9</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52218"></span>CBFA</td>
+<td class="instruction">JR $CBD6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52220"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="23451.html">5B9B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52220"></span>CBFC</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="2">If the character is a space then jump forward to <a href="52176.html#52238">CC0E</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52222"></span>CBFE</td>
+<td class="instruction">JR NZ,$CC0E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52224"></span>CC00</td>
+<td class="instruction">LD HL,$5B00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52227"></span>CC03</td>
+<td class="instruction">LD BC,$1001</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52230"></span>CC06</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52231"></span>CC07</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52232"></span>CC08</td>
+<td class="instruction">CALL <a href="54758.html">$D5E6</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52235"></span>CC0B</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52236"></span>CC0C</td>
+<td class="instruction">JR $CC1D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52238"></span>CC0E</td>
+<td class="instruction">CP $41</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52240"></span>CC10</td>
+<td class="instruction">JR NC,$CC14</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52242"></span>CC12</td>
+<td class="instruction">ADD A,$2A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52244"></span>CC14</td>
+<td class="instruction">SUB $41</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52246"></span>CC16</td>
+<td class="instruction">ADD A,$0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52248"></span>CC18</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52249"></span>CC19</td>
+<td class="instruction">CALL <a href="52654.html">$CDAE</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52252"></span>CC1C</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52253"></span>CC1D</td>
+<td class="instruction">CALL <a href="52267.html">$CC2B</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52256"></span>CC20</td>
+<td class="instruction">LD BC,($CBD0)</td>
+<td class="comment-1" rowspan="5">Load the stored top/ bottom attribute bytes back into <span class="register">BC</span> and write them to the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52260"></span>CC24</td>
+<td class="instruction">LD (HL),B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52261"></span>CC25</td>
+<td class="instruction">LD DE,$0020</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52264"></span>CC28</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52265"></span>CC29</td>
+<td class="instruction">LD (HL),C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52266"></span>CC2A</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51136.html">C7C0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52176">Map</a></td>
+<td class="next">
+Next: <a href="52267.html">CC2B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

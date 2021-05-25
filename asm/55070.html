@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at D71E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54884.html">D664</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55070">Map</a></td>
+<td class="next">
+Next: <a href="55237.html">D7C5</a>
+</td>
+</tr>
+</table>
+<div class="description">D71E: Generic Bandit in Door Frame Logic.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55070"></span>
+<div class="comments">
+<div class="paragraph">
+Character state variables/ flags.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55070"></span>D71E</td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">The current character state.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55071"></span>D71F</td>
+<td class="instruction">DEFB $08</td>
+<td class="comment-1" rowspan="1">Character timer 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55072"></span>D720</td>
+<td class="instruction">DEFB $08</td>
+<td class="comment-1" rowspan="1">Character timer 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55073"></span>D721</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Character timer 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55074"></span>D722</td>
+<td class="instruction">DEFB $55</td>
+<td class="comment-1" rowspan="1">Character timer 4.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55075"></span>D723</td>
+<td class="instruction">DEFB $08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55076"></span>D724</td>
+<td class="instruction">DEFB $08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55077"></span>
+<div class="comments">
+<div class="paragraph">
+This routine looks at the current character state and routes to the correct subroutine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55077"></span>D725</td>
+<td class="instruction">LD HL,$D71E</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="55070.html">D71E</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55080"></span>D728</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55081"></span>D729</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="7">Work out which routine to use based on the current state. <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Routine</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55092">D734</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55105">D741</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55118">D74E</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$04</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55131">D75B</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55082"></span>D72A</td>
+<td class="instruction">JR Z,$D734</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55084"></span>D72C</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55085"></span>D72D</td>
+<td class="instruction">JR Z,$D741</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55087"></span>D72F</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55088"></span>D730</td>
+<td class="instruction">JR Z,$D74E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55090"></span>D732</td>
+<td class="instruction">JR $D75B</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55092"></span>
+<div class="comments">
+<div class="paragraph">
+Handle door frame 1 countdown/ transition to door frame 2.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55092"></span>D734</td>
+<td class="instruction">LD A,($D71F)</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55070.html#55071">D71F</a> by one, return if result is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55095"></span>D737</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55096"></span>D738</td>
+<td class="instruction">LD ($D71F),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55099"></span>D73B</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55100"></span>D73C</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Move onto next character state.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55101"></span>D73D</td>
+<td class="instruction">CALL <a href="54884.html#54993">$D6D1</a></td>
+<td class="comment-1" rowspan="2">Pass character frame index (<a href="26624.html">draw | $00</a>) to <a href="54884.html#54993">D6D1</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55104"></span>D740</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55105"></span>
+<div class="comments">
+<div class="paragraph">
+Handle door frame 2 countdown/ transition to door frame 3.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55105"></span>D741</td>
+<td class="instruction">LD A,($D720)</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55070.html#55072">D720</a> by one, return if result is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55108"></span>D744</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55109"></span>D745</td>
+<td class="instruction">LD ($D720),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55112"></span>D748</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55113"></span>D749</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Move onto next character state.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55114"></span>D74A</td>
+<td class="instruction">CALL <a href="54884.html#55007">$D6DF</a></td>
+<td class="comment-1" rowspan="2">Pass character frame index (<a href="26624.html">draw | $00</a>) to <a href="54884.html#55007">D6DF</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55117"></span>D74D</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55118"></span>
+<div class="comments">
+<div class="paragraph">
+Handle door frame 3 countdown/ transition to door frame 4.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55118"></span>D74E</td>
+<td class="instruction">LD A,($D721)</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55070.html#55073">D721</a> by one, return if result is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55121"></span>D751</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55122"></span>D752</td>
+<td class="instruction">LD ($D721),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55125"></span>D755</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55126"></span>D756</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Move onto next character state.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55127"></span>D757</td>
+<td class="instruction">CALL <a href="54884.html#55021">$D6ED</a></td>
+<td class="comment-1" rowspan="2">Pass character frame index (<a href="26624.html">draw | $00</a>) to <a href="54884.html#55021">D6ED</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55130"></span>D75A</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55131"></span>
+<div class="comments">
+<div class="paragraph">
+Handle door frame 4 timer...
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55131"></span>D75B</td>
+<td class="instruction">LD DE,$CED8</td>
+<td class="comment-1" rowspan="2">Calls <a href="54691.html">D5A3</a> with <span class="register">DE</span>=$CED8.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55134"></span>D75E</td>
+<td class="instruction">CALL <a href="54691.html">$D5A3</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55137"></span>D761</td>
+<td class="instruction">LD A,($D722)</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55070.html#55074">D722</a> by one, return if result is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55140"></span>D764</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55141"></span>D765</td>
+<td class="instruction">LD ($D722),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55144"></span>D768</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55145"></span>D769</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Writes $01 to <a href="53967.html#54014">D2FE</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55146"></span>D76A</td>
+<td class="instruction">LD ($D2FE),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55149"></span>D76D</td>
+<td class="instruction">CALL <a href="55457.html">$D8A1</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55457.html">D8A1</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55152"></span>D770</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55153"></span>
+<div class="comments">
+<div class="paragraph">
+This routine looks at the current character state and routes to the correct subroutine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55153"></span>D771</td>
+<td class="instruction">LD HL,$D71E</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="55070.html">D71E</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55156"></span>D774</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55157"></span>D775</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="9">Work out which routine to use based on the current state. <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Routine</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55171">D783</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55177">D789</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55192">D798</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$04</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55207">D7A7</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$05</td>
+<td class="centre" colspan="1" rowspan="1"><a href="55070.html#55222">D7B6</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55158"></span>D776</td>
+<td class="instruction">JR Z,$D783</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55160"></span>D778</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55161"></span>D779</td>
+<td class="instruction">JR Z,$D789</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55163"></span>D77B</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55164"></span>D77C</td>
+<td class="instruction">JR Z,$D798</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55166"></span>D77E</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55167"></span>D77F</td>
+<td class="instruction">JR Z,$D7A7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55169"></span>D781</td>
+<td class="instruction">JR $D7B6</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55171"></span>
+<div class="comments">
+<div class="paragraph">
+Handles the transition to the (<a href="26624.html#27152">shot | $01</a>) frame in the open doorway.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55171"></span>D783</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Move onto next character state.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55172"></span>D784</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Move onto next character frame (i.e. <a href="26624.html#27152">shot | $01</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55173"></span>D785</td>
+<td class="instruction">CALL <a href="54884.html#55021">$D6ED</a></td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">D6ED</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55176"></span>D788</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55177"></span>
+<div class="comments">
+<div class="paragraph">
+Handle "floor frame in open doorway" countdown.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55177"></span>D789</td>
+<td class="instruction">LD A,($D71F)</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55070.html#55071">D71F</a> by one, return if result is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55180"></span>D78C</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55181"></span>D78D</td>
+<td class="instruction">LD ($D71F),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55184"></span>D790</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55185"></span>D791</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Move onto next character state.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55186"></span>D792</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="3">Pass character frame index (<a href="26624.html#27680">floor | $02</a>) to <a href="54884.html#55021">D6ED</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55188"></span>D794</td>
+<td class="instruction">CALL <a href="54884.html#55021">$D6ED</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55191"></span>D797</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55192"></span>
+<div class="comments">
+<div class="paragraph">
+Handle door frame 4 countdown/ transition to door frame 3.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55192"></span>D798</td>
+<td class="instruction">LD A,($D720)</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55070.html#55072">D720</a> by one, return if result is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55195"></span>D79B</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55196"></span>D79C</td>
+<td class="instruction">LD ($D720),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55199"></span>D79F</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55200"></span>D7A0</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Move onto next character state.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55201"></span>D7A1</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="3">Pass character frame index (<a href="26624.html#27680">floor | $02</a>), pass it to <a href="54884.html#55007">D6DF</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55203"></span>D7A3</td>
+<td class="instruction">CALL <a href="54884.html#55007">$D6DF</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55206"></span>D7A6</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55207"></span>
+<div class="comments">
+<div class="paragraph">
+Handle door frame 3 countdown/ transition to door frame 2.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55207"></span>D7A7</td>
+<td class="instruction">LD A,($D721)</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55070.html#55073">D721</a> by one, return if result is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55210"></span>D7AA</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55211"></span>D7AB</td>
+<td class="instruction">LD ($D721),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55214"></span>D7AE</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55215"></span>D7AF</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Move onto next character state.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55216"></span>D7B0</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="3">Pass character frame index (<a href="26624.html#27680">floor | $02</a>), pass it to <a href="54884.html#54993">D6D1</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55218"></span>D7B2</td>
+<td class="instruction">CALL <a href="54884.html#54993">$D6D1</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55221"></span>D7B5</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55222"></span>
+<div class="comments">
+<div class="paragraph">
+Handle door frame 2 countdown/ transition to door frame 1.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55222"></span>D7B6</td>
+<td class="instruction">LD A,($D722)</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55070.html#55074">D722</a> by one, return if result is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55225"></span>D7B9</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55226"></span>D7BA</td>
+<td class="instruction">LD ($D722),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55229"></span>D7BD</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55230"></span>D7BE</td>
+<td class="instruction">CALL <a href="54884.html">$D664</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54884.html">D664</a> (i.e. no character/ door is shut).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55233"></span>D7C1</td>
+<td class="instruction">CALL <a href="55457.html">$D8A1</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55457.html">D8A1</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55236"></span>D7C4</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54884.html">D664</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55070">Map</a></td>
+<td class="next">
+Next: <a href="55237.html">D7C5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

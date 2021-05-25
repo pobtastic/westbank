@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C690</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50823.html">C687</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50832">Map</a></td>
+<td class="next">
+Next: <a href="50855.html">C6A7</a>
+</td>
+</tr>
+</table>
+<div class="description">C690: Is The Duel Finished?</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="50210.html">C422</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="50832"></span>C690</td>
+<td class="instruction">LD A,($C6E3)</td>
+<td class="comment-1" rowspan="3">Jump to <a href="50928.html">C6F0</a> if <a href="50915.html">C6E3</a> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50835"></span>C693</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50836"></span>C694</td>
+<td class="instruction">JP NZ,<a href="50928.html">$C6F0</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50839"></span>C697</td>
+<td class="instruction">LD A,($C6E2)</td>
+<td class="comment-1" rowspan="3">Jump to <a href="50823.html">C687</a> if <a href="50914.html">C6E2</a> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50842"></span>C69A</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50843"></span>C69B</td>
+<td class="instruction">JP NZ,<a href="50823.html">$C687</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50846"></span>C69E</td>
+<td class="instruction">LD A,($C6E4)</td>
+<td class="comment-1" rowspan="3">Jump to <a href="50865.html">C6B1</a> if <a href="50916.html">C6E4</a> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50849"></span>C6A1</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50850"></span>C6A2</td>
+<td class="instruction">JP NZ,<a href="50865.html">$C6B1</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50853"></span>C6A5</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="2">Set the carry flag and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50854"></span>C6A6</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50823.html">C687</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50832">Map</a></td>
+<td class="next">
+Next: <a href="50855.html">C6A7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

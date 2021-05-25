@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Data at C720</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50974.html">C71E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50976">Map</a></td>
+<td class="next">
+Next: <a href="51045.html">C765</a>
+</td>
+</tr>
+</table>
+<div class="description">C720: Sheriff's Star Page</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51136.html">C7C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50976"></span>C720</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50979"></span>C723</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50982"></span>C726</td>
+<td class="instruction">LD BC,$1800</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50985"></span>C729</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50987"></span>C72B</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50989"></span>C72D</td>
+<td class="instruction">LD BC,$02FF</td>
+<td class="comment-1" rowspan="3">Continues into the attributes buffer, and writes $06 to every location. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$06</td>
+<td class="centre" colspan="1" rowspan="1">$06</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50992"></span>C730</td>
+<td class="instruction">LD (HL),$06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50994"></span>C732</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50996"></span>C734</td>
+<td class="instruction">LD HL,$408B</td>
+<td class="comment-1" rowspan="4">Points to <a href="62976.html">F600</a> and prints it to the screen using <a href="23442.html">5B92</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50999"></span>C737</td>
+<td class="instruction">LD DE,$F600</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51002"></span>C73A</td>
+<td class="instruction">LD BC,$5008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51005"></span>C73D</td>
+<td class="instruction">CALL <a href="23442.html">$5B92</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51008"></span>C740</td>
+<td class="instruction">LD HL,$C765</td>
+<td class="comment-1" rowspan="4">Points to <a href="51045.html">C765</a> and prints it to the screen using <a href="23424.html">5B80</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51011"></span>C743</td>
+<td class="instruction">LD DE,$5001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51014"></span>C746</td>
+<td class="instruction">LD BC,$0702</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51017"></span>C749</td>
+<td class="instruction">CALL <a href="23424.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51020"></span>C74C</td>
+<td class="instruction">LD HL,$C784</td>
+<td class="comment-1" rowspan="4">Points to <a href="51045.html#51076">C784</a> and prints it to the screen using <a href="23424.html">5B80</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51023"></span>C74F</td>
+<td class="instruction">LD DE,$5041</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51026"></span>C752</td>
+<td class="instruction">LD BC,$0702</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51029"></span>C755</td>
+<td class="instruction">CALL <a href="23424.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51032"></span>C758</td>
+<td class="instruction">LD HL,$C7A3</td>
+<td class="comment-1" rowspan="4">Points to <a href="51045.html#51107">C7A3</a> and prints it to the screen using <a href="23424.html">5B80</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51035"></span>C75B</td>
+<td class="instruction">LD DE,$5083</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51038"></span>C75E</td>
+<td class="instruction">LD BC,$0702</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51041"></span>C761</td>
+<td class="instruction">CALL <a href="23424.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51044"></span>C764</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50974.html">C71E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50976">Map</a></td>
+<td class="next">
+Next: <a href="51045.html">C765</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

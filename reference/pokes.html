@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Pokes</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Pokes">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Pokes</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#pokes">Pokes</a></li>
+</ul>
+<div><span id="pokes"></span></div>
+<div class="list-entry list-entry-1">
+<div class="list-entry-title">Pokes</div>
+<div class="list-entry-desc">Assorted POKEs for the game <p>Starting lives;<br><table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Poke/ Alteration</th>
+<th colspan="1" rowspan="1">New Code</th>
+<th colspan="1" rowspan="1">Old Code</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">51210</td>
+<td class="" colspan="1" rowspan="1">&#160;</td>
+<td class="" colspan="1" rowspan="1">&#160;</td>
+<td class="" colspan="1" rowspan="1">LD A, <i>$FF</i></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">$6317</td>
+<td class="" colspan="1" rowspan="1"><i>$FF</i> (or whatever you want it to be)</td>
+<td class="" colspan="1" rowspan="1">LD A, $FF</td>
+<td class="" colspan="1" rowspan="1">^^</td>
+</tr>
+</table></p> <p>Infinite lives;<br><table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Poke/ Alteration</th>
+<th colspan="1" rowspan="1">New Code</th>
+<th colspan="1" rowspan="1">Old Code</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1"></td>
+<td class="" colspan="1" rowspan="1">&#160;</td>
+<td class="" colspan="1" rowspan="1">&#160;</td>
+<td class="" colspan="1" rowspan="1">LD A, <i>$04</i></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">$6317</td>
+<td class="" colspan="1" rowspan="1"><i>$FF</i> (or whatever you want it to be)</td>
+<td class="" colspan="1" rowspan="1">LD A, $FF</td>
+<td class="" colspan="1" rowspan="1">^^</td>
+</tr>
+</table></p> <p>Fix Kempston joystick "issue" where the port read isn't compatible with all joystick models; <br><table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Poke/ Alteration</th>
+<th colspan="1" rowspan="1">New Code</th>
+<th colspan="1" rowspan="1">Old Code</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1"><a href="../asm/54162.html#54165">D395</a></td>
+<td class="" colspan="1" rowspan="1">POKE $D396,$1F</td>
+<td class="" colspan="1" rowspan="1">LD A, <i>31</i></td>
+<td class="" colspan="1" rowspan="1">LD A, <i>12</i></td>
+</tr>
+</table></p></div>
+<ul class="list-entry">
+<li>NInfinite lives</li>
+<li>Z 8 52518 182 0</li>
+<li>NLives</li>
+<li>Z 8 51210 256 0</li>
+<li>N255 Lives</li>
+<li>Z 8 51210 0 0</li>
+<li>NShots in the bank will not kill you</li>
+<li>Z 8 52574 0 0</li>
+<li>NDon't die if you kill innocents</li>
+<li>Z 8 52544 0 0</li>
+<li>NDon't die in duels</li>
+<li>M 8 50829 0 0</li>
+<li>Z 8 50931 0 0</li>
+</ul>
+</div>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>

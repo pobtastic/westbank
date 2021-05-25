@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C5EB</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50210.html">C422</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50667">Map</a></td>
+<td class="next">
+Next: <a href="50695.html">C607</a>
+</td>
+</tr>
+</table>
+<div class="description">C5EB: Routine at C5EB</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="50210.html">C422</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="50667"></span>C5EB</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="3">Check if the current duellers state is zero (complete), return if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50670"></span>C5EE</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50671"></span>C5EF</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50672"></span>C5F0</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Mark the current dueller as complete.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50673"></span>C5F1</td>
+<td class="instruction">LD (IX+$00),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50676"></span>C5F4</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">A</span> and jump to whatever address is held by <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50677"></span>C5F5</td>
+<td class="instruction">JP (HL)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50678"></span>
+<div class="comments">
+<div class="paragraph">
+Not related?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50678"></span>C5F6</td>
+<td class="instruction">LD A,(IX+$02)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50681"></span>C5F9</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50683"></span>C5FB</td>
+<td class="instruction">CP $09</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50685"></span>C5FD</td>
+<td class="instruction">LD E,(IX+$04)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50688"></span>C600</td>
+<td class="instruction">LD D,(IX+$05)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50691"></span>C603</td>
+<td class="instruction">JR NC,<a href="50728.html">$C628</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50693"></span>C605</td>
+<td class="instruction">OR $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50210.html">C422</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50667">Map</a></td>
+<td class="next">
+Next: <a href="50695.html">C607</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.4.</div>
+</footer>
+</body>
+</html>
