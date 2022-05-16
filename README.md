@@ -8,8 +8,8 @@ created using [SkoolKit](https://skoolkit.ca).
 Decide which number base you prefer and then click the corresponding link below
 to browse the latest release:
 
-* [West Bank disassembly](https://pobtastic.github.io/westbank/) (hexadecimal; mirror [here](https://pobtastic.gitlab.io/westbank/))
-* [West Bank disassembly](https://pobtastic.github.io/westbank/dec/) (decimal; mirror [here](https://pobtastic.gitlab.io/westbank/dec/))
+* [West Bank disassembly](https://pobtastic.github.io/westbank/) (hexadecimal; mirror [here](https://skoolkit.arcadegeek.co.uk/westbank/))
+* [West Bank disassembly](https://pobtastic.github.io/westbank/dec/) (decimal; mirror [here](https://skoolkit.arcadegeek.co.uk/westbank/dec/))
 
 To build the current development version, first either install SkoolKit, or
 make a clone of the [SkoolKit repository](https://github.com/skoolkid/skoolkit)
