@@ -3,14 +3,19 @@
 ;
 ; To build the HTML disassembly, run these commands:
 ;   tap2sna.py @westbank.t2s
-;   sna2skool.py -H -c westbank.ctl WestBank.z80 > westbank.skool
-;   skool2html.py -H westbank.skool -T dark
+;   sna2skool.py -H -c sources/westbank.ctl WestBank.z80 > sources/westbank.skool
+;   skool2html.py -H sources/westbank.skool -T dark
+
+[Config]
+RefFiles=analytics.ref;bases.ref;westbankGraphics.ref
 
 [Game]
 Game=West Bank
 Logo=#SCR2,4,0,16,3,$4000,$5800(/images/logo)
 Copyright=&copy; DINAMIC SOFTWARE 1985
 StyleSheet=skoolkit.css;skoolkit-dark.css;westbank.css
+HtmlWriterClass=:westbank.WestBankHtmlWriter
+GameDir=westbank
 
 [PageHeaders]
 GameIndex=The complete<>RAM disassembly (work in progress)

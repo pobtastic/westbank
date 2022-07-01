@@ -176,31 +176,7 @@ take care that the bottom hat doesn't conceal a bomb or you will lose a life.</p
 
 [Playfield:Playfield]
 #UDGTABLE(playfield)
-{ =c32 #UDGARRAY32,attr=4,scale=4,step=32;$E0C0-$E0C0-$01-$100;($E0C0+$01)-($E0C0+$09)-$01-$100,attr=24;($E0C0+$0A)-($E0C0+$0B)-$01-$100;($E0C0+$0C)-($E0C0+$14)-$01-$100,attr=24;($E0C0+$15)-($E0C0+$16)-$01-$100;($E0C0+$17)-($E0C0+$1F)-$01-$100,attr=24(doors-top) }
-{ =c2 #UDGARRAY#(2,scale=4,step=2#FOR0,$A0,$10||n|;($E1C0+n)-($E1C0+n)-$01-$08,#PEEK(#EVAL($ED80+n*2));($E1C0+n+$01)-($E1C0+n+$01)-$08-$10,#PEEK(#EVAL($ED81+n*2))||)(wall-left) |
-  =c7 #UDGARRAY7,attr=48,scale=4,step=7;$BA80-($BA80+$236)-$01-$38(door-1) |
-  =c4 #UDGARRAY#(4,attr=7,scale=4,step=4#FOR$E270,$E330,$20||n|;n-n-$01-$20,attr=24;(n+$01)-(n+$02)-$01-$20,attr=4;(n+$03)-(n+$03)-$01-$20,attr=24||#FOR$E350,$E3B0,$20||n|;n-n-$01-$20,attr=24;(n+$01)-(n+$02)-$01-$20,attr=16;(n+$03)-(n+$03)-$01-$20,attr=24||(wall-middle)) |
-  =c7 #UDGARRAY7,scale=4,step=7;$EA90-($EA90+$238)-$01-$38,$30(door-buffer) |
-  =c4 #UDGARRAY#(4,attr=7,scale=4,step=4#FOR$E270,$E330,$20||n|;n-n-$01-$20,attr=24;(n+$01)-(n+$02)-$01-$20,attr=4;(n+$03)-(n+$03)-$01-$20,attr=24||#FOR$E350,$E3B0,$20||n|;n-n-$01-$20,attr=24;(n+$01)-(n+$02)-$01-$20,attr=16;(n+$03)-(n+$03)-$01-$20,attr=24||(wall-middle)) |
-  =c7 #UDGARRAY7,attr=48,scale=4,step=7;$BA80-($BA80+$236)-$01-$38(door-1) |
-  #UDGARRAY1,attr=24,scale=4,step=1;$E3D0-($E3D0+$50)-$01-$08(door-side)
-}
-{ =c32 #UDGARRAY32,attr=56,scale=4,step=32;$E428-$E428-$01-$100,attr=16;($E428+$01)-($E428+$09)-$01-$100;($E428+$0A)-($E428+$0B)-$01-$100,attr=16;($E428+$0C)-($E428+$14)-$01-$100;($E428+$15)-($E428+$16)-$01-$100,attr=16;($E428+$17)-($E428+$1F)-$01-$100(doors-bottom) }
-{ =c32 #UDGARRAY32,attr=48,scale=4,step=32;$E528-($E528+$78)-$01-$100,attr=6;($E528+$100)-($E528+$280)-$01-$100;($E528+$300)-($E528+$380)-$01-$100,attr=40(tellers) }
-{
-  =c8 #UDGARRAY6,attr=7,scale=4,step=6;$E928-($E928+$2A)-$01-$30;($E928+$30)-($E928+$5A)-$01-$30,attr=2(score-text) |
-  #UDGARRAY1,attr=7,scale=4,step=1;$C2D0-($C2D0+$08)-$01-$08(char-0) |
-  #UDGARRAY1,attr=7,scale=4,step=1;$C2D0-($C2D0+$08)-$01-$08(char-0) |
-  #UDGARRAY1,attr=7,scale=4,step=1;$C2D0-($C2D0+$08)-$01-$08(char-0) |
-  #UDGARRAY1,attr=7,scale=4,step=1;$C2D0-($C2D0+$08)-$01-$08(char-0) |
-  #UDGARRAY1,attr=7,scale=4,step=1;$C2D0-($C2D0+$08)-$01-$08(char-0) |
-  =c8 #UDGARRAY6,attr=7,scale=4,step=6;$E988-($E988+$42)-$01-$30;($E988+$60)-($E988+$84)-$01-$30,attr=3(lives-text) |
-  =c2 #UDGARRAY#(2,scale=4,step=2#FOR0,$20,$10||n|;($FFB8+n)-($FFB8+n+$02)-$01-$10,#PEEK(#EVAL($EFBF+n*2))||)(lives) |
-  =c2 #UDGARRAY#(2,scale=4,step=2#FOR0,$20,$10||n|;($FFB8+n)-($FFB8+n+$02)-$01-$10,#PEEK(#EVAL($EFBF+n*2))||)(lives) |
-  =c2 #UDGARRAY#(2,scale=4,step=2#FOR0,$20,$10||n|;($FFB8+n)-($FFB8+n+$02)-$01-$10,#PEEK(#EVAL($EFBF+n*2))||)(lives) |
-  =c2 #UDGARRAY#(2,scale=4,step=2#FOR0,$20,$10||n|;($FFB8+n)-($FFB8+n+$02)-$01-$10,#PEEK(#EVAL($EFBF+n*2))||)(lives) |
-  =c2 #UDGARRAY#(2,scale=4,step=2#FOR0,$20,$10||n|;($FFB8+n)-($FFB8+n+$02)-$01-$10,#PEEK(#EVAL($EFBF+n*2))||)(lives)
-}
+{ #CALL:play_area() }
 TABLE#
 
 [Bang:Message]
