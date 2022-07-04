@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CDAE</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CD90.html">CD90</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52654">Map</a></td>
+<td class="next">
+Next: <a href="CDC3.html">CDC3</a>
+</td>
+</tr>
+</table>
+<div class="description">CDAE: Draw Numbering from Character Set Index.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="CBD0.html">TWO_TONE_ATTRIBUTES_BUFFER</a> and <a href="CD90.html">DRAW_SCORE</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DRAW_NUMBER</td>
+<td class="address-2"><span id="52654"></span>CDAE</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="13">Using $C000 as a base address, this works out the character set memory address from a given index passed in <span class="register">A</span>. To give an example using "2" ($25 - see <a href="CD90.html">DRAW_SCORE</a>); <ul class="">
+<li>Loads <strong>$25</strong> as the low-order byte; <span class="register">HL</span>=$0025</li>
+<li>Times by <strong>$10</strong>; <span class="register">HL</span>=$250</li>
+<li>Add <strong>$C000</strong>=<a href="C0A0.html#49744">CHAR_2</a></li>
+</ul> This is then passed to <a href="D5E6.html">COPY_ROUTINE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52655"></span>CDAF</td>
+<td class="instruction">LD H,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52657"></span>CDB1</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52658"></span>CDB2</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52659"></span>CDB3</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52660"></span>CDB4</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52661"></span>CDB5</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52662"></span>CDB6</td>
+<td class="instruction">LD DE,$C000</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52665"></span>CDB9</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52666"></span>CDBA</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52667"></span>CDBB</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52668"></span>CDBC</td>
+<td class="instruction">LD BC,$1001</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52671"></span>CDBF</td>
+<td class="instruction">CALL <a href="D5E6.html">COPY_ROUTINE</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52674"></span>CDC2</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CD90.html">CD90</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52654">Map</a></td>
+<td class="next">
+Next: <a href="CDC3.html">CDC3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../dec/asm/52654.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

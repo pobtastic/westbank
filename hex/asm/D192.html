@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at D192</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D191.html">D191</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53650">Map</a></td>
+<td class="next">
+Next: <a href="D2CF.html">D2CF</a>
+</td>
+</tr>
+</table>
+<div class="description">D192: Copy Source Character Data To Character State Data.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53650"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying a "normal" bandit into the bandit state cache at <a href="D71E.html">BANDIT_STATE_REF</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_BANDIT_OPEN</td>
+<td class="address-2"><span id="53650"></span>D192</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="D71E.html">BANDIT_STATE_REF</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53653"></span>D195</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53656"></span>D198</td>
+<td class="instruction">LD DE,$D71E</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53659"></span>D19B</td>
+<td class="instruction">LD BC,$0007</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53662"></span>D19E</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53663"></span>D19F</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53664"></span>D1A0</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53665"></span>D1A1</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53667"></span>D1A3</td>
+<td class="instruction">CALL <a href="D71E.html#55077">BANDIT_OPEN_ROUTING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D71E.html#55077">BANDIT_OPEN_ROUTING</a> to begin this characters actions.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53670"></span>D1A6</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53671"></span>D1A7</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53672"></span>D1A8</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53673"></span>D1A9</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53674"></span>D1AA</td>
+<td class="instruction">LD A,($D18F)</td>
+<td class="comment-1" rowspan="5">Check if <a href="D18F.html">D18F</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53677"></span>D1AD</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53678"></span>D1AE</td>
+<td class="instruction">LD A,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53680"></span>D1B0</td>
+<td class="instruction">LD ($D18F),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53683"></span>D1B3</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53684"></span>D1B4</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Else copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53686"></span>D1B6</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53687"></span>
+<div class="comments">
+<div class="paragraph">
+And copying a successful bandit encounter to close the door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_BANDIT_CLOSE</td>
+<td class="address-1"><span id="53687"></span>D1B7</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="D71E.html">BANDIT_STATE_REF</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53690"></span>D1BA</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53693"></span>D1BD</td>
+<td class="instruction">LD DE,$D71E</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53696"></span>D1C0</td>
+<td class="instruction">LD BC,$0007</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53699"></span>D1C3</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53700"></span>D1C4</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53701"></span>D1C5</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53702"></span>D1C6</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53704"></span>D1C8</td>
+<td class="instruction">CALL <a href="D71E.html#55153">BANDIT_CLOSE_ROUTING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D71E.html#55153">BANDIT_CLOSE_ROUTING</a> to begin this characters actions.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53707"></span>D1CB</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53708"></span>D1CC</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53709"></span>D1CD</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53710"></span>D1CE</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53711"></span>D1CF</td>
+<td class="instruction">LD A,($D18F)</td>
+<td class="comment-1" rowspan="5">Check if <a href="D18F.html">D18F</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53714"></span>D1D2</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53715"></span>D1D3</td>
+<td class="instruction">LD A,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53717"></span>D1D5</td>
+<td class="instruction">LD ($D18F),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53720"></span>D1D8</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53721"></span>D1D9</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Else copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53723"></span>D1DB</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53724"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying Bowie state data into the state cache at <a href="D7C5.html">BOWIE_GOOD_BAD</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_BOWIE</td>
+<td class="address-1"><span id="53724"></span>D1DC</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $0009 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="D7C5.html">BOWIE_GOOD_BAD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53727"></span>D1DF</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53730"></span>D1E2</td>
+<td class="instruction">LD DE,$D7C5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53733"></span>D1E5</td>
+<td class="instruction">LD BC,$0009</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53736"></span>D1E8</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53737"></span>D1E9</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53738"></span>D1EA</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53739"></span>D1EB</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53741"></span>D1ED</td>
+<td class="instruction">CALL <a href="D7C5.html#55246">BOWIE_ROUTING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D7C5.html#55246">BOWIE_ROUTING</a> to begin this characters actions.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53744"></span>D1F0</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53745"></span>D1F1</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53746"></span>D1F2</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53747"></span>D1F3</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53748"></span>D1F4</td>
+<td class="instruction">LD A,($D18F)</td>
+<td class="comment-1" rowspan="5">Check if <a href="D18F.html">D18F</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53751"></span>D1F7</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53752"></span>D1F8</td>
+<td class="instruction">LD A,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53754"></span>D1FA</td>
+<td class="instruction">LD ($D18F),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53757"></span>D1FD</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53758"></span>D1FE</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Else copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53760"></span>D200</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53761"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying customer state data into the state cache at <a href="D48F.html">CUSTOMER_FRAME_1</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_CUSTOMER</td>
+<td class="address-1"><span id="53761"></span>D201</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $000F bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="D48F.html">CUSTOMER_FRAME_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53764"></span>D204</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53767"></span>D207</td>
+<td class="instruction">LD DE,$D48F</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53770"></span>D20A</td>
+<td class="instruction">LD BC,$000F</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53773"></span>D20D</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53774"></span>D20E</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53775"></span>D20F</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53776"></span>D210</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53778"></span>D212</td>
+<td class="instruction">CALL <a href="D48F.html#54430">CUSTOMER_ROUTING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D48F.html#54430">CUSTOMER_ROUTING</a> to begin this characters actions.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53781"></span>D215</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53782"></span>D216</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53783"></span>D217</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53784"></span>D218</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53785"></span>D219</td>
+<td class="instruction">LD A,($D18F)</td>
+<td class="comment-1" rowspan="5">Check if <a href="D18F.html">D18F</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53788"></span>D21C</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53789"></span>D21D</td>
+<td class="instruction">LD A,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53791"></span>D21F</td>
+<td class="instruction">LD ($D18F),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53794"></span>D222</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53795"></span>D223</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Else copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53797"></span>D225</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53798"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying customer "is shot" state data into the state cache at <a href="D48F.html">CUSTOMER_FRAME_1</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_CUSTOMER_SHOT</td>
+<td class="address-1"><span id="53798"></span>D226</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $000F bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="D48F.html">CUSTOMER_FRAME_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53801"></span>D229</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53804"></span>D22C</td>
+<td class="instruction">LD DE,$D48F</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53807"></span>D22F</td>
+<td class="instruction">LD BC,$000F</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53810"></span>D232</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53811"></span>D233</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53812"></span>D234</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53813"></span>D235</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53815"></span>D237</td>
+<td class="instruction">CALL <a href="D48F.html#54651">CUSTOMER_SHOT</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D48F.html#54651">CUSTOMER_SHOT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53818"></span>D23A</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53819"></span>D23B</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53820"></span>D23C</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53821"></span>D23D</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53822"></span>D23E</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53824"></span>D240</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53825"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying Julius state data into the state cache at <a href="D8E5.html">JULIUS_GOOD_BAD</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_JULIUS_OPEN</td>
+<td class="address-1"><span id="53825"></span>D241</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $000A bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="D8E5.html">JULIUS_GOOD_BAD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53828"></span>D244</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53831"></span>D247</td>
+<td class="instruction">LD DE,$D8E5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53834"></span>D24A</td>
+<td class="instruction">LD BC,$000A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53837"></span>D24D</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53838"></span>D24E</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53839"></span>D24F</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53840"></span>D250</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53842"></span>D252</td>
+<td class="instruction">CALL <a href="D8E5.html#55535">JULIUS_OPEN_ROUTING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D8E5.html#55535">JULIUS_OPEN_ROUTING</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53845"></span>D255</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53846"></span>D256</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53847"></span>D257</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53848"></span>D258</td>
+<td class="instruction">LD A,($D18F)</td>
+<td class="comment-1" rowspan="5">Check if <a href="D18F.html">D18F</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53851"></span>D25B</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53852"></span>D25C</td>
+<td class="instruction">LD A,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53854"></span>D25E</td>
+<td class="instruction">LD ($D18F),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53857"></span>D261</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53858"></span>D262</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the source to the target again and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53860"></span>D264</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53861"></span>
+<div class="comments">
+<div class="paragraph">
+And copying a successful Julius encounter to close the door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_JULIUS_CLOSE</td>
+<td class="address-1"><span id="53861"></span>D265</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $000A bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="D8E5.html">JULIUS_GOOD_BAD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53864"></span>D268</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53867"></span>D26B</td>
+<td class="instruction">LD DE,$D8E5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53870"></span>D26E</td>
+<td class="instruction">LD BC,$000A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53873"></span>D271</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53874"></span>D272</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53875"></span>D273</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53876"></span>D274</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53878"></span>D276</td>
+<td class="instruction">CALL <a href="D8E5.html#55703">JULIUS_CLOSE_ROUTING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D8E5.html#55703">JULIUS_CLOSE_ROUTING</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53881"></span>D279</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53882"></span>D27A</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53883"></span>D27B</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53884"></span>D27C</td>
+<td class="instruction">LD A,($D18F)</td>
+<td class="comment-1" rowspan="5">Check if <a href="D18F.html">D18F</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53887"></span>D27F</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53888"></span>D280</td>
+<td class="instruction">LD A,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53890"></span>D282</td>
+<td class="instruction">LD ($D18F),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53893"></span>D285</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53894"></span>D286</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the source to the target again and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53896"></span>D288</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53897"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying a "drawing bandit" into the bandit state cache at <a href="DA0C.html">BANDIT_DRAW</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_BANDIT_DRAW_OPEN</td>
+<td class="address-1"><span id="53897"></span>D289</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $000B bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="DA0C.html">BANDIT_DRAW</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53900"></span>D28C</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53903"></span>D28F</td>
+<td class="instruction">LD DE,$DA0C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53906"></span>D292</td>
+<td class="instruction">LD BC,$000B</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53909"></span>D295</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53910"></span>D296</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53911"></span>D297</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53912"></span>D298</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53914"></span>D29A</td>
+<td class="instruction">CALL <a href="DA0C.html#55831">BANDIT_DRAW_OPEN_ROUTING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="DA0C.html#55831">BANDIT_DRAW_OPEN_ROUTING</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53917"></span>D29D</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53918"></span>D29E</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53919"></span>D29F</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53920"></span>D2A0</td>
+<td class="instruction">LD A,($D18F)</td>
+<td class="comment-1" rowspan="5">Check if <a href="D18F.html">D18F</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53923"></span>D2A3</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53924"></span>D2A4</td>
+<td class="instruction">LD A,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53926"></span>D2A6</td>
+<td class="instruction">LD ($D18F),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53929"></span>D2A9</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53930"></span>D2AA</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the source to the target again and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53932"></span>D2AC</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53933"></span>
+<div class="comments">
+<div class="paragraph">
+And copying a successful "drawing bandit" encounter to close the door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_BANDIT_DRAW_CLOSE</td>
+<td class="address-1"><span id="53933"></span>D2AD</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="8">Handles copying $000B bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#53607">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#53621">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#53635">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="DA0C.html">BANDIT_DRAW</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53936"></span>D2B0</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53939"></span>D2B3</td>
+<td class="instruction">LD DE,$DA0C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53942"></span>D2B6</td>
+<td class="instruction">LD BC,$000B</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53945"></span>D2B9</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53946"></span>D2BA</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53947"></span>D2BB</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53948"></span>D2BC</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53950"></span>D2BE</td>
+<td class="instruction">CALL <a href="DA0C.html#55941">BANDIT_DRAW_CLOSE_ROUTING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="DA0C.html#55941">BANDIT_DRAW_CLOSE_ROUTING</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53953"></span>D2C1</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53954"></span>D2C2</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53955"></span>D2C3</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53956"></span>D2C4</td>
+<td class="instruction">LD A,($D18F)</td>
+<td class="comment-1" rowspan="4">Check if <a href="D18F.html">D18F</a> is zero. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53959"></span>D2C7</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53960"></span>D2C8</td>
+<td class="instruction">LD ($D18F),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53963"></span>D2CB</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53964"></span>D2CC</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the source to the target again and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53966"></span>D2CE</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D191.html">D191</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53650">Map</a></td>
+<td class="next">
+Next: <a href="D2CF.html">D2CF</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../dec/asm/53650.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

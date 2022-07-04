@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CD1B</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CC9B.html">CC9B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52507">Map</a></td>
+<td class="next">
+Next: <a href="CD47.html">CD47</a>
+</td>
+</tr>
+</table>
+<div class="description">CD1B: Flash Lives/ Lose Life.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">FLASH_LIVES</td>
+<td class="address-2"><span id="52507"></span>CD1B</td>
+<td class="instruction">LD B,$0A</td>
+<td class="comment-1" rowspan="2">Short pause.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52509"></span>CD1D</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52512"></span>CD20</td>
+<td class="instruction">LD HL,$CC59</td>
+<td class="comment-1" rowspan="3">Point to <a href="CC59.html">LIVES</a>. Set a counter for $05 times and stash it.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52515"></span>CD23</td>
+<td class="instruction">LD B,$05</td>
+</tr>
+<tr>
+<td class="asm-label">FLASH_LIVES_LOOP</td>
+<td class="address-2"><span id="52517"></span>CD25</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52518"></span>CD26</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="3">Decrease the number of lives by one, stash the lives memory location and draw the decreased life images.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52519"></span>CD27</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52520"></span>CD28</td>
+<td class="instruction">CALL <a href="CC5A.html">LIFE_IMAGES</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52523"></span>CD2B</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-1" rowspan="2">Short pause.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52525"></span>CD2D</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52528"></span>CD30</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="4">Grab the lives memory location, increase it by one, stash the location again and draw the now increased life images (i.e. what they were on entry to the routine).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52529"></span>CD31</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52530"></span>CD32</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52531"></span>CD33</td>
+<td class="instruction">CALL <a href="CC5A.html">LIFE_IMAGES</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52534"></span>CD36</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-1" rowspan="2">Short pause.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52536"></span>CD38</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52539"></span>CD3B</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52540"></span>CD3C</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Loop back until the counter is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52541"></span>CD3D</td>
+<td class="instruction">DJNZ <a href="CD1B.html#52517">FLASH_LIVES_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52543"></span>CD3F</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Finally decrease lives by one and if they are not zero jump to <a href="C7C0.html#51915">NEW_GAME_8</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52544"></span>CD40</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52545"></span>CD41</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52546"></span>CD42</td>
+<td class="instruction">JP NZ,<a href="C7C0.html#51915">NEW_GAME_8</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52549"></span>CD45</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="2">Set the carry flag and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52550"></span>CD46</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CC9B.html">CC9B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52507">Map</a></td>
+<td class="next">
+Next: <a href="CD47.html">CD47</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../dec/asm/52507.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

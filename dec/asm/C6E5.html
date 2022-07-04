@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C6E5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C6E4.html">C6E4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50917">Map</a></td>
+<td class="next">
+Next: <a href="C6F0.html">C6F0</a>
+</td>
+</tr>
+</table>
+<div class="description">C6E5: Process Dueller Shot.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DUELLER_SHOT</td>
+<td class="address-2"><span id="50917"></span>C6E5</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="2">Writes $04 to <a href="C6E3.html">DUEL_LOSE_LIFE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50919"></span>C6E7</td>
+<td class="instruction">LD ($C6E3),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50922"></span>C6EA</td>
+<td class="instruction">LD (IX+$09),A</td>
+<td class="comment-1" rowspan="1">Sets the dueller frame index to $04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50925"></span>C6ED</td>
+<td class="instruction">JP <a href="C422.html#50563">DUEL_PREP_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C422.html#50563">DUEL_PREP_0</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C6E4.html">C6E4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50917">Map</a></td>
+<td class="next">
+Next: <a href="C6F0.html">C6F0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../dec/asm/50917.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

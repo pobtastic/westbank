@@ -1,0 +1,2639 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C7C0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C7BD.html">C7BD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51136">Map</a></td>
+<td class="next">
+Next: <a href="CBD0.html">CBD0</a>
+</td>
+</tr>
+</table>
+<div class="description">C7C0: New Game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME</td>
+<td class="address-2"><span id="51136"></span>C7C0</td>
+<td class="instruction">LD HL,($5C78)</td>
+<td class="comment-1" rowspan="1">Fetch <a href="https://skoolkid.github.io/rom/asm/5C78.html">FRAMES</a> as a random number seed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51139"></span>C7C3</td>
+<td class="instruction">LD ($D8AC),HL</td>
+<td class="comment-1" rowspan="1">Write it to <a href="D8AC.html">D8AC</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51142"></span>C7C6</td>
+<td class="instruction">CALL <a href="C7C0.html#51173">INIT_TITLE_SCREEN</a></td>
+<td class="comment-1" rowspan="1">Call <a href="C7C0.html#51173">INIT_TITLE_SCREEN</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51145"></span>C7C9</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Clears the screen buffer by writing $00 to all 6912 memory locations.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51148"></span>C7CC</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51151"></span>C7CF</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51154"></span>C7D2</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51156"></span>C7D4</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51158"></span>C7D6</td>
+<td class="instruction">LD B,$80</td>
+<td class="comment-1" rowspan="2">Calls <a href="CD64.html">HALT_LOOP</a> with the counter $80.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51160"></span>C7D8</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51163"></span>C7DB</td>
+<td class="instruction">LD HL,$CBB4</td>
+<td class="comment-1" rowspan="3">Jump to <a href="FA00.html">NEW_HIGH_SCORE</a> with <span class="register">HL</span>=<a href="C7C0.html#52148">COPIED_5B80</a> and <span class="register">IX</span>=<a href="CD86.html">SCORE_DIGIT_6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51166"></span>C7DE</td>
+<td class="instruction">LD IX,$CD86</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51170"></span>C7E2</td>
+<td class="instruction">JP <a href="FA00.html">NEW_HIGH_SCORE</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51173"></span>
+<div class="comments">
+<div class="paragraph">
+Displays the title screen and on return, sets the control method and initiates variables for a new game.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">INIT_TITLE_SCREEN</td>
+<td class="address-2"><span id="51173"></span>C7E5</td>
+<td class="instruction">LD HL,$CBB4</td>
+<td class="comment-1" rowspan="2">Calls <a href="FE00.html">TITLE_SCREEN</a> with <span class="register">HL</span>=<a href="C7C0.html#52148">COPIED_5B80</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51176"></span>C7E8</td>
+<td class="instruction">CALL <a href="FE00.html">TITLE_SCREEN</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51179"></span>C7EB</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">Unused.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51181"></span>C7ED</td>
+<td class="instruction">LD A,($5CB0)</td>
+<td class="comment-1" rowspan="4">Grab the value stored at <a href="5CB0.html">CONTROLLER</a> and if it is $01 then jump ahead to <a href="C7C0.html#51193">SET_CONTROL_ALIAS</a> which writes <a href="D39B.html">CONTROLS_KEYBOARD</a> to <a href="CE12.html">CONTROL_ROUTINE_ALIAS</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51184"></span>C7F0</td>
+<td class="instruction">LD HL,$D39B</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51187"></span>C7F3</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51188"></span>C7F4</td>
+<td class="instruction">JR Z,<a href="C7C0.html#51193">SET_CONTROL_ALIAS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51190"></span>C7F6</td>
+<td class="instruction">LD HL,$D392</td>
+<td class="comment-1" rowspan="2">Write <a href="D392.html">CONTROLS_JOYSTICK</a> to <a href="CE12.html">CONTROL_ROUTINE_ALIAS</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">SET_CONTROL_ALIAS</td>
+<td class="address-2"><span id="51193"></span>C7F9</td>
+<td class="instruction">LD ($CE12),HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51196"></span>
+<div class="comments">
+<div class="paragraph">
+Resets all game variables/ states ready for a new game.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51196"></span>C7FC</td>
+<td class="instruction">LD HL,$CD86</td>
+<td class="comment-1" rowspan="5">Clears the score (writes $00 over seven bytes from <a href="CD86.html">SCORE_DIGIT_6</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51199"></span>C7FF</td>
+<td class="instruction">LD DE,$CD87</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51202"></span>C802</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51204"></span>C804</td>
+<td class="instruction">LD BC,$0006</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51207"></span>C807</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label">STARTING_LIVES</td>
+<td class="address-1"><span id="51209"></span>C809</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Initialise <a href="CC59.html">LIVES</a> to $03.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51211"></span>C80B</td>
+<td class="instruction">LD ($CC59),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51214"></span>C80E</td>
+<td class="instruction">LD HL,$0101</td>
+<td class="comment-1" rowspan="2">Initialise <a href="D45C.html">CASHBOX_REF</a> to $0101.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51217"></span>C811</td>
+<td class="instruction">LD ($D45C),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51220"></span>C814</td>
+<td class="instruction">LD HL,$0000</td>
+<td class="comment-1" rowspan="4">Clears <a href="CE14.html">DOOR_1_ROUTINE</a>, <a href="CE14.html#52758">DOOR_2_ROUTINE</a> and <a href="CE14.html#52760">DOOR_3_ROUTINE</a> (sets them to $0000).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51223"></span>C817</td>
+<td class="instruction">LD ($CE14),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51226"></span>C81A</td>
+<td class="instruction">LD ($CE16),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51229"></span>C81D</td>
+<td class="instruction">LD ($CE18),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51232"></span>C820</td>
+<td class="instruction">LD HL,$2020</td>
+<td class="comment-1" rowspan="3">Clear <a href="C7C0.html#51800">DAY_ASCII</a> and <a href="C7C0.html#51802">PHASE_ASCII</a> to $2020 (ASCII space-space).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51235"></span>C823</td>
+<td class="instruction">LD ($CA58),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51238"></span>C826</td>
+<td class="instruction">LD ($CA5A),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51241"></span>C829</td>
+<td class="instruction">LD HL,$CC8D</td>
+<td class="comment-1" rowspan="5">Clear down the deposit flags (copies $00 to each from <a href="CC8D.html">DOOR_DEPOSITED_01</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51244"></span>C82C</td>
+<td class="instruction">LD DE,$CC8E</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51247"></span>C82F</td>
+<td class="instruction">LD BC,$000D</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51250"></span>C832</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51252"></span>C834</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51254"></span>C836</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Set the border to black.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51255"></span>C837</td>
+<td class="instruction">OUT ($FE),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51257"></span>C839</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Write $01 to <a href="C7C0.html#52175">CBCF</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51258"></span>C83A</td>
+<td class="instruction">LD ($CBCF),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51261"></span>C83D</td>
+<td class="instruction">CALL <a href="C7C0.html#51820">INIT_PROGRESS</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51264"></span>C840</td>
+<td class="instruction">CALL <a href="C7C0.html#51545">SET_DAY_ATTR</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51267"></span>C843</td>
+<td class="instruction">CALL <a href="C7C0.html#51812">PREP_DISPLAY_DAY</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51270"></span>C846</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="2">Writes $03 to <a href="CE1B.html">CE1B</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51272"></span>C848</td>
+<td class="instruction">LD ($CE1B),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51275"></span>C84B</td>
+<td class="instruction">LD HL,$0500</td>
+<td class="comment-1" rowspan="2">Writes $0500 to <a href="CE1B.html#52764">CE1C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51278"></span>C84E</td>
+<td class="instruction">LD ($CE1C),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51281"></span>C851</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Writes $01 to <a href="D191.html">D191</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51283"></span>C853</td>
+<td class="instruction">LD ($D191),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51286"></span>C856</td>
+<td class="instruction">LD A,($5CB1)</td>
+<td class="comment-1" rowspan="4">Grabs the <a href="5CB1.html">LEVEL</a>, if it's level 1 then jump to <a href="C7C0.html#51320">LEVEL_1</a> with <span class="register">HL</span>=<a href="C7C0.html#51786">PHASE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51289"></span>C859</td>
+<td class="instruction">LD HL,$CA4A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51292"></span>C85C</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51293"></span>C85D</td>
+<td class="instruction">JR Z,<a href="C7C0.html#51320">LEVEL_1</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51295"></span>C85F</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51298"></span>C862</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51299"></span>C863</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51302"></span>C866</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51303"></span>C867</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51304"></span>C868</td>
+<td class="instruction">JR Z,<a href="C7C0.html#51343">NEW_GAME_0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51306"></span>C86A</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51309"></span>C86D</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51310"></span>C86E</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51313"></span>C871</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51314"></span>C872</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51317"></span>C875</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51318"></span>C876</td>
+<td class="instruction">JR <a href="C7C0.html#51382">NEW_GAME_1</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_1</td>
+<td class="address-2"><span id="51320"></span>C878</td>
+<td class="instruction">LD HL,$CE42</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52802">CHOOSE_DEFAULT_SET</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51323"></span>C87B</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51326"></span>C87E</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51329"></span>C881</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51330"></span>C882</td>
+<td class="instruction">LD HL,$CE6F</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52847">CHOOSE_BANDIT_3</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51333"></span>C885</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51336"></span>C888</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51339"></span>C88B</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51342"></span>C88E</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_0</td>
+<td class="address-2"><span id="51343"></span>C88F</td>
+<td class="instruction">LD HL,$CE5F</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52831">CHOOSE_BANDIT_2</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51346"></span>C892</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51349"></span>C895</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51352"></span>C898</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51355"></span>C89B</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51356"></span>C89C</td>
+<td class="instruction">LD HL,$CE55</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52821">CHOOSE_JULIUS</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51359"></span>C89F</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51362"></span>C8A2</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51365"></span>C8A5</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51368"></span>C8A8</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51369"></span>C8A9</td>
+<td class="instruction">LD HL,$CE7E</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52862">CHOOSE_BANDIT_4</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51372"></span>C8AC</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51375"></span>C8AF</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51378"></span>C8B2</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51381"></span>C8B5</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_1</td>
+<td class="address-2"><span id="51382"></span>C8B6</td>
+<td class="instruction">LD HL,$CE8D</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52877">CHOOSE_BANDIT_5</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51385"></span>C8B9</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51388"></span>C8BC</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51391"></span>C8BF</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51394"></span>C8C2</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51395"></span>C8C3</td>
+<td class="instruction">LD HL,$CE9C</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52892">CHOOSE_BANDIT_6</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51398"></span>C8C6</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51401"></span>C8C9</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51404"></span>C8CC</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51407"></span>C8CF</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51408"></span>C8D0</td>
+<td class="instruction">LD HL,$CE9C</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52892">CHOOSE_BANDIT_6</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51411"></span>C8D3</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51414"></span>C8D6</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51417"></span>C8D9</td>
+<td class="instruction">CALL <a href="C7C0.html#51550">SET_DUSK_ATTR</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51420"></span>C8DC</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51423"></span>C8DF</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51424"></span>C8E0</td>
+<td class="instruction">LD HL,$CE9C</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#52892">CHOOSE_BANDIT_6</a> to <a href="CE1B.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51427"></span>C8E3</td>
+<td class="instruction">LD ($CE1F),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51430"></span>C8E6</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51433"></span>C8E9</td>
+<td class="instruction">CALL <a href="C7C0.html#51555">SET_NIGHT_ATTR</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51436"></span>C8EC</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51439"></span>C8EF</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_2</td>
+<td class="address-2"><span id="51440"></span>C8F0</td>
+<td class="instruction">CALL <a href="C7C0.html#51545">SET_DAY_ATTR</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51443"></span>C8F3</td>
+<td class="instruction">CALL <a href="C7C0.html#51812">PREP_DISPLAY_DAY</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51446"></span>C8F6</td>
+<td class="instruction">LD B,$07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_3</td>
+<td class="address-2"><span id="51448"></span>C8F8</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51449"></span>C8F9</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51452"></span>C8FC</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51453"></span>C8FD</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51454"></span>C8FE</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51455"></span>C8FF</td>
+<td class="instruction">CALL <a href="C7C0.html#51521">NEW_GAME_5</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51458"></span>C902</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51459"></span>C903</td>
+<td class="instruction">DJNZ <a href="C7C0.html#51448">NEW_GAME_3</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51461"></span>C905</td>
+<td class="instruction">CALL <a href="C7C0.html#51550">SET_DUSK_ATTR</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51464"></span>C908</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51467"></span>C90B</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51468"></span>C90C</td>
+<td class="instruction">CALL <a href="C7C0.html#51555">SET_NIGHT_ATTR</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51471"></span>C90F</td>
+<td class="instruction">CALL <a href="C7C0.html#51841">CASHBOXES_COMPLETED</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51474"></span>C912</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51475"></span>C913</td>
+<td class="instruction">LD HL,$D191</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51478"></span>C916</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51479"></span>C917</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51481"></span>C919</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51482"></span>C91A</td>
+<td class="instruction">JR Z,<a href="C7C0.html#51440">NEW_GAME_2</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51484"></span>C91C</td>
+<td class="instruction">LD HL,$CBB4</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51487"></span>C91F</td>
+<td class="instruction">LD DE,$5B80</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51490"></span>C922</td>
+<td class="instruction">LD BC,$0040</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51493"></span>C925</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51495"></span>C927</td>
+<td class="instruction">CALL $C720</td>
+<td class="comment-1" rowspan="1">Call <a href="C720.html">SHERIFF_STAR</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51498"></span>C92A</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51501"></span>C92D</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51504"></span>C930</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51507"></span>C933</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_4</td>
+<td class="address-2"><span id="51510"></span>C936</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51511"></span>C937</td>
+<td class="instruction">IN A,($FE)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51513"></span>C939</td>
+<td class="instruction">OR $E0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51515"></span>C93B</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51516"></span>C93C</td>
+<td class="instruction">JR Z,<a href="C7C0.html#51510">NEW_GAME_4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51518"></span>C93E</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51519"></span>C93F</td>
+<td class="instruction">JR <a href="C7C0.html#51440">NEW_GAME_2</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_5</td>
+<td class="address-2"><span id="51521"></span>C941</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51522"></span>C942</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51523"></span>C943</td>
+<td class="instruction">LD HL,($CE1C)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51526"></span>C946</td>
+<td class="instruction">LD BC,$0040</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51529"></span>C949</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51530"></span>C94A</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51532"></span>C94C</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51533"></span>C94D</td>
+<td class="instruction">OR L</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51534"></span>C94E</td>
+<td class="instruction">JR NZ,<a href="C7C0.html#51539">NEW_GAME_6</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51536"></span>C950</td>
+<td class="instruction">LD HL,$0040</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_6</td>
+<td class="address-2"><span id="51539"></span>C953</td>
+<td class="instruction">LD ($CE1C),HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51542"></span>C956</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51543"></span>C957</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51544"></span>C958</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51545"></span>
+<div class="comments">
+<div class="paragraph">
+Sets the door attributes for the "time of day".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">SET_DAY_ATTR</td>
+<td class="address-2"><span id="51545"></span>C959</td>
+<td class="instruction">LD HL,$C96F</td>
+<td class="comment-1" rowspan="2">Call <a href="C7C0.html#51558">SET_DOOR_ATTR</a> using <a href="C7C0.html#51567">DOOR_ATTR_DAY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51548"></span>C95C</td>
+<td class="instruction">JR <a href="C7C0.html#51558">SET_DOOR_ATTR</a></td>
+</tr>
+<tr>
+<td class="asm-label">SET_DUSK_ATTR</td>
+<td class="address-2"><span id="51550"></span>C95E</td>
+<td class="instruction">LD HL,$C987</td>
+<td class="comment-1" rowspan="2">Call <a href="C7C0.html#51558">SET_DOOR_ATTR</a> using <a href="C7C0.html#51591">DOOR_ATTR_DUSK</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51553"></span>C961</td>
+<td class="instruction">JR <a href="C7C0.html#51558">SET_DOOR_ATTR</a></td>
+</tr>
+<tr>
+<td class="asm-label">SET_NIGHT_ATTR</td>
+<td class="address-2"><span id="51555"></span>C963</td>
+<td class="instruction">LD HL,$C99F</td>
+<td class="comment-1" rowspan="1">Call <a href="C7C0.html#51558">SET_DOOR_ATTR</a> using <a href="C7C0.html#51615">DOOR_ATTR_NIGHT</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51558"></span>
+<div class="comments">
+<div class="paragraph">
+Note this is for the opened door background hence it starts from frame 2 (as frame 1 is a closed door).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">SET_DOOR_ATTR</td>
+<td class="address-2"><span id="51558"></span>C966</td>
+<td class="instruction">LD DE,$D6B9</td>
+<td class="comment-1" rowspan="4">Copies $18 bytes of data to <a href="D664.html#54969">DOOR_2_ATTRIBUTES</a>, then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51561"></span>C969</td>
+<td class="instruction">LD BC,$0018</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51564"></span>C96C</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51566"></span>C96E</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51567"></span>
+<div class="comments">
+<div class="paragraph">
+Door frame attribute data for each day phase.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DOOR_ATTR_DAY</td>
+<td class="address-1"><span id="51567"></span>C96F</td>
+<td class="instruction">DEFB $28,$28,$30,$30,$30,$30,$30,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51575"></span>C977</td>
+<td class="instruction">DEFB $28,$28,$28,$28,$30,$30,$30,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51583"></span>C97F</td>
+<td class="instruction">DEFB $28,$28,$28,$28,$28,$28,$30,$28</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DOOR_ATTR_DUSK</td>
+<td class="address-1"><span id="51591"></span>C987</td>
+<td class="instruction">DEFB $0D,$0D,$30,$30,$30,$30,$30,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51599"></span>C98F</td>
+<td class="instruction">DEFB $0D,$0D,$0D,$0D,$30,$30,$30,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51607"></span>C997</td>
+<td class="instruction">DEFB $0D,$0D,$0D,$0D,$0D,$0D,$30,$0D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DOOR_ATTR_NIGHT</td>
+<td class="address-1"><span id="51615"></span>C99F</td>
+<td class="instruction">DEFB $05,$05,$30,$30,$30,$30,$30,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51623"></span>C9A7</td>
+<td class="instruction">DEFB $05,$05,$05,$05,$30,$30,$30,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51631"></span>C9AF</td>
+<td class="instruction">DEFB $05,$05,$05,$05,$05,$05,$30,$05</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51639"></span>
+<div class="comments">
+<div class="paragraph">
+Clears the cashbox flags, clears the screen and displays the phase number.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_DISPLAY_PHASE</td>
+<td class="address-2"><span id="51639"></span>C9B7</td>
+<td class="instruction">LD HL,$0101</td>
+<td class="comment-1" rowspan="2">Writes $0101 to <a href="D45C.html">CASHBOX_REF</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51642"></span>C9BA</td>
+<td class="instruction">LD ($D45C),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51645"></span>C9BD</td>
+<td class="instruction">LD HL,$CC8D</td>
+<td class="comment-1" rowspan="5">Clear down the deposit flags (copies $00 to each from <a href="CC8D.html">DOOR_DEPOSITED_01</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51648"></span>C9C0</td>
+<td class="instruction">LD DE,$CC8E</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51651"></span>C9C3</td>
+<td class="instruction">LD BC,$000D</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51654"></span>C9C6</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51656"></span>C9C8</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51658"></span>C9CA</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Call <a href="C7C0.html#51664">CLEAR_SCREEN</a> (using $00).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51659"></span>C9CB</td>
+<td class="instruction">CALL <a href="C7C0.html#51664">CLEAR_SCREEN</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51662"></span>C9CE</td>
+<td class="instruction">JR <a href="C7C0.html#51677">DISPLAY_PHASE</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C7C0.html#51677">DISPLAY_PHASE</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51664"></span>
+<div class="comments">
+<div class="paragraph">
+This routine has the ability to write any value across the screen buffer, however it's only ever called with <span class="register">A</span>=$00 (clear screen).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CLEAR_SCREEN</td>
+<td class="address-2"><span id="51664"></span>C9D0</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="6">Clears the screen buffer by writing $00 to all 6912 memory locations.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51667"></span>C9D3</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51670"></span>C9D6</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51673"></span>C9D9</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51674"></span>C9DA</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51676"></span>C9DC</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51677"></span>
+<div class="comments">
+<div class="paragraph">
+Displays the current "phase".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DISPLAY_PHASE</td>
+<td class="address-2"><span id="51677"></span>C9DD</td>
+<td class="instruction">LD HL,$CA4E</td>
+<td class="comment-1" rowspan="4">Copies <a href="C7C0.html#51790">PHASE_COPY</a> into <a href="C7C0.html#51804">PROGRESS_BUFFER</a> ($05 bytes of text data).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51680"></span>C9E0</td>
+<td class="instruction">LD DE,$CA5C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51683"></span>C9E3</td>
+<td class="instruction">LD BC,$0005</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51686"></span>C9E6</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51688"></span>C9E8</td>
+<td class="instruction">LD HL,($CA5A)</td>
+<td class="comment-1" rowspan="2">Writes <a href="C7C0.html#51802">PHASE_ASCII</a> to <a href="C7C0.html#51804">PROGRESS_BUFFER</a> (at $CA61 - just overwriting the numeric part).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51691"></span>C9EB</td>
+<td class="instruction">LD ($CA61),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51694"></span>C9EE</td>
+<td class="instruction">LD HL,$CA4A</td>
+<td class="comment-1" rowspan="2">Call <a href="C7C0.html#51737">PROGRESS_BASE_10</a> with <a href="C7C0.html#51786">PHASE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51697"></span>C9F1</td>
+<td class="instruction">CALL <a href="C7C0.html#51737">PROGRESS_BASE_10</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51700"></span>C9F4</td>
+<td class="instruction">LD HL,($CA61)</td>
+<td class="comment-1" rowspan="2">Writes $CA61 back to <a href="C7C0.html#51802">PHASE_ASCII</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51703"></span>C9F7</td>
+<td class="instruction">LD ($CA5A),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51706"></span>C9FA</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51707"></span>
+<div class="comments">
+<div class="paragraph">
+Displays the current "day".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DISPLAY_DAY</td>
+<td class="address-2"><span id="51707"></span>C9FB</td>
+<td class="instruction">LD HL,$CA53</td>
+<td class="comment-1" rowspan="4">Copies <a href="C7C0.html#51795">DAY_COPY</a> into <a href="C7C0.html#51804">PROGRESS_BUFFER</a> ($05 bytes of text data).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51710"></span>C9FE</td>
+<td class="instruction">LD DE,$CA5C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51713"></span>CA01</td>
+<td class="instruction">LD BC,$0005</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51716"></span>CA04</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51718"></span>CA06</td>
+<td class="instruction">LD HL,($CA58)</td>
+<td class="comment-1" rowspan="2">Writes <a href="C7C0.html#51800">DAY_ASCII</a> to <a href="C7C0.html#51804">PROGRESS_BUFFER</a> (at $CA61 - just overwriting the numeric part).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51721"></span>CA09</td>
+<td class="instruction">LD ($CA61),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51724"></span>CA0C</td>
+<td class="instruction">LD HL,$CA4C</td>
+<td class="comment-1" rowspan="2">Call <a href="C7C0.html#51737">PROGRESS_BASE_10</a> with <a href="C7C0.html#51788">DAY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51727"></span>CA0F</td>
+<td class="instruction">CALL <a href="C7C0.html#51737">PROGRESS_BASE_10</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51730"></span>CA12</td>
+<td class="instruction">LD HL,($CA61)</td>
+<td class="comment-1" rowspan="2">Writes $CA61 back to <a href="C7C0.html#51800">DAY_ASCII</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51733"></span>CA15</td>
+<td class="instruction">LD ($CA58),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51736"></span>CA18</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51737"></span>
+<div class="comments">
+<div class="paragraph">
+This routine is for converting progress numbers into ASCII. On entry <span class="register">HL</span> will be either <a href="C7C0.html#51786">PHASE</a> or <a href="C7C0.html#51788">DAY</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PROGRESS_BASE_10</td>
+<td class="address-2"><span id="51737"></span>CA19</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">If the passed number is not more than 10 jump to <a href="C7C0.html#51751">PROGRESS_DIVISIBLE_10</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51738"></span>CA1A</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51739"></span>CA1B</td>
+<td class="instruction">CP $0A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51741"></span>CA1D</td>
+<td class="instruction">JR NC,<a href="C7C0.html#51751">PROGRESS_DIVISIBLE_10</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51743"></span>CA1F</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="3">Stores the ASCII representation of the number at $CA62 (for <a href="C7C0.html#51804">PROGRESS_BUFFER</a>). It adds ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51744"></span>CA20</td>
+<td class="instruction">ADD A,$30</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51746"></span>CA22</td>
+<td class="instruction">LD ($CA62),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51749"></span>CA25</td>
+<td class="instruction">JR <a href="C7C0.html#51768">PRINT_PROGRESS</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C7C0.html#51768">PRINT_PROGRESS</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51751"></span>
+<div class="comments">
+<div class="paragraph">
+Ensures the progress digit remains 0-9. On entry <span class="register">HL</span> will be either <a href="C7C0.html#51786">PHASE</a> or <a href="C7C0.html#51788">DAY</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PROGRESS_DIVISIBLE_10</td>
+<td class="address-2"><span id="51751"></span>CA27</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="1">Reset the current progress digit to $00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51753"></span>CA29</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Use the secondary digit of the currently focused progress.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51754"></span>
+<div class="comments">
+<div class="paragraph">
+Note this doesn't account for a third digit and so leads to eventual corruption. Once past day/ phase "99", this will display "00" and past "09" the first ASCII digit doesn't point to any usable image data. Note however, this occurs after ~4 hours of game play so isn't especially an issue.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51754"></span>CA2A</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Increase this second digit by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51755"></span>CA2B</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Add ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII). Write this number to $CA61 (for <a href="C7C0.html#51804">PROGRESS_BUFFER</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51756"></span>CA2C</td>
+<td class="instruction">ADD A,$30</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51758"></span>CA2E</td>
+<td class="instruction">LD ($CA61),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51761"></span>CA31</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Move back to point to the original location of <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51762"></span>CA32</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Again, add ASCII "0" for this digit too. Write this number to $CA62 (for <a href="C7C0.html#51804">PROGRESS_BUFFER</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51763"></span>CA33</td>
+<td class="instruction">ADD A,$30</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51765"></span>CA35</td>
+<td class="instruction">LD ($CA62),A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51768"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the current progress buffer message to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PRINT_PROGRESS</td>
+<td class="address-2"><span id="51768"></span>CA38</td>
+<td class="instruction">LD HL,$CA5C</td>
+<td class="comment-1" rowspan="4">Prints <a href="C7C0.html#51804">PROGRESS_BUFFER</a> to the screen buffer at $486C using <a href="CBD0.html#52178">PRINT_TWO_TONE_TEXT</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51771"></span>CA3B</td>
+<td class="instruction">LD DE,$486C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51774"></span>CA3E</td>
+<td class="instruction">LD BC,$0703</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51777"></span>CA41</td>
+<td class="instruction">CALL <a href="CBD0.html#52178">PRINT_TWO_TONE_TEXT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51780"></span>CA44</td>
+<td class="instruction">LD B,$50</td>
+<td class="comment-1" rowspan="3">Interrupt driven HALT loop ($50 cycles).</td>
+</tr>
+<tr>
+<td class="asm-label">PROGRESS_HALT_LOOP</td>
+<td class="address-2"><span id="51782"></span>CA46</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51783"></span>CA47</td>
+<td class="instruction">DJNZ <a href="C7C0.html#51782">PROGRESS_HALT_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51785"></span>CA49</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">PHASE</td>
+<td class="address-1"><span id="51786"></span>CA4A</td>
+<td class="instruction">DEFW $0006</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DAY</td>
+<td class="address-1"><span id="51788"></span>CA4C</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">PHASE_COPY</td>
+<td class="address-1"><span id="51790"></span>CA4E</td>
+<td class="instruction">DEFM "PHASE"</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DAY_COPY</td>
+<td class="address-1"><span id="51795"></span>CA53</td>
+<td class="instruction">DEFM " DAY "</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DAY_ASCII</td>
+<td class="address-1"><span id="51800"></span>CA58</td>
+<td class="instruction">DEFM " 1"</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">PHASE_ASCII</td>
+<td class="address-1"><span id="51802"></span>CA5A</td>
+<td class="instruction">DEFM " 6"</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">PROGRESS_BUFFER</td>
+<td class="address-1"><span id="51804"></span>CA5C</td>
+<td class="instruction">DEFM "PHASE 6",$FF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51812"></span>
+<div class="comments">
+<div class="paragraph">
+Clears the screen and displays the day number.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PREP_DISPLAY_DAY</td>
+<td class="address-2"><span id="51812"></span>CA64</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Clears the screen by passing $00 to <a href="C7C0.html#51664">CLEAR_SCREEN</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51813"></span>CA65</td>
+<td class="instruction">CALL <a href="C7C0.html#51664">CLEAR_SCREEN</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51816"></span>CA68</td>
+<td class="instruction">CALL <a href="C7C0.html#51707">DISPLAY_DAY</a></td>
+<td class="comment-1" rowspan="1">Call <a href="C7C0.html#51707">DISPLAY_DAY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51819"></span>CA6B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51820"></span>
+<div class="comments">
+<div class="paragraph">
+Clear down the day/ progress states.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">INIT_PROGRESS</td>
+<td class="address-2"><span id="51820"></span>CA6C</td>
+<td class="instruction">LD HL,$0000</td>
+<td class="comment-1" rowspan="3">Clears <a href="C7C0.html#51786">PHASE</a> and <a href="C7C0.html#51788">DAY</a> (writes $0000 to them).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51823"></span>CA6F</td>
+<td class="instruction">LD ($CA4A),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51826"></span>CA72</td>
+<td class="instruction">LD ($CA4C),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51829"></span>CA75</td>
+<td class="instruction">LD A,$20</td>
+<td class="comment-1" rowspan="6">Writes ASCII space ($20) to $CA61 and ASCII "0" ($30) to $CA62 (i.e. writes " 0" to the numeric portion of <a href="C7C0.html#51804">PROGRESS_BUFFER</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51831"></span>CA77</td>
+<td class="instruction">LD HL,$CA61</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51834"></span>CA7A</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51835"></span>CA7B</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51836"></span>CA7C</td>
+<td class="instruction">LD A,$30</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51838"></span>CA7E</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51839"></span>CA7F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">CASHBOXES_COMPLETED_FLAG</td>
+<td class="address-1"><span id="51840"></span>CA80</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">CASHBOXES_COMPLETED</td>
+<td class="address-2"><span id="51841"></span>CA81</td>
+<td class="instruction">CALL <a href="C7C0.html#51912">NEW_GAME_7</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51844"></span>CA84</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51845"></span>CA85</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">CASHBOXES_FLASH_LOOP</td>
+<td class="address-2"><span id="51847"></span>CA87</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51848"></span>CA88</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51849"></span>CA89</td>
+<td class="instruction">AND $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51851"></span>CA8B</td>
+<td class="instruction">CALL <a href="C7C0.html#51897">DEPOSIT_FLASH_PREP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51854"></span>CA8E</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51856"></span>CA90</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51859"></span>CA93</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51860"></span>CA94</td>
+<td class="instruction">DJNZ <a href="C7C0.html#51847">CASHBOXES_FLASH_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51862"></span>CA96</td>
+<td class="instruction">LD B,$30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51864"></span>CA98</td>
+<td class="instruction">CALL <a href="CD64.html">HALT_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51867"></span>CA9B</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51868"></span>CA9C</td>
+<td class="instruction">CALL <a href="C7C0.html#51897">DEPOSIT_FLASH_PREP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51871"></span>CA9F</td>
+<td class="instruction">CALL <a href="D8B0.html">RANDOM_NUMBER</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51874"></span>CAA2</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51875"></span>CAA3</td>
+<td class="instruction">LD A,R</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51877"></span>CAA5</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51878"></span>CAA6</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51879"></span>CAA7</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51880"></span>CAA8</td>
+<td class="instruction">LD A,($CBCF)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51883"></span>CAAB</td>
+<td class="instruction">LD HL,$CBB4</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51886"></span>CAAE</td>
+<td class="instruction">CALL <a href="C3C0.html">$C3C0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51889"></span>CAB1</td>
+<td class="instruction">LD ($CBCF),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51892"></span>CAB4</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51894"></span>CAB6</td>
+<td class="instruction">JP <a href="CD64.html">HALT_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DEPOSIT_FLASH_PREP</td>
+<td class="address-2"><span id="51897"></span>CAB9</td>
+<td class="instruction">LD HL,$CC8D</td>
+<td class="comment-1" rowspan="5">Writes <span class="register">A</span> across all the deposit flags (copies to each from <a href="CC8D.html">DOOR_DEPOSITED_01</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51900"></span>CABC</td>
+<td class="instruction">LD DE,$CC8E</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51903"></span>CABF</td>
+<td class="instruction">LD BC,$000D</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51906"></span>CAC2</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51907"></span>CAC3</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51909"></span>CAC5</td>
+<td class="instruction">JP <a href="CC9B.html">$CC9B</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="CC9B.html">CC9B</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_7</td>
+<td class="address-2"><span id="51912"></span>CAC8</td>
+<td class="instruction">CALL <a href="C7C0.html#51639">PREP_DISPLAY_PHASE</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51915"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="CD1B.html">FLASH_LIVES</a> and <a href="CD47.html">CD47</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_8</td>
+<td class="address-2"><span id="51915"></span>CACB</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Writes $00 to <a href="D2CF.html#54014">D2FE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51916"></span>CACC</td>
+<td class="instruction">LD ($D2FE),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51919"></span>CACF</td>
+<td class="instruction">CALL <a href="C7C0.html#51924">NEW_GAME_9</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51922"></span>CAD2</td>
+<td class="instruction">JR <a href="C7C0.html#51943">NEW_GAME_10</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_9</td>
+<td class="address-2"><span id="51924"></span>CAD4</td>
+<td class="instruction">CALL <a href="CD68.html">POPULATE_DOOR_BUFFER</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51927"></span>CAD7</td>
+<td class="instruction">CALL <a href="CC3A.html">DRAW_PLAY_WITH_DOORS</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51930"></span>CADA</td>
+<td class="instruction">CALL <a href="CC5A.html">LIFE_IMAGES</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51933"></span>CADD</td>
+<td class="instruction">CALL <a href="CC9B.html">$CC9B</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51936"></span>CAE0</td>
+<td class="instruction">CALL <a href="CD90.html">DRAW_SCORE</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51939"></span>CAE3</td>
+<td class="instruction">CALL <a href="D45E.html">$D45E</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51942"></span>CAE6</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_10</td>
+<td class="address-2"><span id="51943"></span>CAE7</td>
+<td class="instruction">LD A,$7F</td>
+<td class="comment-1" rowspan="2">Read keys SPACE, FULL-STOP, M, N, &amp; B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51945"></span>CAE9</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51947"></span>CAEB</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51948"></span>CAEC</td>
+<td class="instruction">JR C,<a href="C7C0.html#51963">NEW_GAME_11</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51950"></span>CAEE</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="2">Read keys SHIFT, Z, X, C, &amp; V.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51952"></span>CAF0</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51954"></span>CAF2</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51955"></span>CAF3</td>
+<td class="instruction">JR C,<a href="C7C0.html#51963">NEW_GAME_11</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51957"></span>CAF5</td>
+<td class="instruction">LD HL,$CBB4</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51960"></span>CAF8</td>
+<td class="instruction">CALL $FD80</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_11</td>
+<td class="address-2"><span id="51963"></span>CAFB</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="2">Read keys SHIFT, Z, X, C, &amp; V.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51965"></span>CAFD</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51967"></span>CAFF</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51969"></span>CB01</td>
+<td class="instruction">JR NZ,<a href="C7C0.html#51979">NEW_GAME_13</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_12</td>
+<td class="address-2"><span id="51971"></span>CB03</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="2">Read keys SHIFT, Z, X, C, &amp; V.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51973"></span>CB05</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51975"></span>CB07</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51977"></span>CB09</td>
+<td class="instruction">JR NZ,<a href="C7C0.html#51971">NEW_GAME_12</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_13</td>
+<td class="address-2"><span id="51979"></span>CB0B</td>
+<td class="instruction">CALL <a href="D2CF.html">$D2CF</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51982"></span>CB0E</td>
+<td class="instruction">LD BC,($CE1C)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_14</td>
+<td class="address-2"><span id="51986"></span>CB12</td>
+<td class="instruction">DEC BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51987"></span>CB13</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51988"></span>CB14</td>
+<td class="instruction">OR C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51989"></span>CB15</td>
+<td class="instruction">JR NZ,<a href="C7C0.html#51986">NEW_GAME_14</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51991"></span>CB17</td>
+<td class="instruction">CALL <a href="D3EA.html#54289">DOOR_1_PREP_2</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51994"></span>CB1A</td>
+<td class="instruction">CALL <a href="C7C0.html#52134">NEW_GAME_19</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51997"></span>CB1D</td>
+<td class="instruction">LD IX,$D165</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52001"></span>CB21</td>
+<td class="instruction">LD (IX+$08),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52005"></span>CB25</td>
+<td class="instruction">LD HL,$CE14</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52008"></span>CB28</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52009"></span>CB29</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52010"></span>CB2A</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52011"></span>CB2B</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52012"></span>CB2C</td>
+<td class="instruction">CALL Z,<a href="CE21.html">CHARACTER_CHOOSER</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52015"></span>CB2F</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52016"></span>CB30</td>
+<td class="instruction">JR Z,<a href="C7C0.html#52031">NEW_GAME_15</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52018"></span>CB32</td>
+<td class="instruction">LD HL,($CE14)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52021"></span>CB35</td>
+<td class="instruction">LD DE,$CB3F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52024"></span>CB38</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52025"></span>CB39</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52027"></span>CB3B</td>
+<td class="instruction">LD ($CE1A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52030"></span>CB3E</td>
+<td class="instruction">JP (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_15</td>
+<td class="address-2"><span id="52031"></span>CB3F</td>
+<td class="instruction">LD IX,$D173</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52035"></span>CB43</td>
+<td class="instruction">LD (IX+$08),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52039"></span>CB47</td>
+<td class="instruction">LD HL,$CE16</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52042"></span>CB4A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52043"></span>CB4B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52044"></span>CB4C</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52045"></span>CB4D</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52046"></span>CB4E</td>
+<td class="instruction">CALL Z,<a href="CE21.html">CHARACTER_CHOOSER</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52049"></span>CB51</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52050"></span>CB52</td>
+<td class="instruction">JR Z,<a href="C7C0.html#52065">NEW_GAME_16</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52052"></span>CB54</td>
+<td class="instruction">LD HL,($CE16)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52055"></span>CB57</td>
+<td class="instruction">LD DE,$CB61</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52058"></span>CB5A</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52059"></span>CB5B</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52061"></span>CB5D</td>
+<td class="instruction">LD ($CE1A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52064"></span>CB60</td>
+<td class="instruction">JP (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_16</td>
+<td class="address-2"><span id="52065"></span>CB61</td>
+<td class="instruction">LD IX,$D181</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52069"></span>CB65</td>
+<td class="instruction">LD (IX+$08),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52073"></span>CB69</td>
+<td class="instruction">LD HL,$CE18</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52076"></span>CB6C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52077"></span>CB6D</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52078"></span>CB6E</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52079"></span>CB6F</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52080"></span>CB70</td>
+<td class="instruction">CALL Z,<a href="CE21.html">CHARACTER_CHOOSER</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52083"></span>CB73</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52084"></span>CB74</td>
+<td class="instruction">JR Z,<a href="C7C0.html#52099">NEW_GAME_17</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52086"></span>CB76</td>
+<td class="instruction">LD HL,($CE18)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52089"></span>CB79</td>
+<td class="instruction">LD DE,$CB83</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52092"></span>CB7C</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52093"></span>CB7D</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52095"></span>CB7F</td>
+<td class="instruction">LD ($CE1A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52098"></span>CB82</td>
+<td class="instruction">JP (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_17</td>
+<td class="address-2"><span id="52099"></span>CB83</td>
+<td class="instruction">LD A,($D2FE)</td>
+<td class="comment-1" rowspan="3">If bit 0 of <a href="D2CF.html#54014">D2FE</a> is not zero then jump to <a href="CD47.html">CD47</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52102"></span>CB86</td>
+<td class="instruction">BIT 0,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52104"></span>CB88</td>
+<td class="instruction">JP NZ,<a href="CD47.html">$CD47</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52107"></span>CB8B</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Else if bit 1 is not zero, jump to <a href="CD1B.html">FLASH_LIVES</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52109"></span>CB8D</td>
+<td class="instruction">JP NZ,<a href="CD1B.html">FLASH_LIVES</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52112"></span>CB90</td>
+<td class="instruction">CALL <a href="CDC3.html">SCORING</a></td>
+<td class="comment-1" rowspan="1">Call <a href="CDC3.html">SCORING</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52115"></span>CB93</td>
+<td class="instruction">LD HL,$D190</td>
+<td class="comment-1" rowspan="5">If <a href="D190.html">D190</a> is not zero then call <a href="C7C0.html#52128">NEW_GAME_18</a> (also, writes $00 to <a href="D190.html">D190</a> to clear it).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52118"></span>CB96</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52119"></span>CB97</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52120"></span>CB98</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52122"></span>CB9A</td>
+<td class="instruction">CALL NZ,<a href="C7C0.html#52128">NEW_GAME_18</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52125"></span>CB9D</td>
+<td class="instruction">JP <a href="C7C0.html#51943">NEW_GAME_10</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_18</td>
+<td class="address-2"><span id="52128"></span>CBA0</td>
+<td class="instruction">CALL <a href="F950.html#63840">DOLLAR_SCROLL_0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52131"></span>CBA3</td>
+<td class="instruction">JP <a href="CC9B.html">$CC9B</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">NEW_GAME_19</td>
+<td class="address-2"><span id="52134"></span>CBA6</td>
+<td class="instruction">LD HL,$5B00</td>
+<td class="comment-1" rowspan="6">Blanks $FF bytes from <a href="5B00.html">5B00</a> onwards, then returns.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52137"></span>CBA9</td>
+<td class="instruction">LD DE,$5B01</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52140"></span>CBAC</td>
+<td class="instruction">LD BC,$00FF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52143"></span>CBAF</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52145"></span>CBB1</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52147"></span>CBB3</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="asm-label">COPIED_5B80</td>
+<td class="address-1"><span id="52148"></span>CBB4</td>
+<td class="instruction">DEFB $C3,$D2,$CB,$C3,$5A,$CC,$59,$CC</td>
+<td class="comment-1" rowspan="4">Copied to $5B80.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52156"></span>CBBC</td>
+<td class="instruction">DEFB $2A,$12,$CE,$E9,$C3,$DC,$CD,$C3</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52164"></span>CBC4</td>
+<td class="instruction">DEFB $B0,$D5,$C3,$E6,$D5,$C3,$FA,$D5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52172"></span>CBCC</td>
+<td class="instruction">DEFB $C3,$90,$CD</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52175"></span>CBCF</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C7BD.html">C7BD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51136">Map</a></td>
+<td class="next">
+Next: <a href="CBD0.html">CBD0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../dec/asm/51136.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

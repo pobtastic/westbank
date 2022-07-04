@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 6380</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="6000.html">6000</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25472">Map</a></td>
+<td class="next">
+Next: <a href="6492.html">6492</a>
+</td>
+</tr>
+</table>
+<div class="description">6380: Level Selection</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="FE00.html">TITLE_SCREEN</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_SELECT</td>
+<td class="address-2"><span id="25472"></span>6380</td>
+<td class="instruction">LD DE,$5B80</td>
+<td class="comment-1" rowspan="3"><span class="register">HL</span> points to $5B80 on entry as <span class="register">DE</span> is also $5B80 - this does nothing, it just creates a very short pause.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25475"></span>6383</td>
+<td class="instruction">LD BC,$0040</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25478"></span>6386</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25480"></span>6388</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen bufffer (i.e. "blanks it").</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25483"></span>638B</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25486"></span>638E</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25489"></span>6391</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25491"></span>6393</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25493"></span>6395</td>
+<td class="instruction">LD HL,$58A0</td>
+<td class="comment-1" rowspan="5">Writes $28 to $58A0 in the attribute buffer $100 times. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$28</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$05</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25496"></span>6398</td>
+<td class="instruction">LD DE,$58A1</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25499"></span>639B</td>
+<td class="instruction">LD BC,$0100</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25502"></span>639E</td>
+<td class="instruction">LD (HL),$28</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25504"></span>63A0</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25506"></span>63A2</td>
+<td class="instruction">LD (HL),$20</td>
+<td class="comment-1" rowspan="3">...and $20 to the attribute buffer another $5F times (following on from the previous location). <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$20</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$04</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25508"></span>63A4</td>
+<td class="instruction">LD BC,$005F</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25511"></span>63A7</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25513"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the labels to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25513"></span>63A9</td>
+<td class="instruction">LD HL,$64AC</td>
+<td class="comment-1" rowspan="3">Pass <a href="6492.html#25772">LEVEL_SELECT_ONE</a> to <a href="6380.html#25724">LEVEL_SELECT_PRINT</a> (index "1").</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25516"></span>63AC</td>
+<td class="instruction">LD A,$01</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25518"></span>63AE</td>
+<td class="instruction">CALL <a href="6380.html#25724">LEVEL_SELECT_PRINT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25521"></span>63B1</td>
+<td class="instruction">LD HL,$64B3</td>
+<td class="comment-1" rowspan="3">Pass <a href="6492.html#25779">LEVEL_SELECT_THREE</a> to <a href="6380.html#25724">LEVEL_SELECT_PRINT</a> (index "2").</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25524"></span>63B4</td>
+<td class="instruction">LD A,$02</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25526"></span>63B6</td>
+<td class="instruction">CALL <a href="6380.html#25724">LEVEL_SELECT_PRINT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25529"></span>63B9</td>
+<td class="instruction">LD HL,$64BA</td>
+<td class="comment-1" rowspan="3">Pass <a href="6492.html#25786">LEVEL_SELECT_SIX</a> to <a href="6380.html#25724">LEVEL_SELECT_PRINT</a> (index "3").</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25532"></span>63BC</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25534"></span>63BE</td>
+<td class="instruction">CALL <a href="6380.html#25724">LEVEL_SELECT_PRINT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25537"></span>63C1</td>
+<td class="instruction">LD HL,$6492</td>
+<td class="comment-1" rowspan="4">Points to <a href="6492.html">LEVEL_SELECT_COPY</a> and sends it to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a> <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$06</td>
+<td class="" colspan="1" rowspan="1">$06</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25540"></span>63C4</td>
+<td class="instruction">LD DE,$4023</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25543"></span>63C7</td>
+<td class="instruction">LD BC,$0706</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25546"></span>63CA</td>
+<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25549"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the images to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25549"></span>63CD</td>
+<td class="instruction">LD A,$25</td>
+<td class="comment-1" rowspan="3">Calls <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a> with (<a href="B240.html#46160">draw | $25</a>) for index "1".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25551"></span>63CF</td>
+<td class="instruction">LD B,$01</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25553"></span>63D1</td>
+<td class="instruction">CALL <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25556"></span>63D4</td>
+<td class="instruction">LD A,$08</td>
+<td class="comment-1" rowspan="3">Calls <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a> with (<a href="7880.html">draw | $08</a>) for index "2".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25558"></span>63D6</td>
+<td class="instruction">LD B,$02</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25560"></span>63D8</td>
+<td class="instruction">CALL <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25563"></span>63DB</td>
+<td class="instruction">LD A,$19</td>
+<td class="comment-1" rowspan="3">Calls <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a> with (<a href="9980.html#39824">draw | $19</a>) for index "3".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25565"></span>63DD</td>
+<td class="instruction">LD B,$03</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25567"></span>63DF</td>
+<td class="instruction">CALL <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25570"></span>
+<div class="comments">
+<div class="paragraph">
+Loop for getting user keyboard input.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25570"></span>63E2</td>
+<td class="instruction">LD HL,$5CB1</td>
+<td class="comment-1" rowspan="1">Used later for setting the current level at <a href="5CB1.html">LEVEL</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_SELECT_INPUT</td>
+<td class="address-2"><span id="25573"></span>63E5</td>
+<td class="instruction">LD A,$F7</td>
+<td class="comment-1" rowspan="2">Read keys 1-2-3-4-5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25575"></span>63E7</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25577"></span>63E9</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="2">If "1" is pressed, jump to <a href="6380.html#25588">LEVEL_SELECT_LEVEL_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25578"></span>63EA</td>
+<td class="instruction">JR NC,<a href="6380.html#25588">LEVEL_SELECT_LEVEL_1</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25580"></span>63EC</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="2">If "2" is pressed, jump to <a href="6380.html#25605">LEVEL_SELECT_LEVEL_3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25581"></span>63ED</td>
+<td class="instruction">JR NC,<a href="6380.html#25605">LEVEL_SELECT_LEVEL_3</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25583"></span>63EF</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="2">If "3" is pressed, jump to <a href="6380.html#25622">LEVEL_SELECT_LEVEL_6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25584"></span>63F0</td>
+<td class="instruction">JR NC,<a href="6380.html#25622">LEVEL_SELECT_LEVEL_6</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25586"></span>63F2</td>
+<td class="instruction">JR <a href="6380.html#25573">LEVEL_SELECT_INPUT</a></td>
+<td class="comment-1" rowspan="1">Cycle back to <a href="6380.html#25573">LEVEL_SELECT_INPUT</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25588"></span>
+<div class="comments">
+<div class="paragraph">
+Act on level being selected.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_SELECT_LEVEL_1</td>
+<td class="address-2"><span id="25588"></span>63F4</td>
+<td class="instruction">LD (HL),$01</td>
+<td class="comment-1" rowspan="4">Store $01 at <a href="5CB1.html">LEVEL</a> and call <a href="6380.html#25639">LS_ANIMATE_SHOT</a> with (<a href="B240.html#46688">shot | $26</a>) for index "1".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25590"></span>63F6</td>
+<td class="instruction">LD A,$26</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25592"></span>63F8</td>
+<td class="instruction">LD B,$01</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25594"></span>63FA</td>
+<td class="instruction">CALL <a href="6380.html#25639">LS_ANIMATE_SHOT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25597"></span>63FD</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="3">Jump to <a href="6380.html#25687">LS_TEXT_FLASH</a> with <span class="register">HL</span>=<a href="6492.html#25772">LEVEL_SELECT_ONE</a> and <span class="register">A</span>=$01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25599"></span>63FF</td>
+<td class="instruction">LD HL,$64AC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25602"></span>6402</td>
+<td class="instruction">JP <a href="6380.html#25687">LS_TEXT_FLASH</a></td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_SELECT_LEVEL_3</td>
+<td class="address-2"><span id="25605"></span>6405</td>
+<td class="instruction">LD (HL),$02</td>
+<td class="comment-1" rowspan="4">Store $02 at <a href="5CB1.html">LEVEL</a> and call <a href="6380.html#25639">LS_ANIMATE_SHOT</a> with (<a href="7880.html#31376">shot | $09</a>) for index "2".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25607"></span>6407</td>
+<td class="instruction">LD A,$09</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25609"></span>6409</td>
+<td class="instruction">LD B,$02</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25611"></span>640B</td>
+<td class="instruction">CALL <a href="6380.html#25639">LS_ANIMATE_SHOT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25614"></span>640E</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="3">Jump to <a href="6380.html#25687">LS_TEXT_FLASH</a> with <span class="register">HL</span>=<a href="6492.html#25779">LEVEL_SELECT_THREE</a> and <span class="register">A</span>=$02.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25616"></span>6410</td>
+<td class="instruction">LD HL,$64B3</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25619"></span>6413</td>
+<td class="instruction">JP <a href="6380.html#25687">LS_TEXT_FLASH</a></td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_SELECT_LEVEL_6</td>
+<td class="address-2"><span id="25622"></span>6416</td>
+<td class="instruction">LD (HL),$03</td>
+<td class="comment-1" rowspan="4">Store $03 at <a href="5CB1.html">LEVEL</a> and call <a href="6380.html#25639">LS_ANIMATE_SHOT</a> with (<a href="9980.html#40352">shot | $1A</a>) for index "3".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25624"></span>6418</td>
+<td class="instruction">LD A,$1A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25626"></span>641A</td>
+<td class="instruction">LD B,$03</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25628"></span>641C</td>
+<td class="instruction">CALL <a href="6380.html#25639">LS_ANIMATE_SHOT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25631"></span>641F</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="3">Jump to <a href="6380.html#25687">LS_TEXT_FLASH</a> with <span class="register">HL</span>=<a href="6492.html#25786">LEVEL_SELECT_SIX</a> and <span class="register">A</span>=$03.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25633"></span>6421</td>
+<td class="instruction">LD HL,$64BA</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25636"></span>6424</td>
+<td class="instruction">JP <a href="6380.html#25687">LS_TEXT_FLASH</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25639"></span>
+<div class="comments">
+<div class="paragraph">
+Animates the selected bandit being shot.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">LS_ANIMATE_SHOT</td>
+<td class="address-2"><span id="25639"></span>6427</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25640"></span>6428</td>
+<td class="instruction">CALL <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25643"></span>642B</td>
+<td class="instruction">CALL <a href="6500.html">SHOT_SOUND_1_ALIAS</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6500.html">SHOT_SOUND_1_ALIAS</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25646"></span>642E</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-1" rowspan="3">Short interrupt driven halt loop.</td>
+</tr>
+<tr>
+<td class="asm-label">LS_ANIMATE_SHOT_HALT_LOOP</td>
+<td class="address-2"><span id="25648"></span>6430</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25649"></span>6431</td>
+<td class="instruction">DJNZ <a href="6380.html#25648">LS_ANIMATE_SHOT_HALT_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25651"></span>6433</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25652"></span>6434</td>
+<td class="instruction">LD A,$27</td>
+<td class="comment-1" rowspan="2">Call <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a> with (<a href="B240.html#47216">floor | $27</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25654"></span>6436</td>
+<td class="instruction">CALL <a href="6380.html#25658">LEVEL_SELECT_GRAPHICS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25657"></span>6439</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25658"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the images to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_SELECT_GRAPHICS</td>
+<td class="address-2"><span id="25658"></span>643A</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="2">Stash the current counter and convert the accumulator which is holding a character ID into their memory location.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25659"></span>643B</td>
+<td class="instruction">CALL <a href="5B8F.html">CHARACTER_ADDR_ALIAS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25662"></span>643E</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25663"></span>643F</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25664"></span>6440</td>
+<td class="instruction">LD HL,$40A2</td>
+<td class="comment-1" rowspan="7">Work out which screen position to use; <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Screen Address</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="" colspan="1" rowspan="1">$40A2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$40AD</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="" colspan="1" rowspan="1">$40B8</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25667"></span>6443</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25668"></span>6444</td>
+<td class="instruction">JR Z,<a href="6380.html#25679">LS_GRAPHICS_SKIP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25670"></span>6446</td>
+<td class="instruction">LD HL,$40AD</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25673"></span>6449</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25674"></span>644A</td>
+<td class="instruction">JR Z,<a href="6380.html#25679">LS_GRAPHICS_SKIP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25676"></span>644C</td>
+<td class="instruction">LD HL,$40B8</td>
+</tr>
+<tr>
+<td class="asm-label">LS_GRAPHICS_SKIP</td>
+<td class="address-2"><span id="25679"></span>644F</td>
+<td class="instruction">LD B,$58</td>
+<td class="comment-1" rowspan="3">Set the dimensions and call <a href="5B92.html">DRAW_CHARACTER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25681"></span>6451</td>
+<td class="instruction">LD C,$06</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25683"></span>6453</td>
+<td class="instruction">CALL <a href="5B92.html">DRAW_CHARACTER</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25686"></span>6456</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25687"></span>
+<div class="comments">
+<div class="paragraph">
+Flashes the selected level text.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">LS_TEXT_FLASH</td>
+<td class="address-2"><span id="25687"></span>6457</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="22">This prints <a href="6492.html#25793">LEVEL_SELECT_WHITESPACE</a> and the passed level copy alternately with a delay caused by a HALT loop (which continues execution after an interrupt is fired), the sequence repeats $08 times.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25689"></span>6459</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="asm-label">LS_TEXT_FLASH_LOOP</td>
+<td class="address-2"><span id="25690"></span>645A</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25691"></span>645B</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25692"></span>645C</td>
+<td class="instruction">LD A,C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25693"></span>645D</td>
+<td class="instruction">CALL <a href="6380.html#25724">LEVEL_SELECT_PRINT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25696"></span>6460</td>
+<td class="instruction">LD B,$10</td>
+</tr>
+<tr>
+<td class="asm-label">LS_FLASH_HALT_LOOP_1</td>
+<td class="address-2"><span id="25698"></span>6462</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25699"></span>6463</td>
+<td class="instruction">DJNZ <a href="6380.html#25698">LS_FLASH_HALT_LOOP_1</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25701"></span>6465</td>
+<td class="instruction">LD HL,$64C1</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25704"></span>6468</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25705"></span>6469</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25706"></span>646A</td>
+<td class="instruction">LD A,C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25707"></span>646B</td>
+<td class="instruction">CALL <a href="6380.html#25724">LEVEL_SELECT_PRINT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25710"></span>646E</td>
+<td class="instruction">LD B,$10</td>
+</tr>
+<tr>
+<td class="asm-label">LS_FLASH_HALT_LOOP_2</td>
+<td class="address-2"><span id="25712"></span>6470</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25713"></span>6471</td>
+<td class="instruction">DJNZ <a href="6380.html#25712">LS_FLASH_HALT_LOOP_2</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25715"></span>6473</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25716"></span>6474</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25717"></span>6475</td>
+<td class="instruction">DJNZ <a href="6380.html#25690">LS_TEXT_FLASH_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25719"></span>6477</td>
+<td class="instruction">LD A,C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25720"></span>6478</td>
+<td class="instruction">CALL <a href="6380.html#25724">LEVEL_SELECT_PRINT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25723"></span>647B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25724"></span>
+<div class="comments">
+<div class="paragraph">
+Print level select copy to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_SELECT_PRINT</td>
+<td class="address-2"><span id="25724"></span>647C</td>
+<td class="instruction">LD DE,$5022</td>
+<td class="comment-1" rowspan="7">First, work out which screen position to use; <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Screen Address</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="" colspan="1" rowspan="1">$5022</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$502D</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="" colspan="1" rowspan="1">$5038</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25727"></span>647F</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25728"></span>6480</td>
+<td class="instruction">JR Z,<a href="6380.html#25739">LEVEL_SELECT_0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25730"></span>6482</td>
+<td class="instruction">LD DE,$502D</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25733"></span>6485</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25734"></span>6486</td>
+<td class="instruction">JR Z,<a href="6380.html#25739">LEVEL_SELECT_0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25736"></span>6488</td>
+<td class="instruction">LD DE,$5038</td>
+</tr>
+<tr>
+<td class="asm-label">LEVEL_SELECT_0</td>
+<td class="address-2"><span id="25739"></span>648B</td>
+<td class="instruction">LD BC,$0702</td>
+<td class="comment-1" rowspan="2">Then call the print routine at <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25742"></span>648E</td>
+<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="25745"></span>6491</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="6000.html">6000</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25472">Map</a></td>
+<td class="next">
+Next: <a href="6492.html">6492</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../dec/asm/25472.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

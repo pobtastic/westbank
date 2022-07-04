@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C422</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C3EA.html">C3EA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50210">Map</a></td>
+<td class="next">
+Next: <a href="C5EB.html">C5EB</a>
+</td>
+</tr>
+</table>
+<div class="description">C422: Duel Bonus Round.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="C3C0.html">C3C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP</td>
+<td class="address-2"><span id="50210"></span>C422</td>
+<td class="instruction">LD HL,$C3EA</td>
+<td class="comment-1" rowspan="4">Copies $33 bytes of data from <a href="C3EA.html">DUEL_DATA</a> to <a href="5BC0.html">DUELLER_1</a> (and across all three duellists).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50213"></span>C425</td>
+<td class="instruction">LD DE,$5BC0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50216"></span>C428</td>
+<td class="instruction">LD BC,$0033</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50219"></span>C42B</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50221"></span>C42D</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50222"></span>C42E</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50223"></span>C42F</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50224"></span>C430</td>
+<td class="instruction">LD IX,$5BC0</td>
+<td class="comment-1" rowspan="2">Calls <a href="C67F.html">DUEL_UPDATE_TIMER</a> with <a href="5BC0.html">DUELLER_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50228"></span>C434</td>
+<td class="instruction">CALL <a href="C67F.html">DUEL_UPDATE_TIMER</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50231"></span>C437</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50232"></span>C438</td>
+<td class="instruction">LD IX,$5BD1</td>
+<td class="comment-1" rowspan="2">Calls <a href="C67F.html">DUEL_UPDATE_TIMER</a> with <a href="5BD1.html">DUELLER_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50236"></span>C43C</td>
+<td class="instruction">CALL <a href="C67F.html">DUEL_UPDATE_TIMER</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50239"></span>C43F</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50240"></span>C440</td>
+<td class="instruction">LD IX,$5BE2</td>
+<td class="comment-1" rowspan="2">Calls <a href="C67F.html">DUEL_UPDATE_TIMER</a> with <a href="5BE2.html">DUELLER_3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50244"></span>C444</td>
+<td class="instruction">CALL <a href="C67F.html">DUEL_UPDATE_TIMER</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50247"></span>C447</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="7">Reset the flags (writes $00 to <a href="C6E2.html">DUEL_BANG_FLAG</a>, <a href="C6E3.html">DUEL_LOSE_LIFE</a> and <a href="C6E4.html">DUEL_EXTRA_LIFE</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50248"></span>C448</td>
+<td class="instruction">LD HL,$C6E2</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50251"></span>C44B</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50252"></span>C44C</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50253"></span>C44D</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50254"></span>C44E</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50255"></span>C44F</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50256"></span>C450</td>
+<td class="instruction">LD A,($C421)</td>
+<td class="comment-1" rowspan="1"><a href="C3EA.html#50209">C421</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50259"></span>C453</td>
+<td class="instruction">OR $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50261"></span>C455</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50263"></span>C457</td>
+<td class="instruction">LD DE,$0001</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50266"></span>C45A</td>
+<td class="instruction">JR NC,<a href="C422.html#50275">DUEL_CLEAR_SCREEN</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50268"></span>C45C</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50269"></span>C45D</td>
+<td class="instruction">LD DE,$0020</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP_LOOP</td>
+<td class="address-2"><span id="50272"></span>C460</td>
+<td class="instruction">DEC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50273"></span>C461</td>
+<td class="instruction">DJNZ <a href="C422.html#50272">DUEL_PREP_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_CLEAR_SCREEN</td>
+<td class="address-2"><span id="50275"></span>C463</td>
+<td class="instruction">LD ($C52E),DE</td>
+<td class="comment-1" rowspan="1">....</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50279"></span>
+<div class="comments">
+<div class="paragraph">
+Clears down the screen buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50279"></span>C467</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="6">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50282"></span>C46A</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50285"></span>C46D</td>
+<td class="instruction">LD BC,$1AFF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50288"></span>C470</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50289"></span>C471</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50290"></span>C472</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50292"></span>
+<div class="comments">
+<div class="paragraph">
+Writes the attributes for the playfield (sky, grass, footer).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50292"></span>C474</td>
+<td class="instruction">LD HL,$5880</td>
+<td class="comment-1" rowspan="5">Writes $28 to $5880 in the attribute buffer $180 times... <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$05</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50295"></span>C477</td>
+<td class="instruction">LD DE,$5881</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50298"></span>C47A</td>
+<td class="instruction">LD BC,$0180</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50301"></span>C47D</td>
+<td class="instruction">LD (HL),$28</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50303"></span>C47F</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50305"></span>C481</td>
+<td class="instruction">LD (HL),$20</td>
+<td class="comment-1" rowspan="3">...continuing, writes $20 $80 times... <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$04</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50307"></span>C483</td>
+<td class="instruction">LD BC,$0080</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50310"></span>C486</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50312"></span>C488</td>
+<td class="instruction">LD (HL),$07</td>
+<td class="comment-1" rowspan="3">...and finally, writes $07 $7F times. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50314"></span>C48A</td>
+<td class="instruction">LD BC,$007F</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50317"></span>C48D</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50319"></span>
+<div class="comments">
+<div class="paragraph">
+Creates the footer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50319"></span>C48F</td>
+<td class="instruction">LD HL,$C655</td>
+<td class="comment-1" rowspan="2">Point to <a href="C64D.html#50773">PLAYFIELD_LIVES</a> and print using <a href="C6A7.html">DUEL_PRINT_LIVES</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50322"></span>C492</td>
+<td class="instruction">CALL <a href="C6A7.html">DUEL_PRINT_LIVES</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50325"></span>C495</td>
+<td class="instruction">CALL <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50328"></span>C498</td>
+<td class="instruction">LD HL,$C64D</td>
+<td class="comment-1" rowspan="4">Point to <a href="C64D.html">PLAYFIELD_SCORE</a> and prints using <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50331"></span>C49B</td>
+<td class="instruction">LD DE,$50C0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50334"></span>C49E</td>
+<td class="instruction">LD BC,$0703</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50337"></span>C4A1</td>
+<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50340"></span>C4A4</td>
+<td class="instruction">CALL <a href="5B98.html">DRAW_SCORE_ALIAS</a></td>
+<td class="comment-1" rowspan="1">Writes the players score.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50343"></span>
+<div class="comments">
+<div class="paragraph">
+Initialise duellers.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50343"></span>C4A7</td>
+<td class="instruction">LD IX,$5BC0</td>
+<td class="comment-1" rowspan="3">Initialise <a href="5BC0.html">DUELLER_1</a> (draws frame 1).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50347"></span>C4AB</td>
+<td class="instruction">LD A,(IX+$0A)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50350"></span>C4AE</td>
+<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50353"></span>C4B1</td>
+<td class="instruction">LD IX,$5BD1</td>
+<td class="comment-1" rowspan="3">Initialise <a href="5BD1.html">DUELLER_2</a> (draws frame 1).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50357"></span>C4B5</td>
+<td class="instruction">LD A,(IX+$0A)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50360"></span>C4B8</td>
+<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50363"></span>C4BB</td>
+<td class="instruction">LD IX,$5BE2</td>
+<td class="comment-1" rowspan="3">Initialise <a href="5BE2.html">DUELLER_3</a> (draws frame 1).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50367"></span>C4BF</td>
+<td class="instruction">LD A,(IX+$0A)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50370"></span>C4C2</td>
+<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50373"></span>
+<div class="comments">
+<div class="paragraph">
+Count down 5-4-3-2-1...0!
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">COUNTDOWN_INITIALISE</td>
+<td class="address-1"><span id="50373"></span>C4C5</td>
+<td class="instruction">LD A,$35</td>
+<td class="comment-1" rowspan="3">Initialise countdown to "5" seconds ($35 in ASCII), hold this at <a href="C6E0.html">DUEL_TIMER</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">COUNTDOWN_LOOP</td>
+<td class="address-2"><span id="50375"></span>C4C7</td>
+<td class="instruction">PUSH AF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50376"></span>C4C8</td>
+<td class="instruction">LD ($C6E0),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50379"></span>C4CB</td>
+<td class="instruction">CALL <a href="C6D3.html">DUEL_PRINT_COUNTDOWN</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50382"></span>C4CE</td>
+<td class="instruction">LD B,$31</td>
+<td class="comment-1" rowspan="3">Short halt loop (1 second pause).</td>
+</tr>
+<tr>
+<td class="asm-label">COUNTDOWN_HALT_LOOP</td>
+<td class="address-2"><span id="50384"></span>C4D0</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50385"></span>C4D1</td>
+<td class="instruction">DJNZ <a href="C422.html#50384">COUNTDOWN_HALT_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50387"></span>C4D3</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="4">Keep looping back to <a href="C422.html#50375">COUNTDOWN_LOOP</a> until the countdown is "0" ($30 in ASCII).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50388"></span>C4D4</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50389"></span>C4D5</td>
+<td class="instruction">CP $30</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50391"></span>C4D7</td>
+<td class="instruction">JR NZ,<a href="C422.html#50375">COUNTDOWN_LOOP</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50393"></span>C4D9</td>
+<td class="instruction">LD A,$20</td>
+<td class="comment-1" rowspan="3">Blank the countdown timer by printing a "SPACE" ($20 in ASCII) over the top of it.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50395"></span>C4DB</td>
+<td class="instruction">LD ($C6E0),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50398"></span>C4DE</td>
+<td class="instruction">CALL <a href="C6D3.html">DUEL_PRINT_COUNTDOWN</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50401"></span>C4E1</td>
+<td class="instruction">JR <a href="C422.html#50425">DUEL_START</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C422.html#50425">DUEL_START</a> and start the duel!</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_LOOP</td>
+<td class="address-2"><span id="50403"></span>C4E3</td>
+<td class="instruction">LD IX,$5BC0</td>
+<td class="comment-1" rowspan="2">Calls <a href="C422.html#50480">DUEL_ACTIONS</a> with <a href="5BC0.html">DUELLER_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50407"></span>C4E7</td>
+<td class="instruction">CALL <a href="C422.html#50480">DUEL_ACTIONS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50410"></span>C4EA</td>
+<td class="instruction">LD IX,$5BD1</td>
+<td class="comment-1" rowspan="2">Calls <a href="C422.html#50480">DUEL_ACTIONS</a> with <a href="5BD1.html">DUELLER_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50414"></span>C4EE</td>
+<td class="instruction">CALL <a href="C422.html#50480">DUEL_ACTIONS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50417"></span>C4F1</td>
+<td class="instruction">LD IX,$5BE2</td>
+<td class="comment-1" rowspan="2">Calls <a href="C422.html#50480">DUEL_ACTIONS</a> with <a href="5BE2.html">DUELLER_3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50421"></span>C4F5</td>
+<td class="instruction">CALL <a href="C422.html#50480">DUEL_ACTIONS</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50424"></span>C4F8</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50425"></span>
+<div class="comments">
+<div class="paragraph">
+DRAW!
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_START</td>
+<td class="address-2"><span id="50425"></span>C4F9</td>
+<td class="instruction">LD DE,($C52E)</td>
+<td class="comment-1" rowspan="2"><span class="register">DE</span>=<a href="C422.html#50478">C52E</a> and push it on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_START_LOOP</td>
+<td class="address-2"><span id="50429"></span>C4FD</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50430"></span>C4FE</td>
+<td class="instruction">CALL <a href="C422.html#50403">DUEL_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50433"></span>C501</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50434"></span>C502</td>
+<td class="instruction">DEC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50435"></span>C503</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50436"></span>C504</td>
+<td class="instruction">OR E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50437"></span>C505</td>
+<td class="instruction">JR NZ,<a href="C422.html#50429">DUEL_START_LOOP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50439"></span>C507</td>
+<td class="instruction">LD IX,$5BC0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50443"></span>C50B</td>
+<td class="instruction">CALL <a href="C422.html#50571">DUEL_PREP_1</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50446"></span>C50E</td>
+<td class="instruction">LD IX,$5BD1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50450"></span>C512</td>
+<td class="instruction">CALL <a href="C422.html#50571">DUEL_PREP_1</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50453"></span>C515</td>
+<td class="instruction">LD IX,$5BE2</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50457"></span>C519</td>
+<td class="instruction">CALL <a href="C422.html#50571">DUEL_PREP_1</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50460"></span>C51C</td>
+<td class="instruction">LD IX,$5BC0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50464"></span>C520</td>
+<td class="instruction">LD A,(IX+$08)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50467"></span>C523</td>
+<td class="instruction">OR (IX+$19)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50470"></span>C526</td>
+<td class="instruction">OR (IX+$2A)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50473"></span>C529</td>
+<td class="instruction">JP Z,<a href="C690.html">DUEL_COMPLETE</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50476"></span>C52C</td>
+<td class="instruction">JR <a href="C422.html#50425">DUEL_START</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50478"></span>C52E</td>
+<td class="instruction">DEFW $001F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_ACTIONS</td>
+<td class="address-2"><span id="50480"></span>C530</td>
+<td class="instruction">CALL <a href="C422.html#50499">DUEL_ACTION_1</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50483"></span>C533</td>
+<td class="instruction">CALL <a href="C422.html#50539">DUEL_ACTION_4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50486"></span>C536</td>
+<td class="instruction">CALL <a href="C422.html#50512">DUEL_ACTION_2</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50489"></span>C539</td>
+<td class="instruction">CALL <a href="C422.html#50539">DUEL_ACTION_4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50492"></span>C53C</td>
+<td class="instruction">CALL <a href="C422.html#50525">DUEL_ACTION_3</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50495"></span>C53F</td>
+<td class="instruction">CALL <a href="C422.html#50539">DUEL_ACTION_4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50498"></span>C542</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_ACTION_1</td>
+<td class="address-2"><span id="50499"></span>C543</td>
+<td class="instruction">CALL <a href="5B88.html">JUMP_CONTROL_METHOD</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="5B88.html">JUMP_CONTROL_METHOD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50502"></span>C546</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="2">Return if bit 4 of <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50504"></span>C548</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50505"></span>C549</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="3">If bit 0 is not zero then return setting <span class="register">A</span> to $03.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50507"></span>C54B</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50509"></span>C54D</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50510"></span>C54E</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Set <span class="register">A</span> to zero and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50511"></span>C54F</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_ACTION_2</td>
+<td class="address-2"><span id="50512"></span>C550</td>
+<td class="instruction">CALL <a href="5B88.html">JUMP_CONTROL_METHOD</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="5B88.html">JUMP_CONTROL_METHOD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50515"></span>C553</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="2">Return if bit 4 of <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50517"></span>C555</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50518"></span>C556</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="3">If bit 1 is not zero then return setting <span class="register">A</span> to $01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50520"></span>C558</td>
+<td class="instruction">LD A,$01</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50522"></span>C55A</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50523"></span>C55B</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Set <span class="register">A</span> to zero and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50524"></span>C55C</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_ACTION_3</td>
+<td class="address-2"><span id="50525"></span>C55D</td>
+<td class="instruction">CALL <a href="5B88.html">JUMP_CONTROL_METHOD</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50528"></span>C560</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50530"></span>C562</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50531"></span>C563</td>
+<td class="instruction">AND $03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50533"></span>C565</td>
+<td class="instruction">LD A,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50535"></span>C567</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50536"></span>C568</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50538"></span>C56A</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_ACTION_4</td>
+<td class="address-2"><span id="50539"></span>C56B</td>
+<td class="instruction">CP (IX+$03)</td>
+<td class="comment-1" rowspan="2">If the dueller position has been changed to zero then jump to <a href="C422.html#50549">DUEL_DUNNO</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50542"></span>C56E</td>
+<td class="instruction">JR Z,<a href="C422.html#50549">DUEL_DUNNO</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50544"></span>C570</td>
+<td class="instruction">LD (IX+$0D),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50548"></span>C574</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_DUNNO</td>
+<td class="address-2"><span id="50549"></span>C575</td>
+<td class="instruction">LD A,(IX+$0D)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50552"></span>C578</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50553"></span>C579</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50554"></span>C57A</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50556"></span>C57C</td>
+<td class="instruction">LD (IX+$0D),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50559"></span>C57F</td>
+<td class="instruction">LD (IX+$00),A</td>
+<td class="comment-1" rowspan="1">Set dueller state to $01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50562"></span>C582</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50563"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCORE</a> and <a href="C6E5.html">DUELLER_SHOT</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP_0</td>
+<td class="address-2"><span id="50563"></span>C583</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50565"></span>C585</td>
+<td class="instruction">CALL <a href="6500.html">SHOT_SOUND_1_ALIAS</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50568"></span>C588</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50570"></span>C58A</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP_1</td>
+<td class="address-2"><span id="50571"></span>C58B</td>
+<td class="instruction">LD A,(IX+$08)</td>
+<td class="comment-1" rowspan="3">If IX+$08 is zero then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50574"></span>C58E</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50575"></span>C58F</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50576"></span>C590</td>
+<td class="instruction">LD A,(IX+$09)</td>
+<td class="comment-1" rowspan="3">If dueller frame index is $01 then jump to <a href="C422.html#50593">DUEL_PREP_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50579"></span>C593</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50580"></span>C594</td>
+<td class="instruction">JR Z,<a href="C422.html#50593">DUEL_PREP_2</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50582"></span>C596</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">If dueller frame index is $02 then jump to <a href="C422.html#50613">DUEL_PREP_3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50583"></span>C597</td>
+<td class="instruction">JR Z,<a href="C422.html#50613">DUEL_PREP_3</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50585"></span>C599</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">If dueller frame index is $03 then jump to <a href="C422.html#50621">DUEL_PREP_4</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50586"></span>C59A</td>
+<td class="instruction">JR Z,<a href="C422.html#50621">DUEL_PREP_4</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50588"></span>C59C</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">If dueller frame index is $04 then jump to <a href="C422.html#50639">DUEL_PREP_5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50589"></span>C59D</td>
+<td class="instruction">JR Z,<a href="C422.html#50639">DUEL_PREP_5</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50591"></span>C59F</td>
+<td class="instruction">JR <a href="C422.html#50653">DUEL_PREP_6</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C422.html#50653">DUEL_PREP_6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP_2</td>
+<td class="address-2"><span id="50593"></span>C5A1</td>
+<td class="instruction">LD HL,$C6E5</td>
+<td class="comment-1" rowspan="1"><a href="C6E5.html">DUELLER_SHOT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50596"></span>C5A4</td>
+<td class="instruction">CALL <a href="C5EB.html">DUELLER_DOWN</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50599"></span>C5A7</td>
+<td class="instruction">DEC (IX+$01)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50602"></span>C5AA</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50603"></span>C5AB</td>
+<td class="instruction">INC (IX+$09)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50606"></span>C5AE</td>
+<td class="instruction">LD A,(IX+$0B)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50609"></span>C5B1</td>
+<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50612"></span>C5B4</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP_3</td>
+<td class="address-2"><span id="50613"></span>C5B5</td>
+<td class="instruction">DEC (IX+$10)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50616"></span>C5B8</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50617"></span>C5B9</td>
+<td class="instruction">INC (IX+$09)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50620"></span>C5BC</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP_4</td>
+<td class="address-2"><span id="50621"></span>C5BD</td>
+<td class="instruction">LD HL,$C5F6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50624"></span>C5C0</td>
+<td class="instruction">CALL <a href="C5EB.html">DUELLER_DOWN</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50627"></span>C5C3</td>
+<td class="instruction">DEC (IX+$02)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50630"></span>C5C6</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50631"></span>C5C7</td>
+<td class="instruction">LD (IX+$08),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50634"></span>C5CA</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50635"></span>C5CB</td>
+<td class="instruction">LD ($C6E2),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50638"></span>C5CE</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP_5</td>
+<td class="address-2"><span id="50639"></span>C5CF</td>
+<td class="instruction">DEC (IX+$0E)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50642"></span>C5D2</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50643"></span>C5D3</td>
+<td class="instruction">INC (IX+$09)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50646"></span>C5D6</td>
+<td class="instruction">LD A,(IX+$0C)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50649"></span>C5D9</td>
+<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50652"></span>C5DC</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">DUEL_PREP_6</td>
+<td class="address-2"><span id="50653"></span>C5DD</td>
+<td class="instruction">DEC (IX+$0F)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50656"></span>C5E0</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50657"></span>C5E1</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50659"></span>C5E3</td>
+<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50662"></span>C5E6</td>
+<td class="instruction">LD (IX+$08),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50666"></span>C5EA</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C3EA.html">C3EA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50210">Map</a></td>
+<td class="next">
+Next: <a href="C5EB.html">C5EB</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../dec/asm/50210.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>
