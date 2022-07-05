@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 50728</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -45,47 +43,57 @@ Handles whether to display points or "EXTRA" above each downed Bandit.
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_POINTS</td>
 <td class="address-2"><span id="50728"></span>50728</td>
 <td class="instruction">LD A,(50916)</td>
-<td class="comment-1" rowspan="4">If <a href="50916.html">50916</a> is NOT zero then award 9(00) bonus points.</td>
+<td class="comment-1" rowspan="4">If <a href="50916.html">DUEL_EXTRA_LIFE</a> is NOT zero then award 9(00) bonus points.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50731"></span>50731</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50732"></span>50732</td>
 <td class="instruction">LD A,9</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50734"></span>50734</td>
-<td class="instruction">JR NZ,<a href="50695.html">50695</a></td>
+<td class="instruction">JR NZ,<a href="50695.html">PRINT_BONUS_SCORE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50736"></span>50736</td>
 <td class="instruction">LD HL,(23430)</td>
-<td class="comment-1" rowspan="5">Fetch a 16 bit address from <a href="23430.html">23430</a> (<a href="52313.html">52313</a>), if it is higher than $05 then award 9(00) bonus points.</td>
+<td class="comment-1" rowspan="5">Fetch a 16 bit address from <a href="23430.html">LIVES_ADDR</a> (<a href="52313.html">LIVES</a>), if it is higher than $05 then award 9(00) bonus points.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50739"></span>50739</td>
 <td class="instruction">LD A,(HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50740"></span>50740</td>
 <td class="instruction">CP 5</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50742"></span>50742</td>
 <td class="instruction">LD A,9</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50744"></span>50744</td>
-<td class="instruction">JR NC,<a href="50695.html">50695</a></td>
+<td class="instruction">JR NC,<a href="50695.html">PRINT_BONUS_SCORE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50746"></span>50746</td>
 <td class="instruction">LD HL,50722</td>
-<td class="comment-1" rowspan="4">Points to <a href="50722.html">50722</a> and sends it to <a href="23424.html">23424</a>. <table class="default">
+<td class="comment-1" rowspan="4">Points to <a href="50722.html">EXTRA_TEXT_COPY</a> and sends it to <a href="23424.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -107,32 +115,39 @@ Handles whether to display points or "EXTRA" above each downed Bandit.
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50749"></span>50749</td>
 <td class="instruction">DEC DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50750"></span>50750</td>
 <td class="instruction">LD BC,10793</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50753"></span>50753</td>
-<td class="instruction">CALL <a href="23424.html">23424</a></td>
+<td class="instruction">CALL <a href="23424.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50756"></span>50756</td>
 <td class="instruction">LD A,1</td>
-<td class="comment-1" rowspan="2">Writes $01 to <a href="50916.html">50916</a>.</td>
+<td class="comment-1" rowspan="2">Writes $01 to <a href="50916.html">DUEL_EXTRA_LIFE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50758"></span>50758</td>
 <td class="instruction">LD (50916),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50761"></span>50761</td>
 <td class="instruction">INC (IX+9)</td>
 <td class="comment-1" rowspan="1">Move onto the next frame.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50764"></span>50764</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

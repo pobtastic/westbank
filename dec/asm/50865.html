@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 50865</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,83 +37,101 @@ Next: <a href="50899.html">50899</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="50832.html">50832</a>.
+Used by the routine at <a href="50832.html">DUEL_COMPLETE</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_FLASH_TEXT</td>
 <td class="address-2"><span id="50865"></span>50865</td>
 <td class="instruction">LD B,8</td>
-<td class="comment-1" rowspan="14">Alternates displaying <a href="50765.html#50779">50779</a> and <a href="50765.html#50773">50773</a> to "flash" the lives indicator.</td>
+<td class="comment-1" rowspan="14">Alternates displaying <a href="50765.html#50779">PLAYFIELD_WHITESPACE</a> and <a href="50765.html#50773">PLAYFIELD_LIVES</a> to "flash" the lives indicator.</td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_FLASH_TEXT_LOOP</td>
 <td class="address-2"><span id="50867"></span>50867</td>
 <td class="instruction">PUSH BC</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50868"></span>50868</td>
 <td class="instruction">LD HL,50779</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50871"></span>50871</td>
-<td class="instruction">CALL <a href="50855.html">50855</a></td>
+<td class="instruction">CALL <a href="50855.html">DUEL_PRINT_LIVES</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50874"></span>50874</td>
 <td class="instruction">LD B,16</td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_FLASH_HALT_LOOP_1</td>
 <td class="address-2"><span id="50876"></span>50876</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50877"></span>50877</td>
-<td class="instruction">DJNZ <a href="50865.html#50876">50876</a></td>
+<td class="instruction">DJNZ <a href="50865.html#50876">DUEL_FLASH_HALT_LOOP_1</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50879"></span>50879</td>
 <td class="instruction">LD HL,50773</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50882"></span>50882</td>
-<td class="instruction">CALL <a href="50855.html">50855</a></td>
+<td class="instruction">CALL <a href="50855.html">DUEL_PRINT_LIVES</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50885"></span>50885</td>
 <td class="instruction">LD B,16</td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_FLASH_HALT_LOOP_2</td>
 <td class="address-2"><span id="50887"></span>50887</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50888"></span>50888</td>
-<td class="instruction">DJNZ <a href="50865.html#50887">50887</a></td>
+<td class="instruction">DJNZ <a href="50865.html#50887">DUEL_FLASH_HALT_LOOP_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50890"></span>50890</td>
 <td class="instruction">POP BC</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50891"></span>50891</td>
-<td class="instruction">DJNZ <a href="50865.html#50867">50867</a></td>
+<td class="instruction">DJNZ <a href="50865.html#50867">DUEL_FLASH_TEXT_LOOP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50893"></span>50893</td>
 <td class="instruction">LD HL,(23430)</td>
-<td class="comment-1" rowspan="2">Increase the lives counter by one (<a href="52313.html">52313</a>).</td>
+<td class="comment-1" rowspan="2">Increase the lives counter by one (<a href="52313.html">LIVES</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50896"></span>50896</td>
 <td class="instruction">INC (HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50897"></span>50897</td>
 <td class="instruction">SCF</td>
 <td class="comment-1" rowspan="2">Sets the carry flag and returns.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50898"></span>50898</td>
 <td class="instruction">RET</td>
 </tr>

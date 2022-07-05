@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D5B0</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -45,98 +43,120 @@ Returns the 16 bit memory location of a character from a given character index i
 </td>
 </tr>
 <tr>
+<td class="asm-label">CHARACTER_ADDR</td>
 <td class="address-2"><span id="d5b0"></span>D5B0</td>
 <td class="instruction">LD H,$00</td>
-<td class="comment-1" rowspan="21">Using <a href="6800.html">6800</a> as a base address (which is the first character), this works out the character frame from a given index passed in <span class="register">A</span>. To give an example with $1A; <ul class="">
+<td class="comment-1" rowspan="21">Using <a href="6800.html">CHARACTER_00</a> as a base address (which is the first character), this works out the character frame from a given index passed in <span class="register">A</span>. To give an example with $1A; <ul class="">
 <li>Loads <strong>$1A</strong> as the low-order byte; <span class="register">HL</span>=$001A</li>
 <li>Times by <strong>$200</strong>; store this in <span class="register">DE</span>=$3400</li>
 <li>Loads <strong>$1A</strong> as the low-order byte; <span class="register">HL</span>=$001A</li>
 <li>Times by <strong>$10</strong>; <span class="register">HL</span>=$1A0</li>
 <li><span class="register">HL</span>+<span class="register">DE</span>=$35A0</li>
-<li>Add <strong>$6800</strong>=<a href="9980.html#9da0">9DA0</a></li>
+<li>Add <strong>$6800</strong>=<a href="9980.html#9da0">CHARACTER_1A</a></li>
 </ul></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5b2"></span>D5B2</td>
 <td class="instruction">LD L,A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5b3"></span>D5B3</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5b4"></span>D5B4</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5b5"></span>D5B5</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5b6"></span>D5B6</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5b7"></span>D5B7</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5b8"></span>D5B8</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5b9"></span>D5B9</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5ba"></span>D5BA</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5bb"></span>D5BB</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5bc"></span>D5BC</td>
 <td class="instruction">EX DE,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5bd"></span>D5BD</td>
 <td class="instruction">LD H,$00</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5bf"></span>D5BF</td>
 <td class="instruction">LD L,A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5c0"></span>D5C0</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5c1"></span>D5C1</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5c2"></span>D5C2</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5c3"></span>D5C3</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5c4"></span>D5C4</td>
 <td class="instruction">ADD HL,DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5c5"></span>D5C5</td>
 <td class="instruction">LD DE,$6800</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5c8"></span>D5C8</td>
 <td class="instruction">ADD HL,DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d5c9"></span>D5C9</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Returns the address in <span class="register">HL</span>.</td>

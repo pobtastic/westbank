@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 50823</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,30 +37,35 @@ Next: <a href="50832.html">50832</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="50832.html">50832</a>.
+Used by the routine at <a href="50832.html">DUEL_COMPLETE</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">LOSE_LIFE</td>
 <td class="address-2"><span id="50823"></span>50823</td>
-<td class="instruction">CALL <a href="49152.html">49152</a></td>
+<td class="instruction">CALL <a href="49152.html">BANG</a></td>
 <td class="comment-1" rowspan="1">Calls the subroutine to display the "BANG" animation.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50826"></span>50826</td>
 <td class="instruction">LD HL,(23430)</td>
-<td class="comment-1" rowspan="3">Decrease the lives counter by one (<a href="52313.html">52313</a>), set the zero flag if all lives are lost.</td>
+<td class="comment-1" rowspan="3">Decrease the lives counter by one (<a href="52313.html">LIVES</a>), set the zero flag if all lives are lost.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50829"></span>50829</td>
 <td class="instruction">DEC (HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50830"></span>50830</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50831"></span>50831</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

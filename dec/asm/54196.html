@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 54196</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,59 +37,70 @@ Next: <a href="54219.html">54219</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="54023.html">54023</a>.
+Used by the routine at <a href="54023.html">CONTROLS</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DRAW_SHOT_MASK</td>
 <td class="address-2"><span id="54196"></span>54196</td>
 <td class="instruction">LD DE,65368</td>
-<td class="comment-1" rowspan="2">Point to <a href="65368.html">65368</a> and set the image dimensions.</td>
+<td class="comment-1" rowspan="2">Point to <a href="65368.html">SHOT_MASK_IMAGE</a> and set the image dimensions.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54199"></span>54199</td>
 <td class="instruction">LD BC,2050</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54202"></span>54202</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1">Stash the screen location.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54203"></span>54203</td>
-<td class="instruction">CALL <a href="54778.html">54778</a></td>
-<td class="comment-1" rowspan="1">Calls <a href="54778.html">54778</a>.</td>
+<td class="instruction">CALL <a href="54778.html">MERGE_SHOT</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="54778.html">MERGE_SHOT</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54206"></span>54206</td>
 <td class="instruction">HALT</td>
 <td class="comment-1" rowspan="2">Very short pause.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54207"></span>54207</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54208"></span>54208</td>
 <td class="instruction">POP HL</td>
 <td class="comment-1" rowspan="1">Grab the screen location.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54209"></span>54209</td>
 <td class="instruction">LD DE,65368</td>
-<td class="comment-1" rowspan="2">Point to <a href="65368.html">65368</a> and set the image dimensions.</td>
+<td class="comment-1" rowspan="2">Point to <a href="65368.html">SHOT_MASK_IMAGE</a> and set the image dimensions.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54212"></span>54212</td>
 <td class="instruction">LD BC,2050</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54215"></span>54215</td>
-<td class="instruction">CALL <a href="54778.html">54778</a></td>
-<td class="comment-1" rowspan="1">Calls <a href="54778.html">54778</a>.</td>
+<td class="instruction">CALL <a href="54778.html">MERGE_SHOT</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="54778.html">MERGE_SHOT</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54218"></span>54218</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

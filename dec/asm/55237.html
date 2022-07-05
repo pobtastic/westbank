@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 55237</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -55,46 +53,55 @@ Bowie state variables/ flags.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_GOOD_BAD</td>
 <td class="address-2"><span id="55237"></span>55237</td>
 <td class="instruction">DEFB 1</td>
 <td class="comment-1" rowspan="1">If this is $00 then Bowie is "good". If this is $01 then he is "bad" (i.e. there's a bomb under his hat).</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_FRAME_REF</td>
 <td class="address-1"><span id="55238"></span>55238</td>
 <td class="instruction">DEFB 34</td>
 <td class="comment-1" rowspan="1">The current character frame index reference.</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_STATE_REF</td>
 <td class="address-1"><span id="55239"></span>55239</td>
 <td class="instruction">DEFB 6</td>
 <td class="comment-1" rowspan="1">The current character state.</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_1_TIMER</td>
 <td class="address-1"><span id="55240"></span>55240</td>
 <td class="instruction">DEFB 0</td>
 <td class="comment-1" rowspan="1">Character timer 1.</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_2_TIMER</td>
 <td class="address-1"><span id="55241"></span>55241</td>
 <td class="instruction">DEFB 0</td>
 <td class="comment-1" rowspan="1">Character timer 2.</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_3_TIMER</td>
 <td class="address-1"><span id="55242"></span>55242</td>
 <td class="instruction">DEFB 0</td>
 <td class="comment-1" rowspan="1">Character timer 3.</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_4_TIMER</td>
 <td class="address-1"><span id="55243"></span>55243</td>
 <td class="instruction">DEFB 0</td>
 <td class="comment-1" rowspan="1">Character timer 4.</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_5_TIMER</td>
 <td class="address-1"><span id="55244"></span>55244</td>
 <td class="instruction">DEFB 0</td>
 <td class="comment-1" rowspan="1">Character timer 5.</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_6_TIMER</td>
 <td class="address-1"><span id="55245"></span>55245</td>
 <td class="instruction">DEFB 0</td>
 <td class="comment-1" rowspan="1">Character timer 6.</td>
@@ -110,15 +117,18 @@ This routine looks at the current character state and routes to the correct subr
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_ROUTING</td>
 <td class="address-2"><span id="55246"></span>55246</td>
 <td class="instruction">LD HL,55239</td>
-<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="55237.html#55239">55239</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="55237.html#55239">BOWIE_STATE_REF</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55249"></span>55249</td>
 <td class="instruction">LD A,(HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55250"></span>55250</td>
 <td class="instruction">DEC A</td>
 <td class="comment-1" rowspan="11">Work out which routine to jump to based on the current state. <table class="default">
@@ -128,69 +138,79 @@ This routine looks at the current character state and routes to the correct subr
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$01</td>
-<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55267">55267</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55267">BOWIE_OPEN_1</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55282">55282</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55282">BOWIE_OPEN_2</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$03</td>
-<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55297">55297</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55297">BOWIE_OPEN_3</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$04</td>
-<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55312">55312</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55312">BOWIE_OPEN_4</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$05</td>
-<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55340">55340</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55340">BOWIE_CLOSE_2</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$06</td>
-<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55356">55356</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="55237.html#55356">BOWIE_CLOSE_1</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55251"></span>55251</td>
-<td class="instruction">JR Z,<a href="55237.html#55267">55267</a></td>
+<td class="instruction">JR Z,<a href="55237.html#55267">BOWIE_OPEN_1</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55253"></span>55253</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55254"></span>55254</td>
-<td class="instruction">JR Z,<a href="55237.html#55282">55282</a></td>
+<td class="instruction">JR Z,<a href="55237.html#55282">BOWIE_OPEN_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55256"></span>55256</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55257"></span>55257</td>
-<td class="instruction">JR Z,<a href="55237.html#55297">55297</a></td>
+<td class="instruction">JR Z,<a href="55237.html#55297">BOWIE_OPEN_3</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55259"></span>55259</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55260"></span>55260</td>
-<td class="instruction">JR Z,<a href="55237.html#55312">55312</a></td>
+<td class="instruction">JR Z,<a href="55237.html#55312">BOWIE_OPEN_4</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55262"></span>55262</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55263"></span>55263</td>
-<td class="instruction">JR Z,<a href="55237.html#55340">55340</a></td>
+<td class="instruction">JR Z,<a href="55237.html#55340">BOWIE_CLOSE_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55265"></span>55265</td>
-<td class="instruction">JR <a href="55237.html#55356">55356</a></td>
+<td class="instruction">JR <a href="55237.html#55356">BOWIE_CLOSE_1</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -203,37 +223,45 @@ Handle door frame 1 countdown/ transition to door frame 2.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_OPEN_1</td>
 <td class="address-2"><span id="55267"></span>55267</td>
 <td class="instruction">LD A,(55240)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55240">55240</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55240">BOWIE_1_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55270"></span>55270</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55271"></span>55271</td>
 <td class="instruction">LD (55240),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55274"></span>55274</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55275"></span>55275</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1">Move onto next character state.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55276"></span>55276</td>
 <td class="instruction">LD A,27</td>
-<td class="comment-1" rowspan="3">Pass character index <a href="40880.html">$1B</a> to <a href="54884.html#54993">54993</a> and return.</td>
+<td class="comment-1" rowspan="3">Pass character index <a href="40880.html">$1B</a> to <a href="54884.html#54993">DRAW_DOOR_FRAME_2</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55278"></span>55278</td>
-<td class="instruction">CALL <a href="54884.html#54993">54993</a></td>
+<td class="instruction">CALL <a href="54884.html#54993">DRAW_DOOR_FRAME_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55281"></span>55281</td>
 <td class="instruction">RET</td>
 </tr>
@@ -248,37 +276,45 @@ Handle door frame 2 countdown/ transition to door frame 3.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_OPEN_2</td>
 <td class="address-2"><span id="55282"></span>55282</td>
 <td class="instruction">LD A,(55241)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55241">55241</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55241">BOWIE_2_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55285"></span>55285</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55286"></span>55286</td>
 <td class="instruction">LD (55241),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55289"></span>55289</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55290"></span>55290</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1">Move onto next character state.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55291"></span>55291</td>
 <td class="instruction">LD A,27</td>
-<td class="comment-1" rowspan="3">Pass character index <a href="40880.html">$1B</a> to <a href="54884.html#55007">55007</a> and return.</td>
+<td class="comment-1" rowspan="3">Pass character index <a href="40880.html">$1B</a> to <a href="54884.html#55007">DRAW_DOOR_FRAME_3</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55293"></span>55293</td>
-<td class="instruction">CALL <a href="54884.html#55007">55007</a></td>
+<td class="instruction">CALL <a href="54884.html#55007">DRAW_DOOR_FRAME_3</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55296"></span>55296</td>
 <td class="instruction">RET</td>
 </tr>
@@ -293,37 +329,45 @@ Handle door frame 3 countdown/ transition to door frame 4.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_OPEN_3</td>
 <td class="address-2"><span id="55297"></span>55297</td>
 <td class="instruction">LD A,(55242)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55242">55242</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55242">BOWIE_3_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55300"></span>55300</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55301"></span>55301</td>
 <td class="instruction">LD (55242),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55304"></span>55304</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55305"></span>55305</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1">Move onto next character state.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55306"></span>55306</td>
 <td class="instruction">LD A,27</td>
-<td class="comment-1" rowspan="3">Pass character frame index <a href="40880.html">$1B</a> to <a href="54884.html#55021">55021</a> and return.</td>
+<td class="comment-1" rowspan="3">Pass character frame index <a href="40880.html">$1B</a> to <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55308"></span>55308</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55311"></span>55311</td>
 <td class="instruction">RET</td>
 </tr>
@@ -338,54 +382,66 @@ Handle door frame 4 countdown/ transition to door frame 3.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_OPEN_4</td>
 <td class="address-2"><span id="55312"></span>55312</td>
 <td class="instruction">LD E,(IX+4)</td>
-<td class="comment-1" rowspan="3">Call <a href="54691.html">54691</a> with a callback to either <a href="55237.html#55371">55371</a> or <a href="55237.html#55389">55389</a>.</td>
+<td class="comment-1" rowspan="3">Call <a href="54691.html">HIT_DETECTION</a> with a callback to either <a href="55237.html#55371">BOWIE_CASH_ACTION</a> or <a href="55237.html#55389">BOWIE_BOMB_ACTION</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55315"></span>55315</td>
 <td class="instruction">LD D,(IX+5)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55318"></span>55318</td>
-<td class="instruction">CALL <a href="54691.html">54691</a></td>
+<td class="instruction">CALL <a href="54691.html">HIT_DETECTION</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55321"></span>55321</td>
 <td class="instruction">LD A,(55243)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55243">55243</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55243">BOWIE_4_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55324"></span>55324</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55325"></span>55325</td>
 <td class="instruction">LD (55243),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55328"></span>55328</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_CLOSE_3</td>
 <td class="address-2"><span id="55329"></span>55329</td>
 <td class="instruction">LD HL,55239</td>
-<td class="comment-1" rowspan="2">Move onto next character state (<a href="55237.html#55239">55239</a>).</td>
+<td class="comment-1" rowspan="2">Move onto next character state (<a href="55237.html#55239">BOWIE_STATE_REF</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55332"></span>55332</td>
 <td class="instruction">INC (HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55333"></span>55333</td>
 <td class="instruction">LD A,(55238)</td>
-<td class="comment-1" rowspan="3">Load the character frame index from <a href="55237.html#55238">55238</a>, pass it to <a href="54884.html#55007">55007</a> and return.</td>
+<td class="comment-1" rowspan="3">Load the character frame index from <a href="55237.html#55238">BOWIE_FRAME_REF</a>, pass it to <a href="54884.html#55007">DRAW_DOOR_FRAME_3</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55336"></span>55336</td>
-<td class="instruction">CALL <a href="54884.html#55007">55007</a></td>
+<td class="instruction">CALL <a href="54884.html#55007">DRAW_DOOR_FRAME_3</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55339"></span>55339</td>
 <td class="instruction">RET</td>
 </tr>
@@ -400,37 +456,45 @@ Handle door frame 3 countdown/ transition to door frame 2.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_CLOSE_2</td>
 <td class="address-2"><span id="55340"></span>55340</td>
 <td class="instruction">LD A,(55244)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55244">55244</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55244">BOWIE_5_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55343"></span>55343</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55344"></span>55344</td>
 <td class="instruction">LD (55244),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55347"></span>55347</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55348"></span>55348</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1">Move onto next character state.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55349"></span>55349</td>
 <td class="instruction">LD A,(55238)</td>
-<td class="comment-1" rowspan="3">Load the character frame index from <a href="55237.html#55238">55238</a>, pass it to <a href="54884.html#54993">54993</a> and return.</td>
+<td class="comment-1" rowspan="3">Load the character frame index from <a href="55237.html#55238">BOWIE_FRAME_REF</a>, pass it to <a href="54884.html#54993">DRAW_DOOR_FRAME_2</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55352"></span>55352</td>
-<td class="instruction">CALL <a href="54884.html#54993">54993</a></td>
+<td class="instruction">CALL <a href="54884.html#54993">DRAW_DOOR_FRAME_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55355"></span>55355</td>
 <td class="instruction">RET</td>
 </tr>
@@ -445,33 +509,40 @@ Handle door frame 2 countdown/ transition to door frame 1.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_CLOSE_1</td>
 <td class="address-2"><span id="55356"></span>55356</td>
 <td class="instruction">LD A,(55245)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55245">55245</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="55237.html#55245">BOWIE_6_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55359"></span>55359</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55360"></span>55360</td>
 <td class="instruction">LD (55245),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55363"></span>55363</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55364"></span>55364</td>
-<td class="instruction">CALL <a href="54884.html">54884</a></td>
-<td class="comment-1" rowspan="1">Call <a href="54884.html">54884</a> (i.e. no character/ door is shut).</td>
+<td class="instruction">CALL <a href="54884.html">DRAW_DOOR_FRAME_1</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54884.html">DRAW_DOOR_FRAME_1</a> (i.e. no character/ door is shut).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55367"></span>55367</td>
-<td class="instruction">CALL <a href="55457.html">55457</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55457.html">55457</a>.</td>
+<td class="instruction">CALL <a href="55457.html">RESET___</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55457.html">RESET___</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55370"></span>55370</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -487,31 +558,37 @@ Handles marking this as something shootable.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_CASH_ACTION</td>
 <td class="address-1"><span id="55371"></span>55371</td>
 <td class="instruction">LD (IX+6),5</td>
 <td class="comment-1" rowspan="2">Writes $05 to <span class="register">IX</span>+$06 and $01 to <span class="register">IX</span>+$07.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55375"></span>55375</td>
 <td class="instruction">LD (IX+7),1</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55379"></span>55379</td>
 <td class="instruction">LD A,1</td>
 <td class="comment-1" rowspan="3">Writes $01 to <span class="register">IX</span>+$08 and <a href="53648.html">53648</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55381"></span>55381</td>
 <td class="instruction">LD (IX+8),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55384"></span>55384</td>
 <td class="instruction">LD (53648),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55387"></span>55387</td>
-<td class="instruction">JR <a href="55237.html#55329">55329</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="55237.html#55329">55329</a>.</td>
+<td class="instruction">JR <a href="55237.html#55329">BOWIE_CLOSE_3</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55237.html#55329">BOWIE_CLOSE_3</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -524,15 +601,18 @@ Handles marking this as something unshootable.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_BOMB_ACTION</td>
 <td class="address-1"><span id="55389"></span>55389</td>
 <td class="instruction">LD A,5</td>
 <td class="comment-1" rowspan="3">Writes $05 to <a href="53967.html#54014">54014</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55391"></span>55391</td>
 <td class="instruction">LD (54014),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55394"></span>55394</td>
 <td class="instruction">RET</td>
 </tr>
@@ -547,43 +627,52 @@ Handles both shooting the hats off Bowie's head, and checking/ routing on the la
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_SHOT_ACTION</td>
 <td class="address-1"><span id="55395"></span>55395</td>
 <td class="instruction">LD HL,55238</td>
-<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="55237.html#55238">55238</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="55237.html#55238">BOWIE_FRAME_REF</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55398"></span>55398</td>
 <td class="instruction">LD A,(HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55399"></span>55399</td>
 <td class="instruction">CP 33</td>
 <td class="comment-1" rowspan="1">Is it character frame reference (<a href="40880.html#44048">1 hat | $21</a>)?</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55401"></span>55401</td>
 <td class="instruction">LD (IX+6),1</td>
 <td class="comment-1" rowspan="1">Writes $01 to <span class="register">IX</span>+$06.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55405"></span>55405</td>
-<td class="instruction">JR NC,<a href="55237.html#55413">55413</a></td>
-<td class="comment-1" rowspan="1">If Bowie is on the last frame then jump forward to <a href="55237.html#55413">55413</a>.</td>
+<td class="instruction">JR NC,<a href="55237.html#55413">BOWIE_CHECK</a></td>
+<td class="comment-1" rowspan="1">If Bowie is on the last frame then jump forward to <a href="55237.html#55413">BOWIE_CHECK</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55407"></span>55407</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="4">Else update <a href="55237.html#55238">55238</a> to point at the next frame, call <a href="54884.html#55021">55021</a> and return.</td>
+<td class="comment-1" rowspan="4">Else update <a href="55237.html#55238">BOWIE_FRAME_REF</a> to point at the next frame, call <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55408"></span>55408</td>
 <td class="instruction">LD (HL),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55409"></span>55409</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55412"></span>55412</td>
 <td class="instruction">RET</td>
 </tr>
@@ -598,22 +687,26 @@ Checks the "good/ bad" flag and routes the gameplay accordingly.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_CHECK</td>
 <td class="address-2"><span id="55413"></span>55413</td>
 <td class="instruction">LD A,(55237)</td>
-<td class="comment-1" rowspan="3">If <a href="55237.html">55237</a> is zero jump to <a href="55237.html#55421">55421</a>.</td>
+<td class="comment-1" rowspan="3">If <a href="55237.html">BOWIE_GOOD_BAD</a> is zero jump to <a href="55237.html#55421">BOWIE_STATE_CASH</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55416"></span>55416</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55417"></span>55417</td>
-<td class="instruction">JR Z,<a href="55237.html#55421">55421</a></td>
+<td class="instruction">JR Z,<a href="55237.html#55421">BOWIE_STATE_CASH</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55419"></span>55419</td>
-<td class="instruction">JR <a href="55237.html#55439">55439</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="55237.html#55439">55439</a>.</td>
+<td class="instruction">JR <a href="55237.html#55439">BOWIE_STATE_BOMB</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55237.html#55439">BOWIE_STATE_BOMB</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -626,32 +719,39 @@ Handle displaying cash character frame.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_STATE_CASH</td>
 <td class="address-2"><span id="55421"></span>55421</td>
 <td class="instruction">LD A,35</td>
-<td class="comment-1" rowspan="3">Writes character frame reference <a href="40880.html#45104">cash | $23</a> to <a href="55237.html#55238">55238</a>, and pass it to <a href="54884.html#55021">55021</a>.</td>
+<td class="comment-1" rowspan="3">Writes character frame reference <a href="40880.html#45104">cash | $23</a> to <a href="55237.html#55238">BOWIE_FRAME_REF</a>, and pass it to <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55423"></span>55423</td>
 <td class="instruction">LD (55238),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55426"></span>55426</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55429"></span>55429</td>
 <td class="instruction">LD HL,55371</td>
-<td class="comment-1" rowspan="3">Writes <a href="55237.html#55371">55371</a> to the current door flags (e.g. <a href="53605.html#53609">53609</a>, <a href="53619.html#53623">53623</a> or <a href="53633.html#53637">53637</a>).</td>
+<td class="comment-1" rowspan="3">Writes <a href="55237.html#55371">BOWIE_CASH_ACTION</a> to the current door flags (e.g. <a href="53605.html#53609">DOOR_1_BOWIE_ACTION</a>, <a href="53619.html#53623">DOOR_2_BOWIE_ACTION</a> or <a href="53633.html#53637">DOOR_3_BOWIE_ACTION</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55432"></span>55432</td>
 <td class="instruction">LD (IX+4),L</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55435"></span>55435</td>
 <td class="instruction">LD (IX+5),H</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55438"></span>55438</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -667,32 +767,39 @@ Handle displaying bomb character frame.
 </td>
 </tr>
 <tr>
+<td class="asm-label">BOWIE_STATE_BOMB</td>
 <td class="address-2"><span id="55439"></span>55439</td>
 <td class="instruction">LD A,34</td>
-<td class="comment-1" rowspan="3">Writes character frame reference <a href="40880.html#44576">bomb | $22</a> to <a href="55237.html#55238">55238</a>, and pass it to <a href="54884.html#55021">55021</a>.</td>
+<td class="comment-1" rowspan="3">Writes character frame reference <a href="40880.html#44576">bomb | $22</a> to <a href="55237.html#55238">BOWIE_FRAME_REF</a>, and pass it to <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55441"></span>55441</td>
 <td class="instruction">LD (55238),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55444"></span>55444</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55447"></span>55447</td>
 <td class="instruction">LD HL,55389</td>
-<td class="comment-1" rowspan="3">Writes <a href="55237.html#55389">55389</a> to the current door flags (e.g. <a href="53605.html#53609">53609</a>, <a href="53619.html#53623">53623</a> or <a href="53633.html#53637">53637</a>).</td>
+<td class="comment-1" rowspan="3">Writes <a href="55237.html#55389">BOWIE_BOMB_ACTION</a> to the current door flags (e.g. <a href="53605.html#53609">DOOR_1_BOWIE_ACTION</a>, <a href="53619.html#53623">DOOR_2_BOWIE_ACTION</a> or <a href="53633.html#53637">DOOR_3_BOWIE_ACTION</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55450"></span>55450</td>
 <td class="instruction">LD (IX+4),L</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55453"></span>55453</td>
 <td class="instruction">LD (IX+5),H</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55456"></span>55456</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

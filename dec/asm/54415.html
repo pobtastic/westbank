@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 54415</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -52,76 +50,91 @@ Character state variables/ flags.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_FRAME_1</td>
 <td class="address-2"><span id="54415"></span>54415</td>
 <td class="instruction">DEFB 3</td>
 <td class="comment-1" rowspan="1">Character frame index 1.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_FRAME_2</td>
 <td class="address-1"><span id="54416"></span>54416</td>
 <td class="instruction">DEFB 4</td>
 <td class="comment-1" rowspan="1">Character frame index 2.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_FRAME_3</td>
 <td class="address-1"><span id="54417"></span>54417</td>
 <td class="instruction">DEFB 5</td>
 <td class="comment-1" rowspan="1">Character frame index 3.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_FRAME_4</td>
 <td class="address-1"><span id="54418"></span>54418</td>
 <td class="instruction">DEFB 6</td>
 <td class="comment-1" rowspan="1">Character frame index 4.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_FRAME_5</td>
 <td class="address-1"><span id="54419"></span>54419</td>
 <td class="instruction">DEFB 7</td>
 <td class="comment-1" rowspan="1">Character frame index 5.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_FLAG_UNCOVER</td>
 <td class="address-1"><span id="54420"></span>54420</td>
 <td class="instruction">DEFB 1</td>
 <td class="comment-1" rowspan="1">Represents whether the customer will move to uncover a bandit ($00 "normal" / $01 "uncover" action).</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_STATE_REF</td>
 <td class="address-1"><span id="54421"></span>54421</td>
 <td class="instruction">DEFB 2</td>
 <td class="comment-1" rowspan="1">The current character state.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_1_TIMER</td>
 <td class="address-1"><span id="54422"></span>54422</td>
 <td class="instruction">DEFB 11</td>
 <td class="comment-1" rowspan="1">Character timer 1.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_2_TIMER</td>
 <td class="address-1"><span id="54423"></span>54423</td>
 <td class="instruction">DEFB 0</td>
 <td class="comment-1" rowspan="1">Character timer 2.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_3_TIMER</td>
 <td class="address-1"><span id="54424"></span>54424</td>
 <td class="instruction">DEFB 0</td>
 <td class="comment-1" rowspan="1">Character timer 3.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_4_TIMER</td>
 <td class="address-1"><span id="54425"></span>54425</td>
 <td class="instruction">DEFB 30</td>
 <td class="comment-1" rowspan="1">Character timer 4.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_5_TIMER</td>
 <td class="address-1"><span id="54426"></span>54426</td>
 <td class="instruction">DEFB 12</td>
 <td class="comment-1" rowspan="1">Character timer 5.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_6_TIMER</td>
 <td class="address-1"><span id="54427"></span>54427</td>
 <td class="instruction">DEFB 6</td>
 <td class="comment-1" rowspan="1">Character timer 6.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_7_TIMER</td>
 <td class="address-1"><span id="54428"></span>54428</td>
 <td class="instruction">DEFB 8</td>
 <td class="comment-1" rowspan="1">Character timer 7.</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_8_TIMER</td>
 <td class="address-1"><span id="54429"></span>54429</td>
 <td class="instruction">DEFB 8</td>
 <td class="comment-1" rowspan="1">Character timer 8.</td>
@@ -137,15 +150,18 @@ This routine looks at the current character state and routes to the correct subr
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_ROUTING</td>
 <td class="address-2"><span id="54430"></span>54430</td>
 <td class="instruction">LD HL,54421</td>
-<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="54415.html#54421">54421</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="54415.html#54421">CUSTOMER_STATE_REF</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54433"></span>54433</td>
 <td class="instruction">LD A,(HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54434"></span>54434</td>
 <td class="instruction">DEC A</td>
 <td class="comment-1" rowspan="15">Work out which routine to use based on the current state. <table class="default">
@@ -155,93 +171,107 @@ This routine looks at the current character state and routes to the correct subr
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$01</td>
-<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54461">54461</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54461">CUSTOMER_OPEN_1</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54477">54477</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54477">CUSTOMER_OPEN_2</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$03</td>
-<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54493">54493</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54493">CUSTOMER_OPEN_3</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$04</td>
-<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54509">54509</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54509">CUSTOMER_OPEN_4</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$05</td>
-<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54564">54564</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54564">CUSTOMER_UNCOVER</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$06</td>
-<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54592">54592</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54592">CUSTOMER_CLOSE_3</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54617">54617</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54617">CUSTOMER_CLOSE_2</a></td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">$08</td>
-<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54636">54636</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="54415.html#54636">CUSTOMER_CLOSE_1</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54435"></span>54435</td>
-<td class="instruction">JR Z,<a href="54415.html#54461">54461</a></td>
+<td class="instruction">JR Z,<a href="54415.html#54461">CUSTOMER_OPEN_1</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54437"></span>54437</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54438"></span>54438</td>
-<td class="instruction">JR Z,<a href="54415.html#54477">54477</a></td>
+<td class="instruction">JR Z,<a href="54415.html#54477">CUSTOMER_OPEN_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54440"></span>54440</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54441"></span>54441</td>
-<td class="instruction">JR Z,<a href="54415.html#54493">54493</a></td>
+<td class="instruction">JR Z,<a href="54415.html#54493">CUSTOMER_OPEN_3</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54443"></span>54443</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54444"></span>54444</td>
-<td class="instruction">JR Z,<a href="54415.html#54509">54509</a></td>
+<td class="instruction">JR Z,<a href="54415.html#54509">CUSTOMER_OPEN_4</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54446"></span>54446</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54447"></span>54447</td>
-<td class="instruction">JP Z,<a href="54415.html#54564">54564</a></td>
+<td class="instruction">JP Z,<a href="54415.html#54564">CUSTOMER_UNCOVER</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54450"></span>54450</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54451"></span>54451</td>
-<td class="instruction">JP Z,<a href="54415.html#54592">54592</a></td>
+<td class="instruction">JP Z,<a href="54415.html#54592">CUSTOMER_CLOSE_3</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54454"></span>54454</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54455"></span>54455</td>
-<td class="instruction">JP Z,<a href="54415.html#54617">54617</a></td>
+<td class="instruction">JP Z,<a href="54415.html#54617">CUSTOMER_CLOSE_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54458"></span>54458</td>
-<td class="instruction">JP <a href="54415.html#54636">54636</a></td>
+<td class="instruction">JP <a href="54415.html#54636">CUSTOMER_CLOSE_1</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -254,38 +284,46 @@ Handle door frame 1 countdown/ transition to door frame 2.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_OPEN_1</td>
 <td class="address-2"><span id="54461"></span>54461</td>
 <td class="instruction">LD A,(54422)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54422">54422</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54422">CUSTOMER_1_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54464"></span>54464</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54465"></span>54465</td>
 <td class="instruction">LD (54422),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54468"></span>54468</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54469"></span>54469</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1">Move onto next character state.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54470"></span>54470</td>
 <td class="instruction">LD A,(54415)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html">54415</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html">CUSTOMER_FRAME_1</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54473"></span>54473</td>
-<td class="instruction">CALL <a href="54884.html#54993">54993</a></td>
-<td class="comment-1" rowspan="2">Call <a href="54884.html#54993">54993</a> and return.</td>
+<td class="instruction">CALL <a href="54884.html#54993">DRAW_DOOR_FRAME_2</a></td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#54993">DRAW_DOOR_FRAME_2</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54476"></span>54476</td>
 <td class="instruction">RET</td>
 </tr>
@@ -300,38 +338,46 @@ Handle door frame 2 countdown/ transition to door frame 3.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_OPEN_2</td>
 <td class="address-2"><span id="54477"></span>54477</td>
 <td class="instruction">LD A,(54423)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54423">54423</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54423">CUSTOMER_2_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54480"></span>54480</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54481"></span>54481</td>
 <td class="instruction">LD (54423),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54484"></span>54484</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54485"></span>54485</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1">Move onto next character state.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54486"></span>54486</td>
 <td class="instruction">LD A,(54415)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html">54415</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html">CUSTOMER_FRAME_1</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54489"></span>54489</td>
-<td class="instruction">CALL <a href="54884.html#55007">55007</a></td>
-<td class="comment-1" rowspan="2">Call <a href="54884.html#55007">55007</a> and return.</td>
+<td class="instruction">CALL <a href="54884.html#55007">DRAW_DOOR_FRAME_3</a></td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#55007">DRAW_DOOR_FRAME_3</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54492"></span>54492</td>
 <td class="instruction">RET</td>
 </tr>
@@ -346,38 +392,46 @@ Handle door frame 3 countdown/ transition to door frame 4.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_OPEN_3</td>
 <td class="address-2"><span id="54493"></span>54493</td>
 <td class="instruction">LD A,(54424)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54424">54424</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54424">CUSTOMER_3_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54496"></span>54496</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54497"></span>54497</td>
 <td class="instruction">LD (54424),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54500"></span>54500</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54501"></span>54501</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1">Move onto next character state.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54502"></span>54502</td>
 <td class="instruction">LD A,(54415)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html">54415</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html">CUSTOMER_FRAME_1</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54505"></span>54505</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
-<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">55021</a> and return.</td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54508"></span>54508</td>
 <td class="instruction">RET</td>
 </tr>
@@ -392,78 +446,95 @@ Handle door frame 4 timer...
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_OPEN_4</td>
 <td class="address-2"><span id="54509"></span>54509</td>
 <td class="instruction">LD DE,53137</td>
-<td class="comment-1" rowspan="2">Calls <a href="54691.html">54691</a> with <span class="register">DE</span>=<a href="52920.html#53137">53137</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="54691.html">HIT_DETECTION</a> with <span class="register">DE</span>=<a href="52920.html#53137">INIT_CUSTOMER_SHOT</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54512"></span>54512</td>
-<td class="instruction">CALL <a href="54691.html">54691</a></td>
+<td class="instruction">CALL <a href="54691.html">HIT_DETECTION</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54515"></span>54515</td>
 <td class="instruction">LD A,(54425)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54425">54425</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54425">CUSTOMER_4_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54518"></span>54518</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54519"></span>54519</td>
 <td class="instruction">LD (54425),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54522"></span>54522</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54523"></span>54523</td>
 <td class="instruction">LD A,(54420)</td>
-<td class="comment-1" rowspan="3">Jump to <a href="54415.html#54550">54550</a> if <a href="54415.html#54420">54420</a> is not zero.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="54415.html#54550">CUSTOMER_HANDS_UP</a> if <a href="54415.html#54420">CUSTOMER_FLAG_UNCOVER</a> is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54526"></span>54526</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54527"></span>54527</td>
-<td class="instruction">JR NZ,<a href="54415.html#54550">54550</a></td>
+<td class="instruction">JR NZ,<a href="54415.html#54550">CUSTOMER_HANDS_UP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54529"></span>54529</td>
 <td class="instruction">LD (HL),7</td>
-<td class="comment-1" rowspan="1">Set <a href="54415.html#54421">54421</a> to use state $07 (<a href="54415.html#54617">54617</a> on the next call to <a href="54415.html#54430">54430</a>).</td>
+<td class="comment-1" rowspan="1">Set <a href="54415.html#54421">CUSTOMER_STATE_REF</a> to use state $07 (<a href="54415.html#54617">CUSTOMER_CLOSE_2</a> on the next call to <a href="54415.html#54430">CUSTOMER_ROUTING</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54531"></span>54531</td>
 <td class="instruction">LD A,(54415)</td>
-<td class="comment-1" rowspan="2">Call <a href="54884.html#55007">55007</a> using the character frame index from <a href="54415.html">54415</a>.</td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#55007">DRAW_DOOR_FRAME_3</a> using the character frame index from <a href="54415.html">CUSTOMER_FRAME_1</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54534"></span>54534</td>
-<td class="instruction">CALL <a href="54884.html#55007">55007</a></td>
+<td class="instruction">CALL <a href="54884.html#55007">DRAW_DOOR_FRAME_3</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54537"></span>54537</td>
 <td class="instruction">LD (IX+6),5</td>
-<td class="comment-1" rowspan="1">Issue 500 points (by writing $05 to the high order byte of, e.g. <a href="53605.html#53611">53611</a>).</td>
+<td class="comment-1" rowspan="1">Issue 500 points (by writing $05 to the high order byte of, e.g. <a href="53605.html#53611">DOOR_1_SCORING</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54541"></span>54541</td>
 <td class="instruction">LD A,1</td>
-<td class="comment-1" rowspan="2">Register this as a deposit (by writing $01 to e.g. <a href="53605.html#53613">53613</a>).</td>
+<td class="comment-1" rowspan="2">Register this as a deposit (by writing $01 to e.g. <a href="53605.html#53613">DOOR_1_CASH_ACTION</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54543"></span>54543</td>
 <td class="instruction">LD (IX+8),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54546"></span>54546</td>
 <td class="instruction">LD (53648),A</td>
 <td class="comment-1" rowspan="1">Writes $01 to <a href="53648.html">53648</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54549"></span>54549</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -479,29 +550,35 @@ Handle customer putting their hands up.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_HANDS_UP</td>
 <td class="address-2"><span id="54550"></span>54550</td>
 <td class="instruction">LD A,(54421)</td>
-<td class="comment-1" rowspan="3">Increase <a href="54415.html#54421">54421</a> by one.</td>
+<td class="comment-1" rowspan="3">Increase <a href="54415.html#54421">CUSTOMER_STATE_REF</a> by one.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54553"></span>54553</td>
 <td class="instruction">INC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54554"></span>54554</td>
 <td class="instruction">LD (54421),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54557"></span>54557</td>
 <td class="instruction">LD A,(54416)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html#54416">54416</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html#54416">CUSTOMER_FRAME_2</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54560"></span>54560</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
-<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">55021</a> and return.</td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54563"></span>54563</td>
 <td class="instruction">RET</td>
 </tr>
@@ -516,55 +593,67 @@ Handles customer uncovering a "hidden" bandit action.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_UNCOVER</td>
 <td class="address-2"><span id="54564"></span>54564</td>
 <td class="instruction">LD DE,53137</td>
-<td class="comment-1" rowspan="2">Calls <a href="54691.html">54691</a> with <span class="register">DE</span>=<a href="52920.html#53137">53137</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="54691.html">HIT_DETECTION</a> with <span class="register">DE</span>=<a href="52920.html#53137">INIT_CUSTOMER_SHOT</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54567"></span>54567</td>
-<td class="instruction">CALL <a href="54691.html">54691</a></td>
+<td class="instruction">CALL <a href="54691.html">HIT_DETECTION</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54570"></span>54570</td>
 <td class="instruction">LD A,(54426)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54426">54426</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54426">CUSTOMER_5_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54573"></span>54573</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54574"></span>54574</td>
 <td class="instruction">LD (54426),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54577"></span>54577</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54578"></span>54578</td>
 <td class="instruction">LD A,(54421)</td>
-<td class="comment-1" rowspan="3">Increase <a href="54415.html#54421">54421</a> by one.</td>
+<td class="comment-1" rowspan="3">Increase <a href="54415.html#54421">CUSTOMER_STATE_REF</a> by one.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54581"></span>54581</td>
 <td class="instruction">INC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54582"></span>54582</td>
 <td class="instruction">LD (54421),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54585"></span>54585</td>
 <td class="instruction">LD A,(54417)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html#54417">54417</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html#54417">CUSTOMER_FRAME_3</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54588"></span>54588</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
-<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">55021</a> and return.</td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54591"></span>54591</td>
 <td class="instruction">RET</td>
 </tr>
@@ -579,58 +668,71 @@ Handle door frame 4 countdown/ transition to door frame 3.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_CLOSE_3</td>
 <td class="address-2"><span id="54592"></span>54592</td>
 <td class="instruction">LD A,(54427)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54427">54427</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54427">CUSTOMER_6_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54595"></span>54595</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54596"></span>54596</td>
 <td class="instruction">LD (54427),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54599"></span>54599</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54600"></span>54600</td>
-<td class="instruction">CALL <a href="52920.html">52920</a></td>
-<td class="comment-1" rowspan="1">Call <a href="52920.html">52920</a>.</td>
+<td class="instruction">CALL <a href="52920.html">INIT_BANDIT_OPEN</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52920.html">INIT_BANDIT_OPEN</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54603"></span>54603</td>
 <td class="instruction">LD L,(IX+2)</td>
-<td class="comment-1" rowspan="3">Load, e.g. <a href="53605.html#53607">53607</a> (bandit source data) into <span class="register">HL</span>, and write $03 to the address contained in it.</td>
+<td class="comment-1" rowspan="3">Load, e.g. <a href="53605.html#53607">DOOR_1_SOURCE</a> (bandit source data) into <span class="register">HL</span>, and write $03 to the address contained in it.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54606"></span>54606</td>
 <td class="instruction">LD H,(IX+3)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54609"></span>54609</td>
 <td class="instruction">LD (HL),3</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54611"></span>54611</td>
 <td class="instruction">INC HL</td>
 <td class="comment-1" rowspan="4">Increase the pointer to the bandit source data by 3 and write $04 to this byte.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54612"></span>54612</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54613"></span>54613</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54614"></span>54614</td>
 <td class="instruction">LD (HL),4</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54616"></span>54616</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -646,42 +748,51 @@ Handle door frame 3 countdown/ transition to door frame 2.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_CLOSE_2</td>
 <td class="address-2"><span id="54617"></span>54617</td>
 <td class="instruction">LD A,(54428)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54428">54428</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54428">CUSTOMER_7_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54620"></span>54620</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54621"></span>54621</td>
 <td class="instruction">LD (54428),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54624"></span>54624</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54625"></span>54625</td>
 <td class="instruction">LD HL,54421</td>
-<td class="comment-1" rowspan="2">Increase <a href="54415.html#54421">54421</a> by one.</td>
+<td class="comment-1" rowspan="2">Increase <a href="54415.html#54421">CUSTOMER_STATE_REF</a> by one.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54628"></span>54628</td>
 <td class="instruction">INC (HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54629"></span>54629</td>
 <td class="instruction">LD A,(54415)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html">54415</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html">CUSTOMER_FRAME_1</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54632"></span>54632</td>
-<td class="instruction">CALL <a href="54884.html#54993">54993</a></td>
-<td class="comment-1" rowspan="2">Call <a href="54884.html#54993">54993</a> and return.</td>
+<td class="instruction">CALL <a href="54884.html#54993">DRAW_DOOR_FRAME_2</a></td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#54993">DRAW_DOOR_FRAME_2</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54635"></span>54635</td>
 <td class="instruction">RET</td>
 </tr>
@@ -696,33 +807,40 @@ Handle door frame 2 countdown/ transition to door frame 1.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_CLOSE_1</td>
 <td class="address-2"><span id="54636"></span>54636</td>
 <td class="instruction">LD A,(54429)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54429">54429</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54429">CUSTOMER_8_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54639"></span>54639</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54640"></span>54640</td>
 <td class="instruction">LD (54429),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54643"></span>54643</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54644"></span>54644</td>
-<td class="instruction">CALL <a href="54884.html">54884</a></td>
-<td class="comment-1" rowspan="1">Call <a href="54884.html">54884</a> (i.e. no character/ door is shut).</td>
+<td class="instruction">CALL <a href="54884.html">DRAW_DOOR_FRAME_1</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54884.html">DRAW_DOOR_FRAME_1</a> (i.e. no character/ door is shut).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54647"></span>54647</td>
-<td class="instruction">CALL <a href="55457.html">55457</a></td>
-<td class="comment-1" rowspan="2">Call <a href="55457.html">55457</a> and return.</td>
+<td class="instruction">CALL <a href="55457.html">RESET___</a></td>
+<td class="comment-1" rowspan="2">Call <a href="55457.html">RESET___</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54650"></span>54650</td>
 <td class="instruction">RET</td>
 </tr>
@@ -737,87 +855,106 @@ Handles customer being shot.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_SHOT</td>
 <td class="address-2"><span id="54651"></span>54651</td>
 <td class="instruction">LD HL,54421</td>
-<td class="comment-1" rowspan="5">If <a href="54415.html#54421">54421</a> is zero then jump to <a href="54415.html#54660">54660</a> else jump to <a href="54415.html#54668">54668</a>.</td>
+<td class="comment-1" rowspan="5">If <a href="54415.html#54421">CUSTOMER_STATE_REF</a> is zero then jump to <a href="54415.html#54660">CUSTOMER_SHOT_MIDAIR</a> else jump to <a href="54415.html#54668">CUSTOMER_SHOT_FLOOR</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54654"></span>54654</td>
 <td class="instruction">LD A,(HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54655"></span>54655</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54656"></span>54656</td>
-<td class="instruction">JR Z,<a href="54415.html#54660">54660</a></td>
+<td class="instruction">JR Z,<a href="54415.html#54660">CUSTOMER_SHOT_MIDAIR</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54658"></span>54658</td>
-<td class="instruction">JR <a href="54415.html#54668">54668</a></td>
+<td class="instruction">JR <a href="54415.html#54668">CUSTOMER_SHOT_FLOOR</a></td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_SHOT_MIDAIR</td>
 <td class="address-2"><span id="54660"></span>54660</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1">Move onto next character state.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54661"></span>54661</td>
 <td class="instruction">LD A,(54418)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html#54418">54418</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html#54418">CUSTOMER_FRAME_4</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54664"></span>54664</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
-<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">55021</a> and return.</td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
+<td class="comment-1" rowspan="2">Call <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54667"></span>54667</td>
 <td class="instruction">RET</td>
 </tr>
 <tr>
+<td class="asm-label">CUSTOMER_SHOT_FLOOR</td>
 <td class="address-2"><span id="54668"></span>54668</td>
 <td class="instruction">LD A,(54423)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54423">54423</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="54415.html#54423">CUSTOMER_2_TIMER</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54671"></span>54671</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54672"></span>54672</td>
 <td class="instruction">LD (54423),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54675"></span>54675</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54676"></span>54676</td>
 <td class="instruction">LD A,(54419)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html#54419">54419</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="54415.html#54419">CUSTOMER_FRAME_5</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54679"></span>54679</td>
-<td class="instruction">CALL <a href="54884.html#55021">55021</a></td>
-<td class="comment-1" rowspan="1">Call <a href="54884.html#55021">55021</a>.</td>
+<td class="instruction">CALL <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54884.html#55021">DRAW_DOOR_FRAME_4</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54682"></span>54682</td>
 <td class="instruction">LD A,2</td>
 <td class="comment-1" rowspan="2">Writes $02 to <a href="53967.html#54014">54014</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54684"></span>54684</td>
 <td class="instruction">LD (54014),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54687"></span>54687</td>
-<td class="instruction">CALL <a href="55457.html">55457</a></td>
-<td class="comment-1" rowspan="2">Call <a href="55457.html">55457</a> and return.</td>
+<td class="instruction">CALL <a href="55457.html">RESET___</a></td>
+<td class="comment-1" rowspan="2">Call <a href="55457.html">RESET___</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54690"></span>54690</td>
 <td class="instruction">RET</td>
 </tr>

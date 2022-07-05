@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 54778</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,26 +37,30 @@ Next: <a href="54800.html">54800</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="23445.html">23445</a>, <a href="54196.html">54196</a> and <a href="54219.html">54219</a>.
+Used by the routines at <a href="23445.html">MERGE_SHOT_ALIAS</a>, <a href="54196.html">DRAW_SHOT_MASK</a> and <a href="54219.html">DRAW_GUN_SHOT</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">MERGE_SHOT</td>
 <td class="address-2"><span id="54778"></span>54778</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="2">Store <span class="register">BC</span> and <span class="register">HL</span> for later.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54779"></span>54779</td>
 <td class="instruction">PUSH HL</td>
 </tr>
 <tr>
+<td class="asm-label">MERGE_SHOT_LOOP</td>
 <td class="address-2"><span id="54780"></span>54780</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-1" rowspan="1">Loads the contents of the source address held in <span class="register">DE</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54781"></span>54781</td>
 <td class="instruction">XOR (HL)</td>
 <td class="comment-1" rowspan="1">Performs a bit-by-bit XOR comparison against the contents of the destination address held by <span class="register">HL</span>. <table class="default">
@@ -90,59 +92,72 @@ Used by the routines at <a href="23445.html">23445</a>, <a href="54196.html">541
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54782"></span>54782</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-1" rowspan="1">Stores the result at the destination address.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54783"></span>54783</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="4">Increase the source and destination addresses by one, decrease the counter by one. Loop back to <a href="54778.html#54780">54780</a> until the <span class="register">C</span> counter is zero.</td>
+<td class="comment-1" rowspan="4">Increase the source and destination addresses by one, decrease the counter by one. Loop back to <a href="54778.html#54780">MERGE_SHOT_LOOP</a> until the <span class="register">C</span> counter is zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54784"></span>54784</td>
 <td class="instruction">INC DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54785"></span>54785</td>
 <td class="instruction">DEC C</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54786"></span>54786</td>
-<td class="instruction">JR NZ,<a href="54778.html#54780">54780</a></td>
+<td class="instruction">JR NZ,<a href="54778.html#54780">MERGE_SHOT_LOOP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54788"></span>54788</td>
 <td class="instruction">POP HL</td>
 <td class="comment-1" rowspan="1">Restore <span class="register">HL</span> with the original destination address.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54789"></span>54789</td>
 <td class="instruction">INC H</td>
-<td class="comment-1" rowspan="4">Increase the high-order byte of <span class="register">HL</span> by one, if this is on a screen third boundary (@todo what's the term for this?) then call <a href="54800.html">54800</a>.</td>
+<td class="comment-1" rowspan="4">Increase the high-order byte of <span class="register">HL</span> by one, if this is on a screen third boundary (@todo what's the term for this?) then call <a href="54800.html">CALC_ATTR</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54790"></span>54790</td>
 <td class="instruction">LD A,H</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54791"></span>54791</td>
 <td class="instruction">AND 7</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54793"></span>54793</td>
-<td class="instruction">CALL Z,<a href="54800.html">54800</a></td>
+<td class="instruction">CALL Z,<a href="54800.html">CALC_ATTR</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54796"></span>54796</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="2">Decrease the <span class="register">B</span> counter by one and loop back to <a href="54778.html">54778</a> until it is zero.</td>
+<td class="comment-1" rowspan="2">Decrease the <span class="register">B</span> counter by one and loop back to <a href="54778.html">MERGE_SHOT</a> until it is zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54797"></span>54797</td>
-<td class="instruction">DJNZ <a href="54778.html#54778">54778</a></td>
+<td class="instruction">DJNZ <a href="54778.html#54778">MERGE_SHOT</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54799"></span>54799</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

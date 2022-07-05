@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at C5EB</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,39 +37,46 @@ Next: <a href="C607.html">C607</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C422.html">C422</a>.
+Used by the routine at <a href="C422.html">DUEL_PREP</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUELLER_DOWN</td>
 <td class="address-2"><span id="c5eb"></span>C5EB</td>
 <td class="instruction">LD A,(IX+$00)</td>
 <td class="comment-1" rowspan="3">Check if the current duellers state is zero (complete), return if so.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5ee"></span>C5EE</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5ef"></span>C5EF</td>
 <td class="instruction">RET Z</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5f0"></span>C5F0</td>
 <td class="instruction">XOR A</td>
 <td class="comment-1" rowspan="2">Mark the current dueller as complete.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5f1"></span>C5F1</td>
 <td class="instruction">LD (IX+$00),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5f4"></span>C5F4</td>
 <td class="instruction">POP AF</td>
 <td class="comment-1" rowspan="2">Restore <span class="register">A</span> and jump to whatever address is held by <span class="register">HL</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5f5"></span>C5F5</td>
 <td class="instruction">JP (HL)</td>
 </tr>
@@ -86,36 +91,43 @@ Not related?
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5f6"></span>C5F6</td>
 <td class="instruction">LD A,(IX+$02)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5f9"></span>C5F9</td>
 <td class="instruction">SRL A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5fb"></span>C5FB</td>
 <td class="instruction">CP $09</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c5fd"></span>C5FD</td>
 <td class="instruction">LD E,(IX+$04)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c600"></span>C600</td>
 <td class="instruction">LD D,(IX+$05)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c603"></span>C603</td>
-<td class="instruction">JR NC,<a href="C628.html">$C628</a></td>
+<td class="instruction">JR NC,<a href="C628.html">DUEL_POINTS</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c605"></span>C605</td>
 <td class="instruction">OR $01</td>
 <td class="comment-1" rowspan="1"></td>

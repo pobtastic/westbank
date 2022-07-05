@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Game status buffer entry at CE14</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -45,23 +43,23 @@ These buffers point to the routines for character/ door actions for each door th
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D192.html">D192</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D192.html">PREP_BANDIT_OPEN</a></td>
 <td class="centre" colspan="1" rowspan="1">"Normal" Bandit</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D192.html#d1dc">D1DC</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D192.html#d1dc">PREP_BOWIE</a></td>
 <td class="centre" colspan="1" rowspan="1">Bowie</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D192.html#d201">D201</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D192.html#d201">PREP_CUSTOMER</a></td>
 <td class="centre" colspan="1" rowspan="1">Customer</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D192.html#d241">D241</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D192.html#d241">PREP_JULIUS_OPEN</a></td>
 <td class="centre" colspan="1" rowspan="1">Julius</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D192.html#d289">D289</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D192.html#d289">PREP_BANDIT_DRAW_OPEN</a></td>
 <td class="centre" colspan="1" rowspan="1">"Drawing" Bandit</td>
 </tr>
 </table> And will also hold the door closing routines as well.
@@ -70,16 +68,19 @@ These buffers point to the routines for character/ door actions for each door th
 </td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_ROUTINE</td>
 <td class="address-1"><span id="ce14"></span>CE14</td>
 <td class="instruction">DEFW $0000</td>
 <td class="comment-1" rowspan="1">Door 1 character/ door routine in-play.</td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_2_ROUTINE</td>
 <td class="address-1"><span id="ce16"></span>CE16</td>
 <td class="instruction">DEFW $0000</td>
 <td class="comment-1" rowspan="1">Door 2 character/ door routine in-play.</td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_3_ROUTINE</td>
 <td class="address-1"><span id="ce18"></span>CE18</td>
 <td class="instruction">DEFW $0000</td>
 <td class="comment-1" rowspan="1">Door 3 character/ door routine in-play.</td>

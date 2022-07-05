@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Game status buffer entry at CE12</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,12 +37,13 @@ Next: <a href="CE14.html">CE14</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Points to either <a href="D392.html">D392</a> or <a href="D39B.html">D39B</a> depending on the chosen control method.
+Points to either <a href="D392.html">CONTROLS_JOYSTICK</a> or <a href="D39B.html">CONTROLS_KEYBOARD</a> depending on the chosen control method.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">CONTROL_ROUTINE_ALIAS</td>
 <td class="address-1"><span id="ce12"></span>CE12</td>
 <td class="instruction">DEFB $9B,$D3</td>
 <td class="comment-1" rowspan="1">16 bit memory location of either the keyboard or joystick control routines.</td>

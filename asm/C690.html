@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at C690</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,56 +37,67 @@ Next: <a href="C6A7.html">C6A7</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C422.html">C422</a>.
+Used by the routine at <a href="C422.html">DUEL_PREP</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_COMPLETE</td>
 <td class="address-2"><span id="c690"></span>C690</td>
 <td class="instruction">LD A,($C6E3)</td>
-<td class="comment-1" rowspan="3">Jump to <a href="C6F0.html">C6F0</a> if <a href="C6E3.html">C6E3</a> is not zero.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="C6F0.html">FLASH_LIFE_IMAGE</a> if <a href="C6E3.html">DUEL_LOSE_LIFE</a> is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c693"></span>C693</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c694"></span>C694</td>
-<td class="instruction">JP NZ,<a href="C6F0.html">$C6F0</a></td>
+<td class="instruction">JP NZ,<a href="C6F0.html">FLASH_LIFE_IMAGE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c697"></span>C697</td>
 <td class="instruction">LD A,($C6E2)</td>
-<td class="comment-1" rowspan="3">Jump to <a href="C687.html">C687</a> if <a href="C6E2.html">C6E2</a> is not zero.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="C687.html">LOSE_LIFE</a> if <a href="C6E2.html">DUEL_BANG_FLAG</a> is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c69a"></span>C69A</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c69b"></span>C69B</td>
-<td class="instruction">JP NZ,<a href="C687.html">$C687</a></td>
+<td class="instruction">JP NZ,<a href="C687.html">LOSE_LIFE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c69e"></span>C69E</td>
 <td class="instruction">LD A,($C6E4)</td>
-<td class="comment-1" rowspan="3">Jump to <a href="C6B1.html">C6B1</a> if <a href="C6E4.html">C6E4</a> is not zero.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="C6B1.html">DUEL_FLASH_TEXT</a> if <a href="C6E4.html">DUEL_EXTRA_LIFE</a> is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6a1"></span>C6A1</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6a2"></span>C6A2</td>
-<td class="instruction">JP NZ,<a href="C6B1.html">$C6B1</a></td>
+<td class="instruction">JP NZ,<a href="C6B1.html">DUEL_FLASH_TEXT</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6a5"></span>C6A5</td>
 <td class="instruction">SCF</td>
 <td class="comment-1" rowspan="2">Set the carry flag and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6a6"></span>C6A6</td>
 <td class="instruction">RET</td>
 </tr>

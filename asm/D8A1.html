@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D8A1</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,37 +37,44 @@ Next: <a href="D8AC.html">D8AC</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="CD68.html">CD68</a>, <a href="D48F.html">D48F</a>, <a href="D71E.html">D71E</a>, <a href="D7C5.html">D7C5</a>, <a href="D8E5.html">D8E5</a> and <a href="DA0C.html">DA0C</a>.
+Used by the routines at <a href="CD68.html">POPULATE_DOOR_BUFFER</a>, <a href="D48F.html">CUSTOMER_FRAME_1</a>, <a href="D71E.html">BANDIT_STATE_REF</a>, <a href="D7C5.html">BOWIE_GOOD_BAD</a>, <a href="D8E5.html">JULIUS_GOOD_BAD</a> and <a href="DA0C.html">BANDIT_DRAW</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">RESET___</td>
 <td class="address-2"><span id="d8a1"></span>D8A1</td>
 <td class="instruction">LD L,(IX+$00)</td>
-<td class="comment-1" rowspan="6">Blanks the 16 bit address pointed to by one of the passed door flags (i.e. writes $0000 to one of <a href="CE14.html">CE14</a>, <a href="CE14.html#ce16">CE16</a>, <a href="CE14.html#ce18">CE18</a>).</td>
+<td class="comment-1" rowspan="6">Blanks the 16 bit address pointed to by one of the passed door flags (i.e. writes $0000 to one of <a href="CE14.html">DOOR_1_ROUTINE</a>, <a href="CE14.html#ce16">DOOR_2_ROUTINE</a>, <a href="CE14.html#ce18">DOOR_3_ROUTINE</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d8a4"></span>D8A4</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d8a7"></span>D8A7</td>
 <td class="instruction">XOR A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d8a8"></span>D8A8</td>
 <td class="instruction">LD (HL),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d8a9"></span>D8A9</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d8aa"></span>D8AA</td>
 <td class="instruction">LD (HL),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d8ab"></span>D8AB</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

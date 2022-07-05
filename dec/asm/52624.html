@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 52624</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,12 +37,13 @@ Next: <a href="52654.html">52654</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="23448.html">23448</a>, <a href="51136.html">51136</a> and <a href="52675.html">52675</a>.
+Used by the routines at <a href="23448.html">DRAW_SCORE_ALIAS</a>, <a href="51136.html">NEW_GAME</a> and <a href="52675.html">SCORING</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DRAW_SCORE</td>
 <td class="address-2"><span id="52624"></span>52624</td>
 <td class="instruction">LD HL,52619</td>
 <td class="comment-1" rowspan="3">Starting values; <table class="default">
@@ -54,89 +53,107 @@ Used by the routines at <a href="23448.html">23448</a>, <a href="51136.html">511
 <th colspan="1" rowspan="1">Counter</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="52614.html#52619">52619</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="52614.html#52619">SCORE_DIGIT_1</a></td>
 <td class="centre" colspan="1" rowspan="1">$50C8</td>
 <td class="centre" colspan="1" rowspan="1">$06</td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52627"></span>52627</td>
 <td class="instruction">LD DE,20680</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52630"></span>52630</td>
 <td class="instruction">LD B,6</td>
 </tr>
 <tr>
+<td class="asm-label">SCORE_DIGIT_LOOP</td>
 <td class="address-2"><span id="52632"></span>52632</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="3">Stash the lot.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52633"></span>52633</td>
 <td class="instruction">PUSH DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52634"></span>52634</td>
 <td class="instruction">PUSH HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52635"></span>52635</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="6">Grab the number at the source memory location; <ul class="">
 <li>If it's zero then add $0A (as the numbers are stored 1-2-3-4-5-6-7-8-9-0 whereas ASCII uses 0-1-2-3-4-5-6-7-8-9)</li>
-<li>add $23 (so for example "2" will be "$25" - see <a href="52654.html">52654</a>)</li>
-<li>Call <a href="52654.html">52654</a></li>
+<li>add $23 (so for example "2" will be "$25" - see <a href="52654.html">DRAW_NUMBER</a>)</li>
+<li>Call <a href="52654.html">DRAW_NUMBER</a></li>
 </ul></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52636"></span>52636</td>
 <td class="instruction">AND A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52637"></span>52637</td>
-<td class="instruction">JR NZ,<a href="52624.html#52641">52641</a></td>
+<td class="instruction">JR NZ,<a href="52624.html#52641">SCORE_DIGIT_NON_ZERO</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52639"></span>52639</td>
 <td class="instruction">ADD A,10</td>
 </tr>
 <tr>
+<td class="asm-label">SCORE_DIGIT_NON_ZERO</td>
 <td class="address-2"><span id="52641"></span>52641</td>
 <td class="instruction">ADD A,35</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52643"></span>52643</td>
-<td class="instruction">CALL <a href="52654.html">52654</a></td>
+<td class="instruction">CALL <a href="52654.html">DRAW_NUMBER</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52646"></span>52646</td>
 <td class="instruction">POP HL</td>
 <td class="comment-1" rowspan="3">Retrieve our current source, destination and counter from the stack.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52647"></span>52647</td>
 <td class="instruction">POP DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52648"></span>52648</td>
 <td class="instruction">POP BC</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52649"></span>52649</td>
 <td class="instruction">INC DE</td>
-<td class="comment-1" rowspan="3">Increase the screen buffer memory location by one, decrease the source memory location and loop round to <a href="52624.html#52632">52632</a> until it is zero.</td>
+<td class="comment-1" rowspan="3">Increase the screen buffer memory location by one, decrease the source memory location and loop round to <a href="52624.html#52632">SCORE_DIGIT_LOOP</a> until it is zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52650"></span>52650</td>
 <td class="instruction">DEC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52651"></span>52651</td>
-<td class="instruction">DJNZ <a href="52624.html#52632">52632</a></td>
+<td class="instruction">DJNZ <a href="52624.html#52632">SCORE_DIGIT_LOOP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52653"></span>52653</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

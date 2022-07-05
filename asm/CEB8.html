@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at CEB8</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,7 +37,7 @@ Next: <a href="D019.html">D019</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="CE21.html">CE21</a> and <a href="D48F.html">D48F</a>.
+Used by the routines at <a href="CE21.html">CHARACTER_CHOOSER</a> and <a href="D48F.html">CUSTOMER_FRAME_1</a>.
 </div>
 </div>
 </td>
@@ -55,52 +53,59 @@ Writes a "bandit opening the door" to the door flags/ cache.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_BANDIT_OPEN</td>
 <td class="address-2"><span id="ceb8"></span>CEB8</td>
 <td class="instruction">LD DE,$D192</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html">D192</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html">PREP_BANDIT_OPEN</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cebb"></span>CEBB</td>
 <td class="instruction">LD L,(IX+$00)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cebe"></span>CEBE</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cec1"></span>CEC1</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cec2"></span>CEC2</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cec3"></span>CEC3</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cec4"></span>CEC4</td>
 <td class="instruction">LD HL,$D076</td>
 <td class="comment-1" rowspan="5">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -109,45 +114,52 @@ Writes a "bandit opening the door" to the door flags/ cache.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">D167</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">D175</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">D183</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table> to <a href="D076.html">D076</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cec7"></span>CEC7</td>
 <td class="instruction">LD E,(IX+$02)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ceca"></span>CECA</td>
 <td class="instruction">LD D,(IX+$03)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cecd"></span>CECD</td>
 <td class="instruction">LD BC,$0007</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ced0"></span>CED0</td>
 <td class="instruction">LDIR</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ced2"></span>CED2</td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-1" rowspan="3">Writes $01 to <a href="D18F.html">D18F</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ced4"></span>CED4</td>
 <td class="instruction">LD ($D18F),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ced7"></span>CED7</td>
 <td class="instruction">RET</td>
 </tr>
@@ -162,52 +174,59 @@ Writes a "bandit closing the door" to the door flags/ cache.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_BANDIT_CLOSE</td>
 <td class="address-1"><span id="ced8"></span>CED8</td>
 <td class="instruction">LD DE,$D1B7</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d1b7">D1B7</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d1b7">PREP_BANDIT_CLOSE</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cedb"></span>CEDB</td>
 <td class="instruction">LD L,(IX+$00)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cede"></span>CEDE</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cee1"></span>CEE1</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cee2"></span>CEE2</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cee3"></span>CEE3</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cee4"></span>CEE4</td>
 <td class="instruction">LD HL,$D07D</td>
 <td class="comment-1" rowspan="5">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -216,50 +235,58 @@ Writes a "bandit closing the door" to the door flags/ cache.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">D167</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">D175</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">D183</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table> to <a href="D07D.html">D07D</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cee7"></span>CEE7</td>
 <td class="instruction">LD E,(IX+$02)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ceea"></span>CEEA</td>
 <td class="instruction">LD D,(IX+$03)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ceed"></span>CEED</td>
 <td class="instruction">LD BC,$0007</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cef0"></span>CEF0</td>
 <td class="instruction">LDIR</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cef2"></span>CEF2</td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-1" rowspan="2">Writes $01 to <a href="D18F.html">D18F</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cef4"></span>CEF4</td>
 <td class="instruction">LD ($D18F),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cef7"></span>CEF7</td>
 <td class="instruction">LD (IX+$07),$01</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cefb"></span>CEFB</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>
@@ -275,117 +302,137 @@ Writes "Bowie" to the door flags/ cache.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_BOWIE</td>
 <td class="address-2"><span id="cefc"></span>CEFC</td>
 <td class="instruction">LD DE,$D1DC</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d1dc">D1DC</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d1dc">PREP_BOWIE</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ceff"></span>CEFF</td>
 <td class="instruction">LD L,(IX+$00)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf02"></span>CF02</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf05"></span>CF05</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf06"></span>CF06</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf07"></span>CF07</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf08"></span>CF08</td>
-<td class="instruction">CALL <a href="D8B0.html">$D8B0</a></td>
+<td class="instruction">CALL <a href="D8B0.html">RANDOM_NUMBER</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf0b"></span>CF0B</td>
 <td class="instruction">AND $08</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf0d"></span>CF0D</td>
 <td class="instruction">LD HL,$D084</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf10"></span>CF10</td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf12"></span>CF12</td>
-<td class="instruction">JR Z,<a href="CEB8.html#cf16">$CF16</a></td>
+<td class="instruction">JR Z,<a href="CEB8.html#cf16">INIT_BOWIE_SET_FLAG</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf14"></span>CF14</td>
 <td class="instruction">LD (HL),$01</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">INIT_BOWIE_SET_FLAG</td>
 <td class="address-2"><span id="cf16"></span>CF16</td>
 <td class="instruction">LD E,(IX+$02)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf19"></span>CF19</td>
 <td class="instruction">LD D,(IX+$03)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf1c"></span>CF1C</td>
 <td class="instruction">LD BC,$0009</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf1f"></span>CF1F</td>
 <td class="instruction">LDIR</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf21"></span>CF21</td>
 <td class="instruction">LD DE,$D863</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf24"></span>CF24</td>
 <td class="instruction">LD (IX+$04),E</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf27"></span>CF27</td>
 <td class="instruction">LD (IX+$05),D</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf2a"></span>CF2A</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>
@@ -401,132 +448,155 @@ Writes a "customer opening the door" to the door flags/ cache.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_CUSTOMER_OPEN</td>
 <td class="address-2"><span id="cf2b"></span>CF2B</td>
 <td class="instruction">LD L,(IX+$00)</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d201">D201</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d201">PREP_CUSTOMER</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf2e"></span>CF2E</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf31"></span>CF31</td>
 <td class="instruction">LD DE,$D201</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf34"></span>CF34</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf35"></span>CF35</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf36"></span>CF36</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf37"></span>CF37</td>
-<td class="instruction">CALL <a href="D8B0.html">$D8B0</a></td>
+<td class="instruction">CALL <a href="D8B0.html">RANDOM_NUMBER</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf3a"></span>CF3A</td>
 <td class="instruction">AND $82</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf3c"></span>CF3C</td>
 <td class="instruction">LD HL,$D0A1</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf3f"></span>CF3F</td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf41"></span>CF41</td>
-<td class="instruction">JR NZ,<a href="CEB8.html#cf45">$CF45</a></td>
+<td class="instruction">JR NZ,<a href="CEB8.html#cf45">INIT_CUST_OPEN_SET_FLAG</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf43"></span>CF43</td>
 <td class="instruction">LD (HL),$01</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">INIT_CUST_OPEN_SET_FLAG</td>
 <td class="address-2"><span id="cf45"></span>CF45</td>
 <td class="instruction">LD HL,$D09C</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf48"></span>CF48</td>
 <td class="instruction">LD E,(IX+$02)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf4b"></span>CF4B</td>
 <td class="instruction">LD D,(IX+$03)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf4e"></span>CF4E</td>
 <td class="instruction">LD BC,$000F</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf51"></span>CF51</td>
 <td class="instruction">LD A,($D18F)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf54"></span>CF54</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf55"></span>CF55</td>
 <td class="instruction">LD A,$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf57"></span>CF57</td>
 <td class="instruction">LD ($D18F),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf5a"></span>CF5A</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf5b"></span>CF5B</td>
 <td class="instruction">LDIR</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf5d"></span>CF5D</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>
@@ -542,132 +612,155 @@ Writes a "customer closing the door" to the door flags/ cache.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_CUSTOMER_CLOSE</td>
 <td class="address-2"><span id="cf5e"></span>CF5E</td>
 <td class="instruction">LD L,(IX+$00)</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d201">D201</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d201">PREP_CUSTOMER</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf61"></span>CF61</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf64"></span>CF64</td>
 <td class="instruction">LD DE,$D201</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf67"></span>CF67</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf68"></span>CF68</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf69"></span>CF69</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf6a"></span>CF6A</td>
-<td class="instruction">CALL <a href="D8B0.html">$D8B0</a></td>
+<td class="instruction">CALL <a href="D8B0.html">RANDOM_NUMBER</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf6d"></span>CF6D</td>
 <td class="instruction">AND $41</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf6f"></span>CF6F</td>
 <td class="instruction">LD HL,$D092</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf72"></span>CF72</td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf74"></span>CF74</td>
-<td class="instruction">JR NZ,<a href="CEB8.html#cf78">$CF78</a></td>
+<td class="instruction">JR NZ,<a href="CEB8.html#cf78">INIT_CUST_CLOSE_SET_FLAG</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf76"></span>CF76</td>
 <td class="instruction">LD (HL),$01</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">INIT_CUST_CLOSE_SET_FLAG</td>
 <td class="address-2"><span id="cf78"></span>CF78</td>
 <td class="instruction">LD HL,$D08D</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf7b"></span>CF7B</td>
 <td class="instruction">LD E,(IX+$02)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf7e"></span>CF7E</td>
 <td class="instruction">LD D,(IX+$03)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf81"></span>CF81</td>
 <td class="instruction">LD BC,$000F</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf84"></span>CF84</td>
 <td class="instruction">LD A,($D18F)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf87"></span>CF87</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf88"></span>CF88</td>
 <td class="instruction">LD A,$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf8a"></span>CF8A</td>
 <td class="instruction">LD ($D18F),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf8d"></span>CF8D</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf8e"></span>CF8E</td>
 <td class="instruction">LDIR</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf90"></span>CF90</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>
@@ -683,109 +776,129 @@ Writes a "customer being shot" to the door flags/ cache.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_CUSTOMER_SHOT</td>
 <td class="address-1"><span id="cf91"></span>CF91</td>
 <td class="instruction">LD DE,$D226</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d226">D226</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d226">PREP_CUSTOMER_SHOT</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf94"></span>CF94</td>
 <td class="instruction">LD L,(IX+$00)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf97"></span>CF97</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf9a"></span>CF9A</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf9b"></span>CF9B</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf9c"></span>CF9C</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cf9d"></span>CF9D</td>
 <td class="instruction">LD E,(IX+$02)</td>
-<td class="comment-1" rowspan="2">Loads e.g. <a href="D165.html#d167">D167</a> (depending on which door is currently being actioned) into <span class="register">DE</span>.</td>
+<td class="comment-1" rowspan="2">Loads e.g. <a href="D165.html#d167">DOOR_1_SOURCE</a> (depending on which door is currently being actioned) into <span class="register">DE</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfa0"></span>CFA0</td>
 <td class="instruction">LD D,(IX+$03)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfa3"></span>CFA3</td>
 <td class="instruction">LD HL,$D0AB</td>
 <td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="D07D.html#d0ab">D0AB</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfa6"></span>CFA6</td>
 <td class="instruction">INC DE</td>
 <td class="comment-1" rowspan="6">Increase <span class="register">DE</span> by $06.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfa7"></span>CFA7</td>
 <td class="instruction">INC DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfa8"></span>CFA8</td>
 <td class="instruction">INC DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfa9"></span>CFA9</td>
 <td class="instruction">INC DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfaa"></span>CFAA</td>
 <td class="instruction">INC DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfab"></span>CFAB</td>
 <td class="instruction">INC DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfac"></span>CFAC</td>
 <td class="instruction">LD BC,$0003</td>
 <td class="comment-1" rowspan="2">Copies three sequential bytes of data from <span class="register">HL</span> to <span class="register">DE</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfaf"></span>CFAF</td>
 <td class="instruction">LDIR</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfb1"></span>CFB1</td>
 <td class="instruction">LD HL,$D18F</td>
 <td class="comment-1" rowspan="3">Writes $01 to <a href="D18F.html">D18F</a> and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfb4"></span>CFB4</td>
 <td class="instruction">LD (HL),$01</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfb6"></span>CFB6</td>
 <td class="instruction">RET</td>
 </tr>
@@ -800,102 +913,119 @@ Writes "Julius opening the door" to the door flags/ cache.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_JULIUS_OPEN</td>
 <td class="address-2"><span id="cfb7"></span>CFB7</td>
 <td class="instruction">LD DE,$D241</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d241">D241</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d241">PREP_JULIUS_OPEN</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfba"></span>CFBA</td>
 <td class="instruction">LD L,(IX+$00)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfbd"></span>CFBD</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfc0"></span>CFC0</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfc1"></span>CFC1</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfc2"></span>CFC2</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfc3"></span>CFC3</td>
 <td class="instruction">LD HL,$D0AE</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfc6"></span>CFC6</td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfc8"></span>CFC8</td>
-<td class="instruction">CALL <a href="D8B0.html">$D8B0</a></td>
+<td class="instruction">CALL <a href="D8B0.html">RANDOM_NUMBER</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfcb"></span>CFCB</td>
 <td class="instruction">AND $20</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfcd"></span>CFCD</td>
-<td class="instruction">JR NZ,<a href="CEB8.html#cfd1">$CFD1</a></td>
+<td class="instruction">JR NZ,<a href="CEB8.html#cfd1">INIT_JULIUS_OPEN_SET_FLAG</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfcf"></span>CFCF</td>
 <td class="instruction">LD (HL),$01</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">INIT_JULIUS_OPEN_SET_FLAG</td>
 <td class="address-2"><span id="cfd1"></span>CFD1</td>
 <td class="instruction">LD E,(IX+$02)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfd4"></span>CFD4</td>
 <td class="instruction">LD D,(IX+$03)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfd7"></span>CFD7</td>
 <td class="instruction">LD BC,$000A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfda"></span>CFDA</td>
 <td class="instruction">LDIR</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfdc"></span>CFDC</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>
@@ -911,61 +1041,70 @@ Writes "Julius closing the door" to the door flags/ cache.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_JULIUS_CLOSE</td>
 <td class="address-1"><span id="cfdd"></span>CFDD</td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-1" rowspan="2">Writes $01 to <a href="D07D.html#d0b8">D0B8</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfdf"></span>CFDF</td>
 <td class="instruction">LD ($D0B8),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfe2"></span>CFE2</td>
 <td class="instruction">LD DE,$D265</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d265">D265</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d265">PREP_JULIUS_CLOSE</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfe5"></span>CFE5</td>
 <td class="instruction">LD L,(IX+$00)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfe8"></span>CFE8</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfeb"></span>CFEB</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfec"></span>CFEC</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfed"></span>CFED</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfee"></span>CFEE</td>
 <td class="instruction">LD HL,$D0B8</td>
 <td class="comment-1" rowspan="6">Handles copying $0009 bytes of data from the address (plus 1) contained at (depending on which door is currently being actioned); <table class="default">
@@ -974,100 +1113,118 @@ Writes "Julius closing the door" to the door flags/ cache.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">D167</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">D175</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">D183</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table> to <a href="D07D.html#d0b8">D0B8</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cff1"></span>CFF1</td>
 <td class="instruction">LD E,(IX+$02)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cff4"></span>CFF4</td>
 <td class="instruction">LD D,(IX+$03)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cff7"></span>CFF7</td>
 <td class="instruction">INC DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cff8"></span>CFF8</td>
 <td class="instruction">LD BC,$0009</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cffb"></span>CFFB</td>
 <td class="instruction">LDIR</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cffd"></span>CFFD</td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cfff"></span>CFFF</td>
 <td class="instruction">LD ($D18F),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d002"></span>D002</td>
 <td class="instruction">LD HL,$D0B8</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d005"></span>D005</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d006"></span>D006</td>
 <td class="instruction">LD (IX+$07),$02</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d00a"></span>D00A</td>
 <td class="instruction">LD (IX+$06),$05</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d00e"></span>D00E</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d00f"></span>D00F</td>
 <td class="instruction">RET Z</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d010"></span>D010</td>
 <td class="instruction">XOR A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d011"></span>D011</td>
 <td class="instruction">LD (IX+$07),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d014"></span>D014</td>
 <td class="instruction">LD (IX+$06),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d017"></span>D017</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d018"></span>D018</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>

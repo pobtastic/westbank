@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at CC3A</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,7 +37,7 @@ Next: <a href="CC59.html">CC59</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C7C0.html">C7C0</a>.
+Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 </div>
 </div>
 </td>
@@ -55,52 +53,63 @@ Draws Main Playfield with all three doors closed.
 </td>
 </tr>
 <tr>
+<td class="asm-label">DRAW_PLAY_WITH_DOORS</td>
 <td class="address-2"><span id="cc3a"></span>CC3A</td>
 <td class="instruction">LD IX,$CC38</td>
 <td class="comment-1" rowspan="2">Draw the main game playfield.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc3e"></span>CC3E</td>
-<td class="instruction">CALL <a href="C300.html">$C300</a></td>
+<td class="instruction">CALL <a href="C300.html">DRAW_PLAYFIELD</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc41"></span>CC41</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="3">Calls <a href="D664.html">D664</a> with <a href="CE1A.html">CE1A</a> set to $01.</td>
+<td class="comment-1" rowspan="3">Calls <a href="D664.html">DRAW_DOOR_FRAME_1</a> with <a href="CE1A.html">DOOR_FRAME_REF</a> set to $01.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc43"></span>CC43</td>
 <td class="instruction">LD ($CE1A),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc46"></span>CC46</td>
-<td class="instruction">CALL <a href="D664.html">$D664</a></td>
+<td class="instruction">CALL <a href="D664.html">DRAW_DOOR_FRAME_1</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc49"></span>CC49</td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-1" rowspan="3">Calls <a href="D664.html">D664</a> with <a href="CE1A.html">CE1A</a> set to $02.</td>
+<td class="comment-1" rowspan="3">Calls <a href="D664.html">DRAW_DOOR_FRAME_1</a> with <a href="CE1A.html">DOOR_FRAME_REF</a> set to $02.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc4b"></span>CC4B</td>
 <td class="instruction">LD ($CE1A),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc4e"></span>CC4E</td>
-<td class="instruction">CALL <a href="D664.html">$D664</a></td>
+<td class="instruction">CALL <a href="D664.html">DRAW_DOOR_FRAME_1</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc51"></span>CC51</td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-1" rowspan="3">Jump to <a href="D664.html">D664</a> with <a href="CE1A.html">CE1A</a> set to $03.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="D664.html">DRAW_DOOR_FRAME_1</a> with <a href="CE1A.html">DOOR_FRAME_REF</a> set to $03.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc53"></span>CC53</td>
 <td class="instruction">LD ($CE1A),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cc56"></span>CC56</td>
-<td class="instruction">JP <a href="D664.html">$D664</a></td>
+<td class="instruction">JP <a href="D664.html">DRAW_DOOR_FRAME_1</a></td>
 </tr>
 </table>
 <table class="asm-navigation">

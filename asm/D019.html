@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D019</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,7 +37,7 @@ Next: <a href="D037.html">D037</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="CE21.html">CE21</a>.
+Used by the routine at <a href="CE21.html">CHARACTER_CHOOSER</a>.
 </div>
 </div>
 </td>
@@ -47,26 +45,26 @@ Used by the routine at <a href="CE21.html">CE21</a>.
 <tr>
 <td class="address-2"><span id="d019"></span>D019</td>
 <td class="instruction">LD DE,$D289</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d289">D289</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d289">PREP_BANDIT_DRAW_OPEN</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table></td>
 </tr>
@@ -100,18 +98,18 @@ Used by the routine at <a href="CE21.html">CE21</a>.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d171">D171</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">D167</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d171">DOOR_1_CHAR_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
 <td class="" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17f">D17F</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">D175</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17f">DOOR_2_CHAR_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
 <td class="" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18d">D18D</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">D183</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18d">DOOR_3_CHAR_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
 <td class="" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table></td>

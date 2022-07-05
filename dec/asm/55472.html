@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 55472</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,7 +37,7 @@ Next: <a href="55525.html">55525</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="51136.html">51136</a>, <a href="52769.html">52769</a>, <a href="52920.html">52920</a> and <a href="56047.html">56047</a>.
+Used by the routines at <a href="51136.html">NEW_GAME</a>, <a href="52769.html">CHARACTER_CHOOSER</a>, <a href="52920.html">INIT_BANDIT_OPEN</a> and <a href="56047.html">56047</a>.
 </div>
 </div>
 </td>
@@ -55,193 +53,232 @@ f
 </td>
 </tr>
 <tr>
+<td class="asm-label">RANDOM_NUMBER</td>
 <td class="address-2"><span id="55472"></span>55472</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="2">Stashes <span class="register">BC</span> and <span class="register">HL</span> for later.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55473"></span>55473</td>
 <td class="instruction">PUSH HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55474"></span>55474</td>
 <td class="instruction">LD A,(55470)</td>
 <td class="comment-1" rowspan="3">Decrease <a href="55470.html">55470</a> by one.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55477"></span>55477</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55478"></span>55478</td>
 <td class="instruction">LD (55470),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55481"></span>55481</td>
-<td class="instruction">JR NZ,<a href="55472.html#55496">55496</a></td>
-<td class="comment-1" rowspan="1">If the result is not zero jump to <a href="55472.html#55496">55496</a>.</td>
+<td class="instruction">JR NZ,<a href="55472.html#55496">RANDOM_NUMBER_1</a></td>
+<td class="comment-1" rowspan="1">If the result is not zero jump to <a href="55472.html#55496">RANDOM_NUMBER_1</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55483"></span>55483</td>
 <td class="instruction">LD HL,(55468)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55486"></span>55486</td>
 <td class="instruction">INC HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55487"></span>55487</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55488"></span>55488</td>
 <td class="instruction">POP BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55489"></span>55489</td>
 <td class="instruction">ADD HL,HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55490"></span>55490</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55491"></span>55491</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55492"></span>55492</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55493"></span>55493</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55494"></span>55494</td>
-<td class="instruction">JR <a href="55472.html#55511">55511</a></td>
+<td class="instruction">JR <a href="55472.html#55511">RANDOM_NUMBER_2</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">RANDOM_NUMBER_1</td>
 <td class="address-2"><span id="55496"></span>55496</td>
 <td class="instruction">LD HL,(55468)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55499"></span>55499</td>
 <td class="instruction">INC HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55500"></span>55500</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55501"></span>55501</td>
 <td class="instruction">POP BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55502"></span>55502</td>
 <td class="instruction">ADD HL,HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55503"></span>55503</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55504"></span>55504</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55505"></span>55505</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55506"></span>55506</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55507"></span>55507</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55508"></span>55508</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55509"></span>55509</td>
 <td class="instruction">POP BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55510"></span>55510</td>
 <td class="instruction">ADD HL,HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">RANDOM_NUMBER_2</td>
 <td class="address-2"><span id="55511"></span>55511</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55512"></span>55512</td>
 <td class="instruction">DEC HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55513"></span>55513</td>
 <td class="instruction">LD (55468),HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55516"></span>55516</td>
 <td class="instruction">LD A,L</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55517"></span>55517</td>
 <td class="instruction">LD HL,55471</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55520"></span>55520</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55521"></span>55521</td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55522"></span>55522</td>
 <td class="instruction">POP HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55523"></span>55523</td>
 <td class="instruction">POP BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="55524"></span>55524</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>

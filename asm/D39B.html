@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D39B</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,71 +37,85 @@ Next: <a href="D3B4.html">D3B4</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="D392.html">D392</a>.
+Used by the routine at <a href="D392.html">CONTROLS_JOYSTICK</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_KEYBOARD</td>
 <td class="address-2"><span id="d39b"></span>D39B</td>
 <td class="instruction">LD A,$F7</td>
 <td class="comment-1" rowspan="2">Read keys 1-2-3-4-5.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d39d"></span>D39D</td>
 <td class="instruction">IN A,($FE)</td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_INPUT_1</td>
 <td class="address-1"><span id="d39f"></span>D39F</td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-1" rowspan="2">If "1" isn't being pressed then jump to <a href="D39B.html#d3a6">D3A6</a>.</td>
+<td class="comment-1" rowspan="2">If "1" isn't being pressed then jump to <a href="D39B.html#d3a6">CONTROLS_INPUT_2</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3a1"></span>D3A1</td>
-<td class="instruction">JR NZ,<a href="D39B.html#d3a6">$D3A6</a></td>
+<td class="instruction">JR NZ,<a href="D39B.html#d3a6">CONTROLS_INPUT_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3a3"></span>D3A3</td>
 <td class="instruction">LD A,$12</td>
 <td class="comment-1" rowspan="2">Set <span class="register">A</span>=$12 and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3a5"></span>D3A5</td>
 <td class="instruction">RET</td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_INPUT_2</td>
 <td class="address-2"><span id="d3a6"></span>D3A6</td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-1" rowspan="2">If "2" isn't being pressed then jump to <a href="D39B.html#d3ad">D3AD</a>.</td>
+<td class="comment-1" rowspan="2">If "2" isn't being pressed then jump to <a href="D39B.html#d3ad">CONTROLS_INPUT_3</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3a8"></span>D3A8</td>
-<td class="instruction">JR NZ,<a href="D39B.html#d3ad">$D3AD</a></td>
+<td class="instruction">JR NZ,<a href="D39B.html#d3ad">CONTROLS_INPUT_3</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3aa"></span>D3AA</td>
 <td class="instruction">LD A,$10</td>
 <td class="comment-1" rowspan="2">Set <span class="register">A</span>=$10 and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3ac"></span>D3AC</td>
 <td class="instruction">RET</td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_INPUT_3</td>
 <td class="address-2"><span id="d3ad"></span>D3AD</td>
 <td class="instruction">BIT 2,A</td>
-<td class="comment-1" rowspan="2">If "3" isn't being pressed then jump to <a href="D3E2.html">D3E2</a>.</td>
+<td class="comment-1" rowspan="2">If "3" isn't being pressed then jump to <a href="D3E2.html">CONTROLS_INPUT_O_P</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3af"></span>D3AF</td>
-<td class="instruction">JR NZ,<a href="D3E2.html">$D3E2</a></td>
+<td class="instruction">JR NZ,<a href="D3E2.html">CONTROLS_INPUT_O_P</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3b1"></span>D3B1</td>
 <td class="instruction">LD A,$11</td>
 <td class="comment-1" rowspan="2">Set <span class="register">A</span>=$11 and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3b3"></span>D3B3</td>
 <td class="instruction">RET</td>
 </tr>

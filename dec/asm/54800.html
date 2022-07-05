@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 54800</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,7 +37,7 @@ Next: <a href="54814.html">54814</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="54758.html">54758</a> and <a href="54778.html">54778</a>.
+Used by the routines at <a href="54758.html">COPY_ROUTINE</a> and <a href="54778.html">MERGE_SHOT</a>.
 </div>
 </div>
 </td>
@@ -55,6 +53,7 @@ On entry <span class="register">HL</span> points to an address in the screen att
 </td>
 </tr>
 <tr>
+<td class="asm-label">CALC_ATTR</td>
 <td class="address-2"><span id="54800"></span>54800</td>
 <td class="instruction">LD A,H</td>
 <td class="comment-1" rowspan="10">Let's use $58C8 as an example; <ul class="">
@@ -67,42 +66,52 @@ On entry <span class="register">HL</span> points to an address in the screen att
 </ul></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54801"></span>54801</td>
 <td class="instruction">SUB 8</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54803"></span>54803</td>
 <td class="instruction">LD H,A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54804"></span>54804</td>
 <td class="instruction">LD A,L</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54805"></span>54805</td>
 <td class="instruction">ADD A,32</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54807"></span>54807</td>
 <td class="instruction">LD L,A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54808"></span>54808</td>
 <td class="instruction">RET NC</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54809"></span>54809</td>
 <td class="instruction">LD A,H</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54810"></span>54810</td>
 <td class="instruction">ADD A,8</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54812"></span>54812</td>
 <td class="instruction">LD H,A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54813"></span>54813</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

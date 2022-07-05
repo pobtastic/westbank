@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Text at FEEA</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -42,6 +40,7 @@ Next: <a href="FF58.html">FF58</a>
 </td>
 </tr>
 <tr>
+<td class="asm-label">TITLE_SCREEN_GAME_NAME</td>
 <td class="address-1"><span id="feea"></span>FEEA</td>
 <td class="instruction">DEFM "WEST BANK",$FF</td>
 <td class="comment-0" rowspan="1"></td>
@@ -57,21 +56,25 @@ Playing Options.
 </td>
 </tr>
 <tr>
+<td class="asm-label">TITLE_SCREEN_PLAY</td>
 <td class="address-1"><span id="fef4"></span>FEF4</td>
 <td class="instruction">DEFM "0 PLAY ",$FF</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">TITLE_SCREEN_KEYS</td>
 <td class="address-1"><span id="fefc"></span>FEFC</td>
 <td class="instruction">DEFM "1 KEYS   ",$FF</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">TITLE_SCREEN_JOYSTICK</td>
 <td class="address-1"><span id="ff06"></span>FF06</td>
 <td class="instruction">DEFM "2 KEMPSTON",$FF</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">TITLE_SCREEN_LEVEL</td>
 <td class="address-1"><span id="ff11"></span>FF11</td>
 <td class="instruction">DEFM "N LEVEL",$FF</td>
 <td class="comment-0" rowspan="1"></td>
@@ -87,16 +90,19 @@ Credits.
 </td>
 </tr>
 <tr>
+<td class="asm-label">TITLE_SCREEN_AUTHOR</td>
 <td class="address-1"><span id="ff19"></span>FF19</td>
 <td class="instruction">DEFM " PROGRAM BY ALVARO MATEOS ",$FF</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">TITLE_SCREEN_COPYRIGHT</td>
 <td class="address-1"><span id="ff34"></span>FF34</td>
 <td class="instruction">DEFM "COPYRIGHT  DINAMIC SOFTWARE 1985",$FF</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ff55"></span>FF55</td>
 <td class="instruction">DEFM $00,$00,$FF</td>
 <td class="comment-0" rowspan="1"></td>

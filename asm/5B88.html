@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 5B88</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,17 +37,19 @@ Next: <a href="5B8C.html">5B8C</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Loads the 16 bit address stored at <a href="CE12.html">CE12</a> into <span class="register">HL</span> and jumps to it.
+Loads the 16 bit address stored at <a href="CE12.html">CONTROL_ROUTINE_ALIAS</a> into <span class="register">HL</span> and jumps to it.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">JUMP_CONTROL_METHOD</td>
 <td class="address-2"><span id="5b88"></span>5B88</td>
 <td class="instruction">LD HL,($CE12)</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="5b8b"></span>5B8B</td>
 <td class="instruction">JP (HL)</td>
 <td class="comment-0" rowspan="1"></td>

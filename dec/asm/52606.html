@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 52606</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -45,31 +43,37 @@ As the game uses its own character set, it's unlikely this routine was/ is used 
 </td>
 </tr>
 <tr>
+<td class="asm-label">DEBUGGER</td>
 <td class="address-2"><span id="52606"></span>52606</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="3">Grab a byte from <span class="register">HL</span> return if it's $FF (our termination character).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52607"></span>52607</td>
 <td class="instruction">CP 255</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52609"></span>52609</td>
 <td class="instruction">RET Z</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52610"></span>52610</td>
 <td class="instruction">RST 16</td>
 <td class="comment-1" rowspan="1">Print to screen (see <a href="https://skoolkid.github.io/rom/asm/0010.html">PRINT_A_1</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52611"></span>52611</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="2">Increase <span class="register">HL</span> by one and loop back to <a href="52606.html">52606</a>.</td>
+<td class="comment-1" rowspan="2">Increase <span class="register">HL</span> by one and loop back to <a href="52606.html">DEBUGGER</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52612"></span>52612</td>
-<td class="instruction">JR <a href="52606.html#52606">52606</a></td>
+<td class="instruction">JR <a href="52606.html#52606">DEBUGGER</a></td>
 </tr>
 </table>
 <table class="asm-navigation">

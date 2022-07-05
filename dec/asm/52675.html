@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 52675</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,46 +37,54 @@ Next: <a href="52754.html">52754</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="51136.html">51136</a>.
+Used by the routine at <a href="51136.html">NEW_GAME</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">SCORING</td>
 <td class="address-2"><span id="52675"></span>52675</td>
 <td class="instruction">LD IX,53605</td>
-<td class="comment-1" rowspan="6">Calls <a href="52675.html#52700">52700</a> three times with <span class="register">IX</span> containing; <ul class="">
-<li><a href="53605.html">53605</a></li>
-<li><a href="53619.html">53619</a></li>
-<li><a href="53633.html">53633</a></li>
+<td class="comment-1" rowspan="6">Calls <a href="52675.html#52700">SCORING_PREP</a> three times with <span class="register">IX</span> containing; <ul class="">
+<li><a href="53605.html">DOOR_1_FLAGS</a></li>
+<li><a href="53619.html">DOOR_2_FLAGS</a></li>
+<li><a href="53633.html">DOOR_3_FLAGS</a></li>
 </ul></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52679"></span>52679</td>
-<td class="instruction">CALL <a href="52675.html#52700">52700</a></td>
+<td class="instruction">CALL <a href="52675.html#52700">SCORING_PREP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52682"></span>52682</td>
 <td class="instruction">LD IX,53619</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52686"></span>52686</td>
-<td class="instruction">CALL <a href="52675.html#52700">52700</a></td>
+<td class="instruction">CALL <a href="52675.html#52700">SCORING_PREP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52689"></span>52689</td>
 <td class="instruction">LD IX,53633</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52693"></span>52693</td>
-<td class="instruction">CALL <a href="52675.html#52700">52700</a></td>
+<td class="instruction">CALL <a href="52675.html#52700">SCORING_PREP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52696"></span>52696</td>
-<td class="instruction">CALL <a href="52624.html">52624</a></td>
-<td class="comment-1" rowspan="1">Call <a href="52624.html">52624</a>.</td>
+<td class="instruction">CALL <a href="52624.html">DRAW_SCORE</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52624.html">DRAW_SCORE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52699"></span>52699</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -88,52 +94,61 @@ Used by the routine at <a href="51136.html">51136</a>.
 <span id="52700"></span>
 <div class="comments">
 <div class="paragraph">
-Passes the higher and lower score values to <a href="52675.html#52727">52727</a> for the current door.
+Passes the higher and lower score values to <a href="52675.html#52727">SCORING_APPLY</a> for the current door.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">SCORING_PREP</td>
 <td class="address-2"><span id="52700"></span>52700</td>
 <td class="instruction">LD HL,52615</td>
-<td class="comment-1" rowspan="1">References <a href="52614.html#52615">52615</a>.</td>
+<td class="comment-1" rowspan="1">References <a href="52614.html#52615">SCORE_DIGIT_5</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52703"></span>52703</td>
 <td class="instruction">LD B,(IX+6)</td>
 <td class="comment-1" rowspan="1">Retrieves <span class="register">IX</span>+$06, stores it in <span class="register">B</span> then reset it to zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52706"></span>52706</td>
 <td class="instruction">LD (IX+6),0</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52710"></span>52710</td>
-<td class="instruction">CALL <a href="52675.html#52727">52727</a></td>
-<td class="comment-1" rowspan="1">Call <a href="52675.html#52727">52727</a>.</td>
+<td class="instruction">CALL <a href="52675.html#52727">SCORING_APPLY</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52675.html#52727">SCORING_APPLY</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52713"></span>52713</td>
 <td class="instruction">LD HL,52616</td>
-<td class="comment-1" rowspan="1">References <a href="52614.html#52616">52616</a>.</td>
+<td class="comment-1" rowspan="1">References <a href="52614.html#52616">SCORE_DIGIT_4</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52716"></span>52716</td>
 <td class="instruction">LD B,(IX+7)</td>
 <td class="comment-1" rowspan="1">Retrieves <span class="register">IX</span>+$07, stores it in <span class="register">B</span> then reset it to zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52719"></span>52719</td>
 <td class="instruction">LD (IX+7),0</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52723"></span>52723</td>
-<td class="instruction">CALL <a href="52675.html#52727">52727</a></td>
-<td class="comment-1" rowspan="1">Call <a href="52675.html#52727">52727</a>.</td>
+<td class="instruction">CALL <a href="52675.html#52727">SCORING_APPLY</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52675.html#52727">SCORING_APPLY</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52726"></span>52726</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -149,51 +164,62 @@ Applies the door scores into the player score.
 </td>
 </tr>
 <tr>
+<td class="asm-label">SCORING_APPLY</td>
 <td class="address-2"><span id="52727"></span>52727</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="3">Pass the current score digit to <a href="52675.html#52744">52744</a> and overwrite the digit with the result.</td>
+<td class="comment-1" rowspan="3">Pass the current score digit to <a href="52675.html#52744">SCORING_BASE_10</a> and overwrite the digit with the result.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52728"></span>52728</td>
-<td class="instruction">CALL <a href="52675.html#52744">52744</a></td>
+<td class="instruction">CALL <a href="52675.html#52744">SCORING_BASE_10</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52731"></span>52731</td>
 <td class="instruction">LD (HL),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52732"></span>52732</td>
 <td class="instruction">LD E,5</td>
 <td class="comment-1" rowspan="1">Sets a counter to $05 (5 more digits in the score).</td>
 </tr>
 <tr>
+<td class="asm-label">SCORING_APPLY_LOOP</td>
 <td class="address-2"><span id="52734"></span>52734</td>
 <td class="instruction">INC HL</td>
 <td class="comment-1" rowspan="1">Move onto the next scoring digit.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52735"></span>52735</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="3">Pass the current score digit to <a href="52675.html#52744">52744</a> and overwrite the digit with the result.</td>
+<td class="comment-1" rowspan="3">Pass the current score digit to <a href="52675.html#52744">SCORING_BASE_10</a> and overwrite the digit with the result.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52736"></span>52736</td>
-<td class="instruction">CALL <a href="52675.html#52744">52744</a></td>
+<td class="instruction">CALL <a href="52675.html#52744">SCORING_BASE_10</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52739"></span>52739</td>
 <td class="instruction">LD (HL),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52740"></span>52740</td>
 <td class="instruction">DEC E</td>
-<td class="comment-1" rowspan="2">Loop back to <a href="52675.html#52734">52734</a> until the counter is zero (and all scoring digits are accounted for).</td>
+<td class="comment-1" rowspan="2">Loop back to <a href="52675.html#52734">SCORING_APPLY_LOOP</a> until the counter is zero (and all scoring digits are accounted for).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52741"></span>52741</td>
-<td class="instruction">JR NZ,<a href="52675.html#52734">52734</a></td>
+<td class="instruction">JR NZ,<a href="52675.html#52734">SCORING_APPLY_LOOP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52743"></span>52743</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -209,35 +235,42 @@ Ensures the current scoring digit remains 0-9 (if $0A then it's reset and the ca
 </td>
 </tr>
 <tr>
+<td class="asm-label">SCORING_BASE_10</td>
 <td class="address-2"><span id="52744"></span>52744</td>
 <td class="instruction">ADD A,B</td>
 <td class="comment-1" rowspan="1">Adds current score digit with passed score.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52745"></span>52745</td>
 <td class="instruction">LD B,0</td>
 <td class="comment-1" rowspan="1">Reset passed score to zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52747"></span>52747</td>
 <td class="instruction">CP 10</td>
 <td class="comment-1" rowspan="2">Return if result is less than $0A (base 10).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52749"></span>52749</td>
 <td class="instruction">RET C</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52750"></span>52750</td>
 <td class="instruction">SUB 10</td>
 <td class="comment-1" rowspan="1">Subtract $0A to keep this digit in base 10 (e.g. "11" becomes "1", "12" becomes "2", and so on).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52752"></span>52752</td>
 <td class="instruction">INC B</td>
 <td class="comment-1" rowspan="2">Add one onto the passed score (which carries onto the next digit as it goes lowest to highest) and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52753"></span>52753</td>
 <td class="instruction">RET</td>
 </tr>

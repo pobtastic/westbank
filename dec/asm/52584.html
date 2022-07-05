@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 52584</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,7 +37,7 @@ Next: <a href="52606.html">52606</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="51136.html">51136</a> and <a href="52551.html">52551</a>.
+Used by the routines at <a href="51136.html">NEW_GAME</a> and <a href="52551.html">52551</a>.
 </div>
 </div>
 </td>
@@ -55,33 +53,40 @@ Populates the state flags for each door.
 </td>
 </tr>
 <tr>
+<td class="asm-label">POPULATE_DOOR_BUFFER</td>
 <td class="address-2"><span id="52584"></span>52584</td>
 <td class="instruction">LD IX,53605</td>
-<td class="comment-1" rowspan="2">Call <a href="55457.html">55457</a> using <span class="register">IX</span>=<a href="53605.html">53605</a>.</td>
+<td class="comment-1" rowspan="2">Call <a href="55457.html">RESET___</a> using <span class="register">IX</span>=<a href="53605.html">DOOR_1_FLAGS</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52588"></span>52588</td>
-<td class="instruction">CALL <a href="55457.html">55457</a></td>
+<td class="instruction">CALL <a href="55457.html">RESET___</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52591"></span>52591</td>
 <td class="instruction">LD IX,53619</td>
-<td class="comment-1" rowspan="2">Call <a href="55457.html">55457</a> using <span class="register">IX</span>=<a href="53619.html">53619</a>.</td>
+<td class="comment-1" rowspan="2">Call <a href="55457.html">RESET___</a> using <span class="register">IX</span>=<a href="53619.html">DOOR_2_FLAGS</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52595"></span>52595</td>
-<td class="instruction">CALL <a href="55457.html">55457</a></td>
+<td class="instruction">CALL <a href="55457.html">RESET___</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52598"></span>52598</td>
 <td class="instruction">LD IX,53633</td>
-<td class="comment-1" rowspan="2">Call <a href="55457.html">55457</a> using <span class="register">IX</span>=<a href="53633.html">53633</a>.</td>
+<td class="comment-1" rowspan="2">Call <a href="55457.html">RESET___</a> using <span class="register">IX</span>=<a href="53633.html">DOOR_3_FLAGS</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52602"></span>52602</td>
-<td class="instruction">CALL <a href="55457.html">55457</a></td>
+<td class="instruction">CALL <a href="55457.html">RESET___</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="52605"></span>52605</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

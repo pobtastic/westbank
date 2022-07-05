@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Game status buffer</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -36,7 +34,7 @@ gtag('config', 'G-75RERFCHBG');
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/23488.html">Dueller Number 1.</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-Populated initially by <a href="../asm/50154.html">50154</a>.
+Populated initially by <a href="../asm/50154.html">DUEL_DATA</a>.
 </div>
 </div>
 </td>
@@ -48,7 +46,7 @@ Populated initially by <a href="../asm/50154.html">50154</a>.
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/23505.html">Dueller Number 2.</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-Populated initially by <a href="../asm/50154.html">50154</a>.
+Populated initially by <a href="../asm/50154.html">DUEL_DATA</a>.
 </div>
 </div>
 </td>
@@ -60,7 +58,7 @@ Populated initially by <a href="../asm/50154.html">50154</a>.
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/23522.html">Dueller Number 3.</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-Populated initially by <a href="../asm/50154.html">50154</a>.
+Populated initially by <a href="../asm/50154.html">DUEL_DATA</a>.
 </div>
 </div>
 </td>
@@ -102,7 +100,7 @@ Whether to utilise keyboard or joystick for input.
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50914.html">Duel Shot Flag.</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-See <a href="../asm/50832.html">50832</a> for the clearest example of usage.
+See <a href="../asm/50832.html">DUEL_COMPLETE</a> for the clearest example of usage.
 </div>
 </div>
 </td>
@@ -114,7 +112,7 @@ See <a href="../asm/50832.html">50832</a> for the clearest example of usage.
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50915.html">Duel Lost Life Flag.</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-See <a href="../asm/50832.html">50832</a> for the clearest example of usage.
+See <a href="../asm/50832.html">DUEL_COMPLETE</a> for the clearest example of usage.
 </div>
 </div>
 </td>
@@ -126,7 +124,7 @@ See <a href="../asm/50832.html">50832</a> for the clearest example of usage.
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/50916.html">Duel Extra Life Flag.</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-See <a href="../asm/50832.html">50832</a> for the clearest example of usage.
+See <a href="../asm/50832.html">DUEL_COMPLETE</a> for the clearest example of usage.
 </div>
 </div>
 </td>
@@ -135,7 +133,7 @@ See <a href="../asm/50832.html">50832</a> for the clearest example of usage.
 <td class="map-g"><span id="52280"></span><a href="../asm/52280.html">52280</a></td>
 <td class="map-length">2</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52280.html">Buffer for holding <a href="../asm/54758.html">54758</a> address.</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52280.html">Buffer for holding <a href="../asm/54758.html">COPY_ROUTINE</a> address.</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -204,7 +202,7 @@ Stores whether a deposit has been made for each door.
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/52754.html">Control Method Routine Alias.</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
-Points to either <a href="../asm/54162.html">54162</a> or <a href="../asm/54171.html">54171</a> depending on the chosen control method.
+Points to either <a href="../asm/54162.html">CONTROLS_JOYSTICK</a> or <a href="../asm/54171.html">CONTROLS_KEYBOARD</a> depending on the chosen control method.
 </div>
 </div>
 </td>
@@ -222,23 +220,23 @@ These buffers point to the routines for character/ door actions for each door th
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html">53650</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html">PREP_BANDIT_OPEN</a></td>
 <td class="centre" colspan="1" rowspan="1">"Normal" Bandit</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html#53724">53724</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html#53724">PREP_BOWIE</a></td>
 <td class="centre" colspan="1" rowspan="1">Bowie</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html#53761">53761</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html#53761">PREP_CUSTOMER</a></td>
 <td class="centre" colspan="1" rowspan="1">Customer</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html#53825">53825</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html#53825">PREP_JULIUS_OPEN</a></td>
 <td class="centre" colspan="1" rowspan="1">Julius</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html#53897">53897</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../asm/53650.html#53897">PREP_BANDIT_DRAW_OPEN</a></td>
 <td class="centre" colspan="1" rowspan="1">"Drawing" Bandit</td>
 </tr>
 </table> And will also hold the door closing routines as well.

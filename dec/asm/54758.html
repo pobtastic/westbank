@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 54758</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,7 +37,7 @@ Next: <a href="54778.html">54778</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="23442.html">23442</a>, <a href="49920.html">49920</a>, <a href="52176.html">52176</a>, <a href="52314.html">52314</a>, <a href="52379.html">52379</a>, <a href="52654.html">52654</a>, <a href="54730.html">54730</a> and <a href="54884.html">54884</a>.
+Used by the routines at <a href="23442.html">DRAW_CHARACTER</a>, <a href="49920.html">DRAW_PLAYFIELD</a>, <a href="52176.html">TWO_TONE_ATTRIBUTES_BUFFER</a>, <a href="52314.html">LIFE_IMAGES</a>, <a href="52379.html">52379</a>, <a href="52654.html">DRAW_NUMBER</a>, <a href="54730.html">DRAW_CHARACTER_IN_DOORWAY</a> and <a href="54884.html">DRAW_DOOR_FRAME_1</a>.
 </div>
 </div>
 </td>
@@ -55,62 +53,76 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 </td>
 </tr>
 <tr>
+<td class="asm-label">COPY_ROUTINE</td>
 <td class="address-2"><span id="54758"></span>54758</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="5">Copies bytes from <span class="register">DE</span> TO <span class="register">HL</span> x <span class="register">C</span> number of times.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54759"></span>54759</td>
 <td class="instruction">PUSH HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54760"></span>54760</td>
 <td class="instruction">LD B,0</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54762"></span>54762</td>
 <td class="instruction">EX DE,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54763"></span>54763</td>
 <td class="instruction">LDIR</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54765"></span>54765</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-1" rowspan="2">Restores <span class="register">HL</span> with the original screen buffer location.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54766"></span>54766</td>
 <td class="instruction">POP HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54767"></span>54767</td>
 <td class="instruction">INC H</td>
 <td class="comment-1" rowspan="4">ggg</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54768"></span>54768</td>
 <td class="instruction">LD A,H</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54769"></span>54769</td>
 <td class="instruction">AND 7</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54771"></span>54771</td>
-<td class="instruction">CALL Z,<a href="54800.html">54800</a></td>
+<td class="instruction">CALL Z,<a href="54800.html">CALC_ATTR</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54774"></span>54774</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="2">Grabs <span class="register">B</span> and decreases it by one. Loop back round to <a href="54758.html">54758</a> if <span class="register">B</span> is not zero.</td>
+<td class="comment-1" rowspan="2">Grabs <span class="register">B</span> and decreases it by one. Loop back round to <a href="54758.html">COPY_ROUTINE</a> if <span class="register">B</span> is not zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54775"></span>54775</td>
-<td class="instruction">DJNZ <a href="54758.html#54758">54758</a></td>
+<td class="instruction">DJNZ <a href="54758.html#54758">COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54777"></span>54777</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

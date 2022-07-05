@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Game status buffer entry at CE1B</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -42,16 +40,19 @@ Next: <a href="CE21.html">CE21</a>
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ce1b"></span>CE1B</td>
 <td class="instruction">DEFB $03</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ce1c"></span>CE1C</td>
 <td class="instruction">DEFW $0380</td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="ce1e"></span>CE1E</td>
 <td class="instruction">DEFB $03</td>
 <td class="comment-0" rowspan="1"></td>
@@ -67,8 +68,9 @@ Defines the entry point for the choosing routines. Note, this isn't for one choi
 </td>
 </tr>
 <tr>
+<td class="asm-label">CHOOSER_ROUTINE_BUFFER</td>
 <td class="address-1"><span id="ce1f"></span>CE1F</td>
-<td class="instruction">DEFW <a href="CE21.html#ce8d">$CE8D</a></td>
+<td class="instruction">DEFW <a href="CE21.html#ce8d">CHOOSE_BANDIT_5</a></td>
 <td class="comment-0" rowspan="1"></td>
 </tr>
 </table>

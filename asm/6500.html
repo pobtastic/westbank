@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 6500</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,14 +37,15 @@ Next: <a href="6580.html">6580</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="6380.html">6380</a>, <a href="C422.html">C422</a> and <a href="D307.html">D307</a>.
+Used by the routines at <a href="6380.html">LEVEL_SELECT</a>, <a href="C422.html">DUEL_PREP</a> and <a href="D307.html">CONTROLS</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_1_ALIAS</td>
 <td class="address-2"><span id="6500"></span>6500</td>
-<td class="instruction">JR <a href="6500.html#6537">$6537</a></td>
+<td class="instruction">JR <a href="6500.html#6537">SHOT_SOUND_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -54,14 +53,15 @@ Used by the routines at <a href="6380.html">6380</a>, <a href="C422.html">C422</
 <span id="6502"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="C000.html">C000</a> and <a href="D307.html">D307</a>.
+This entry point is used by the routines at <a href="C000.html">BANG</a> and <a href="D307.html">CONTROLS</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_2_ALIAS</td>
 <td class="address-2"><span id="6502"></span>6502</td>
-<td class="instruction">JR <a href="6500.html#653f">$653F</a></td>
+<td class="instruction">JR <a href="6500.html#653f">SHOT_SOUND_2</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -69,67 +69,79 @@ This entry point is used by the routines at <a href="C000.html">C000</a> and <a 
 <span id="6504"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="D307.html">D307</a>.
+This entry point is used by the routine at <a href="D307.html">CONTROLS</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_3_ALIAS</td>
 <td class="address-2"><span id="6504"></span>6504</td>
-<td class="instruction">JR <a href="6500.html#6547">$6547</a></td>
+<td class="instruction">JR <a href="6500.html#6547">SHOT_SOUND_3</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6506"></span>6506</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6508"></span>6508</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="650a"></span>650A</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="650c"></span>650C</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="650e"></span>650E</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6510"></span>6510</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6512"></span>6512</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6514"></span>6514</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6516"></span>6516</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6518"></span>6518</td>
 <td class="instruction">DEFW $2020</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="651a"></span>651A</td>
 <td class="instruction">DEFB $20,$00,$00,$00,$00</td>
 <td class="comment-1" rowspan="1"></td>
@@ -145,61 +157,73 @@ Sound data.
 </td>
 </tr>
 <tr>
+<td class="asm-label">DATA_SOUND_1</td>
 <td class="address-1"><span id="651f"></span>651F</td>
 <td class="instruction">DEFW $0A02</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6521"></span>6521</td>
 <td class="instruction">DEFW <a href="4000.html#4060">$4060</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6523"></span>6523</td>
 <td class="instruction">DEFW $0803</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6525"></span>6525</td>
 <td class="instruction">DEFW $00C0</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">DATA_SOUND_2</td>
 <td class="address-1"><span id="6527"></span>6527</td>
 <td class="instruction">DEFW $0A02</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6529"></span>6529</td>
 <td class="instruction">DEFW $2040</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="652b"></span>652B</td>
 <td class="instruction">DEFW $0803</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="652d"></span>652D</td>
 <td class="instruction">DEFW <a href="7CA0.html#80f0">$80F0</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">DATA_SOUND_3</td>
 <td class="address-1"><span id="652f"></span>652F</td>
 <td class="instruction">DEFW $0A02</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6531"></span>6531</td>
 <td class="instruction">DEFW $4050</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6533"></span>6533</td>
 <td class="instruction">DEFW $0803</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6535"></span>6535</td>
 <td class="instruction">DEFW <a href="7CA0.html#8000">$8000</a></td>
 <td class="comment-1" rowspan="1"></td>
@@ -215,15 +239,18 @@ Shot sound 1.
 </td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_1</td>
 <td class="address-2"><span id="6537"></span>6537</td>
 <td class="instruction">LD IX,$651F</td>
-<td class="comment-1" rowspan="2">Calls <a href="6500.html#654f">654F</a> using <a href="6500.html#651f">651F</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="6500.html#654f">PLAY_SHOT_SOUND</a> using <a href="6500.html#651f">DATA_SOUND_1</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="653b"></span>653B</td>
-<td class="instruction">CALL <a href="6500.html#654f">$654F</a></td>
+<td class="instruction">CALL <a href="6500.html#654f">PLAY_SHOT_SOUND</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="653e"></span>653E</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -239,15 +266,18 @@ Shot sound 2.
 </td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_2</td>
 <td class="address-2"><span id="653f"></span>653F</td>
 <td class="instruction">LD IX,$6527</td>
-<td class="comment-1" rowspan="2">Calls <a href="6500.html#654f">654F</a> using <a href="6500.html#6527">6527</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="6500.html#654f">PLAY_SHOT_SOUND</a> using <a href="6500.html#6527">DATA_SOUND_2</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6543"></span>6543</td>
-<td class="instruction">CALL <a href="6500.html#654f">$654F</a></td>
+<td class="instruction">CALL <a href="6500.html#654f">PLAY_SHOT_SOUND</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6546"></span>6546</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
@@ -263,126 +293,153 @@ Shot sound 3.
 </td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_3</td>
 <td class="address-2"><span id="6547"></span>6547</td>
 <td class="instruction">LD IX,$652F</td>
-<td class="comment-1" rowspan="2">Calls <a href="6500.html#654f">654F</a> using <a href="6500.html#652f">652F</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="6500.html#654f">PLAY_SHOT_SOUND</a> using <a href="6500.html#652f">DATA_SOUND_3</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="654b"></span>654B</td>
-<td class="instruction">CALL <a href="6500.html#654f">$654F</a></td>
+<td class="instruction">CALL <a href="6500.html#654f">PLAY_SHOT_SOUND</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="654e"></span>654E</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="asm-label">PLAY_SHOT_SOUND</td>
 <td class="address-2"><span id="654f"></span>654F</td>
-<td class="instruction">CALL <a href="6500.html#655e">$655E</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6500.html#655e">655E</a>.</td>
+<td class="instruction">CALL <a href="6500.html#655e">SHOT_SOUND</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6500.html#655e">SHOT_SOUND</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6552"></span>6552</td>
 <td class="instruction">INC IX</td>
 <td class="comment-1" rowspan="4">Increase <span class="register">IX</span> by 4.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6554"></span>6554</td>
 <td class="instruction">INC IX</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6556"></span>6556</td>
 <td class="instruction">INC IX</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6558"></span>6558</td>
 <td class="instruction">INC IX</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="655a"></span>655A</td>
-<td class="instruction">CALL <a href="6500.html#655e">$655E</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6500.html#655e">655E</a>.</td>
+<td class="instruction">CALL <a href="6500.html#655e">SHOT_SOUND</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6500.html#655e">SHOT_SOUND</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="655d"></span>655D</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND</td>
 <td class="address-2"><span id="655e"></span>655E</td>
 <td class="instruction">LD E,(IX+$00)</td>
 <td class="comment-1" rowspan="7">jjj</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6561"></span>6561</td>
 <td class="instruction">LD A,$18</td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_1_ALIAS_0</td>
 <td class="address-2"><span id="6563"></span>6563</td>
 <td class="instruction">XOR $18</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6565"></span>6565</td>
 <td class="instruction">OUT ($FE),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6567"></span>6567</td>
 <td class="instruction">LD C,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_1_ALIAS_1</td>
 <td class="address-2"><span id="656a"></span>656A</td>
 <td class="instruction">XOR $18</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="656c"></span>656C</td>
 <td class="instruction">OUT ($FE),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="656e"></span>656E</td>
 <td class="instruction">LD B,(IX+$02)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_LOOPBACK</td>
 <td class="address-2"><span id="6571"></span>6571</td>
-<td class="instruction">DJNZ <a href="6500.html#6571">$6571</a></td>
+<td class="instruction">DJNZ <a href="6500.html#6571">SHOT_SOUND_LOOPBACK</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6573"></span>6573</td>
 <td class="instruction">DEC C</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6574"></span>6574</td>
-<td class="instruction">JR NZ,<a href="6500.html#656a">$656A</a></td>
+<td class="instruction">JR NZ,<a href="6500.html#656a">SHOT_SOUND_1_ALIAS_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="6576"></span>6576</td>
 <td class="instruction">LD D,(IX+$03)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">SHOT_SOUND_1_ALIAS_2</td>
 <td class="address-2"><span id="6579"></span>6579</td>
 <td class="instruction">DEC D</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="657a"></span>657A</td>
-<td class="instruction">JR NZ,<a href="6500.html#6579">$6579</a></td>
+<td class="instruction">JR NZ,<a href="6500.html#6579">SHOT_SOUND_1_ALIAS_2</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="657c"></span>657C</td>
 <td class="instruction">DEC E</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="657d"></span>657D</td>
-<td class="instruction">JR NZ,<a href="6500.html#6563">$6563</a></td>
+<td class="instruction">JR NZ,<a href="6500.html#6563">SHOT_SOUND_1_ALIAS_0</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="657f"></span>657F</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

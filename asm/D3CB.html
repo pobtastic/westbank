@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D3CB</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,59 +37,70 @@ Next: <a href="D3E2.html">D3E2</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="D307.html">D307</a>.
+Used by the routine at <a href="D307.html">CONTROLS</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DRAW_GUN_SHOT</td>
 <td class="address-2"><span id="d3cb"></span>D3CB</td>
 <td class="instruction">LD DE,$FF68</td>
-<td class="comment-1" rowspan="2">Point to <a href="FF68.html">FF68</a> and set the image dimensions.</td>
+<td class="comment-1" rowspan="2">Point to <a href="FF68.html">SHOT_IMAGE</a> and set the image dimensions.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3ce"></span>D3CE</td>
 <td class="instruction">LD BC,$0802</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3d1"></span>D3D1</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1">Stash the screen location.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3d2"></span>D3D2</td>
-<td class="instruction">CALL <a href="D5FA.html">$D5FA</a></td>
-<td class="comment-1" rowspan="1">Calls <a href="D5FA.html">D5FA</a>.</td>
+<td class="instruction">CALL <a href="D5FA.html">MERGE_SHOT</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="D5FA.html">MERGE_SHOT</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3d5"></span>D3D5</td>
 <td class="instruction">HALT</td>
 <td class="comment-1" rowspan="2">Very short pause.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3d6"></span>D3D6</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3d7"></span>D3D7</td>
 <td class="instruction">POP HL</td>
 <td class="comment-1" rowspan="1">Grab the screen location.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3d8"></span>D3D8</td>
 <td class="instruction">LD DE,$FF68</td>
-<td class="comment-1" rowspan="2">Point to <a href="FF68.html">FF68</a> and set the image dimensions.</td>
+<td class="comment-1" rowspan="2">Point to <a href="FF68.html">SHOT_IMAGE</a> and set the image dimensions.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3db"></span>D3DB</td>
 <td class="instruction">LD BC,$0802</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3de"></span>D3DE</td>
-<td class="instruction">CALL <a href="D5FA.html">$D5FA</a></td>
-<td class="comment-1" rowspan="1">Calls <a href="D5FA.html">D5FA</a>.</td>
+<td class="instruction">CALL <a href="D5FA.html">MERGE_SHOT</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="D5FA.html">MERGE_SHOT</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3e1"></span>D3E1</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

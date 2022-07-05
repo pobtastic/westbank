@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at C6A7</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,15 +37,16 @@ Next: <a href="C6B1.html">C6B1</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="C422.html">C422</a> and <a href="C6B1.html">C6B1</a>.
+Used by the routines at <a href="C422.html">DUEL_PREP</a> and <a href="C6B1.html">DUEL_FLASH_TEXT</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_PRINT_LIVES</td>
 <td class="address-2"><span id="c6a7"></span>C6A7</td>
 <td class="instruction">LD DE,$50D0</td>
-<td class="comment-1" rowspan="3">Helper routine called from <a href="C422.html#c463">C463</a> used for writing <a href="C64D.html#c655">C655</a> to the screen using the colours held in <span class="register">BC</span>; <table class="default">
+<td class="comment-1" rowspan="3">Helper routine called from <a href="C422.html#c463">DUEL_CLEAR_SCREEN</a> used for writing <a href="C64D.html#c655">PLAYFIELD_LIVES</a> to the screen using the colours held in <span class="register">BC</span>; <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -69,14 +68,17 @@ Used by the routines at <a href="C422.html">C422</a> and <a href="C6B1.html">C6B
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6aa"></span>C6AA</td>
 <td class="instruction">LD BC,$0702</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6ad"></span>C6AD</td>
-<td class="instruction">CALL <a href="5B80.html">$5B80</a></td>
+<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6b0"></span>C6B0</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

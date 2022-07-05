@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D392</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -42,25 +40,30 @@ Next: <a href="D39B.html">D39B</a>
 </td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_JOYSTICK</td>
 <td class="address-2"><span id="d392"></span>D392</td>
 <td class="instruction">LD BC,$00DF</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d395"></span>D395</td>
 <td class="instruction">IN A,($0C)</td>
 <td class="comment-1" rowspan="1">Reads input from the Kempston joystick (see <a href="../reference/pokes.html">POKES</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d397"></span>D397</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="2">If there's nothing to read fall back to <a href="D39B.html">D39B</a> anyway.</td>
+<td class="comment-1" rowspan="2">If there's nothing to read fall back to <a href="D39B.html">CONTROLS_KEYBOARD</a> anyway.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d398"></span>D398</td>
-<td class="instruction">JR Z,<a href="D39B.html">$D39B</a></td>
+<td class="instruction">JR Z,<a href="D39B.html">CONTROLS_KEYBOARD</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d39a"></span>D39A</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 50928</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -45,103 +43,125 @@ This routine flashes the last life image eight times, and returns with lives bei
 </td>
 </tr>
 <tr>
+<td class="asm-label">FLASH_LIFE_IMAGE</td>
 <td class="address-2"><span id="50928"></span>50928</td>
 <td class="instruction">LD HL,(23430)</td>
-<td class="comment-1" rowspan="2">Decrease <a href="52313.html">52313</a> by one.</td>
+<td class="comment-1" rowspan="2">Decrease <a href="52313.html">LIVES</a> by one.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50931"></span>50931</td>
 <td class="instruction">DEC (HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50932"></span>50932</td>
 <td class="instruction">LD B,8</td>
 <td class="comment-1" rowspan="1">Sets <span class="register">B</span> (the counter) to loop $08 times.</td>
 </tr>
 <tr>
+<td class="asm-label">FLASH_LIFE_IMAGE_LOOP</td>
 <td class="address-2"><span id="50934"></span>50934</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50935"></span>50935</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50936"></span>50936</td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-1" rowspan="2">Increase <a href="52313.html">52313</a> by one and call <a href="23427.html">23427</a>.</td>
+<td class="comment-1" rowspan="2">Increase <a href="52313.html">LIVES</a> by one and call <a href="23427.html">DRAW_LIFE_IMAGES_ALIAS</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50937"></span>50937</td>
-<td class="instruction">CALL <a href="23427.html">23427</a></td>
+<td class="instruction">CALL <a href="23427.html">DRAW_LIFE_IMAGES_ALIAS</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50940"></span>50940</td>
 <td class="instruction">LD B,16</td>
 <td class="comment-1" rowspan="3">Interrupt driven halt loop.</td>
 </tr>
 <tr>
+<td class="asm-label">FLASH_LIFE_IMAGE_HALT_LOOP_1</td>
 <td class="address-2"><span id="50942"></span>50942</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50943"></span>50943</td>
-<td class="instruction">DJNZ <a href="50928.html#50942">50942</a></td>
+<td class="instruction">DJNZ <a href="50928.html#50942">FLASH_LIFE_IMAGE_HALT_LOOP_1</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50945"></span>50945</td>
 <td class="instruction">POP HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50946"></span>50946</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50947"></span>50947</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-1" rowspan="2">Decrease <a href="52313.html">52313</a> by one and call <a href="23427.html">23427</a>.</td>
+<td class="comment-1" rowspan="2">Decrease <a href="52313.html">LIVES</a> by one and call <a href="23427.html">DRAW_LIFE_IMAGES_ALIAS</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50948"></span>50948</td>
-<td class="instruction">CALL <a href="23427.html">23427</a></td>
+<td class="instruction">CALL <a href="23427.html">DRAW_LIFE_IMAGES_ALIAS</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50951"></span>50951</td>
 <td class="instruction">POP HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50952"></span>50952</td>
 <td class="instruction">LD B,16</td>
 <td class="comment-1" rowspan="3">Interrupt driven halt loop.</td>
 </tr>
 <tr>
+<td class="asm-label">FLASH_LIFE_IMAGE_HALT_LOOP_2</td>
 <td class="address-2"><span id="50954"></span>50954</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50955"></span>50955</td>
-<td class="instruction">DJNZ <a href="50928.html#50954">50954</a></td>
+<td class="instruction">DJNZ <a href="50928.html#50954">FLASH_LIFE_IMAGE_HALT_LOOP_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50957"></span>50957</td>
 <td class="instruction">POP BC</td>
 <td class="comment-1" rowspan="2">Retrieves <span class="register">B</span> (the counter) from the stack and loop back until finished.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50958"></span>50958</td>
-<td class="instruction">DJNZ <a href="50928.html#50934">50934</a></td>
+<td class="instruction">DJNZ <a href="50928.html#50934">FLASH_LIFE_IMAGE_LOOP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50960"></span>50960</td>
 <td class="instruction">SCF</td>
 <td class="comment-1" rowspan="2">Set the carry flag and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50961"></span>50961</td>
 <td class="instruction">RET</td>
 </tr>

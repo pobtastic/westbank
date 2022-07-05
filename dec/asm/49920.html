@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 49920</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,42 +37,50 @@ Next: <a href="50112.html">50112</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="52282.html">52282</a>.
+Used by the routine at <a href="52282.html">DRAW_PLAY_WITH_DOORS</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DRAW_PLAYFIELD</td>
 <td class="address-2"><span id="49920"></span>49920</td>
 <td class="instruction">LD L,(IX+0)</td>
-<td class="comment-1" rowspan="3">Set <a href="54758.html">54758</a> as the destination address at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="3">Set <a href="54758.html">COPY_ROUTINE</a> as the destination address at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49923"></span>49923</td>
 <td class="instruction">LD H,(IX+1)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49926"></span>49926</td>
 <td class="instruction">LD (50104),HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49929"></span>49929</td>
 <td class="instruction">LD HL,16384</td>
 <td class="comment-1" rowspan="5">Clears the screen buffer by writing $00 to all 6912 memory locations.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49932"></span>49932</td>
 <td class="instruction">LD DE,16385</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49935"></span>49935</td>
 <td class="instruction">LD BC,6911</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49938"></span>49938</td>
 <td class="instruction">LD (HL),0</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49940"></span>49940</td>
 <td class="instruction">LDIR</td>
 </tr>
@@ -89,38 +95,46 @@ Draws the numbering of the deposit boxes on the left and right of the screen.
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49942"></span>49942</td>
 <td class="instruction">LD HL,16385</td>
-<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4001 (screen buffer) and <span class="register">DE</span> to <a href="57248.html">57248</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4001 (screen buffer) and <span class="register">DE</span> to <a href="57248.html">SLOT_NUMBERS_LEFT</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49945"></span>49945</td>
 <td class="instruction">LD DE,57248</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49948"></span>49948</td>
 <td class="instruction">LD BC,2060</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49951"></span>49951</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49954"></span>49954</td>
 <td class="instruction">LD HL,16403</td>
-<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4013 (screen buffer) and <span class="register">DE</span> to <a href="57248.html#57344">57344</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4013 (screen buffer) and <span class="register">DE</span> to <a href="57248.html#57344">SLOT_NUMBERS_RIGHT</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49957"></span>49957</td>
 <td class="instruction">LD DE,57344</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49960"></span>49960</td>
 <td class="instruction">LD BC,2060</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49963"></span>49963</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -133,25 +147,30 @@ Draws the centrepiece "till" image.
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49966"></span>49966</td>
 <td class="instruction">LD HL,16398</td>
-<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $400E (screen buffer) and <span class="register">DE</span> to <a href="57440.html">57440</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $400E (screen buffer) and <span class="register">DE</span> to <a href="57440.html">CENTREPIECE</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49969"></span>49969</td>
 <td class="instruction">LD DE,57440</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49972"></span>49972</td>
 <td class="instruction">LD B,24</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49974"></span>49974</td>
 <td class="instruction">LD C,4</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49976"></span>49976</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -164,122 +183,150 @@ Draws the game play area (doors and wall sections).
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49979"></span>49979</td>
 <td class="instruction">LD HL,16480</td>
-<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4060 (screen buffer) and <span class="register">DE</span> to <a href="57536.html">57536</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $4060 (screen buffer) and <span class="register">DE</span> to <a href="57536.html">DOORS_TOP</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49982"></span>49982</td>
 <td class="instruction">LD DE,57536</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49985"></span>49985</td>
 <td class="instruction">LD BC,2080</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49988"></span>49988</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49991"></span>49991</td>
 <td class="instruction">LD HL,16512</td>
-<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4080 (screen buffer) and <span class="register">DE</span> to <a href="57792.html">57792</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4080 (screen buffer) and <span class="register">DE</span> to <a href="57792.html">WALL_LEFT</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49994"></span>49994</td>
 <td class="instruction">LD DE,57792</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49997"></span>49997</td>
 <td class="instruction">LD B,88</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="49999"></span>49999</td>
 <td class="instruction">LD C,2</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50001"></span>50001</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50004"></span>50004</td>
 <td class="instruction">LD HL,16521</td>
-<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4089 (screen buffer) and <span class="register">DE</span> to <a href="57968.html">57968</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4089 (screen buffer) and <span class="register">DE</span> to <a href="57968.html">WALL_MIDDLE</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50007"></span>50007</td>
 <td class="instruction">LD DE,57968</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50010"></span>50010</td>
 <td class="instruction">LD B,88</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50012"></span>50012</td>
 <td class="instruction">LD C,4</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50014"></span>50014</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50017"></span>50017</td>
 <td class="instruction">LD HL,16532</td>
-<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4094 (screen buffer) and <span class="register">DE</span> to <a href="57968.html">57968</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $4094 (screen buffer) and <span class="register">DE</span> to <a href="57968.html">WALL_MIDDLE</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50020"></span>50020</td>
 <td class="instruction">LD DE,57968</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50023"></span>50023</td>
 <td class="instruction">LD B,88</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50025"></span>50025</td>
 <td class="instruction">LD C,4</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50027"></span>50027</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50030"></span>50030</td>
 <td class="instruction">LD HL,16543</td>
-<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $409F (screen buffer) and <span class="register">DE</span> to <a href="58320.html">58320</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="5">Points <span class="register">HL</span> to $409F (screen buffer) and <span class="register">DE</span> to <a href="58320.html">DOOR_FRAME_SIDE</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50033"></span>50033</td>
 <td class="instruction">LD DE,58320</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50036"></span>50036</td>
 <td class="instruction">LD B,88</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50038"></span>50038</td>
 <td class="instruction">LD C,1</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50040"></span>50040</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50043"></span>50043</td>
 <td class="instruction">LD HL,18656</td>
-<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $48E0 (screen buffer) and <span class="register">DE</span> to <a href="58408.html">58408</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $48E0 (screen buffer) and <span class="register">DE</span> to <a href="58408.html">DOOR_BOTTOM</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50046"></span>50046</td>
 <td class="instruction">LD DE,58408</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50049"></span>50049</td>
 <td class="instruction">LD BC,2080</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50052"></span>50052</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -292,21 +339,25 @@ Draws the Bank Teller desks.
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50055"></span>50055</td>
 <td class="instruction">LD HL,20512</td>
-<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $5020 (screen buffer) and <span class="register">DE</span> to <a href="58664.html">58664</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $5020 (screen buffer) and <span class="register">DE</span> to <a href="58664.html">TELLERS</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50058"></span>50058</td>
 <td class="instruction">LD DE,58664</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50061"></span>50061</td>
 <td class="instruction">LD BC,8224</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50064"></span>50064</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -319,38 +370,46 @@ Writes the "SCORE" and "LIVES" labels (these aren't text, they're images).
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50067"></span>50067</td>
 <td class="instruction">LD HL,20673</td>
-<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $50C1 (screen buffer) and <span class="register">DE</span> to <a href="59688.html">59688</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $50C1 (screen buffer) and <span class="register">DE</span> to <a href="59688.html">SCORE_TEXT_IMAGE</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50070"></span>50070</td>
 <td class="instruction">LD DE,59688</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50073"></span>50073</td>
 <td class="instruction">LD BC,4102</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50076"></span>50076</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50079"></span>50079</td>
 <td class="instruction">LD HL,20656</td>
-<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $50B0 (screen buffer) and <span class="register">DE</span> to <a href="59784.html">59784</a>, then calls the routine at <a href="49920.html#50103">50103</a>.</td>
+<td class="comment-1" rowspan="4">Points <span class="register">HL</span> to $50B0 (screen buffer) and <span class="register">DE</span> to <a href="59784.html">LIVES_TEXT_IMAGE</a>, then calls the routine at <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50082"></span>50082</td>
 <td class="instruction">LD DE,59784</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50085"></span>50085</td>
 <td class="instruction">LD BC,5638</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50088"></span>50088</td>
-<td class="instruction">CALL <a href="49920.html#50103">50103</a></td>
+<td class="instruction">CALL <a href="49920.html#50103">ALIAS_COPY_ROUTINE</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -363,47 +422,57 @@ Copies attribute data to the screen.
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50091"></span>50091</td>
 <td class="instruction">LD HL,60672</td>
 <td class="comment-1" rowspan="4">Copies $300 bytes of attribute data from <a href="60672.html">60672</a> to $5800.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50094"></span>50094</td>
 <td class="instruction">LD DE,22528</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50097"></span>50097</td>
 <td class="instruction">LD BC,768</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50100"></span>50100</td>
 <td class="instruction">LDIR</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50102"></span>50102</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="asm-label">ALIAS_COPY_ROUTINE</td>
 <td class="address-2"><span id="50103"></span>50103</td>
-<td class="instruction">CALL <a href="54758.html">54758</a></td>
+<td class="instruction">CALL <a href="54758.html">COPY_ROUTINE</a></td>
 <td class="comment-1" rowspan="1">Draws the image pointed to in <span class="register">DE</span> to the screen location in <span class="register">HL</span> using the dimensions in <span class="register">BC</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50106"></span>50106</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50107"></span>50107</td>
 <td class="instruction">JP 60048</td>
 <td class="comment-1" rowspan="3">Unused.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50110"></span>50110</td>
 <td class="instruction">NOP</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50111"></span>50111</td>
 <td class="instruction">NOP</td>
 </tr>

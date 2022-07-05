@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at C6B1</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,83 +37,101 @@ Next: <a href="C6D3.html">C6D3</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C690.html">C690</a>.
+Used by the routine at <a href="C690.html">DUEL_COMPLETE</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_FLASH_TEXT</td>
 <td class="address-2"><span id="c6b1"></span>C6B1</td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-1" rowspan="14">Alternates displaying <a href="C64D.html#c65b">C65B</a> and <a href="C64D.html#c655">C655</a> to "flash" the lives indicator.</td>
+<td class="comment-1" rowspan="14">Alternates displaying <a href="C64D.html#c65b">PLAYFIELD_WHITESPACE</a> and <a href="C64D.html#c655">PLAYFIELD_LIVES</a> to "flash" the lives indicator.</td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_FLASH_TEXT_LOOP</td>
 <td class="address-2"><span id="c6b3"></span>C6B3</td>
 <td class="instruction">PUSH BC</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6b4"></span>C6B4</td>
 <td class="instruction">LD HL,$C65B</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6b7"></span>C6B7</td>
-<td class="instruction">CALL <a href="C6A7.html">$C6A7</a></td>
+<td class="instruction">CALL <a href="C6A7.html">DUEL_PRINT_LIVES</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6ba"></span>C6BA</td>
 <td class="instruction">LD B,$10</td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_FLASH_HALT_LOOP_1</td>
 <td class="address-2"><span id="c6bc"></span>C6BC</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6bd"></span>C6BD</td>
-<td class="instruction">DJNZ <a href="C6B1.html#c6bc">$C6BC</a></td>
+<td class="instruction">DJNZ <a href="C6B1.html#c6bc">DUEL_FLASH_HALT_LOOP_1</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6bf"></span>C6BF</td>
 <td class="instruction">LD HL,$C655</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6c2"></span>C6C2</td>
-<td class="instruction">CALL <a href="C6A7.html">$C6A7</a></td>
+<td class="instruction">CALL <a href="C6A7.html">DUEL_PRINT_LIVES</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6c5"></span>C6C5</td>
 <td class="instruction">LD B,$10</td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_FLASH_HALT_LOOP_2</td>
 <td class="address-2"><span id="c6c7"></span>C6C7</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6c8"></span>C6C8</td>
-<td class="instruction">DJNZ <a href="C6B1.html#c6c7">$C6C7</a></td>
+<td class="instruction">DJNZ <a href="C6B1.html#c6c7">DUEL_FLASH_HALT_LOOP_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6ca"></span>C6CA</td>
 <td class="instruction">POP BC</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6cb"></span>C6CB</td>
-<td class="instruction">DJNZ <a href="C6B1.html#c6b3">$C6B3</a></td>
+<td class="instruction">DJNZ <a href="C6B1.html#c6b3">DUEL_FLASH_TEXT_LOOP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6cd"></span>C6CD</td>
 <td class="instruction">LD HL,($5B86)</td>
-<td class="comment-1" rowspan="2">Increase the lives counter by one (<a href="CC59.html">CC59</a>).</td>
+<td class="comment-1" rowspan="2">Increase the lives counter by one (<a href="CC59.html">LIVES</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6d0"></span>C6D0</td>
 <td class="instruction">INC (HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6d1"></span>C6D1</td>
 <td class="instruction">SCF</td>
 <td class="comment-1" rowspan="2">Sets the carry flag and returns.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c6d2"></span>C6D2</td>
 <td class="instruction">RET</td>
 </tr>

@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 50917</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -42,23 +40,27 @@ Next: <a href="50928.html">50928</a>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUELLER_SHOT</td>
 <td class="address-2"><span id="50917"></span>50917</td>
 <td class="instruction">LD A,4</td>
-<td class="comment-1" rowspan="2">Writes $04 to <a href="50915.html">50915</a>.</td>
+<td class="comment-1" rowspan="2">Writes $04 to <a href="50915.html">DUEL_LOSE_LIFE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50919"></span>50919</td>
 <td class="instruction">LD (50915),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50922"></span>50922</td>
 <td class="instruction">LD (IX+9),A</td>
 <td class="comment-1" rowspan="1">Sets the dueller frame index to $04.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="50925"></span>50925</td>
-<td class="instruction">JP <a href="50210.html#50563">50563</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="50210.html#50563">50563</a>.</td>
+<td class="instruction">JP <a href="50210.html#50563">DUEL_PREP_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50210.html#50563">DUEL_PREP_0</a>.</td>
 </tr>
 </table>
 <table class="asm-navigation">

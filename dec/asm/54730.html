@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 54730</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -45,30 +43,36 @@ Draws the character frame at the location of one of the three (open) doors. This
 </td>
 </tr>
 <tr>
+<td class="asm-label">DRAW_CHARACTER_IN_DOORWAY</td>
 <td class="address-2"><span id="54730"></span>54730</td>
-<td class="instruction">CALL <a href="54704.html">54704</a></td>
+<td class="instruction">CALL <a href="54704.html">CHARACTER_ADDR</a></td>
 <td class="comment-1" rowspan="1">Retrieve the memory location for the character frame from the passed index in <span class="register">A</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54733"></span>54733</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54734"></span>54734</td>
 <td class="instruction">LD B,88</td>
 <td class="comment-1" rowspan="2">Sets the height and width.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54736"></span>54736</td>
 <td class="instruction">LD C,6</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54738"></span>54738</td>
 <td class="instruction">LD A,(52762)</td>
-<td class="comment-1" rowspan="1">Retrieves the currently in-focus door from <a href="52762.html">52762</a>.</td>
+<td class="comment-1" rowspan="1">Retrieves the currently in-focus door from <a href="52762.html">DOOR_FRAME_REF</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54741"></span>54741</td>
 <td class="instruction">LD HL,16514</td>
 <td class="comment-1" rowspan="8">Work out which screen position to use for the currently focused door; <table class="default">
@@ -88,35 +92,42 @@ Draws the character frame at the location of one of the three (open) doors. This
 <td class="centre" colspan="1" rowspan="1">$03</td>
 <td class="" colspan="1" rowspan="1">$4098</td>
 </tr>
-</table> Jump to <a href="54758.html">54758</a> to draw the character and handle the return.</td>
+</table> Jump to <a href="54758.html">COPY_ROUTINE</a> to draw the character and handle the return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54744"></span>54744</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54745"></span>54745</td>
-<td class="instruction">JR Z,<a href="54758.html">54758</a></td>
+<td class="instruction">JR Z,<a href="54758.html">COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54747"></span>54747</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54748"></span>54748</td>
 <td class="instruction">LD HL,16525</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54751"></span>54751</td>
-<td class="instruction">JR Z,<a href="54758.html">54758</a></td>
+<td class="instruction">JR Z,<a href="54758.html">COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54753"></span>54753</td>
 <td class="instruction">LD HL,16536</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54756"></span>54756</td>
-<td class="instruction">JR <a href="54758.html">54758</a></td>
+<td class="instruction">JR <a href="54758.html">COPY_ROUTINE</a></td>
 </tr>
 </table>
 <table class="asm-navigation">

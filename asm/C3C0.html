@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at C3C0</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,91 +37,109 @@ Next: <a href="C3EA.html">C3EA</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C7C0.html">C7C0</a>.
+Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-2"><span id="c3c0"></span>C3C0</td>
-<td class="instruction">CALL <a href="C3C0.html#c3dd">$C3DD</a></td>
-<td class="comment-1" rowspan="1">Call <a href="C3C0.html#c3dd">C3DD</a>.</td>
+<td class="instruction">CALL <a href="C3C0.html#c3dd">INIT_DUEL</a></td>
+<td class="comment-1" rowspan="1">Call <a href="C3C0.html#c3dd">INIT_DUEL</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3c3"></span>C3C3</td>
 <td class="instruction">LD A,($C421)</td>
 <td class="comment-1" rowspan="1">Grab <a href="C3EA.html#c421">C421</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3c6"></span>C3C6</td>
-<td class="instruction">JR NC,<a href="C3C0.html#c3c9">$C3C9</a></td>
+<td class="instruction">JR NC,<a href="C3C0.html#c3c9">REBUILD</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3c8"></span>C3C8</td>
 <td class="instruction">INC A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">REBUILD</td>
 <td class="address-2"><span id="c3c9"></span>C3C9</td>
 <td class="instruction">LD B,$20</td>
 <td class="comment-1" rowspan="3">Interrupt driven HALT loop ($20 cycles).</td>
 </tr>
 <tr>
+<td class="asm-label">REBUILD_HALT_LOOP</td>
 <td class="address-2"><span id="c3cb"></span>C3CB</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3cc"></span>C3CC</td>
-<td class="instruction">DJNZ <a href="C3C0.html#c3cb">$C3CB</a></td>
+<td class="instruction">DJNZ <a href="C3C0.html#c3cb">REBUILD_HALT_LOOP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3ce"></span>C3CE</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3cf"></span>C3CF</td>
 <td class="instruction">LD HL,($5B86)</td>
-<td class="comment-1" rowspan="3">Is <a href="CC59.html">CC59</a> more than $06?</td>
+<td class="comment-1" rowspan="3">Is <a href="CC59.html">LIVES</a> more than $06?</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3d2"></span>C3D2</td>
 <td class="instruction">LD A,(HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3d3"></span>C3D3</td>
 <td class="instruction">CP $06</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3d5"></span>C3D5</td>
 <td class="instruction">JR C,<a href="C3C0.html#c3d8">$C3D8</a></td>
 <td class="comment-1" rowspan="1">If so, jump to <a href="C3C0.html#c3d8">C3D8</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3d7"></span>C3D7</td>
 <td class="instruction">NOP</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-2"><span id="c3d8"></span>C3D8</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="3">If <a href="CC59.html">CC59</a> is zero then return.</td>
+<td class="comment-1" rowspan="3">If <a href="CC59.html">LIVES</a> is zero then return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3d9"></span>C3D9</td>
 <td class="instruction">LD A,E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3da"></span>C3DA</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3db"></span>C3DB</td>
 <td class="instruction">SCF</td>
 <td class="comment-1" rowspan="2">Set the carry flag and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3dc"></span>C3DC</td>
 <td class="instruction">RET</td>
 </tr>
@@ -138,31 +154,37 @@ Kicks off the duelling bonus round.
 </td>
 </tr>
 <tr>
+<td class="asm-label">INIT_DUEL</td>
 <td class="address-2"><span id="c3dd"></span>C3DD</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="2">Stashes <span class="register">BC</span> and <span class="register">DE</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3de"></span>C3DE</td>
 <td class="instruction">PUSH DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3df"></span>C3DF</td>
 <td class="instruction">LD DE,$5B80</td>
-<td class="comment-1" rowspan="3">Copies $1B of data from <span class="register">HL</span> to <a href="5B80.html">5B80</a>.</td>
+<td class="comment-1" rowspan="3">Copies $1B of data from <span class="register">HL</span> to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3e2"></span>C3E2</td>
 <td class="instruction">LD BC,$001B</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3e5"></span>C3E5</td>
 <td class="instruction">LDIR</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c3e7"></span>C3E7</td>
-<td class="instruction">JP <a href="C422.html">$C422</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="C422.html">C422</a>.</td>
+<td class="instruction">JP <a href="C422.html">DUEL_PREP</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C422.html">DUEL_PREP</a>.</td>
 </tr>
 </table>
 <table class="asm-navigation">

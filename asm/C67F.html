@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at C67F</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,25 +37,29 @@ Next: <a href="C687.html">C687</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C422.html">C422</a>.
+Used by the routine at <a href="C422.html">DUEL_PREP</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_UPDATE_TIMER</td>
 <td class="address-2"><span id="c67f"></span>C67F</td>
 <td class="instruction">AND $3F</td>
 <td class="comment-1" rowspan="3">Updates dueller timer.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c681"></span>C681</td>
 <td class="instruction">OR $40</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c683"></span>C683</td>
 <td class="instruction">LD (IX+$01),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c686"></span>C686</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

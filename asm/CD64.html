@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at CD64</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,7 +37,7 @@ Next: <a href="CD68.html">CD68</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="C7C0.html">C7C0</a> and <a href="CD1B.html">CD1B</a>.
+Used by the routines at <a href="C7C0.html">NEW_GAME</a> and <a href="CD1B.html">FLASH_LIVES</a>.
 </div>
 </div>
 </td>
@@ -55,15 +53,18 @@ Loops back on itself using <span class="register">B</span> as a counter.
 </td>
 </tr>
 <tr>
+<td class="asm-label">HALT_LOOP</td>
 <td class="address-2"><span id="cd64"></span>CD64</td>
 <td class="instruction">HALT</td>
 <td class="comment-1" rowspan="3">Short interrupt driven pause, and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cd65"></span>CD65</td>
-<td class="instruction">DJNZ <a href="CD64.html#cd64">$CD64</a></td>
+<td class="instruction">DJNZ <a href="CD64.html#cd64">HALT_LOOP</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cd67"></span>CD67</td>
 <td class="instruction">RET</td>
 </tr>

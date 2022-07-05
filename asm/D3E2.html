@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D3E2</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,31 +37,36 @@ Next: <a href="D3EA.html">D3EA</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="D39B.html">D39B</a>.
+Used by the routine at <a href="D39B.html">CONTROLS_KEYBOARD</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_INPUT_O_P</td>
 <td class="address-2"><span id="d3e2"></span>D3E2</td>
 <td class="instruction">LD A,$DF</td>
 <td class="comment-1" rowspan="2">Read keys P-O-I-U-Y.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3e4"></span>D3E4</td>
 <td class="instruction">IN A,($FE)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3e6"></span>D3E6</td>
 <td class="instruction">CPL</td>
 <td class="comment-1" rowspan="1">Invert all the bits of <span class="register">A</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3e7"></span>D3E7</td>
 <td class="instruction">AND $03</td>
 <td class="comment-1" rowspan="1">Keep only bits 0 and 1 (i.e. we only care about "P" and "O" for left and right).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3e9"></span>D3E9</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

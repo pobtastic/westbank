@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 54171</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,71 +37,85 @@ Next: <a href="54196.html">54196</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="54162.html">54162</a>.
+Used by the routine at <a href="54162.html">CONTROLS_JOYSTICK</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_KEYBOARD</td>
 <td class="address-2"><span id="54171"></span>54171</td>
 <td class="instruction">LD A,247</td>
 <td class="comment-1" rowspan="2">Read keys 1-2-3-4-5.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54173"></span>54173</td>
 <td class="instruction">IN A,(254)</td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_INPUT_1</td>
 <td class="address-1"><span id="54175"></span>54175</td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-1" rowspan="2">If "1" isn't being pressed then jump to <a href="54171.html#54182">54182</a>.</td>
+<td class="comment-1" rowspan="2">If "1" isn't being pressed then jump to <a href="54171.html#54182">CONTROLS_INPUT_2</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54177"></span>54177</td>
-<td class="instruction">JR NZ,<a href="54171.html#54182">54182</a></td>
+<td class="instruction">JR NZ,<a href="54171.html#54182">CONTROLS_INPUT_2</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54179"></span>54179</td>
 <td class="instruction">LD A,18</td>
 <td class="comment-1" rowspan="2">Set <span class="register">A</span>=$12 and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54181"></span>54181</td>
 <td class="instruction">RET</td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_INPUT_2</td>
 <td class="address-2"><span id="54182"></span>54182</td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-1" rowspan="2">If "2" isn't being pressed then jump to <a href="54171.html#54189">54189</a>.</td>
+<td class="comment-1" rowspan="2">If "2" isn't being pressed then jump to <a href="54171.html#54189">CONTROLS_INPUT_3</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54184"></span>54184</td>
-<td class="instruction">JR NZ,<a href="54171.html#54189">54189</a></td>
+<td class="instruction">JR NZ,<a href="54171.html#54189">CONTROLS_INPUT_3</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54186"></span>54186</td>
 <td class="instruction">LD A,16</td>
 <td class="comment-1" rowspan="2">Set <span class="register">A</span>=$10 and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54188"></span>54188</td>
 <td class="instruction">RET</td>
 </tr>
 <tr>
+<td class="asm-label">CONTROLS_INPUT_3</td>
 <td class="address-2"><span id="54189"></span>54189</td>
 <td class="instruction">BIT 2,A</td>
-<td class="comment-1" rowspan="2">If "3" isn't being pressed then jump to <a href="54242.html">54242</a>.</td>
+<td class="comment-1" rowspan="2">If "3" isn't being pressed then jump to <a href="54242.html">CONTROLS_INPUT_O_P</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54191"></span>54191</td>
-<td class="instruction">JR NZ,<a href="54242.html">54242</a></td>
+<td class="instruction">JR NZ,<a href="54242.html">CONTROLS_INPUT_O_P</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54193"></span>54193</td>
 <td class="instruction">LD A,17</td>
 <td class="comment-1" rowspan="2">Set <span class="register">A</span>=$11 and return.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54195"></span>54195</td>
 <td class="instruction">RET</td>
 </tr>

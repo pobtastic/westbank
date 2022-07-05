@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D3EA</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -42,130 +40,156 @@ Next: <a href="D45C.html">D45C</a>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_PREP</td>
 <td class="address-2"><span id="d3ea"></span>D3EA</td>
 <td class="instruction">LD HL,$CE14</td>
-<td class="comment-1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="comment-1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3ed"></span>D3ED</td>
 <td class="instruction">XOR A</td>
 <td class="comment-1" rowspan="2">Sets <span class="register">A</span>=0 and <span class="register">B</span>=$06 (counter).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3ee"></span>D3EE</td>
 <td class="instruction">LD B,$06</td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_PREP_0</td>
 <td class="address-2"><span id="d3f0"></span>D3F0</td>
 <td class="instruction">OR (HL)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3f1"></span>D3F1</td>
 <td class="instruction">INC HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3f2"></span>D3F2</td>
-<td class="instruction">DJNZ <a href="D3EA.html#d3f0">$D3F0</a></td>
+<td class="instruction">DJNZ <a href="D3EA.html#d3f0">DOOR_1_PREP_0</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3f4"></span>D3F4</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3f5"></span>D3F5</td>
 <td class="instruction">POP BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3f6"></span>D3F6</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3f7"></span>D3F7</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3f8"></span>D3F8</td>
 <td class="instruction">LD HL,$D8AC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3fb"></span>D3FB</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3fc"></span>D3FC</td>
 <td class="instruction">LD DE,$0400</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d3ff"></span>D3FF</td>
-<td class="instruction">CALL <a href="D3EA.html#d407">$D407</a></td>
+<td class="instruction">CALL <a href="D3EA.html#d407">DOOR_1_PREP_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d402"></span>D402</td>
 <td class="instruction">RET NC</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d403"></span>D403</td>
 <td class="instruction">POP AF</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d404"></span>D404</td>
 <td class="instruction">POP AF</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d405"></span>D405</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d406"></span>D406</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_PREP_1</td>
 <td class="address-2"><span id="d407"></span>D407</td>
 <td class="instruction">LD HL,$CA80</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d40a"></span>D40A</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d40b"></span>D40B</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d40c"></span>D40C</td>
 <td class="instruction">RET Z</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d40d"></span>D40D</td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d40f"></span>D40F</td>
 <td class="instruction">SCF</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d410"></span>D410</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>
@@ -175,199 +199,237 @@ Next: <a href="D45C.html">D45C</a>
 <span id="d411"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="C7C0.html">C7C0</a>.
+This entry point is used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_PREP_2</td>
 <td class="address-2"><span id="d411"></span>D411</td>
-<td class="instruction">CALL <a href="D3EA.html#d3ea">$D3EA</a></td>
+<td class="instruction">CALL <a href="D3EA.html#d3ea">DOOR_1_PREP</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_PREP_3</td>
 <td class="address-2"><span id="d414"></span>D414</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d415"></span>D415</td>
 <td class="instruction">CALL <a href="D2CF.html">$D2CF</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d418"></span>D418</td>
 <td class="instruction">LD A,($D301)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d41b"></span>D41B</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d41c"></span>D41C</td>
-<td class="instruction">CALL NZ,<a href="D3EA.html#d42d">$D42D</a></td>
+<td class="instruction">CALL NZ,<a href="D3EA.html#d42d">DOOR_1_PREP_4</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d41f"></span>D41F</td>
 <td class="instruction">LD A,($D302)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d422"></span>D422</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d423"></span>D423</td>
-<td class="instruction">CALL NZ,<a href="D3EA.html#d449">$D449</a></td>
+<td class="instruction">CALL NZ,<a href="D3EA.html#d449">DOOR_1_PREP_6</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d426"></span>D426</td>
 <td class="instruction">POP DE</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d427"></span>D427</td>
 <td class="instruction">DEC DE</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d428"></span>D428</td>
 <td class="instruction">LD A,D</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d429"></span>D429</td>
 <td class="instruction">OR E</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d42a"></span>D42A</td>
 <td class="instruction">RET Z</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d42b"></span>D42B</td>
-<td class="instruction">JR <a href="D3EA.html#d414">$D414</a></td>
+<td class="instruction">JR <a href="D3EA.html#d414">DOOR_1_PREP_3</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_PREP_4</td>
 <td class="address-2"><span id="d42d"></span>D42D</td>
 <td class="instruction">CALL <a href="6600.html">$6600</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d430"></span>D430</td>
 <td class="instruction">LD DE,$0400</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d433"></span>D433</td>
 <td class="instruction">LD HL,$D45D</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d436"></span>D436</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d437"></span>D437</td>
 <td class="instruction">INC A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d438"></span>D438</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d439"></span>D439</td>
 <td class="instruction">CP $0D</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d43b"></span>D43B</td>
-<td class="instruction">JR C,<a href="D3EA.html#d43f">$D43F</a></td>
+<td class="instruction">JR C,<a href="D3EA.html#d43f">DOOR_1_PREP_5</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d43d"></span>D43D</td>
 <td class="instruction">LD (HL),$01</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_PREP_5</td>
 <td class="address-2"><span id="d43f"></span>D43F</td>
 <td class="instruction">CALL <a href="D45E.html">$D45E</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d442"></span>D442</td>
 <td class="instruction">LD A,($D45D)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d445"></span>D445</td>
 <td class="instruction">LD ($D45C),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d448"></span>D448</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label">DOOR_1_PREP_6</td>
 <td class="address-2"><span id="d449"></span>D449</td>
 <td class="instruction">CALL <a href="6600.html#6700">$6700</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d44c"></span>D44C</td>
 <td class="instruction">LD DE,$0400</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d44f"></span>D44F</td>
 <td class="instruction">LD HL,$D45D</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d452"></span>D452</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d453"></span>D453</td>
 <td class="instruction">DEC A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d454"></span>D454</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d455"></span>D455</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d456"></span>D456</td>
-<td class="instruction">JR NZ,<a href="D3EA.html#d43f">$D43F</a></td>
+<td class="instruction">JR NZ,<a href="D3EA.html#d43f">DOOR_1_PREP_5</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d458"></span>D458</td>
 <td class="instruction">LD (HL),$0C</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d45a"></span>D45A</td>
-<td class="instruction">JR <a href="D3EA.html#d43f">$D43F</a></td>
+<td class="instruction">JR <a href="D3EA.html#d43f">DOOR_1_PREP_5</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 </table>

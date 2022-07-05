@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at D037</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -42,6 +40,7 @@ Next: <a href="D076.html">D076</a>
 </td>
 </tr>
 <tr>
+<td class="asm-label">TODO_DOOR_RESET</td>
 <td class="address-2"><span id="d037"></span>D037</td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-1" rowspan="4">Writes $01 to the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -50,78 +49,88 @@ Next: <a href="D076.html">D076</a>
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">D16F</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">DOOR_1_CHAR_BUFFER</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">D17D</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">DOOR_2_CHAR_BUFFER</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">D18B</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">DOOR_3_CHAR_BUFFER</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table> This is the first byte of character state data.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d039"></span>D039</td>
 <td class="instruction">LD L,(IX+$0A)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d03c"></span>D03C</td>
 <td class="instruction">LD H,(IX+$0B)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d03f"></span>D03F</td>
 <td class="instruction">LD (HL),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d040"></span>D040</td>
 <td class="instruction">LD DE,$D2AD</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d2ad">D2AD</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d2ad">PREP_BANDIT_DRAW_CLOSE</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">D165</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">CE14</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">D173</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">CE16</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">D181</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">CE18</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
 </tr>
 </table> This is copying the actual source data into the cache where it can be manipulated by the game events.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d043"></span>D043</td>
 <td class="instruction">LD L,(IX+$00)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d046"></span>D046</td>
 <td class="instruction">LD H,(IX+$01)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d049"></span>D049</td>
 <td class="instruction">LD (HL),E</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d04a"></span>D04A</td>
 <td class="instruction">INC HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d04b"></span>D04B</td>
 <td class="instruction">LD (HL),D</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d04c"></span>D04C</td>
 <td class="instruction">LD L,(IX+$0A)</td>
 <td class="comment-1" rowspan="6">Copies $000B bytes of data from (depending on which door is currently being actioned); <table class="default">
@@ -131,52 +140,60 @@ Next: <a href="D076.html">D076</a>
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">D16F</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">D167</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">DOOR_1_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
 <td class="" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">D17D</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">D175</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">DOOR_2_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
 <td class="" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">D18B</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">D183</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">DOOR_3_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
 <td class="" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d04f"></span>D04F</td>
 <td class="instruction">LD H,(IX+$0B)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d052"></span>D052</td>
 <td class="instruction">LD E,(IX+$02)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d055"></span>D055</td>
 <td class="instruction">LD D,(IX+$03)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d058"></span>D058</td>
 <td class="instruction">LD BC,$000B</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d05b"></span>D05B</td>
 <td class="instruction">LDIR</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d05d"></span>D05D</td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-1" rowspan="2">Initialise <a href="D18F.html">D18F</a> (writes $01 to it).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d05f"></span>D05F</td>
 <td class="instruction">LD ($D18F),A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d062"></span>D062</td>
 <td class="instruction">LD L,(IX+$0A)</td>
 <td class="comment-1" rowspan="3">Loads <span class="register">A</span> with the flag from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -185,53 +202,61 @@ Next: <a href="D076.html">D076</a>
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">D16F</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">DOOR_1_CHAR_BUFFER</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">D17D</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">DOOR_2_CHAR_BUFFER</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">D18B</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">DOOR_3_CHAR_BUFFER</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> As per <a href="D037.html">D037</a>, this should be $01.</td>
+</table> As per <a href="D037.html">TODO_DOOR_RESET</a>, this should be $01.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d065"></span>D065</td>
 <td class="instruction">LD H,(IX+$0B)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d068"></span>D068</td>
 <td class="instruction">LD A,(HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d069"></span>D069</td>
 <td class="instruction">LD (IX+$07),$02</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d06d"></span>D06D</td>
 <td class="instruction">AND A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d06e"></span>D06E</td>
 <td class="instruction">RET Z</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d06f"></span>D06F</td>
 <td class="instruction">LD (IX+$07),$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d073"></span>D073</td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d075"></span>D075</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

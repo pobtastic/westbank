@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at C661</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,71 +37,85 @@ Next: <a href="C67F.html">C67F</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C422.html">C422</a>.
+Used by the routine at <a href="C422.html">DUEL_PREP</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_DRAW_BANDIT_PREP</td>
 <td class="address-2"><span id="c661"></span>C661</td>
-<td class="instruction">CALL <a href="5B8F.html">$5B8F</a></td>
+<td class="instruction">CALL <a href="5B8F.html">CHARACTER_ADDR_ALIAS</a></td>
 <td class="comment-1" rowspan="1">Fetch the address of the character from the given index in <span class="register">A</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c664"></span>C664</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c665"></span>C665</td>
 <td class="instruction">LD A,(IX+$03)</td>
 <td class="comment-1" rowspan="1">Retrieve the character position.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c668"></span>C668</td>
 <td class="instruction">LD HL,$4804</td>
-<td class="comment-1" rowspan="3">If this character is in position "1" then point to the screen buffer at $4804 and jump to <a href="C661.html#c677">C677</a>.</td>
+<td class="comment-1" rowspan="3">If this character is in position "1" then point to the screen buffer at $4804 and jump to <a href="C661.html#c677">DUEL_DRAW_BANDIT</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c66b"></span>C66B</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c66c"></span>C66C</td>
-<td class="instruction">JR Z,<a href="C661.html#c677">$C677</a></td>
+<td class="instruction">JR Z,<a href="C661.html#c677">DUEL_DRAW_BANDIT</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c66e"></span>C66E</td>
 <td class="instruction">LD HL,$480C</td>
-<td class="comment-1" rowspan="3">If this character is in position "2" then point to the screen buffer at $480C and jump to <a href="C661.html#c677">C677</a>.</td>
+<td class="comment-1" rowspan="3">If this character is in position "2" then point to the screen buffer at $480C and jump to <a href="C661.html#c677">DUEL_DRAW_BANDIT</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c671"></span>C671</td>
 <td class="instruction">DEC A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c672"></span>C672</td>
-<td class="instruction">JR Z,<a href="C661.html#c677">$C677</a></td>
+<td class="instruction">JR Z,<a href="C661.html#c677">DUEL_DRAW_BANDIT</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c674"></span>C674</td>
 <td class="instruction">LD HL,$4814</td>
 <td class="comment-1" rowspan="1">Else this character is in position "3" so point to the screen buffer at $4814.</td>
 </tr>
 <tr>
+<td class="asm-label">DUEL_DRAW_BANDIT</td>
 <td class="address-2"><span id="c677"></span>C677</td>
 <td class="instruction">LD B,$58</td>
 <td class="comment-1" rowspan="3">Call the draw routine with the image dimensions.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c679"></span>C679</td>
 <td class="instruction">LD C,$06</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c67b"></span>C67B</td>
-<td class="instruction">CALL <a href="5B92.html">$5B92</a></td>
+<td class="instruction">CALL <a href="5B92.html">DRAW_CHARACTER</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="c67e"></span>C67E</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

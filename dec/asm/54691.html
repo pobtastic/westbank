@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at 54691</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,49 +37,58 @@ Next: <a href="54704.html">54704</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Compares the <a href="52762.html">52762</a> against the user input for a shot. If there isn't a shot to account for then we simply return, else we action a jump to the address held in <span class="register">DE</span> on entry.
+Compares the <a href="52762.html">DOOR_FRAME_REF</a> against the user input for a shot. If there isn't a shot to account for then we simply return, else we action a jump to the address held in <span class="register">DE</span> on entry.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">HIT_DETECTION</td>
 <td class="address-2"><span id="54691"></span>54691</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1">Store <span class="register">HL</span> on the stack for later.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54692"></span>54692</td>
 <td class="instruction">LD A,(54016)</td>
-<td class="comment-1" rowspan="3">Does a comparison of <a href="54016.html">54016</a> against <a href="52762.html">52762</a>.</td>
+<td class="comment-1" rowspan="3">Does a comparison of <a href="54016.html">HIT</a> against <a href="52762.html">DOOR_FRAME_REF</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54695"></span>54695</td>
 <td class="instruction">LD HL,52762</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54698"></span>54698</td>
 <td class="instruction">CP (HL)</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54699"></span>54699</td>
 <td class="instruction">POP HL</td>
 <td class="comment-1" rowspan="2">Retrieve <span class="register">HL</span> off the stack and return if the numbers compared were <em>NOT</em> the same.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54700"></span>54700</td>
 <td class="instruction">RET NZ</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54701"></span>54701</td>
 <td class="instruction">POP AF</td>
 <td class="comment-1" rowspan="1">Restores the character state to <span class="register">A</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54702"></span>54702</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-1" rowspan="2">Jumps to the address held in <span class="register">DE</span> on entry (with <span class="register">DE</span> now containing the original <span class="register">HL</span> address).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54703"></span>54703</td>
 <td class="instruction">JP (HL)</td>
 </tr>

@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Routine at CDAE</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -39,69 +37,83 @@ Next: <a href="CDC3.html">CDC3</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="CBD0.html">CBD0</a> and <a href="CD90.html">CD90</a>.
+Used by the routines at <a href="CBD0.html">TWO_TONE_ATTRIBUTES_BUFFER</a> and <a href="CD90.html">DRAW_SCORE</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
+<td class="asm-label">DRAW_NUMBER</td>
 <td class="address-2"><span id="cdae"></span>CDAE</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-1" rowspan="13">Using $C000 as a base address, this works out the character set memory address from a given index passed in <span class="register">A</span>. To give an example using "2" ($25 - see <a href="CD90.html">CD90</a>); <ul class="">
+<td class="comment-1" rowspan="13">Using $C000 as a base address, this works out the character set memory address from a given index passed in <span class="register">A</span>. To give an example using "2" ($25 - see <a href="CD90.html">DRAW_SCORE</a>); <ul class="">
 <li>Loads <strong>$25</strong> as the low-order byte; <span class="register">HL</span>=$0025</li>
 <li>Times by <strong>$10</strong>; <span class="register">HL</span>=$250</li>
-<li>Add <strong>$C000</strong>=<a href="C0A0.html#c250">C250</a></li>
-</ul> This is then passed to <a href="D5E6.html">D5E6</a>.</td>
+<li>Add <strong>$C000</strong>=<a href="C0A0.html#c250">CHAR_2</a></li>
+</ul> This is then passed to <a href="D5E6.html">COPY_ROUTINE</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdaf"></span>CDAF</td>
 <td class="instruction">LD H,$00</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdb1"></span>CDB1</td>
 <td class="instruction">LD L,A</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdb2"></span>CDB2</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdb3"></span>CDB3</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdb4"></span>CDB4</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdb5"></span>CDB5</td>
 <td class="instruction">ADD HL,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdb6"></span>CDB6</td>
 <td class="instruction">LD DE,$C000</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdb9"></span>CDB9</td>
 <td class="instruction">ADD HL,DE</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdba"></span>CDBA</td>
 <td class="instruction">EX DE,HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdbb"></span>CDBB</td>
 <td class="instruction">POP HL</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdbc"></span>CDBC</td>
 <td class="instruction">LD BC,$1001</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdbf"></span>CDBF</td>
-<td class="instruction">CALL <a href="D5E6.html">$D5E6</a></td>
+<td class="instruction">CALL <a href="D5E6.html">COPY_ROUTINE</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="cdc2"></span>CDC2</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

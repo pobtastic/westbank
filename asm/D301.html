@@ -3,8 +3,6 @@
 <head>
 <title>West Bank: Game status buffer entry at D301</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -52,11 +50,13 @@ These flags don't control left/ right movement they just indicate whether keys a
 </td>
 </tr>
 <tr>
+<td class="asm-label">RIGHT</td>
 <td class="address-1"><span id="d301"></span>D301</td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-1" rowspan="1">Defaults to $00, holds $01 when the player is pressing "right".</td>
 </tr>
 <tr>
+<td class="asm-label">LEFT</td>
 <td class="address-1"><span id="d302"></span>D302</td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-1" rowspan="1">Defaults to $00, holds $01 when the player is pressing "left".</td>
