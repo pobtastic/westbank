@@ -1,9 +1,0 @@
-table table.playfield, table.playfield {
-  margin: auto;
-  width: calc(100% - 140px);
-}
-
-table table.playfield td, table.playfield td {
-  background-color: #000;
-  text-align: center;
-}
