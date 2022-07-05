@@ -13,6 +13,8 @@ RefFiles=analytics.ref;bases.ref;westbankGraphics.ref
 Game=West Bank
 Logo=#SCR2,4,0,16,3,$4000,$5800(/images/logo)
 Copyright=&copy; DINAMIC SOFTWARE 1985
+LinkInternalOperands=1
+AddressAnchor={address#IF({base}==16)(:04x)}
 StyleSheet=skoolkit.css;skoolkit-dark.css;westbank.css
 HtmlWriterClass=:westbank.WestBankHtmlWriter
 GameDir=westbank

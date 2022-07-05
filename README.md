@@ -1,28 +1,26 @@
 West Bank
 =========
 
-A disassembly of the [Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum) version of [Bank Panic](https://en.wikipedia.org/wiki/Bank_Panic) called "West Bank", created using [SkoolKit](https://skoolkit.ca).
+A disassembly of the [Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum) version of
+[Bank Panic](https://en.wikipedia.org/wiki/Bank_Panic) called "West Bank".
 
+Created using [SkoolKit](https://skoolkit.ca).
 
-SkoolKit
---------
+Browse the latest release:
 
-[SkoolKit](http://skoolkit.ca/) is the peerless Python toolkit for disassembling ZX Spectrum software written by [Richard Dymond](https://github.com/skoolkid).
+* [West Bank disassembly](https://pobtastic.github.io/westbank/) (hexadecimal; mirror [here](http://skoolkit.arcadegeek.co.uk/westbank/))
+* [West Bank disassembly](https://pobtastic.github.io/westbank/dec/) (decimal; mirror [here](http://skoolkit.arcadegeek.co.uk/westbank/dec/))
 
-Usage
------
+To build the current development version, first either install SkoolKit, or
+make a clone of the [SkoolKit repository](https://github.com/skoolkid/skoolkit)
+and point the environment variable SKOOLKIT_HOME at it. Then:
 
-```
-git clone git@github.com:pobtastic/disassemblies.git
-cd disassemblies/westbank
-sna2skool.py -H -c westbank.ctl WestBank.z80 > westbank.skool
-skool2html.py -H westbank.skool
-```
+    $ utils/mkhtml.py
 
 Disclaimer
 ----------
 
-No game code is included in this repository, you will need to own the original game in order to disassemble the game code.
+You will need to own the original game in order to disassemble the game code.
 
 1985 [Dinamic Software (Spain)](https://en.wikipedia.org/wiki/Dinamic_Software)
 1985 [Gremlin Graphics Software Ltd (UK)](https://en.wikipedia.org/wiki/Gremlin_Interactive)
