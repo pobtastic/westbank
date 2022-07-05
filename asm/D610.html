@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at D610</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D5FA.html">D5FA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d610">Map</a></td>
+<td class="next">
+Next: <a href="D61E.html">D61E</a>
+</td>
+</tr>
+</table>
+<div class="description">D610: Routine at D610</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="D5E6.html">D5E6</a> and <a href="D5FA.html">D5FA</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d610"></span>
+<div class="comments">
+<div class="paragraph">
+On entry <span class="register">HL</span> points to an address in the screen attribute buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="d610"></span>D610</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="10">Let's use $58C8 as an example; <ul class="">
+<li><span class="register">A</span>=$58</li>
+<li>Subtract $08 = <span class="register">A</span>=$50</li>
+<li>Write it into <span class="register">HL</span>=$50C8</li>
+<li><span class="register">A</span>=$C8</li>
+<li>Add $20 = <span class="register">A</span>=$E8</li>
+<li>Write it into <span class="register">HL</span>=$50E8</li>
+</ul></td>
+</tr>
+<tr>
+<td class="address-1"><span id="d611"></span>D611</td>
+<td class="instruction">SUB $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d613"></span>D613</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d614"></span>D614</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d615"></span>D615</td>
+<td class="instruction">ADD A,$20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d617"></span>D617</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d618"></span>D618</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d619"></span>D619</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d61a"></span>D61A</td>
+<td class="instruction">ADD A,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d61c"></span>D61C</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d61d"></span>D61D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D5FA.html">D5FA</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d610">Map</a></td>
+<td class="next">
+Next: <a href="D61E.html">D61E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../dec/asm/54800.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

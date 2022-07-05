@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 55457</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="55237.html">55237</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55457">Map</a></td>
+<td class="next">
+Next: <a href="55468.html">55468</a>
+</td>
+</tr>
+</table>
+<div class="description">55457: Routine at D8A1</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="52584.html">52584</a>, <a href="54415.html">54415</a>, <a href="55070.html">55070</a>, <a href="55237.html">55237</a>, <a href="55525.html">55525</a> and <a href="55820.html">55820</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55457"></span>55457</td>
+<td class="instruction">LD L,(IX+0)</td>
+<td class="comment-1" rowspan="6">Blanks the 16 bit address pointed to by one of the passed door flags (i.e. writes $0000 to one of <a href="52756.html">52756</a>, <a href="52756.html#52758">52758</a>, <a href="52756.html#52760">52760</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55460"></span>55460</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55463"></span>55463</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55464"></span>55464</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55465"></span>55465</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55466"></span>55466</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55467"></span>55467</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="55237.html">55237</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55457">Map</a></td>
+<td class="next">
+Next: <a href="55468.html">55468</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/D8A1.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

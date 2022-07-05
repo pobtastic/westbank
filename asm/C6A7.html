@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C6A7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C690.html">C690</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c6a7">Map</a></td>
+<td class="next">
+Next: <a href="C6B1.html">C6B1</a>
+</td>
+</tr>
+</table>
+<div class="description">C6A7: Write "Lives" text.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="C422.html">C422</a> and <a href="C6B1.html">C6B1</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="c6a7"></span>C6A7</td>
+<td class="instruction">LD DE,$50D0</td>
+<td class="comment-1" rowspan="3">Helper routine called from <a href="C422.html#c463">C463</a> used for writing <a href="C64D.html#c655">C655</a> to the screen using the colours held in <span class="register">BC</span>; <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$07</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c6aa"></span>C6AA</td>
+<td class="instruction">LD BC,$0702</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c6ad"></span>C6AD</td>
+<td class="instruction">CALL <a href="5B80.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c6b0"></span>C6B0</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C690.html">C690</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c6a7">Map</a></td>
+<td class="next">
+Next: <a href="C6B1.html">C6B1</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../dec/asm/50855.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

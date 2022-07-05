@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at FE00</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="FD00.html">FD00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#fe00">Map</a></td>
+<td class="next">
+Next: <a href="FEEA.html">FEEA</a>
+</td>
+</tr>
+</table>
+<div class="description">FE00: Title Screen.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="C7C0.html">C7C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="fe00"></span>FE00</td>
+<td class="instruction">LD DE,$5B80</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe03"></span>FE03</td>
+<td class="instruction">LD BC,$0040</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe06"></span>FE06</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe08"></span>FE08</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe0a"></span>FE0A</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe0b"></span>FE0B</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe0c"></span>FE0C</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe0d"></span>FE0D</td>
+<td class="instruction">CALL <a href="FE00.html#fea4">$FEA4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe10"></span>FE10</td>
+<td class="instruction">LD HL,$FEEA</td>
+<td class="comment-1" rowspan="4">Points to <a href="FEEA.html">FEEA</a> and sends it to <a href="5B80.html">5B80</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe13"></span>FE13</td>
+<td class="instruction">LD DE,$402B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe16"></span>FE16</td>
+<td class="instruction">LD BC,$0703</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe19"></span>FE19</td>
+<td class="instruction">CALL <a href="5B80.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe1c"></span>FE1C</td>
+<td class="instruction">LD HL,$FEF4</td>
+<td class="comment-1" rowspan="3">Points to <a href="FEEA.html#fef4">FEF4</a> and sends it to <a href="FE00.html#fee4">FEE4</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe1f"></span>FE1F</td>
+<td class="instruction">LD DE,$40CB</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe22"></span>FE22</td>
+<td class="instruction">CALL <a href="FE00.html#fee4">$FEE4</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe25"></span>FE25</td>
+<td class="instruction">LD HL,$FEFC</td>
+<td class="comment-1" rowspan="1">Points to <a href="FEEA.html#fefc">FEFC</a> and sends it to <a href="FE00.html#fee4">FEE4</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe28"></span>FE28</td>
+<td class="instruction">LD DE,$482B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe2b"></span>FE2B</td>
+<td class="instruction">CALL <a href="FE00.html#fee4">$FEE4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe2e"></span>FE2E</td>
+<td class="instruction">LD HL,$FF06</td>
+<td class="comment-1" rowspan="1">Points to <a href="FEEA.html#ff06">FF06</a> and sends it to <a href="FE00.html#fee4">FEE4</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe31"></span>FE31</td>
+<td class="instruction">LD DE,$488B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe34"></span>FE34</td>
+<td class="instruction">CALL <a href="FE00.html#fee4">$FEE4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe37"></span>FE37</td>
+<td class="instruction">LD HL,$FF11</td>
+<td class="comment-1" rowspan="1">Points to <a href="FEEA.html#ff11">FF11</a> and sends it to <a href="FE00.html#fee4">FEE4</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe3a"></span>FE3A</td>
+<td class="instruction">LD DE,$48EB</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe3d"></span>FE3D</td>
+<td class="instruction">CALL <a href="FE00.html#fee4">$FEE4</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe40"></span>FE40</td>
+<td class="instruction">LD HL,$FF19</td>
+<td class="comment-1" rowspan="1">Points to <a href="FEEA.html#ff19">FF19</a> and sends it to <a href="5B80.html">5B80</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe43"></span>FE43</td>
+<td class="instruction">LD DE,$5083</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe46"></span>FE46</td>
+<td class="instruction">LD BC,$0705</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe49"></span>FE49</td>
+<td class="instruction">CALL <a href="5B80.html">$5B80</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe4c"></span>FE4C</td>
+<td class="instruction">LD HL,$FF34</td>
+<td class="comment-1" rowspan="4">Points to <a href="FEEA.html#ff34">FF34</a> and sends it to <a href="5B80.html">5B80</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe4f"></span>FE4F</td>
+<td class="instruction">LD DE,$50C0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe52"></span>FE52</td>
+<td class="instruction">LD BC,$0704</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe55"></span>FE55</td>
+<td class="instruction">CALL <a href="5B80.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fe58"></span>
+<div class="comments">
+<div class="paragraph">
+Act on input.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="fe58"></span>FE58</td>
+<td class="instruction">LD A,($5CB0)</td>
+<td class="comment-1" rowspan="7">If <a href="5CB0.html">5CB0</a> is zero (joystick) then <span class="register">DE</span>=$0787 else <span class="register">DE</span>=$8707. Then call the subroutine at <a href="FE00.html#fe95">FE95</a>. The $07/ $87 correspond to white INK and white INK flashing for the selected control method. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+<th colspan="1" rowspan="1">Flash</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$87</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe5b"></span>FE5B</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe5c"></span>FE5C</td>
+<td class="instruction">JR Z,<a href="FE00.html#fe63">$FE63</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe5e"></span>FE5E</td>
+<td class="instruction">LD DE,$8707</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe61"></span>FE61</td>
+<td class="instruction">JR <a href="FE00.html#fe66">$FE66</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="fe63"></span>FE63</td>
+<td class="instruction">LD DE,$0787</td>
+</tr>
+<tr>
+<td class="address-2"><span id="fe66"></span>FE66</td>
+<td class="instruction">CALL <a href="FE00.html#fe95">$FE95</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe69"></span>FE69</td>
+<td class="instruction">LD HL,$5CB0</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span>=<a href="5CB0.html">5CB0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe6c"></span>FE6C</td>
+<td class="instruction">LD A,$F7</td>
+<td class="comment-1" rowspan="2">Read keys 1, 2, 3, 4, 5.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe6e"></span>FE6E</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe70"></span>FE70</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe86">FE86</a> if "1" is pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe71"></span>FE71</td>
+<td class="instruction">JR NC,<a href="FE00.html#fe86">$FE86</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe73"></span>FE73</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe8b">FE8B</a> if "2" is pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe74"></span>FE74</td>
+<td class="instruction">JR NC,<a href="FE00.html#fe8b">$FE8B</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe76"></span>FE76</td>
+<td class="instruction">LD A,$7F</td>
+<td class="comment-1" rowspan="2">Read keys SPACE, FULL-STOP, M, N, &amp; B.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe78"></span>FE78</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe7a"></span>FE7A</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe8f">FE8F</a> if "N" is pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe7c"></span>FE7C</td>
+<td class="instruction">JR Z,<a href="FE00.html#fe8f">$FE8F</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe7e"></span>FE7E</td>
+<td class="instruction">LD A,$EF</td>
+<td class="comment-1" rowspan="2">Read keys 0, 9, 8, 7, 6.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe80"></span>FE80</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe82"></span>FE82</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="3">Return if "0" is pressed, else loop back around to <a href="FE00.html#fe58">FE58</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe83"></span>FE83</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe84"></span>FE84</td>
+<td class="instruction">JR <a href="FE00.html#fe58">$FE58</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="fe86"></span>FE86</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="3">Writes $01 to <a href="5CB0.html">5CB0</a> and loop back around to <a href="FE00.html#fe58">FE58</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe88"></span>FE88</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe89"></span>FE89</td>
+<td class="instruction">JR <a href="FE00.html#fe58">$FE58</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="fe8b"></span>FE8B</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="3">Writes $00 to <a href="5CB0.html">5CB0</a> and loop back around to <a href="FE00.html#fe58">FE58</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe8c"></span>FE8C</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe8d"></span>FE8D</td>
+<td class="instruction">JR <a href="FE00.html#fe58">$FE58</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="fe8f"></span>FE8F</td>
+<td class="instruction">LD HL,$5B80</td>
+<td class="comment-1" rowspan="2">Jump to <a href="6380.html">6380</a> with <span class="register">HL</span>=<a href="5B80.html">5B80</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe92"></span>FE92</td>
+<td class="instruction">JP <a href="6380.html">$6380</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="fe95"></span>FE95</td>
+<td class="instruction">LD BC,$0020</td>
+<td class="comment-1" rowspan="10">ggg</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe98"></span>FE98</td>
+<td class="instruction">LD HL,$592B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe9b"></span>FE9B</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe9c"></span>FE9C</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe9d"></span>FE9D</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe9e"></span>FE9E</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fe9f"></span>FE9F</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fea0"></span>FEA0</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fea1"></span>FEA1</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fea2"></span>FEA2</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fea3"></span>FEA3</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fea4"></span>
+<div class="comments">
+<div class="paragraph">
+Draw bandits.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="fea4"></span>FEA4</td>
+<td class="instruction">LD HL,$58C1</td>
+<td class="comment-1" rowspan="10">Sets attributes on the left and right of the screen and points <span class="register">DE</span> at <a href="6800.html">6800</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fea7"></span>FEA7</td>
+<td class="instruction">CALL <a href="FE00.html#fec3">$FEC3</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="feaa"></span>FEAA</td>
+<td class="instruction">LD HL,$58D9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fead"></span>FEAD</td>
+<td class="instruction">CALL <a href="FE00.html#fec3">$FEC3</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="feb0"></span>FEB0</td>
+<td class="instruction">LD HL,$40C1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="feb3"></span>FEB3</td>
+<td class="instruction">CALL <a href="FE00.html#feb9">$FEB9</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="feb6"></span>FEB6</td>
+<td class="instruction">LD HL,$40D9</td>
+</tr>
+<tr>
+<td class="address-2"><span id="feb9"></span>FEB9</td>
+<td class="instruction">LD DE,$6800</td>
+</tr>
+<tr>
+<td class="address-1"><span id="febc"></span>FEBC</td>
+<td class="instruction">LD B,$58</td>
+</tr>
+<tr>
+<td class="address-1"><span id="febe"></span>FEBE</td>
+<td class="instruction">LD C,$06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fec0"></span>FEC0</td>
+<td class="instruction">JP <a href="5B92.html">$5B92</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="5B92.html">5B92</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="fec3"></span>FEC3</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="3">Calls <a href="FE00.html#fece">FECE</a> with <span class="register">B</span>=$08 and <span class="register">A</span>=$28.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fec5"></span>FEC5</td>
+<td class="instruction">LD A,$28</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fec7"></span>FEC7</td>
+<td class="instruction">CALL <a href="FE00.html#fece">$FECE</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="feca"></span>FECA</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="3">Calls <a href="FE00.html#feda">FEDA</a> with <span class="register">B</span>=$03 and <span class="register">A</span>=$20.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fecc"></span>FECC</td>
+<td class="instruction">LD A,$20</td>
+</tr>
+<tr>
+<td class="address-2"><span id="fece"></span>FECE</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fecf"></span>FECF</td>
+<td class="instruction">CALL <a href="FE00.html#feda">$FEDA</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fed2"></span>FED2</td>
+<td class="instruction">LD BC,$001B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fed5"></span>FED5</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fed6"></span>FED6</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fed7"></span>FED7</td>
+<td class="instruction">DJNZ <a href="FE00.html#fece">$FECE</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fed9"></span>FED9</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="feda"></span>FEDA</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fedb"></span>FEDB</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fedc"></span>FEDC</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fedd"></span>FEDD</td>
+<td class="instruction">LD BC,$0005</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fee0"></span>FEE0</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fee1"></span>FEE1</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="fee3"></span>FEE3</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="fee4"></span>FEE4</td>
+<td class="instruction">LD BC,$0702</td>
+<td class="comment-1" rowspan="2"><span class="register">B</span>=$07, <span class="register">C</span>=$02 and jump to <a href="5B80.html">5B80</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="fee7"></span>FEE7</td>
+<td class="instruction">JP <a href="5B80.html">$5B80</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="FD00.html">FD00</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#fe00">Map</a></td>
+<td class="next">
+Next: <a href="FEEA.html">FEEA</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../dec/asm/65024.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

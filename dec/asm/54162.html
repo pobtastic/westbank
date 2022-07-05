@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 54162</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54023.html">54023</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54162">Map</a></td>
+<td class="next">
+Next: <a href="54171.html">54171</a>
+</td>
+</tr>
+</table>
+<div class="description">54162: Reads In-Game Joystick Controls.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54162"></span>54162</td>
+<td class="instruction">LD BC,223</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54165"></span>54165</td>
+<td class="instruction">IN A,(12)</td>
+<td class="comment-1" rowspan="1">Reads input from the Kempston joystick (see <a href="../reference/pokes.html">POKES</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54167"></span>54167</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="2">If there's nothing to read fall back to <a href="54171.html">54171</a> anyway.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54168"></span>54168</td>
+<td class="instruction">JR Z,<a href="54171.html">54171</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54170"></span>54170</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54023.html">54023</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54162">Map</a></td>
+<td class="next">
+Next: <a href="54171.html">54171</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/D392.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

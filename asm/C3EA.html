@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C3EA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C3C0.html">C3C0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c3ea">Map</a></td>
+<td class="next">
+Next: <a href="C422.html">C422</a>
+</td>
+</tr>
+</table>
+<div class="description">C3EA: Duel Bonus Round Data.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c3ea"></span>
+<div class="comments">
+<div class="paragraph">
+Dueller 1 data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="c3ea"></span>C3EA</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Dueller state ("0" is complete).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3eb"></span>C3EB</td>
+<td class="instruction">DEFB $80</td>
+<td class="comment-1" rowspan="1">Dueller timer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3ec"></span>C3EC</td>
+<td class="instruction">DEFB $12</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3ed"></span>C3ED</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Dueller position (1).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3ee"></span>C3EE</td>
+<td class="instruction">DEFB $C5,$40</td>
+<td class="comment-1" rowspan="1">Screen position above dueller to display "EXTRA" or points.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3f0"></span>C3F0</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3f1"></span>C3F1</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Bonus points (x100, e.g. "9" == "900").</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3f2"></span>C3F2</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3f3"></span>C3F3</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Current frame?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3f4"></span>C3F4</td>
+<td class="instruction">DEFB $12,$13,$14</td>
+<td class="comment-1" rowspan="1">Dueller 1 frames.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3f7"></span>C3F7</td>
+<td class="instruction">DEFB $00,$08,$08,$0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c3fb"></span>
+<div class="comments">
+<div class="paragraph">
+Dueller 2 data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3fb"></span>C3FB</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Dueller state ("0" is complete).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3fc"></span>C3FC</td>
+<td class="instruction">DEFB $80</td>
+<td class="comment-1" rowspan="1">Dueller timer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3fd"></span>C3FD</td>
+<td class="instruction">DEFB $12</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3fe"></span>C3FE</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-1" rowspan="1">Dueller position (2).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c3ff"></span>C3FF</td>
+<td class="instruction">DEFB $CD,$40</td>
+<td class="comment-1" rowspan="1">Screen position above dueller to display "EXTRA" or points.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c401"></span>C401</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c402"></span>C402</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Bonus points (x100, e.g. "9" == "900").</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c403"></span>C403</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c404"></span>C404</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Current frame?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c405"></span>C405</td>
+<td class="instruction">DEFB $15,$16,$17</td>
+<td class="comment-1" rowspan="1">Dueller 2 frames.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c408"></span>C408</td>
+<td class="instruction">DEFB $00,$08,$08,$0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c40c"></span>
+<div class="comments">
+<div class="paragraph">
+Dueller 3 data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c40c"></span>C40C</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Dueller state ("0" is complete).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c40d"></span>C40D</td>
+<td class="instruction">DEFB $80</td>
+<td class="comment-1" rowspan="1">Dueller timer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c40e"></span>C40E</td>
+<td class="instruction">DEFB $12</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c40f"></span>C40F</td>
+<td class="instruction">DEFB $03</td>
+<td class="comment-1" rowspan="1">Dueller position (3).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c410"></span>C410</td>
+<td class="instruction">DEFB $D5,$40</td>
+<td class="comment-1" rowspan="1">Screen position above dueller to display "EXTRA" or points.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c412"></span>C412</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c413"></span>C413</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Bonus points (x100, e.g. "9" == "900").</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c414"></span>C414</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c415"></span>C415</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Current frame?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c416"></span>C416</td>
+<td class="instruction">DEFB $18,$19,$1A</td>
+<td class="comment-1" rowspan="1">Dueller 3 frames.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c419"></span>C419</td>
+<td class="instruction">DEFB $00,$08,$08,$0A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c41d"></span>
+<div class="comments">
+<div class="paragraph">
+Buffer holding bonus text.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c41d"></span>C41D</td>
+<td class="instruction">DEFM "900",$FF</td>
+<td class="comment-1" rowspan="1">Bonus text.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c421"></span>
+<div class="comments">
+<div class="paragraph">
+Not sure ... it is used though @todo.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c421"></span>C421</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C3C0.html">C3C0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c3ea">Map</a></td>
+<td class="next">
+Next: <a href="C422.html">C422</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../dec/asm/50154.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

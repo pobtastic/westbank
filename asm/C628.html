@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C628</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C622.html">C622</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c628">Map</a></td>
+<td class="next">
+Next: <a href="C64D.html">C64D</a>
+</td>
+</tr>
+</table>
+<div class="description">C628: Displays "Extra" and Bonus Score text.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Handles whether to display points or "EXTRA" above each downed Bandit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="c628"></span>C628</td>
+<td class="instruction">LD A,($C6E4)</td>
+<td class="comment-1" rowspan="4">If <a href="C6E4.html">C6E4</a> is NOT zero then award 9(00) bonus points.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c62b"></span>C62B</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c62c"></span>C62C</td>
+<td class="instruction">LD A,$09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c62e"></span>C62E</td>
+<td class="instruction">JR NZ,<a href="C607.html">$C607</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c630"></span>C630</td>
+<td class="instruction">LD HL,($5B86)</td>
+<td class="comment-1" rowspan="5">Fetch a 16 bit address from <a href="5B86.html">5B86</a> (<a href="CC59.html">CC59</a>), if it is higher than $05 then award 9(00) bonus points.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c633"></span>C633</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c634"></span>C634</td>
+<td class="instruction">CP $05</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c636"></span>C636</td>
+<td class="instruction">LD A,$09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c638"></span>C638</td>
+<td class="instruction">JR NC,<a href="C607.html">$C607</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c63a"></span>C63A</td>
+<td class="instruction">LD HL,$C622</td>
+<td class="comment-1" rowspan="4">Points to <a href="C622.html">C622</a> and sends it to <a href="5B80.html">5B80</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$2A</td>
+<td class="" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$05</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$29</td>
+<td class="" colspan="1" rowspan="1">$01</td>
+<td class="" colspan="1" rowspan="1">$05</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c63d"></span>C63D</td>
+<td class="instruction">DEC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c63e"></span>C63E</td>
+<td class="instruction">LD BC,$2A29</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c641"></span>C641</td>
+<td class="instruction">CALL <a href="5B80.html">$5B80</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c644"></span>C644</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="2">Writes $01 to <a href="C6E4.html">C6E4</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c646"></span>C646</td>
+<td class="instruction">LD ($C6E4),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c649"></span>C649</td>
+<td class="instruction">INC (IX+$09)</td>
+<td class="comment-1" rowspan="1">Move onto the next frame.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c64c"></span>C64C</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C622.html">C622</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c628">Map</a></td>
+<td class="next">
+Next: <a href="C64D.html">C64D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../dec/asm/50728.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 54730</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54704.html">54704</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54730">Map</a></td>
+<td class="next">
+Next: <a href="54758.html">54758</a>
+</td>
+</tr>
+</table>
+<div class="description">54730: Draw Character In Doorway.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Draws the character frame at the location of one of the three (open) doors. This is direct function, hence is only used when the door is open (it doesn't utilise the door buffer).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54730"></span>54730</td>
+<td class="instruction">CALL <a href="54704.html">54704</a></td>
+<td class="comment-1" rowspan="1">Retrieve the memory location for the character frame from the passed index in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54733"></span>54733</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54734"></span>54734</td>
+<td class="instruction">LD B,88</td>
+<td class="comment-1" rowspan="2">Sets the height and width.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54736"></span>54736</td>
+<td class="instruction">LD C,6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54738"></span>54738</td>
+<td class="instruction">LD A,(52762)</td>
+<td class="comment-1" rowspan="1">Retrieves the currently in-focus door from <a href="52762.html">52762</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54741"></span>54741</td>
+<td class="instruction">LD HL,16514</td>
+<td class="comment-1" rowspan="8">Work out which screen position to use for the currently focused door; <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Screen Address</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="" colspan="1" rowspan="1">$4082</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$408D</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="" colspan="1" rowspan="1">$4098</td>
+</tr>
+</table> Jump to <a href="54758.html">54758</a> to draw the character and handle the return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54744"></span>54744</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54745"></span>54745</td>
+<td class="instruction">JR Z,<a href="54758.html">54758</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54747"></span>54747</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54748"></span>54748</td>
+<td class="instruction">LD HL,16525</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54751"></span>54751</td>
+<td class="instruction">JR Z,<a href="54758.html">54758</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54753"></span>54753</td>
+<td class="instruction">LD HL,16536</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54756"></span>54756</td>
+<td class="instruction">JR <a href="54758.html">54758</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54704.html">54704</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54730">Map</a></td>
+<td class="next">
+Next: <a href="54758.html">54758</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/D5CA.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 52314</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52313.html">52313</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52314">Map</a></td>
+<td class="next">
+Next: <a href="52365.html">52365</a>
+</td>
+</tr>
+</table>
+<div class="description">52314: Display The "Life" Images.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="23427.html">23427</a>, <a href="51136.html">51136</a> and <a href="52507.html">52507</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52314"></span>52314</td>
+<td class="instruction">LD B,5</td>
+<td class="comment-1" rowspan="2">Set up counter=$05 screen buffer=$50B6.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52316"></span>52316</td>
+<td class="instruction">LD HL,20662</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52319"></span>52319</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="7">jjjss</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52320"></span>52320</td>
+<td class="instruction">LD DE,23296</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52323"></span>52323</td>
+<td class="instruction">CALL <a href="52314.html#52356">52356</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52326"></span>52326</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52327"></span>52327</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52328"></span>52328</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52329"></span>52329</td>
+<td class="instruction">DJNZ <a href="52314.html#52319">52319</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52331"></span>52331</td>
+<td class="instruction">LD A,(52313)</td>
+<td class="comment-1" rowspan="3">If <a href="52313.html">52313</a> are zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52334"></span>52334</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52335"></span>52335</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52336"></span>52336</td>
+<td class="instruction">CP 6</td>
+<td class="comment-1" rowspan="2">If <a href="52313.html">52313</a> is more than or equal to "6" then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52338"></span>52338</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52339"></span>52339</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52340"></span>52340</td>
+<td class="instruction">LD HL,20662</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="52343"></span>52343</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52344"></span>52344</td>
+<td class="instruction">CALL <a href="52314.html#52353">52353</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52347"></span>52347</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52348"></span>52348</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52349"></span>52349</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52350"></span>52350</td>
+<td class="instruction">DJNZ <a href="52314.html#52343">52343</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52352"></span>52352</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52353"></span>52353</td>
+<td class="instruction">LD DE,65464</td>
+<td class="comment-1" rowspan="4">Point at the <a href="65464.html">65464</a> and call <a href="54758.html">54758</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52356"></span>52356</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52357"></span>52357</td>
+<td class="instruction">LD BC,6146</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52360"></span>52360</td>
+<td class="instruction">CALL <a href="54758.html">54758</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52363"></span>52363</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52364"></span>52364</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52313.html">52313</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52314">Map</a></td>
+<td class="next">
+Next: <a href="52365.html">52365</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/CC5A.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

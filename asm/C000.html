@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at C000</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BFA8.html">BFA8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c000">Map</a></td>
+<td class="next">
+Next: <a href="C0A0.html">C0A0</a>
+</td>
+</tr>
+</table>
+<div class="description">C000: BANG!</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="C687.html">C687</a> and <a href="CD47.html">CD47</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="c000"></span>C000</td>
+<td class="instruction">CALL <a href="C000.html#c046">$C046</a></td>
+<td class="comment-1" rowspan="1">Clear the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c003"></span>C003</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="3">Pass <a href="F000.html">F000</a> to <a href="C000.html#c061">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c005"></span>C005</td>
+<td class="instruction">LD HL,$F000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c008"></span>C008</td>
+<td class="instruction">CALL <a href="C000.html#c061">$C061</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c00b"></span>C00B</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="3">Pass <a href="F000.html#f100">F100</a> to <a href="C000.html#c061">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c00d"></span>C00D</td>
+<td class="instruction">LD HL,$F100</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c010"></span>C010</td>
+<td class="instruction">CALL <a href="C000.html#c061">$C061</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c013"></span>C013</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="3">Pass <a href="F000.html#f200">F200</a> to <a href="C000.html#c061">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c015"></span>C015</td>
+<td class="instruction">LD HL,$F200</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c018"></span>C018</td>
+<td class="instruction">CALL <a href="C000.html#c061">$C061</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c01b"></span>C01B</td>
+<td class="instruction">CALL <a href="6500.html#6502">$6502</a></td>
+<td class="comment-1" rowspan="2">Calls $6502 twice.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c01e"></span>C01E</td>
+<td class="instruction">CALL <a href="6500.html#6502">$6502</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c021"></span>C021</td>
+<td class="instruction">LD B,$06</td>
+<td class="comment-1" rowspan="3">Pass <a href="F000.html#f300">F300</a> to <a href="C000.html#c061">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c023"></span>C023</td>
+<td class="instruction">LD HL,$F300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c026"></span>C026</td>
+<td class="instruction">CALL <a href="C000.html#c061">$C061</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c029"></span>C029</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="3">Pass <a href="F000.html#f400">F400</a> to <a href="C000.html#c061">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c02b"></span>C02B</td>
+<td class="instruction">LD HL,$F400</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c02e"></span>C02E</td>
+<td class="instruction">CALL <a href="C000.html#c061">$C061</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c031"></span>C031</td>
+<td class="instruction">LD B,$05</td>
+<td class="comment-1" rowspan="3">Pass <a href="F000.html#f500">F500</a> to <a href="C000.html#c061">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c033"></span>C033</td>
+<td class="instruction">LD HL,$F500</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c036"></span>C036</td>
+<td class="instruction">CALL <a href="C000.html#c061">$C061</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c039"></span>C039</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="3">Blanks the display by passing a "clear" part of the screen buffer to <a href="C000.html#c061">C061</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c03b"></span>C03B</td>
+<td class="instruction">LD HL,$5000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c03e"></span>C03E</td>
+<td class="instruction">CALL <a href="C000.html#c061">$C061</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c041"></span>C041</td>
+<td class="instruction">LD B,$40</td>
+<td class="comment-1" rowspan="2">Jump to <a href="C000.html#c06d">C06D</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c043"></span>C043</td>
+<td class="instruction">JP <a href="C000.html#c06d">$C06D</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="c046"></span>C046</td>
+<td class="instruction">LD HL,$4000</td>
+<td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c049"></span>C049</td>
+<td class="instruction">LD DE,$4001</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c04c"></span>C04C</td>
+<td class="instruction">LD BC,$17FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c04f"></span>C04F</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c051"></span>C051</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c053"></span>C053</td>
+<td class="instruction">LD HL,$5800</td>
+<td class="comment-1" rowspan="5">Continues into the attributes buffer, and writes $02 (red ink) to every location. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+<td class="" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c056"></span>C056</td>
+<td class="instruction">LD DE,$5801</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c059"></span>C059</td>
+<td class="instruction">LD BC,$02FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c05c"></span>C05C</td>
+<td class="instruction">LD (HL),$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c05e"></span>C05E</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c060"></span>C060</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Returns.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="c061"></span>C061</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="8">Sets the screen location and the bang image frame sizing, then calls <a href="C000.html#c071">C071</a>, issues a short pause and ...</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c062"></span>C062</td>
+<td class="instruction">LD BC,$2008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c065"></span>C065</td>
+<td class="instruction">LD DE,$480C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c068"></span>C068</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c069"></span>C069</td>
+<td class="instruction">CALL <a href="C000.html#c071">$C071</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c06c"></span>C06C</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-2"><span id="c06d"></span>C06D</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c06e"></span>C06E</td>
+<td class="instruction">DJNZ <a href="C000.html#c06d">$C06D</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c070"></span>C070</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">...returns.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="c071"></span>C071</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="13">Copy the bang image frame to the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c072"></span>C072</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c073"></span>C073</td>
+<td class="instruction">LD B,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c075"></span>C075</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c076"></span>C076</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c078"></span>C078</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c079"></span>C079</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c07a"></span>C07A</td>
+<td class="instruction">INC H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c07b"></span>C07B</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c07c"></span>C07C</td>
+<td class="instruction">AND $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c07e"></span>C07E</td>
+<td class="instruction">CALL Z,<a href="C000.html#c085">$C085</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c081"></span>C081</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c082"></span>C082</td>
+<td class="instruction">DJNZ <a href="C000.html#c071">$C071</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c084"></span>C084</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="c085"></span>C085</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="10">Handles working out the next line progressively in the screen buffer.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c086"></span>C086</td>
+<td class="instruction">SUB $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c088"></span>C088</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c089"></span>C089</td>
+<td class="instruction">LD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c08a"></span>C08A</td>
+<td class="instruction">ADD A,$20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c08c"></span>C08C</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c08d"></span>C08D</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c08e"></span>C08E</td>
+<td class="instruction">LD A,H</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c08f"></span>C08F</td>
+<td class="instruction">ADD A,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c091"></span>C091</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c092"></span>C092</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="c093"></span>C093</td>
+<td class="instruction">DEFB $C3,$90,$EA,$04,$33,$49,$44,$46</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="c09b"></span>C09B</td>
+<td class="instruction">DEFB $47,$B1,$D2,$04,$32</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BFA8.html">BFA8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c000">Map</a></td>
+<td class="next">
+Next: <a href="C0A0.html">C0A0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../dec/asm/49152.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at D307</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D303.html">D303</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d307">Map</a></td>
+<td class="next">
+Next: <a href="D392.html">D392</a>
+</td>
+</tr>
+</table>
+<div class="description">D307: Action Controls.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="D2CF.html">D2CF</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d307"></span>
+<div class="comments">
+<div class="paragraph">
+On entry <span class="register">A</span> will contain one of; <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Bits</th>
+<td class="centre" colspan="1" rowspan="1">Door</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$10</td>
+<td class="centre" colspan="1" rowspan="1">00010000</td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$11</td>
+<td class="centre" colspan="1" rowspan="1">00010001</td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$12</td>
+<td class="centre" colspan="1" rowspan="1">00010010</td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+</table> This is written to <a href="D303.html#d306">D306</a>, and then decoded into writing a $01, $02 or $03 to <a href="D300.html">D300</a> to represent which door has been shot at.  This routine also writes $01 to <a href="D303.html#d305">D305</a>, <a href="D303.html">D303</a> and <a href="D303.html#d304">D304</a> to represent the same thing. Before returning, <span class="register">HL</span> is set to the screen location for displaying the shot mask/ shot image in the centre of the door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="d307"></span>D307</td>
+<td class="instruction">LD HL,$D306</td>
+<td class="comment-1" rowspan="3">Writes <span class="register">A</span> to <a href="D303.html#d306">D306</a> and sets <span class="register">HL</span>=<a href="D300.html">D300</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d30a"></span>D30A</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d30b"></span>D30B</td>
+<td class="instruction">LD HL,$D300</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d30e"></span>D30E</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="d30f"></span>D30F</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="2">If "3" was pressed then jump to <a href="D307.html#d33b">D33B</a> (a check for if bit 0 is set).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d311"></span>D311</td>
+<td class="instruction">JR NZ,<a href="D307.html#d33b">$D33B</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="d313"></span>D313</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">If "1" was pressed then jump to <a href="D307.html#d360">D360</a> (a check for if bit 1 is set).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d315"></span>D315</td>
+<td class="instruction">JR NZ,<a href="D307.html#d360">$D360</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d317"></span>
+<div class="comments">
+<div class="paragraph">
+Handles settings flags and shot drawing location for door 2.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d317"></span>D317</td>
+<td class="instruction">LD A,($D303)</td>
+<td class="comment-1" rowspan="3">If <a href="D303.html">D303</a> is not zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d31a"></span>D31A</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d31b"></span>D31B</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d31c"></span>D31C</td>
+<td class="instruction">LD ($D304),A</td>
+<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html#d304">D304</a> and <a href="D303.html#d305">D305</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d31f"></span>D31F</td>
+<td class="instruction">LD ($D305),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d322"></span>D322</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="4">Indicate the the middle door is being shot at (write $01 to <a href="D303.html">D303</a> and $02 to <a href="D300.html">D300</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d323"></span>D323</td>
+<td class="instruction">LD ($D303),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d326"></span>D326</td>
+<td class="instruction">LD A,$02</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d328"></span>D328</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d329"></span>D329</td>
+<td class="instruction">LD HL,$D8AC</td>
+<td class="comment-1" rowspan="2">Increase <a href="D8AC.html">D8AC</a> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d32c"></span>D32C</td>
+<td class="instruction">INC (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d32d"></span>D32D</td>
+<td class="instruction">LD HL,$482F</td>
+<td class="comment-1" rowspan="2">Sets the screen location for this shot to $482F and stash it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d330"></span>D330</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d331"></span>D331</td>
+<td class="instruction">CALL <a href="D3B4.html">$D3B4</a></td>
+<td class="comment-1" rowspan="1">Draw the shot mask.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d334"></span>D334</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Grab the screen location again, and now draw the shot.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d335"></span>D335</td>
+<td class="instruction">CALL <a href="D3CB.html">$D3CB</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="d338"></span>D338</td>
+<td class="instruction">JP <a href="6500.html">$6500</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="6500.html">6500</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d33b"></span>
+<div class="comments">
+<div class="paragraph">
+Handles settings flags and shot drawing location for door 3.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="d33b"></span>D33B</td>
+<td class="instruction">LD A,($D304)</td>
+<td class="comment-1" rowspan="3">If <a href="D303.html#d304">D304</a> is not zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d33e"></span>D33E</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d33f"></span>D33F</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d340"></span>D340</td>
+<td class="instruction">LD ($D303),A</td>
+<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html">D303</a> and <a href="D303.html#d305">D305</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d343"></span>D343</td>
+<td class="instruction">LD ($D305),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d346"></span>D346</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="4">Indicate the the right door is being shot at (write $01 to <a href="D303.html#d304">D304</a> and $03 to <a href="D300.html">D300</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d347"></span>D347</td>
+<td class="instruction">LD ($D304),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d34a"></span>D34A</td>
+<td class="instruction">LD A,$03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d34c"></span>D34C</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d34d"></span>D34D</td>
+<td class="instruction">LD HL,$D8AC</td>
+<td class="comment-1" rowspan="2">Shifts the value at <a href="D8AC.html">D8AC</a> to the left with bit 7 moved to the carry flag and bit 0 reset (zeroed).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d350"></span>D350</td>
+<td class="instruction">SLA (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d352"></span>D352</td>
+<td class="instruction">LD HL,$483A</td>
+<td class="comment-1" rowspan="2">Sets the screen location for this shot to $483A and stash it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d355"></span>D355</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d356"></span>D356</td>
+<td class="instruction">CALL <a href="D3B4.html">$D3B4</a></td>
+<td class="comment-1" rowspan="1">Draw the shot mask.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d359"></span>D359</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Grab the screen location again, and now draw the shot.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d35a"></span>D35A</td>
+<td class="instruction">CALL <a href="D3CB.html">$D3CB</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="d35d"></span>D35D</td>
+<td class="instruction">JP <a href="6500.html#6502">$6502</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="6500.html#6502">6502</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d360"></span>
+<div class="comments">
+<div class="paragraph">
+Handles settings flags and shot drawing location for door 1.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="d360"></span>D360</td>
+<td class="instruction">LD A,($D305)</td>
+<td class="comment-1" rowspan="3">If <a href="D303.html#d305">D305</a> is not zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d363"></span>D363</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d364"></span>D364</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d365"></span>D365</td>
+<td class="instruction">LD ($D303),A</td>
+<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html">D303</a> and <a href="D303.html#d304">D304</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d368"></span>D368</td>
+<td class="instruction">LD ($D304),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d36b"></span>D36B</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="4">Indicate the the left door is being shot at (write $01 to <a href="D303.html#d305">D305</a> and $01 to <a href="D300.html">D300</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d36c"></span>D36C</td>
+<td class="instruction">LD ($D305),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d36f"></span>D36F</td>
+<td class="instruction">LD A,$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d371"></span>D371</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d372"></span>D372</td>
+<td class="instruction">LD HL,$D8AC</td>
+<td class="comment-1" rowspan="2">Shifts the value at <a href="D8AC.html">D8AC</a> to the left with bit 7 moved to the carry flag and bit 0 reset (zeroed).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d375"></span>D375</td>
+<td class="instruction">SLA (HL)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d377"></span>D377</td>
+<td class="instruction">LD HL,$4824</td>
+<td class="comment-1" rowspan="2">Sets the screen location for this shot to $4824 and stash it.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d37a"></span>D37A</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d37b"></span>D37B</td>
+<td class="instruction">CALL <a href="D3B4.html">$D3B4</a></td>
+<td class="comment-1" rowspan="1">Draw the shot mask.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d37e"></span>D37E</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Grab the screen location again, and now draw the shot.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d37f"></span>D37F</td>
+<td class="instruction">CALL <a href="D3CB.html">$D3CB</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="d382"></span>D382</td>
+<td class="instruction">CALL <a href="6500.html#6504">$6504</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="6500.html#6504">6504</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d385"></span>D385</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d386"></span>
+<div class="comments">
+<div class="paragraph">
+Sets the flag for indicating "right" has been pressed by the player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="d386"></span>D386</td>
+<td class="instruction">LD HL,$D301</td>
+<td class="comment-1" rowspan="3">Write $01 to <a href="D301.html">D301</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d389"></span>D389</td>
+<td class="instruction">LD (HL),$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d38b"></span>D38B</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d38c"></span>
+<div class="comments">
+<div class="paragraph">
+Sets the flag for indicating "left" has been pressed by the player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="d38c"></span>D38C</td>
+<td class="instruction">LD HL,$D302</td>
+<td class="comment-1" rowspan="3">Write $01 to <a href="D301.html#d302">D302</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d38f"></span>D38F</td>
+<td class="instruction">LD (HL),$01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="d391"></span>D391</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D303.html">D303</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d307">Map</a></td>
+<td class="next">
+Next: <a href="D392.html">D392</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../dec/asm/54023.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

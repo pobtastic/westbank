@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Data at 50976</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50974.html">50974</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50976">Map</a></td>
+<td class="next">
+Next: <a href="51045.html">51045</a>
+</td>
+</tr>
+</table>
+<div class="description">50976: Sheriff's Star Page</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51136.html">51136</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50976"></span>50976</td>
+<td class="instruction">LD HL,16384</td>
+<td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50979"></span>50979</td>
+<td class="instruction">LD DE,16385</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50982"></span>50982</td>
+<td class="instruction">LD BC,6144</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50985"></span>50985</td>
+<td class="instruction">LD (HL),0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50987"></span>50987</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50989"></span>50989</td>
+<td class="instruction">LD BC,767</td>
+<td class="comment-1" rowspan="3">Continues into the attributes buffer, and writes $06 to every location. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$06</td>
+<td class="centre" colspan="1" rowspan="1">$06</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50992"></span>50992</td>
+<td class="instruction">LD (HL),6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50994"></span>50994</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50996"></span>50996</td>
+<td class="instruction">LD HL,16523</td>
+<td class="comment-1" rowspan="4">Points to <a href="62976.html">62976</a> and prints it to the screen using <a href="23442.html">23442</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50999"></span>50999</td>
+<td class="instruction">LD DE,62976</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51002"></span>51002</td>
+<td class="instruction">LD BC,20488</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51005"></span>51005</td>
+<td class="instruction">CALL <a href="23442.html">23442</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51008"></span>51008</td>
+<td class="instruction">LD HL,51045</td>
+<td class="comment-1" rowspan="4">Points to <a href="51045.html">51045</a> and prints it to the screen using <a href="23424.html">23424</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51011"></span>51011</td>
+<td class="instruction">LD DE,20481</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51014"></span>51014</td>
+<td class="instruction">LD BC,1794</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51017"></span>51017</td>
+<td class="instruction">CALL <a href="23424.html">23424</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51020"></span>51020</td>
+<td class="instruction">LD HL,51076</td>
+<td class="comment-1" rowspan="4">Points to <a href="51045.html#51076">51076</a> and prints it to the screen using <a href="23424.html">23424</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51023"></span>51023</td>
+<td class="instruction">LD DE,20545</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51026"></span>51026</td>
+<td class="instruction">LD BC,1794</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51029"></span>51029</td>
+<td class="instruction">CALL <a href="23424.html">23424</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51032"></span>51032</td>
+<td class="instruction">LD HL,51107</td>
+<td class="comment-1" rowspan="4">Points to <a href="51045.html#51107">51107</a> and prints it to the screen using <a href="23424.html">23424</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$07</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51035"></span>51035</td>
+<td class="instruction">LD DE,20611</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51038"></span>51038</td>
+<td class="instruction">LD BC,1794</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51041"></span>51041</td>
+<td class="instruction">CALL <a href="23424.html">23424</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="51044"></span>51044</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50974.html">50974</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50976">Map</a></td>
+<td class="next">
+Next: <a href="51045.html">51045</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/C720.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

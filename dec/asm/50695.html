@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 50695</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50667.html">50667</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50695">Map</a></td>
+<td class="next">
+Next: <a href="50722.html">50722</a>
+</td>
+</tr>
+</table>
+<div class="description">50695: Displays The Bonus Score Text.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="50728.html">50728</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="50695"></span>50695</td>
+<td class="instruction">LD (IX+7),A</td>
+<td class="comment-1" rowspan="4">Stores the ASCII representation of the number at <a href="50154.html#50205">50205</a> (it adds ASCII "0") so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50698"></span>50698</td>
+<td class="instruction">LD HL,50205</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50701"></span>50701</td>
+<td class="instruction">ADD A,48</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50703"></span>50703</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="50704"></span>50704</td>
+<td class="instruction">LD BC,10536</td>
+<td class="comment-1" rowspan="2">Print using <a href="23424.html">23424</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$29</td>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">$05</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$28</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">$05</td>
+<td class="centre" colspan="1" rowspan="1">$00</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50707"></span>50707</td>
+<td class="instruction">CALL <a href="23424.html">23424</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50710"></span>50710</td>
+<td class="instruction">CALL <a href="23436.html">23436</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50713"></span>50713</td>
+<td class="instruction">CALL <a href="23448.html">23448</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50716"></span>50716</td>
+<td class="instruction">INC (IX+9)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="50719"></span>50719</td>
+<td class="instruction">JP <a href="50210.html#50563">50563</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50210.html#50563">50563</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50667.html">50667</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50695">Map</a></td>
+<td class="next">
+Next: <a href="50722.html">50722</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/C607.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

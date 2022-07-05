@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 53650</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53649.html">53649</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53650">Map</a></td>
+<td class="next">
+Next: <a href="53967.html">53967</a>
+</td>
+</tr>
+</table>
+<div class="description">53650: Copy Source Character Data To Character State Data.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53650"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying a "normal" bandit into the bandit state cache at <a href="55070.html">55070</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53650"></span>53650</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="55070.html">55070</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53653"></span>53653</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53656"></span>53656</td>
+<td class="instruction">LD DE,55070</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53659"></span>53659</td>
+<td class="instruction">LD BC,7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53662"></span>53662</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53663"></span>53663</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53664"></span>53664</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53665"></span>53665</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53667"></span>53667</td>
+<td class="instruction">CALL <a href="55070.html#55077">55077</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55070.html#55077">55077</a> to begin this characters actions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53670"></span>53670</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53671"></span>53671</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53672"></span>53672</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53673"></span>53673</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53674"></span>53674</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53677"></span>53677</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53678"></span>53678</td>
+<td class="instruction">LD A,0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53680"></span>53680</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53683"></span>53683</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53684"></span>53684</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Else copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53686"></span>53686</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53687"></span>
+<div class="comments">
+<div class="paragraph">
+And copying a successful bandit encounter to close the door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53687"></span>53687</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="55070.html">55070</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53690"></span>53690</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53693"></span>53693</td>
+<td class="instruction">LD DE,55070</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53696"></span>53696</td>
+<td class="instruction">LD BC,7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53699"></span>53699</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53700"></span>53700</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53701"></span>53701</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53702"></span>53702</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53704"></span>53704</td>
+<td class="instruction">CALL <a href="55070.html#55153">55153</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55070.html#55153">55153</a> to begin this characters actions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53707"></span>53707</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53708"></span>53708</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53709"></span>53709</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53710"></span>53710</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53711"></span>53711</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53714"></span>53714</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53715"></span>53715</td>
+<td class="instruction">LD A,0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53717"></span>53717</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53720"></span>53720</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53721"></span>53721</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Else copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53723"></span>53723</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53724"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying Bowie state data into the state cache at <a href="55237.html">55237</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53724"></span>53724</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $0009 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="55237.html">55237</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53727"></span>53727</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53730"></span>53730</td>
+<td class="instruction">LD DE,55237</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53733"></span>53733</td>
+<td class="instruction">LD BC,9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53736"></span>53736</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53737"></span>53737</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53738"></span>53738</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53739"></span>53739</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53741"></span>53741</td>
+<td class="instruction">CALL <a href="55237.html#55246">55246</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55237.html#55246">55246</a> to begin this characters actions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53744"></span>53744</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53745"></span>53745</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53746"></span>53746</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53747"></span>53747</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53748"></span>53748</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53751"></span>53751</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53752"></span>53752</td>
+<td class="instruction">LD A,0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53754"></span>53754</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53757"></span>53757</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53758"></span>53758</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Else copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53760"></span>53760</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53761"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying customer state data into the state cache at <a href="54415.html">54415</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53761"></span>53761</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $000F bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="54415.html">54415</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53764"></span>53764</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53767"></span>53767</td>
+<td class="instruction">LD DE,54415</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53770"></span>53770</td>
+<td class="instruction">LD BC,15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53773"></span>53773</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53774"></span>53774</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53775"></span>53775</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53776"></span>53776</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53778"></span>53778</td>
+<td class="instruction">CALL <a href="54415.html#54430">54430</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54415.html#54430">54430</a> to begin this characters actions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53781"></span>53781</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53782"></span>53782</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53783"></span>53783</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53784"></span>53784</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53785"></span>53785</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53788"></span>53788</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53789"></span>53789</td>
+<td class="instruction">LD A,0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53791"></span>53791</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53794"></span>53794</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53795"></span>53795</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Else copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53797"></span>53797</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53798"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying customer "is shot" state data into the state cache at <a href="54415.html">54415</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53798"></span>53798</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $000F bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="54415.html">54415</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53801"></span>53801</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53804"></span>53804</td>
+<td class="instruction">LD DE,54415</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53807"></span>53807</td>
+<td class="instruction">LD BC,15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53810"></span>53810</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53811"></span>53811</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53812"></span>53812</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53813"></span>53813</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53815"></span>53815</td>
+<td class="instruction">CALL <a href="54415.html#54651">54651</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54415.html#54651">54651</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53818"></span>53818</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53819"></span>53819</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53820"></span>53820</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53821"></span>53821</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the source and target.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53822"></span>53822</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the (swapped) source back to the new target and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53824"></span>53824</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53825"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying Julius state data into the state cache at <a href="55525.html">55525</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53825"></span>53825</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $000A bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="55525.html">55525</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53828"></span>53828</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53831"></span>53831</td>
+<td class="instruction">LD DE,55525</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53834"></span>53834</td>
+<td class="instruction">LD BC,10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53837"></span>53837</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53838"></span>53838</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53839"></span>53839</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53840"></span>53840</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53842"></span>53842</td>
+<td class="instruction">CALL <a href="55525.html#55535">55535</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55525.html#55535">55535</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53845"></span>53845</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53846"></span>53846</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53847"></span>53847</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53848"></span>53848</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53851"></span>53851</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53852"></span>53852</td>
+<td class="instruction">LD A,0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53854"></span>53854</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53857"></span>53857</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53858"></span>53858</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the source to the target again and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53860"></span>53860</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53861"></span>
+<div class="comments">
+<div class="paragraph">
+And copying a successful Julius encounter to close the door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53861"></span>53861</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $000A bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="55525.html">55525</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53864"></span>53864</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53867"></span>53867</td>
+<td class="instruction">LD DE,55525</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53870"></span>53870</td>
+<td class="instruction">LD BC,10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53873"></span>53873</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53874"></span>53874</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53875"></span>53875</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53876"></span>53876</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53878"></span>53878</td>
+<td class="instruction">CALL <a href="55525.html#55703">55703</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55525.html#55703">55703</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53881"></span>53881</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53882"></span>53882</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53883"></span>53883</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53884"></span>53884</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53887"></span>53887</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53888"></span>53888</td>
+<td class="instruction">LD A,0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53890"></span>53890</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53893"></span>53893</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53894"></span>53894</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the source to the target again and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53896"></span>53896</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53897"></span>
+<div class="comments">
+<div class="paragraph">
+Handles copying a "drawing bandit" into the bandit state cache at <a href="55820.html">55820</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53897"></span>53897</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $000B bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="55820.html">55820</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53900"></span>53900</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53903"></span>53903</td>
+<td class="instruction">LD DE,55820</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53906"></span>53906</td>
+<td class="instruction">LD BC,11</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53909"></span>53909</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53910"></span>53910</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53911"></span>53911</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53912"></span>53912</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53914"></span>53914</td>
+<td class="instruction">CALL <a href="55820.html#55831">55831</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55820.html#55831">55831</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53917"></span>53917</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53918"></span>53918</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53919"></span>53919</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53920"></span>53920</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53923"></span>53923</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53924"></span>53924</td>
+<td class="instruction">LD A,0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53926"></span>53926</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53929"></span>53929</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53930"></span>53930</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the source to the target again and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53932"></span>53932</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53933"></span>
+<div class="comments">
+<div class="paragraph">
+And copying a successful "drawing bandit" encounter to close the door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53933"></span>53933</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="8">Handles copying $000B bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="55820.html">55820</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53936"></span>53936</td>
+<td class="instruction">LD H,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53939"></span>53939</td>
+<td class="instruction">LD DE,55820</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53942"></span>53942</td>
+<td class="instruction">LD BC,11</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53945"></span>53945</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53946"></span>53946</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53947"></span>53947</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53948"></span>53948</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53950"></span>53950</td>
+<td class="instruction">CALL <a href="55820.html#55941">55941</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55820.html#55941">55941</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53953"></span>53953</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore the source, target and counter from above.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53954"></span>53954</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53955"></span>53955</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53956"></span>53956</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="4">Check if <a href="53647.html">53647</a> is zero. If it wasn't zero then return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53959"></span>53959</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53960"></span>53960</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53963"></span>53963</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53964"></span>53964</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="2">Copy the source to the target again and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53966"></span>53966</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53649.html">53649</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53650">Map</a></td>
+<td class="next">
+Next: <a href="53967.html">53967</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/D192.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

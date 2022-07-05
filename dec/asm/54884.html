@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 54884</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54814.html">54814</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54884">Map</a></td>
+<td class="next">
+Next: <a href="55070.html">55070</a>
+</td>
+</tr>
+</table>
+<div class="description">54884: Draw Doors.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="52282.html">52282</a>, <a href="54415.html">54415</a>, <a href="55070.html">55070</a>, <a href="55237.html">55237</a>, <a href="55525.html">55525</a> and <a href="55820.html">55820</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54884"></span>
+<div class="comments">
+<div class="paragraph">
+Preps door frame 1.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54884"></span>54884</td>
+<td class="instruction">LD HL,54961</td>
+<td class="comment-1" rowspan="2">Calls <a href="54884.html#54916">54916</a> using <a href="54884.html#54961">54961</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54887"></span>54887</td>
+<td class="instruction">CALL <a href="54884.html#54916">54916</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54890"></span>54890</td>
+<td class="instruction">LD DE,47744</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="47744.html">47744</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54893"></span>
+<div class="comments">
+<div class="paragraph">
+Referencing the door frame index, work out the screen position and send it to the <a href="54884.html#55063">55063</a> routine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54893"></span>54893</td>
+<td class="instruction">LD A,(52762)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="52762.html">52762</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54896"></span>54896</td>
+<td class="instruction">LD HL,16514</td>
+<td class="comment-1" rowspan="8">Determines which screen address to use for the door reference index currently held in <span class="register">A</span>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Screen Address</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">$4082</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$408D</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">$4098</td>
+</tr>
+</table> Jump to <a href="54884.html#55063">55063</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54899"></span>54899</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54900"></span>54900</td>
+<td class="instruction">JP Z,<a href="54884.html#55063">55063</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54903"></span>54903</td>
+<td class="instruction">LD HL,16525</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54906"></span>54906</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54907"></span>54907</td>
+<td class="instruction">JP Z,<a href="54884.html#55063">55063</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54910"></span>54910</td>
+<td class="instruction">LD HL,16536</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54913"></span>54913</td>
+<td class="instruction">JP <a href="54884.html#55063">55063</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54916"></span>
+<div class="comments">
+<div class="paragraph">
+Copies attributes for the current door frame index.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54916"></span>54916</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Stash the accumulator for later.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54917"></span>54917</td>
+<td class="instruction">LD A,(52762)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="52762.html">52762</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54920"></span>54920</td>
+<td class="instruction">LD DE,22658</td>
+<td class="comment-1" rowspan="7"><table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Screen Address</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">$5882</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$588D</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">$5898</td>
+</tr>
+</table> ...continue from <a href="54884.html#54935">54935</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54923"></span>54923</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54924"></span>54924</td>
+<td class="instruction">JR Z,<a href="54884.html#54935">54935</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54926"></span>54926</td>
+<td class="instruction">LD DE,22669</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54929"></span>54929</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54930"></span>54930</td>
+<td class="instruction">JR Z,<a href="54884.html#54935">54935</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54932"></span>54932</td>
+<td class="instruction">LD DE,22680</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54935"></span>54935</td>
+<td class="instruction">LD B,11</td>
+<td class="comment-1" rowspan="1">Sets the height of the door image.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54937"></span>54937</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="4">Stash the references for later and call <a href="54884.html#54955">54955</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54938"></span>54938</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54939"></span>54939</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54940"></span>54940</td>
+<td class="instruction">CALL <a href="54884.html#54955">54955</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54943"></span>54943</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="4">Moves the screen attribute address down to the next attribute row.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54944"></span>54944</td>
+<td class="instruction">LD HL,32</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54947"></span>54947</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54948"></span>54948</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54949"></span>54949</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="3">Restore the counter and loop back to <a href="54884.html#54937">54937</a> until complete.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54950"></span>54950</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54951"></span>54951</td>
+<td class="instruction">DJNZ <a href="54884.html#54937">54937</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54953"></span>54953</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="2">Restore the accumulator and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54954"></span>54954</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54955"></span>
+<div class="comments">
+<div class="paragraph">
+Simple helper copy routine for sending attribute data to the screen attribute buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54955"></span>54955</td>
+<td class="instruction">LD BC,7</td>
+<td class="comment-1" rowspan="3">Set the door width, copy the attribute data to the screen and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54958"></span>54958</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54960"></span>54960</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54961"></span>
+<div class="comments">
+<div class="paragraph">
+Door frame attribute data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54961"></span>54961</td>
+<td class="instruction">DEFB 48,48,48,48,48,48,48,48</td>
+<td class="comment-1" rowspan="1">Attribute data for door frame 1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54969"></span>54969</td>
+<td class="instruction">DEFB 40,40,48,48,48,48,48,48</td>
+<td class="comment-1" rowspan="1">Attribute data for door frame 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54977"></span>54977</td>
+<td class="instruction">DEFB 40,40,40,40,48,48,48,48</td>
+<td class="comment-1" rowspan="1">Attribute data for door frame 3.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54985"></span>54985</td>
+<td class="instruction">DEFB 40,40,40,40,40,40,48,40</td>
+<td class="comment-1" rowspan="1">Attribute data for door frame 4.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54993"></span>
+<div class="comments">
+<div class="paragraph">
+Preps door frame 2.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="54993"></span>54993</td>
+<td class="instruction">LD HL,54969</td>
+<td class="comment-1" rowspan="2">Calls <a href="54884.html#54916">54916</a> using <a href="54884.html#54969">54969</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="54996"></span>54996</td>
+<td class="instruction">CALL <a href="54884.html#54916">54916</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="54999"></span>54999</td>
+<td class="instruction">CALL <a href="54814.html">54814</a></td>
+<td class="comment-1" rowspan="3">Prepare the character/ door image by calling <a href="54814.html">54814</a>. Then pass <a href="60048.html">60048</a> to <a href="54884.html#54893">54893</a> which will draw it to the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55002"></span>55002</td>
+<td class="instruction">LD DE,60048</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55005"></span>55005</td>
+<td class="instruction">JR <a href="54884.html#54893">54893</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55007"></span>
+<div class="comments">
+<div class="paragraph">
+Preps door frame 3.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55007"></span>55007</td>
+<td class="instruction">LD HL,54977</td>
+<td class="comment-1" rowspan="2">Calls <a href="54884.html#54916">54916</a> using <a href="54884.html#54977">54977</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55010"></span>55010</td>
+<td class="instruction">CALL <a href="54884.html#54916">54916</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55013"></span>55013</td>
+<td class="instruction">CALL <a href="54814.html#54840">54840</a></td>
+<td class="comment-1" rowspan="3">Prepare the character/ door image by calling <a href="54814.html#54840">54840</a>. Then pass <a href="60048.html">60048</a> to <a href="54884.html#54893">54893</a> which will draw it to the screen.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55016"></span>55016</td>
+<td class="instruction">LD DE,60048</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55019"></span>55019</td>
+<td class="instruction">JR <a href="54884.html#54893">54893</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55021"></span>
+<div class="comments">
+<div class="paragraph">
+Preps door frame 4.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55021"></span>55021</td>
+<td class="instruction">LD HL,54985</td>
+<td class="comment-1" rowspan="2">Calls <a href="54884.html#54916">54916</a> using <a href="54884.html#54985">54985</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55024"></span>55024</td>
+<td class="instruction">CALL <a href="54884.html#54916">54916</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55027"></span>55027</td>
+<td class="instruction">CALL <a href="54730.html">54730</a></td>
+<td class="comment-1" rowspan="1">The door is fully open so draw the whole character in the doorway directly.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55030"></span>55030</td>
+<td class="instruction">LD B,88</td>
+<td class="comment-1" rowspan="3">Reference <a href="49064.html">49064</a> and the dimensions for the copy routine.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55032"></span>55032</td>
+<td class="instruction">LD C,1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55034"></span>55034</td>
+<td class="instruction">LD DE,49064</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55037"></span>55037</td>
+<td class="instruction">LD A,(52762)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="52762.html">52762</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55040"></span>55040</td>
+<td class="instruction">LD HL,16520</td>
+<td class="comment-1" rowspan="8">Determines which screen address to use for the door reference index currently held in <span class="register">A</span>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Screen Address</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">$4088</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">$4093</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">$409E</td>
+</tr>
+</table> Jump to <a href="54758.html">54758</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55043"></span>55043</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55044"></span>55044</td>
+<td class="instruction">JP Z,<a href="54758.html">54758</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55047"></span>55047</td>
+<td class="instruction">LD HL,16531</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55050"></span>55050</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55051"></span>55051</td>
+<td class="instruction">JP Z,<a href="54758.html">54758</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55054"></span>55054</td>
+<td class="instruction">LD HL,16542</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55057"></span>55057</td>
+<td class="instruction">JP <a href="54758.html">54758</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="55060"></span>55060</td>
+<td class="instruction">LD DE,60048</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="60048.html">60048</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="55063"></span>55063</td>
+<td class="instruction">LD B,88</td>
+<td class="comment-1" rowspan="3">Draws the image pointed at by <span class="register">DE</span> to the screen address in <span class="register">HL</span> using <a href="54758.html">54758</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55065"></span>55065</td>
+<td class="instruction">LD C,7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="55067"></span>55067</td>
+<td class="instruction">JP <a href="54758.html">54758</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54814.html">54814</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54884">Map</a></td>
+<td class="next">
+Next: <a href="55070.html">55070</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/D664.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CDC3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CDAE.html">CDAE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cdc3">Map</a></td>
+<td class="next">
+Next: <a href="CE12.html">CE12</a>
+</td>
+</tr>
+</table>
+<div class="description">CDC3: Apply Scoring</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="C7C0.html">C7C0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="cdc3"></span>CDC3</td>
+<td class="instruction">LD IX,$D165</td>
+<td class="comment-1" rowspan="6">Calls <a href="CDC3.html#cddc">CDDC</a> three times with <span class="register">IX</span> containing; <ul class="">
+<li><a href="D165.html">D165</a></li>
+<li><a href="D173.html">D173</a></li>
+<li><a href="D181.html">D181</a></li>
+</ul></td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdc7"></span>CDC7</td>
+<td class="instruction">CALL <a href="CDC3.html#cddc">$CDDC</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdca"></span>CDCA</td>
+<td class="instruction">LD IX,$D173</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdce"></span>CDCE</td>
+<td class="instruction">CALL <a href="CDC3.html#cddc">$CDDC</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdd1"></span>CDD1</td>
+<td class="instruction">LD IX,$D181</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdd5"></span>CDD5</td>
+<td class="instruction">CALL <a href="CDC3.html#cddc">$CDDC</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdd8"></span>CDD8</td>
+<td class="instruction">CALL <a href="CD90.html">$CD90</a></td>
+<td class="comment-1" rowspan="1">Call <a href="CD90.html">CD90</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cddb"></span>CDDB</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cddc"></span>
+<div class="comments">
+<div class="paragraph">
+Passes the higher and lower score values to <a href="CDC3.html#cdf7">CDF7</a> for the current door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="cddc"></span>CDDC</td>
+<td class="instruction">LD HL,$CD87</td>
+<td class="comment-1" rowspan="1">References <a href="CD86.html#cd87">CD87</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cddf"></span>CDDF</td>
+<td class="instruction">LD B,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Retrieves <span class="register">IX</span>+$06, stores it in <span class="register">B</span> then reset it to zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cde2"></span>CDE2</td>
+<td class="instruction">LD (IX+$06),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="cde6"></span>CDE6</td>
+<td class="instruction">CALL <a href="CDC3.html#cdf7">$CDF7</a></td>
+<td class="comment-1" rowspan="1">Call <a href="CDC3.html#cdf7">CDF7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cde9"></span>CDE9</td>
+<td class="instruction">LD HL,$CD88</td>
+<td class="comment-1" rowspan="1">References <a href="CD86.html#cd88">CD88</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdec"></span>CDEC</td>
+<td class="instruction">LD B,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Retrieves <span class="register">IX</span>+$07, stores it in <span class="register">B</span> then reset it to zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdef"></span>CDEF</td>
+<td class="instruction">LD (IX+$07),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdf3"></span>CDF3</td>
+<td class="instruction">CALL <a href="CDC3.html#cdf7">$CDF7</a></td>
+<td class="comment-1" rowspan="1">Call <a href="CDC3.html#cdf7">CDF7</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdf6"></span>CDF6</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cdf7"></span>
+<div class="comments">
+<div class="paragraph">
+Applies the door scores into the player score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="cdf7"></span>CDF7</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Pass the current score digit to <a href="CDC3.html#ce08">CE08</a> and overwrite the digit with the result.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdf8"></span>CDF8</td>
+<td class="instruction">CALL <a href="CDC3.html#ce08">$CE08</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdfb"></span>CDFB</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdfc"></span>CDFC</td>
+<td class="instruction">LD E,$05</td>
+<td class="comment-1" rowspan="1">Sets a counter to $05 (5 more digits in the score).</td>
+</tr>
+<tr>
+<td class="address-2"><span id="cdfe"></span>CDFE</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Move onto the next scoring digit.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="cdff"></span>CDFF</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Pass the current score digit to <a href="CDC3.html#ce08">CE08</a> and overwrite the digit with the result.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce00"></span>CE00</td>
+<td class="instruction">CALL <a href="CDC3.html#ce08">$CE08</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce03"></span>CE03</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce04"></span>CE04</td>
+<td class="instruction">DEC E</td>
+<td class="comment-1" rowspan="2">Loop back to <a href="CDC3.html#cdfe">CDFE</a> until the counter is zero (and all scoring digits are accounted for).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce05"></span>CE05</td>
+<td class="instruction">JR NZ,<a href="CDC3.html#cdfe">$CDFE</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce07"></span>CE07</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ce08"></span>
+<div class="comments">
+<div class="paragraph">
+Ensures the current scoring digit remains 0-9 (if $0A then it's reset and the carry digit is forwarded on).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="ce08"></span>CE08</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-1" rowspan="1">Adds current score digit with passed score.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce09"></span>CE09</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">Reset passed score to zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce0b"></span>CE0B</td>
+<td class="instruction">CP $0A</td>
+<td class="comment-1" rowspan="2">Return if result is less than $0A (base 10).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce0d"></span>CE0D</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce0e"></span>CE0E</td>
+<td class="instruction">SUB $0A</td>
+<td class="comment-1" rowspan="1">Subtract $0A to keep this digit in base 10 (e.g. "11" becomes "1", "12" becomes "2", and so on).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce10"></span>CE10</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="2">Add one onto the passed score (which carries onto the next digit as it goes lowest to highest) and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="ce11"></span>CE11</td>
+<td class="instruction">RET</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CDAE.html">CDAE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cdc3">Map</a></td>
+<td class="next">
+Next: <a href="CE12.html">CE12</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../dec/asm/52675.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

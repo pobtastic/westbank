@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 52379</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52377.html">52377</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52379">Map</a></td>
+<td class="next">
+Next: <a href="52507.html">52507</a>
+</td>
+</tr>
+</table>
+<div class="description">52379: Draws Deposit Cashboxes.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51136.html">51136</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52379"></span>52379</td>
+<td class="instruction">LD A,(54364)</td>
+<td class="comment-1" rowspan="5">Converts <a href="54364.html">54364</a> into cash deposit box flag address (e.g. "1" becomes <a href="52365.html">52365</a> and so on).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52382"></span>52382</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52383"></span>52383</td>
+<td class="instruction">LD H,0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52385"></span>52385</td>
+<td class="instruction">LD DE,52364</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52388"></span>52388</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52389"></span>52389</td>
+<td class="instruction">LD IX,53605</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="53605.html#53613">53613</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52393"></span>52393</td>
+<td class="instruction">LD A,(IX+8)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52396"></span>52396</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52397"></span>52397</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52398"></span>52398</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52399"></span>52399</td>
+<td class="instruction">LD IX,53619</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="53619.html#53627">53627</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52403"></span>52403</td>
+<td class="instruction">LD A,(IX+8)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52406"></span>52406</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52407"></span>52407</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52408"></span>52408</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52409"></span>52409</td>
+<td class="instruction">LD IX,53633</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="53633.html#53641">53641</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52413"></span>52413</td>
+<td class="instruction">LD A,(IX+8)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52416"></span>52416</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52417"></span>52417</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52418"></span>52418</td>
+<td class="instruction">LD DE,52377</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="52377.html">52377</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52421"></span>52421</td>
+<td class="instruction">LD HL,52365</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="52365.html">52365</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52424"></span>52424</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Fetch the flag for <a href="52377.html">52377</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52425"></span>52425</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1">Run a logical OR against the contents of <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52426"></span>52426</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Writes this back into <span class="register">HL</span> (setting the flag).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52427"></span>52427</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52428"></span>52428</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Move onto <a href="52377.html#52378">52378</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52429"></span>52429</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1">Fetch the flag for <a href="52377.html#52378">52378</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52430"></span>52430</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1">Run a logical OR against the contents of <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52431"></span>52431</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Writes this back into <span class="register">HL</span> (setting the flag).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52432"></span>52432</td>
+<td class="instruction">CALL <a href="52379.html#52475">52475</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52435"></span>52435</td>
+<td class="instruction">LD DE,52365</td>
+<td class="comment-1" rowspan="1">Points to the cashbox flags (beginning at <a href="52365.html">52365</a>).</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52438"></span>52438</td>
+<td class="instruction">LD HL,51840</td>
+<td class="comment-1" rowspan="2">Write $00 to <a href="51136.html#51840">51840</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52441"></span>52441</td>
+<td class="instruction">LD (HL),0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52443"></span>52443</td>
+<td class="instruction">LD B,12</td>
+<td class="comment-1" rowspan="1">Testing against all 12 cashboxes.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52445"></span>52445</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="3">Fetch the cashbox flag, return if its zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52446"></span>52446</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52447"></span>52447</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52448"></span>52448</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="2">Move onto the next cashbox (loop back to <a href="52379.html#52445">52445</a>) or continue once all 12 are checked.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52449"></span>52449</td>
+<td class="instruction">DJNZ <a href="52379.html#52445">52445</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52451"></span>52451</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="2">Write <span class="register">A</span> ($01) to <a href="51136.html#51840">51840</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52452"></span>52452</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52453"></span>52453</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="10">Determines whether to send <a href="65400.html">65400</a> or <a href="65400.html#65432">65432</a> to <a href="54758.html">54758</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52454"></span>52454</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52455"></span>52455</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52456"></span>52456</td>
+<td class="instruction">LD DE,65400</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52459"></span>52459</td>
+<td class="instruction">LD A,(IX+0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52462"></span>52462</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52463"></span>52463</td>
+<td class="instruction">JR Z,<a href="52379.html#52468">52468</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52465"></span>52465</td>
+<td class="instruction">LD DE,65432</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52468"></span>52468</td>
+<td class="instruction">LD BC,4098</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52471"></span>52471</td>
+<td class="instruction">CALL <a href="54758.html">54758</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52474"></span>52474</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52475"></span>
+<div class="comments">
+<div class="paragraph">
+Draws all the cashboxes in two blocks of 6.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52475"></span>52475</td>
+<td class="instruction">LD IX,52365</td>
+<td class="comment-1" rowspan="16">The statuses for the cashboxes begin at <a href="52365.html">52365</a>. This routine processes them in two blocks of 6 (as they appear. The first block is displayed at $401F, after processing the subroutine returns and continues for the next six blocks, just altering the screen location to $4025.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52479"></span>52479</td>
+<td class="instruction">LD HL,16415</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52482"></span>52482</td>
+<td class="instruction">LD A,1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52484"></span>52484</td>
+<td class="instruction">CALL <a href="52379.html#52490">52490</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52487"></span>52487</td>
+<td class="instruction">LD HL,16421</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52490"></span>52490</td>
+<td class="instruction">LD B,6</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52492"></span>52492</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52493"></span>52493</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52494"></span>52494</td>
+<td class="instruction">PUSH AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52495"></span>52495</td>
+<td class="instruction">CALL <a href="52379.html#52453">52453</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52498"></span>52498</td>
+<td class="instruction">POP AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52499"></span>52499</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52500"></span>52500</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52501"></span>52501</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52503"></span>52503</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52504"></span>52504</td>
+<td class="instruction">DJNZ <a href="52379.html#52492">52492</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52506"></span>52506</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52377.html">52377</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52379">Map</a></td>
+<td class="next">
+Next: <a href="52507.html">52507</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/CC9B.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

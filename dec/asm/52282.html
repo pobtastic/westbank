@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 52282</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52280.html">52280</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52282">Map</a></td>
+<td class="next">
+Next: <a href="52313.html">52313</a>
+</td>
+</tr>
+</table>
+<div class="description">52282: Main Playfield Initialisation.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51136.html">51136</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52282"></span>
+<div class="comments">
+<div class="paragraph">
+Draws Main Playfield with all three doors closed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52282"></span>52282</td>
+<td class="instruction">LD IX,52280</td>
+<td class="comment-1" rowspan="2">Draw the main game playfield.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52286"></span>52286</td>
+<td class="instruction">CALL <a href="49920.html">49920</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52289"></span>52289</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-1" rowspan="3">Calls <a href="54884.html">54884</a> with <a href="52762.html">52762</a> set to $01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52291"></span>52291</td>
+<td class="instruction">LD (52762),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52294"></span>52294</td>
+<td class="instruction">CALL <a href="54884.html">54884</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52297"></span>52297</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-1" rowspan="3">Calls <a href="54884.html">54884</a> with <a href="52762.html">52762</a> set to $02.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52299"></span>52299</td>
+<td class="instruction">LD (52762),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52302"></span>52302</td>
+<td class="instruction">CALL <a href="54884.html">54884</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52305"></span>52305</td>
+<td class="instruction">LD A,3</td>
+<td class="comment-1" rowspan="3">Jump to <a href="54884.html">54884</a> with <a href="52762.html">52762</a> set to $03.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52307"></span>52307</td>
+<td class="instruction">LD (52762),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52310"></span>52310</td>
+<td class="instruction">JP <a href="54884.html">54884</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52280.html">52280</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52282">Map</a></td>
+<td class="next">
+Next: <a href="52313.html">52313</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/CC3A.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

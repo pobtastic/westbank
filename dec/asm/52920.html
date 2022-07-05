@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 52920</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52769.html">52769</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52920">Map</a></td>
+<td class="next">
+Next: <a href="53273.html">53273</a>
+</td>
+</tr>
+</table>
+<div class="description">52920: Character Initialisations.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="52769.html">52769</a> and <a href="54415.html">54415</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52920"></span>
+<div class="comments">
+<div class="paragraph">
+Writes a "bandit opening the door" to the door flags/ cache.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52920"></span>52920</td>
+<td class="instruction">LD DE,53650</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html">53650</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">53605</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">52756</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">53619</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">52758</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">53633</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">52760</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52923"></span>52923</td>
+<td class="instruction">LD L,(IX+0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52926"></span>52926</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52929"></span>52929</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52930"></span>52930</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52931"></span>52931</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52932"></span>52932</td>
+<td class="instruction">LD HL,53366</td>
+<td class="comment-1" rowspan="5">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="53366.html">53366</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52935"></span>52935</td>
+<td class="instruction">LD E,(IX+2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52938"></span>52938</td>
+<td class="instruction">LD D,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52941"></span>52941</td>
+<td class="instruction">LD BC,7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52944"></span>52944</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52946"></span>52946</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-1" rowspan="3">Writes $01 to <a href="53647.html">53647</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52948"></span>52948</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52951"></span>52951</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52952"></span>
+<div class="comments">
+<div class="paragraph">
+Writes a "bandit closing the door" to the door flags/ cache.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52952"></span>52952</td>
+<td class="instruction">LD DE,53687</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html#53687">53687</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">53605</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">52756</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">53619</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">52758</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">53633</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">52760</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52955"></span>52955</td>
+<td class="instruction">LD L,(IX+0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52958"></span>52958</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52961"></span>52961</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52962"></span>52962</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52963"></span>52963</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52964"></span>52964</td>
+<td class="instruction">LD HL,53373</td>
+<td class="comment-1" rowspan="5">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="53373.html">53373</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52967"></span>52967</td>
+<td class="instruction">LD E,(IX+2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52970"></span>52970</td>
+<td class="instruction">LD D,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52973"></span>52973</td>
+<td class="instruction">LD BC,7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52976"></span>52976</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52978"></span>52978</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-1" rowspan="2">Writes $01 to <a href="53647.html">53647</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52980"></span>52980</td>
+<td class="instruction">LD (53647),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52983"></span>52983</td>
+<td class="instruction">LD (IX+7),1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52987"></span>52987</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52988"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "Bowie" to the door flags/ cache.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="52988"></span>52988</td>
+<td class="instruction">LD DE,53724</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html#53724">53724</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">53605</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">52756</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">53619</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">52758</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">53633</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">52760</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="52991"></span>52991</td>
+<td class="instruction">LD L,(IX+0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52994"></span>52994</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52997"></span>52997</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52998"></span>52998</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="52999"></span>52999</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53000"></span>53000</td>
+<td class="instruction">CALL <a href="55472.html">55472</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53003"></span>53003</td>
+<td class="instruction">AND 8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53005"></span>53005</td>
+<td class="instruction">LD HL,53380</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53008"></span>53008</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53010"></span>53010</td>
+<td class="instruction">JR Z,<a href="52920.html#53014">53014</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53012"></span>53012</td>
+<td class="instruction">LD (HL),1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="53014"></span>53014</td>
+<td class="instruction">LD E,(IX+2)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53017"></span>53017</td>
+<td class="instruction">LD D,(IX+3)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53020"></span>53020</td>
+<td class="instruction">LD BC,9</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53023"></span>53023</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53025"></span>53025</td>
+<td class="instruction">LD DE,55395</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53028"></span>53028</td>
+<td class="instruction">LD (IX+4),E</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53031"></span>53031</td>
+<td class="instruction">LD (IX+5),D</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53034"></span>53034</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53035"></span>
+<div class="comments">
+<div class="paragraph">
+Writes a "customer opening the door" to the door flags/ cache.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53035"></span>53035</td>
+<td class="instruction">LD L,(IX+0)</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html#53761">53761</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">53605</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">52756</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">53619</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">52758</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">53633</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">52760</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53038"></span>53038</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53041"></span>53041</td>
+<td class="instruction">LD DE,53761</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53044"></span>53044</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53045"></span>53045</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53046"></span>53046</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53047"></span>53047</td>
+<td class="instruction">CALL <a href="55472.html">55472</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53050"></span>53050</td>
+<td class="instruction">AND 130</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53052"></span>53052</td>
+<td class="instruction">LD HL,53409</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53055"></span>53055</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53057"></span>53057</td>
+<td class="instruction">JR NZ,<a href="52920.html#53061">53061</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53059"></span>53059</td>
+<td class="instruction">LD (HL),1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="53061"></span>53061</td>
+<td class="instruction">LD HL,53404</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53064"></span>53064</td>
+<td class="instruction">LD E,(IX+2)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53067"></span>53067</td>
+<td class="instruction">LD D,(IX+3)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53070"></span>53070</td>
+<td class="instruction">LD BC,15</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53073"></span>53073</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53076"></span>53076</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53077"></span>53077</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53079"></span>53079</td>
+<td class="instruction">LD (53647),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53082"></span>53082</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53083"></span>53083</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53085"></span>53085</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53086"></span>
+<div class="comments">
+<div class="paragraph">
+Writes a "customer closing the door" to the door flags/ cache.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53086"></span>53086</td>
+<td class="instruction">LD L,(IX+0)</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html#53761">53761</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">53605</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">52756</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">53619</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">52758</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">53633</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">52760</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53089"></span>53089</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53092"></span>53092</td>
+<td class="instruction">LD DE,53761</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53095"></span>53095</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53096"></span>53096</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53097"></span>53097</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53098"></span>53098</td>
+<td class="instruction">CALL <a href="55472.html">55472</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53101"></span>53101</td>
+<td class="instruction">AND 65</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53103"></span>53103</td>
+<td class="instruction">LD HL,53394</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53106"></span>53106</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53108"></span>53108</td>
+<td class="instruction">JR NZ,<a href="52920.html#53112">53112</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53110"></span>53110</td>
+<td class="instruction">LD (HL),1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="53112"></span>53112</td>
+<td class="instruction">LD HL,53389</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53115"></span>53115</td>
+<td class="instruction">LD E,(IX+2)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53118"></span>53118</td>
+<td class="instruction">LD D,(IX+3)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53121"></span>53121</td>
+<td class="instruction">LD BC,15</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53124"></span>53124</td>
+<td class="instruction">LD A,(53647)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53127"></span>53127</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53128"></span>53128</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53130"></span>53130</td>
+<td class="instruction">LD (53647),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53133"></span>53133</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53134"></span>53134</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53136"></span>53136</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53137"></span>
+<div class="comments">
+<div class="paragraph">
+Writes a "customer being shot" to the door flags/ cache.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53137"></span>53137</td>
+<td class="instruction">LD DE,53798</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html#53798">53798</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">53605</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">52756</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">53619</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">52758</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">53633</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">52760</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53140"></span>53140</td>
+<td class="instruction">LD L,(IX+0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53143"></span>53143</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53146"></span>53146</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53147"></span>53147</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53148"></span>53148</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53149"></span>53149</td>
+<td class="instruction">LD E,(IX+2)</td>
+<td class="comment-1" rowspan="2">Loads e.g. <a href="53605.html#53607">53607</a> (depending on which door is currently being actioned) into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53152"></span>53152</td>
+<td class="instruction">LD D,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53155"></span>53155</td>
+<td class="instruction">LD HL,53419</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="53373.html#53419">53419</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53158"></span>53158</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="6">Increase <span class="register">DE</span> by $06.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53159"></span>53159</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53160"></span>53160</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53161"></span>53161</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53162"></span>53162</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53163"></span>53163</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53164"></span>53164</td>
+<td class="instruction">LD BC,3</td>
+<td class="comment-1" rowspan="2">Copies three sequential bytes of data from <span class="register">HL</span> to <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53167"></span>53167</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53169"></span>53169</td>
+<td class="instruction">LD HL,53647</td>
+<td class="comment-1" rowspan="3">Writes $01 to <a href="53647.html">53647</a> and return.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53172"></span>53172</td>
+<td class="instruction">LD (HL),1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53174"></span>53174</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53175"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "Julius opening the door" to the door flags/ cache.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="53175"></span>53175</td>
+<td class="instruction">LD DE,53825</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html#53825">53825</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">53605</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">52756</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">53619</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">52758</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">53633</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">52760</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53178"></span>53178</td>
+<td class="instruction">LD L,(IX+0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53181"></span>53181</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53184"></span>53184</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53185"></span>53185</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53186"></span>53186</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53187"></span>53187</td>
+<td class="instruction">LD HL,53422</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53190"></span>53190</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53192"></span>53192</td>
+<td class="instruction">CALL <a href="55472.html">55472</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53195"></span>53195</td>
+<td class="instruction">AND 32</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53197"></span>53197</td>
+<td class="instruction">JR NZ,<a href="52920.html#53201">53201</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53199"></span>53199</td>
+<td class="instruction">LD (HL),1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="53201"></span>53201</td>
+<td class="instruction">LD E,(IX+2)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53204"></span>53204</td>
+<td class="instruction">LD D,(IX+3)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53207"></span>53207</td>
+<td class="instruction">LD BC,10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53210"></span>53210</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53212"></span>53212</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53213"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "Julius closing the door" to the door flags/ cache.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53213"></span>53213</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-1" rowspan="2">Writes $01 to <a href="53373.html#53432">53432</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53215"></span>53215</td>
+<td class="instruction">LD (53432),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53218"></span>53218</td>
+<td class="instruction">LD DE,53861</td>
+<td class="comment-1" rowspan="6">Writes <a href="53650.html#53861">53861</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+<th colspan="1" rowspan="1">Target</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html">53605</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html">52756</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html">53619</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52758">52758</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html">53633</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52756.html#52760">52760</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53221"></span>53221</td>
+<td class="instruction">LD L,(IX+0)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53224"></span>53224</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53227"></span>53227</td>
+<td class="instruction">LD (HL),E</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53228"></span>53228</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53229"></span>53229</td>
+<td class="instruction">LD (HL),D</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53230"></span>53230</td>
+<td class="instruction">LD HL,53432</td>
+<td class="comment-1" rowspan="6">Handles copying $0009 bytes of data from the address (plus 1) contained at (depending on which door is currently being actioned); <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Door</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53607">53607</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 1</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53621">53621</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 2</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53635">53635</a></td>
+<td class="centre" colspan="1" rowspan="1">Door 3</td>
+</tr>
+</table> to <a href="53373.html#53432">53432</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53233"></span>53233</td>
+<td class="instruction">LD E,(IX+2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53236"></span>53236</td>
+<td class="instruction">LD D,(IX+3)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53239"></span>53239</td>
+<td class="instruction">INC DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53240"></span>53240</td>
+<td class="instruction">LD BC,9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53243"></span>53243</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="address-1"><span id="53245"></span>53245</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53247"></span>53247</td>
+<td class="instruction">LD (53647),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53250"></span>53250</td>
+<td class="instruction">LD HL,53432</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53253"></span>53253</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53254"></span>53254</td>
+<td class="instruction">LD (IX+7),2</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53258"></span>53258</td>
+<td class="instruction">LD (IX+6),5</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53262"></span>53262</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53263"></span>53263</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53264"></span>53264</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53265"></span>53265</td>
+<td class="instruction">LD (IX+7),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53268"></span>53268</td>
+<td class="instruction">LD (IX+6),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53271"></span>53271</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="53272"></span>53272</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52769.html">52769</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52920">Map</a></td>
+<td class="next">
+Next: <a href="53273.html">53273</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6.</div>
+<div><a href="../../asm/CEB8.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>
