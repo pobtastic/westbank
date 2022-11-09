@@ -1,9 +1,9 @@
 > $4000 @org=$4000
 b $4000 Loading screen
 D $4000 #UDGTABLE { #SCR(loading) | West Bank Loading Screen. } TABLE#
-@ $4000 label=LOADING
-B $4000,6144,32 Pixels
-B $5800,768,32 Attributes
+@ $4000 label=Loading
+B $4000,$1800,$20 Pixels
+B $5800,$300,$20 Attributes
 
 i $5B00
 S $5B00
