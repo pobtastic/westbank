@@ -7,20 +7,23 @@
 ;   skool2html.py -H sources/westbank.skool -T dark
 
 [Config]
+HtmlWriterClass=:westbank.WestBankHtmlWriter
 RefFiles=analytics.ref;bases.ref;westbankGraphics.ref
+GameDir=westbank
 
 [Game]
 Game=West Bank
 Logo=#SCR2,4,0,16,3,$4000,$5800(/images/logo)
-Copyright=&copy; DINAMIC SOFTWARE 1985
+Copyright=&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.
 LinkInternalOperands=1
 AddressAnchor={address#IF({base}==16)(:04x)}
 StyleSheet=westbank.css;skoolkit.css;skoolkit-dark.css
-HtmlWriterClass=:westbank.WestBankHtmlWriter
-GameDir=westbank
 
 [PageHeaders]
 GameIndex=The complete<>RAM disassembly (work in progress)
+
+[Paths]
+PlayAreaImagePath={ImagePath}/play_area
 
 [Index]
 MemoryMaps
