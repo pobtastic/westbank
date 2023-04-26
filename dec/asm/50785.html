@@ -40,15 +40,15 @@ Next: <a href="50815.html">50815</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="50210.html">DUEL_PREP</a>.
+Used by the routine at <a href="50210.html">Duel_Prep</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_DRAW_BANDIT_PREP</td>
+<td class="asm-label">Duel_Draw_Bandit_Prep</td>
 <td class="address-2"><span id="50785"></span>50785</td>
-<td class="instruction">CALL <a href="23439.html">CHARACTER_ADDR_ALIAS</a></td>
+<td class="instruction">CALL <a href="23439.html">Character_Address_Alias</a></td>
 <td class="comment-1" rowspan="1">Fetch the address of the character from the given index in <span class="register">A</span>.</td>
 </tr>
 <tr>
@@ -67,7 +67,7 @@ Used by the routine at <a href="50210.html">DUEL_PREP</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="50792"></span>50792</td>
 <td class="instruction">LD HL,18436</td>
-<td class="comment-1" rowspan="3">If this character is in position "1" then point to the screen buffer at $4804 and jump to <a href="50785.html#50807">DUEL_DRAW_BANDIT</a>.</td>
+<td class="comment-1" rowspan="3">If this character is in position "1" then point to the screen buffer at $4804 and jump to <a href="50785.html#50807">Duel_Draw_Bandit</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -77,13 +77,13 @@ Used by the routine at <a href="50210.html">DUEL_PREP</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50796"></span>50796</td>
-<td class="instruction">JR Z,<a href="50785.html#50807">DUEL_DRAW_BANDIT</a></td>
+<td class="instruction">JR Z,<a href="50785.html#50807">Duel_Draw_Bandit</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50798"></span>50798</td>
 <td class="instruction">LD HL,18444</td>
-<td class="comment-1" rowspan="3">If this character is in position "2" then point to the screen buffer at $480C and jump to <a href="50785.html#50807">DUEL_DRAW_BANDIT</a>.</td>
+<td class="comment-1" rowspan="3">If this character is in position "2" then point to the screen buffer at $480C and jump to <a href="50785.html#50807">Duel_Draw_Bandit</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -93,7 +93,7 @@ Used by the routine at <a href="50210.html">DUEL_PREP</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50802"></span>50802</td>
-<td class="instruction">JR Z,<a href="50785.html#50807">DUEL_DRAW_BANDIT</a></td>
+<td class="instruction">JR Z,<a href="50785.html#50807">Duel_Draw_Bandit</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -102,7 +102,7 @@ Used by the routine at <a href="50210.html">DUEL_PREP</a>.
 <td class="comment-1" rowspan="1">Else this character is in position "3" so point to the screen buffer at $4814.</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_DRAW_BANDIT</td>
+<td class="asm-label">Duel_Draw_Bandit</td>
 <td class="address-2"><span id="50807"></span>50807</td>
 <td class="instruction">LD B,88</td>
 <td class="comment-1" rowspan="3">Call the draw routine with the image dimensions.</td>
@@ -115,7 +115,7 @@ Used by the routine at <a href="50210.html">DUEL_PREP</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50811"></span>50811</td>
-<td class="instruction">CALL <a href="23442.html">DRAW_CHARACTER</a></td>
+<td class="instruction">CALL <a href="23442.html">Draw_Character</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -137,8 +137,8 @@ Next: <a href="50815.html">50815</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/C661.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

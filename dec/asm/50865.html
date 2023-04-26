@@ -34,25 +34,25 @@ Next: <a href="50899.html">50899</a>
 </td>
 </tr>
 </table>
-<div class="description">50865: Duel: Gain Extra Life.</div>
+<div class="description">50865: Duel: Gain Extra Life</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="50832.html">DUEL_COMPLETE</a>.
+Used by the routine at <a href="50832.html">Duel_Complete</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_FLASH_TEXT</td>
+<td class="asm-label">Duel_Flash_Text</td>
 <td class="address-2"><span id="50865"></span>50865</td>
 <td class="instruction">LD B,8</td>
-<td class="comment-1" rowspan="14">Alternates displaying <a href="50765.html#50779">PLAYFIELD_WHITESPACE</a> and <a href="50765.html#50773">PLAYFIELD_LIVES</a> to "flash" the lives indicator.</td>
+<td class="comment-1" rowspan="14">Alternates displaying <a href="50765.html#50779">Playfield_Whitespace</a> and <a href="50765.html#50773">Playfield_Lives</a> to "flash" the lives indicator.</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_FLASH_TEXT_LOOP</td>
+<td class="asm-label">Duel_Flash_Text_Loop</td>
 <td class="address-2"><span id="50867"></span>50867</td>
 <td class="instruction">PUSH BC</td>
 </tr>
@@ -64,7 +64,7 @@ Used by the routine at <a href="50832.html">DUEL_COMPLETE</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50871"></span>50871</td>
-<td class="instruction">CALL <a href="50855.html">DUEL_PRINT_LIVES</a></td>
+<td class="instruction">CALL <a href="50855.html">Duel_Print_Lives</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -72,14 +72,14 @@ Used by the routine at <a href="50832.html">DUEL_COMPLETE</a>.
 <td class="instruction">LD B,16</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_FLASH_HALT_LOOP_1</td>
+<td class="asm-label">Duel_Flash_Halt_Loop_01</td>
 <td class="address-2"><span id="50876"></span>50876</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50877"></span>50877</td>
-<td class="instruction">DJNZ <a href="50865.html#50876">DUEL_FLASH_HALT_LOOP_1</a></td>
+<td class="instruction">DJNZ <a href="50865.html#50876">Duel_Flash_Halt_Loop_01</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -89,7 +89,7 @@ Used by the routine at <a href="50832.html">DUEL_COMPLETE</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50882"></span>50882</td>
-<td class="instruction">CALL <a href="50855.html">DUEL_PRINT_LIVES</a></td>
+<td class="instruction">CALL <a href="50855.html">Duel_Print_Lives</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -97,14 +97,14 @@ Used by the routine at <a href="50832.html">DUEL_COMPLETE</a>.
 <td class="instruction">LD B,16</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_FLASH_HALT_LOOP_2</td>
+<td class="asm-label">Duel_Flash_Halt_Loop_02</td>
 <td class="address-2"><span id="50887"></span>50887</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50888"></span>50888</td>
-<td class="instruction">DJNZ <a href="50865.html#50887">DUEL_FLASH_HALT_LOOP_2</a></td>
+<td class="instruction">DJNZ <a href="50865.html#50887">Duel_Flash_Halt_Loop_02</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -114,13 +114,13 @@ Used by the routine at <a href="50832.html">DUEL_COMPLETE</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50891"></span>50891</td>
-<td class="instruction">DJNZ <a href="50865.html#50867">DUEL_FLASH_TEXT_LOOP</a></td>
+<td class="instruction">DJNZ <a href="50865.html#50867">Duel_Flash_Text_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50893"></span>50893</td>
 <td class="instruction">LD HL,(23430)</td>
-<td class="comment-1" rowspan="2">Increase the lives counter by one (<a href="52313.html">LIVES</a>).</td>
+<td class="comment-1" rowspan="2">Increase the lives counter by one (<a href="52313.html">Lives</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -152,8 +152,8 @@ Next: <a href="50899.html">50899</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/C6B1.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

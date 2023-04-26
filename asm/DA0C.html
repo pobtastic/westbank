@@ -34,7 +34,7 @@ Next: <a href="DAEF.html">DAEF</a>
 </td>
 </tr>
 </table>
-<div class="description">DA0C: Drawing Bandit Logic.</div>
+<div class="description">DA0C: Drawing Bandit Logic</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -53,67 +53,67 @@ Character state variables/ flags.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW</td>
+<td class="asm-label">Bandit_Draw</td>
 <td class="address-2"><span id="da0c"></span>DA0C</td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_FRAME_1</td>
+<td class="asm-label">Bandit_Draw_Frame_01</td>
 <td class="address-1"><span id="da0d"></span>DA0D</td>
 <td class="instruction">DEFB $08</td>
 <td class="comment-1" rowspan="1">Character frame index 1.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_FRAME_2</td>
+<td class="asm-label">Bandit_Draw_Frame_02</td>
 <td class="address-1"><span id="da0e"></span>DA0E</td>
 <td class="instruction">DEFB $08</td>
 <td class="comment-1" rowspan="1">Character frame index 2.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_FRAME_3</td>
+<td class="asm-label">Bandit_Draw_Frame_03</td>
 <td class="address-1"><span id="da0f"></span>DA0F</td>
 <td class="instruction">DEFB $09</td>
 <td class="comment-1" rowspan="1">Character frame index 3.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_FRAME_4</td>
+<td class="asm-label">Bandit_Draw_Frame_04</td>
 <td class="address-1"><span id="da10"></span>DA10</td>
 <td class="instruction">DEFB $07</td>
 <td class="comment-1" rowspan="1">Character frame index 4.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_STATE_REF</td>
+<td class="asm-label">Bandit_Draw_State_Reference</td>
 <td class="address-1"><span id="da11"></span>DA11</td>
 <td class="instruction">DEFB $05</td>
 <td class="comment-1" rowspan="1">The current character state.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_1_TIMER</td>
+<td class="asm-label">Bandit_Draw_Timer_01</td>
 <td class="address-1"><span id="da12"></span>DA12</td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-1" rowspan="1">Character timer 1.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_2_TIMER</td>
+<td class="asm-label">Bandit_Draw_Timer_02</td>
 <td class="address-1"><span id="da13"></span>DA13</td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-1" rowspan="1">Character timer 2.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_3_TIMER</td>
+<td class="asm-label">Bandit_Draw_Timer_03</td>
 <td class="address-1"><span id="da14"></span>DA14</td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-1" rowspan="1">Character timer 3.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_4_TIMER</td>
+<td class="asm-label">Bandit_Draw_Timer_04</td>
 <td class="address-1"><span id="da15"></span>DA15</td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-1" rowspan="1">Character timer 4.</td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_5_TIMER</td>
+<td class="asm-label">Bandit_Draw_Timer_05</td>
 <td class="address-1"><span id="da16"></span>DA16</td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-1" rowspan="1">Character timer 5.</td>
@@ -129,10 +129,10 @@ This routine looks at the current character state and routes to the correct subr
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_OPEN_ROUTING</td>
+<td class="asm-label">Bandit_Draw_Open_Routing</td>
 <td class="address-2"><span id="da17"></span>DA17</td>
 <td class="instruction">LD HL,$DA11</td>
-<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="DA0C.html#da11">BANDIT_DRAW_STATE_REF</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="DA0C.html#da11">Bandit_Draw_State_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -149,31 +149,31 @@ This routine looks at the current character state and routes to the correct subr
 <th colspan="1" rowspan="1">Routine</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da29">BANDIT_DRAW_OPEN_1</a></td>
+<td class="centre" colspan="1" rowspan="1">01</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da29">Bandit_Draw_Open_01</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da39">BANDIT_DRAW_OPEN_2</a></td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da39">Bandit_Draw_Open_02</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da49">BANDIT_DRAW_OPEN_3</a></td>
+<td class="centre" colspan="1" rowspan="1">03</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da49">Bandit_Draw_Open_03</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$04</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da59">BANDIT_DRAW_OPEN_4</a></td>
+<td class="centre" colspan="1" rowspan="1">04</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da59">Bandit_Draw_Open_04</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$05</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da6f">BANDIT_DRAW_OPEN_5</a></td>
+<td class="centre" colspan="1" rowspan="1">05</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da6f">Bandit_Draw_Open_05</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da1c"></span>DA1C</td>
-<td class="instruction">JR Z,<a href="DA0C.html#da29">BANDIT_DRAW_OPEN_1</a></td>
+<td class="instruction">JR Z,<a href="DA0C.html#da29">Bandit_Draw_Open_01</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -183,7 +183,7 @@ This routine looks at the current character state and routes to the correct subr
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da1f"></span>DA1F</td>
-<td class="instruction">JR Z,<a href="DA0C.html#da39">BANDIT_DRAW_OPEN_2</a></td>
+<td class="instruction">JR Z,<a href="DA0C.html#da39">Bandit_Draw_Open_02</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -193,7 +193,7 @@ This routine looks at the current character state and routes to the correct subr
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da22"></span>DA22</td>
-<td class="instruction">JR Z,<a href="DA0C.html#da49">BANDIT_DRAW_OPEN_3</a></td>
+<td class="instruction">JR Z,<a href="DA0C.html#da49">Bandit_Draw_Open_03</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -203,12 +203,12 @@ This routine looks at the current character state and routes to the correct subr
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da25"></span>DA25</td>
-<td class="instruction">JR Z,<a href="DA0C.html#da59">BANDIT_DRAW_OPEN_4</a></td>
+<td class="instruction">JR Z,<a href="DA0C.html#da59">Bandit_Draw_Open_04</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da27"></span>DA27</td>
-<td class="instruction">JR <a href="DA0C.html#da6f">BANDIT_DRAW_OPEN_5</a></td>
+<td class="instruction">JR <a href="DA0C.html#da6f">Bandit_Draw_Open_05</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -221,10 +221,10 @@ Handle door frame 1 countdown/ transition to door frame 2.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_OPEN_1</td>
+<td class="asm-label">Bandit_Draw_Open_01</td>
 <td class="address-2"><span id="da29"></span>DA29</td>
 <td class="instruction">LD A,($DA12)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da12">BANDIT_DRAW_1_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da12">Bandit_Draw_Timer_01</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -251,13 +251,13 @@ Handle door frame 1 countdown/ transition to door frame 2.
 <td class="asm-label"></td>
 <td class="address-1"><span id="da32"></span>DA32</td>
 <td class="instruction">LD A,($DA0D)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0d">BANDIT_DRAW_FRAME_1</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0d">Bandit_Draw_Frame_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da35"></span>DA35</td>
-<td class="instruction">CALL <a href="D664.html#d6d1">DRAW_DOOR_FRAME_2</a></td>
-<td class="comment-1" rowspan="2">Call <a href="D664.html#d6d1">DRAW_DOOR_FRAME_2</a> and return.</td>
+<td class="instruction">CALL <a href="D664.html#d6d1">Draw_DoorFrame02</a></td>
+<td class="comment-1" rowspan="2">Call <a href="D664.html#d6d1">Draw_DoorFrame02</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -275,10 +275,10 @@ Handle door frame 2 countdown/ transition to door frame 3.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_OPEN_2</td>
+<td class="asm-label">Bandit_Draw_Open_02</td>
 <td class="address-2"><span id="da39"></span>DA39</td>
 <td class="instruction">LD A,($DA13)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da13">BANDIT_DRAW_2_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da13">Bandit_Draw_Timer_02</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -305,13 +305,13 @@ Handle door frame 2 countdown/ transition to door frame 3.
 <td class="asm-label"></td>
 <td class="address-1"><span id="da42"></span>DA42</td>
 <td class="instruction">LD A,($DA0D)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0d">BANDIT_DRAW_FRAME_1</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0d">Bandit_Draw_Frame_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da45"></span>DA45</td>
-<td class="instruction">CALL <a href="D664.html#d6df">DRAW_DOOR_FRAME_3</a></td>
-<td class="comment-1" rowspan="2">Call <a href="D664.html#d6df">DRAW_DOOR_FRAME_3</a> and return.</td>
+<td class="instruction">CALL <a href="D664.html#d6df">Draw_DoorFrame03</a></td>
+<td class="comment-1" rowspan="2">Call <a href="D664.html#d6df">Draw_DoorFrame03</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -329,10 +329,10 @@ Handle door frame 3 countdown/ transition to door frame 4.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_OPEN_3</td>
+<td class="asm-label">Bandit_Draw_Open_03</td>
 <td class="address-2"><span id="da49"></span>DA49</td>
 <td class="instruction">LD A,($DA14)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da14">BANDIT_DRAW_3_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da14">Bandit_Draw_Timer_03</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -359,13 +359,13 @@ Handle door frame 3 countdown/ transition to door frame 4.
 <td class="asm-label"></td>
 <td class="address-1"><span id="da52"></span>DA52</td>
 <td class="instruction">LD A,($DA0D)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0d">BANDIT_DRAW_FRAME_1</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0d">Bandit_Draw_Frame_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da55"></span>DA55</td>
-<td class="instruction">CALL <a href="D664.html#d6ed">DRAW_DOOR_FRAME_4</a></td>
-<td class="comment-1" rowspan="2">Call <a href="D664.html#d6ed">DRAW_DOOR_FRAME_4</a> and return.</td>
+<td class="instruction">CALL <a href="D664.html#d6ed">Draw_DoorFrame04</a></td>
+<td class="comment-1" rowspan="2">Call <a href="D664.html#d6ed">Draw_DoorFrame04</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -383,21 +383,21 @@ Handles state countdown.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_OPEN_4</td>
+<td class="asm-label">Bandit_Draw_Open_04</td>
 <td class="address-2"><span id="da59"></span>DA59</td>
 <td class="instruction">LD DE,$D037</td>
-<td class="comment-1" rowspan="2">Call <a href="D5A3.html">HIT_DETECTION</a> with a callback to <a href="D037.html">TODO_DOOR_RESET</a>.</td>
+<td class="comment-1" rowspan="2">Call <a href="D5A3.html">Hit_Detection</a> with a callback to <a href="D037.html">Todo_Door_Reset</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da5c"></span>DA5C</td>
-<td class="instruction">CALL <a href="D5A3.html">HIT_DETECTION</a></td>
+<td class="instruction">CALL <a href="D5A3.html">Hit_Detection</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da5f"></span>DA5F</td>
 <td class="instruction">LD A,($DA15)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da15">BANDIT_DRAW_4_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da15">Bandit_Draw_Timer_04</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -424,13 +424,13 @@ Handles state countdown.
 <td class="asm-label"></td>
 <td class="address-1"><span id="da68"></span>DA68</td>
 <td class="instruction">LD A,($DA0E)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0e">BANDIT_DRAW_FRAME_2</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0e">Bandit_Draw_Frame_02</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da6b"></span>DA6B</td>
-<td class="instruction">CALL <a href="D664.html#d6ed">DRAW_DOOR_FRAME_4</a></td>
-<td class="comment-1" rowspan="2">Call <a href="D664.html#d6ed">DRAW_DOOR_FRAME_4</a> and return.</td>
+<td class="instruction">CALL <a href="D664.html#d6ed">Draw_DoorFrame04</a></td>
+<td class="comment-1" rowspan="2">Call <a href="D664.html#d6ed">Draw_DoorFrame04</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -448,21 +448,21 @@ Handles state countdown.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_OPEN_5</td>
+<td class="asm-label">Bandit_Draw_Open_05</td>
 <td class="address-2"><span id="da6f"></span>DA6F</td>
 <td class="instruction">LD DE,$D040</td>
-<td class="comment-1" rowspan="2">Call <a href="D5A3.html">HIT_DETECTION</a> with a callback to <a href="D037.html#d040">D040</a>.</td>
+<td class="comment-1" rowspan="2">Call <a href="D5A3.html">Hit_Detection</a> with a callback to <a href="D037.html#d040">D040</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da72"></span>DA72</td>
-<td class="instruction">CALL <a href="D5A3.html">HIT_DETECTION</a></td>
+<td class="instruction">CALL <a href="D5A3.html">Hit_Detection</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da75"></span>DA75</td>
 <td class="instruction">LD A,($DA16)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da16">BANDIT_DRAW_5_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da16">Bandit_Draw_Timer_05</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -483,7 +483,7 @@ Handles state countdown.
 <td class="asm-label"></td>
 <td class="address-1"><span id="da7d"></span>DA7D</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="4">Else write $01 to <a href="D2CF.html#d2fe">D2FE</a>, call <a href="D8A1.html">RESET___</a> and return.</td>
+<td class="comment-1" rowspan="4">Else write $01 to <a href="D2CF.html#d2fe">D2FE</a>, call <a href="D8A1.html">Reset___</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -493,7 +493,7 @@ Handles state countdown.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da81"></span>DA81</td>
-<td class="instruction">CALL <a href="D8A1.html">RESET___</a></td>
+<td class="instruction">CALL <a href="D8A1.html">Reset___</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -511,10 +511,10 @@ This routine looks at the current character state and routes to the correct subr
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_CLOSE_ROUTING</td>
+<td class="asm-label">Bandit_Draw_Close_Routing</td>
 <td class="address-2"><span id="da85"></span>DA85</td>
 <td class="instruction">LD HL,$DA11</td>
-<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="DA0C.html#da11">BANDIT_DRAW_STATE_REF</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="DA0C.html#da11">Bandit_Draw_State_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -531,31 +531,31 @@ This routine looks at the current character state and routes to the correct subr
 <th colspan="1" rowspan="1">Routine</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da97">BANDIT_DRAW_CLOSE_1</a></td>
+<td class="centre" colspan="1" rowspan="1">01</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#da97">Bandit_Draw_Close_01</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#daa7">BANDIT_DRAW_CLOSE_2</a></td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#daa7">Bandit_Draw_Close_02</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#dac0">BANDIT_DRAW_CLOSE_3</a></td>
+<td class="centre" colspan="1" rowspan="1">03</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#dac0">Bandit_Draw_Close_03</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$04</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#dad0">BANDIT_DRAW_CLOSE_4</a></td>
+<td class="centre" colspan="1" rowspan="1">04</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#dad0">Bandit_Draw_Close_04</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$05</td>
-<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#dae0">BANDIT_DRAW_CLOSE_5</a></td>
+<td class="centre" colspan="1" rowspan="1">05</td>
+<td class="centre" colspan="1" rowspan="1"><a href="DA0C.html#dae0">Bandit_Draw_Close_05</a></td>
 </tr>
 </table></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da8a"></span>DA8A</td>
-<td class="instruction">JR Z,<a href="DA0C.html#da97">BANDIT_DRAW_CLOSE_1</a></td>
+<td class="instruction">JR Z,<a href="DA0C.html#da97">Bandit_Draw_Close_01</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -565,7 +565,7 @@ This routine looks at the current character state and routes to the correct subr
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da8d"></span>DA8D</td>
-<td class="instruction">JR Z,<a href="DA0C.html#daa7">BANDIT_DRAW_CLOSE_2</a></td>
+<td class="instruction">JR Z,<a href="DA0C.html#daa7">Bandit_Draw_Close_02</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -575,7 +575,7 @@ This routine looks at the current character state and routes to the correct subr
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da90"></span>DA90</td>
-<td class="instruction">JR Z,<a href="DA0C.html#dac0">BANDIT_DRAW_CLOSE_3</a></td>
+<td class="instruction">JR Z,<a href="DA0C.html#dac0">Bandit_Draw_Close_03</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -585,12 +585,12 @@ This routine looks at the current character state and routes to the correct subr
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da93"></span>DA93</td>
-<td class="instruction">JR Z,<a href="DA0C.html#dad0">BANDIT_DRAW_CLOSE_4</a></td>
+<td class="instruction">JR Z,<a href="DA0C.html#dad0">Bandit_Draw_Close_04</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="da95"></span>DA95</td>
-<td class="instruction">JR <a href="DA0C.html#dae0">BANDIT_DRAW_CLOSE_5</a></td>
+<td class="instruction">JR <a href="DA0C.html#dae0">Bandit_Draw_Close_05</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -603,10 +603,10 @@ Handles state countdown.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_CLOSE_1</td>
+<td class="asm-label">Bandit_Draw_Close_01</td>
 <td class="address-2"><span id="da97"></span>DA97</td>
 <td class="instruction">LD A,($DA12)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da12">BANDIT_DRAW_1_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da12">Bandit_Draw_Timer_01</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -633,13 +633,13 @@ Handles state countdown.
 <td class="asm-label"></td>
 <td class="address-1"><span id="daa0"></span>DAA0</td>
 <td class="instruction">LD A,($DA0F)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0f">BANDIT_DRAW_FRAME_3</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da0f">Bandit_Draw_Frame_03</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="daa3"></span>DAA3</td>
-<td class="instruction">CALL <a href="D664.html#d6ed">DRAW_DOOR_FRAME_4</a></td>
-<td class="comment-1" rowspan="2">Call <a href="D664.html#d6ed">DRAW_DOOR_FRAME_4</a> and return.</td>
+<td class="instruction">CALL <a href="D664.html#d6ed">Draw_DoorFrame04</a></td>
+<td class="comment-1" rowspan="2">Call <a href="D664.html#d6ed">Draw_DoorFrame04</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -657,10 +657,10 @@ Handles state countdown.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_CLOSE_2</td>
+<td class="asm-label">Bandit_Draw_Close_02</td>
 <td class="address-2"><span id="daa7"></span>DAA7</td>
 <td class="instruction">LD A,($DA13)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da13">BANDIT_DRAW_2_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da13">Bandit_Draw_Timer_02</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -687,19 +687,19 @@ Handles state countdown.
 <td class="asm-label"></td>
 <td class="address-1"><span id="dab0"></span>DAB0</td>
 <td class="instruction">LD A,($DA10)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da10">BANDIT_DRAW_FRAME_4</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da10">Bandit_Draw_Frame_04</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="dab3"></span>DAB3</td>
-<td class="instruction">CALL <a href="D664.html#d6ed">DRAW_DOOR_FRAME_4</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D664.html#d6ed">DRAW_DOOR_FRAME_4</a>.</td>
+<td class="instruction">CALL <a href="D664.html#d6ed">Draw_DoorFrame04</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D664.html#d6ed">Draw_DoorFrame04</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="dab6"></span>DAB6</td>
 <td class="instruction">LD A,($DA0C)</td>
-<td class="comment-1" rowspan="3">Return if <a href="DA0C.html">BANDIT_DRAW</a> is zero.</td>
+<td class="comment-1" rowspan="3">Return if <a href="DA0C.html">Bandit_Draw</a> is zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -738,10 +738,10 @@ Handle door frame 4 countdown/ transition to door frame 3.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_CLOSE_3</td>
+<td class="asm-label">Bandit_Draw_Close_03</td>
 <td class="address-2"><span id="dac0"></span>DAC0</td>
 <td class="instruction">LD A,($DA14)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da14">BANDIT_DRAW_3_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da14">Bandit_Draw_Timer_03</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -768,13 +768,13 @@ Handle door frame 4 countdown/ transition to door frame 3.
 <td class="asm-label"></td>
 <td class="address-1"><span id="dac9"></span>DAC9</td>
 <td class="instruction">LD A,($DA10)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da10">BANDIT_DRAW_FRAME_4</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da10">Bandit_Draw_Frame_04</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="dacc"></span>DACC</td>
-<td class="instruction">CALL <a href="D664.html#d6df">DRAW_DOOR_FRAME_3</a></td>
-<td class="comment-1" rowspan="2">Call <a href="D664.html#d6df">DRAW_DOOR_FRAME_3</a> and return.</td>
+<td class="instruction">CALL <a href="D664.html#d6df">Draw_DoorFrame03</a></td>
+<td class="comment-1" rowspan="2">Call <a href="D664.html#d6df">Draw_DoorFrame03</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -792,10 +792,10 @@ Handle door frame 3 countdown/ transition to door frame 2.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_CLOSE_4</td>
+<td class="asm-label">Bandit_Draw_Close_04</td>
 <td class="address-2"><span id="dad0"></span>DAD0</td>
 <td class="instruction">LD A,($DA15)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da15">BANDIT_DRAW_4_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da15">Bandit_Draw_Timer_04</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -822,13 +822,13 @@ Handle door frame 3 countdown/ transition to door frame 2.
 <td class="asm-label"></td>
 <td class="address-1"><span id="dad9"></span>DAD9</td>
 <td class="instruction">LD A,($DA10)</td>
-<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da10">BANDIT_DRAW_FRAME_4</a>.</td>
+<td class="comment-1" rowspan="1">Grab the character frame index from <a href="DA0C.html#da10">Bandit_Draw_Frame_04</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="dadc"></span>DADC</td>
-<td class="instruction">CALL <a href="D664.html#d6d1">DRAW_DOOR_FRAME_2</a></td>
-<td class="comment-1" rowspan="2">Call <a href="D664.html#d6d1">DRAW_DOOR_FRAME_2</a> and return.</td>
+<td class="instruction">CALL <a href="D664.html#d6d1">Draw_DoorFrame02</a></td>
+<td class="comment-1" rowspan="2">Call <a href="D664.html#d6d1">Draw_DoorFrame02</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -846,10 +846,10 @@ Handle door frame 2 countdown/ transition to door frame 1.
 </td>
 </tr>
 <tr>
-<td class="asm-label">BANDIT_DRAW_CLOSE_5</td>
+<td class="asm-label">Bandit_Draw_Close_05</td>
 <td class="address-2"><span id="dae0"></span>DAE0</td>
 <td class="instruction">LD A,($DA16)</td>
-<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da16">BANDIT_DRAW_5_TIMER</a> by one, return if result is not zero.</td>
+<td class="comment-1" rowspan="4">Decrease <a href="DA0C.html#da16">Bandit_Draw_Timer_05</a> by one, return if result is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -869,14 +869,14 @@ Handle door frame 2 countdown/ transition to door frame 1.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="dae8"></span>DAE8</td>
-<td class="instruction">CALL <a href="D664.html">DRAW_DOOR_FRAME_1</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D664.html">DRAW_DOOR_FRAME_1</a> (i.e. no character/ door is shut).</td>
+<td class="instruction">CALL <a href="D664.html">Draw_DoorFrame1</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D664.html">Draw_DoorFrame1</a> (i.e. no character/ door is shut).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="daeb"></span>DAEB</td>
-<td class="instruction">CALL <a href="D8A1.html">RESET___</a></td>
-<td class="comment-1" rowspan="2">Call <a href="D8A1.html">RESET___</a> and return.</td>
+<td class="instruction">CALL <a href="D8A1.html">Reset___</a></td>
+<td class="comment-1" rowspan="2">Call <a href="D8A1.html">Reset___</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -897,8 +897,8 @@ Next: <a href="DAEF.html">DAEF</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/55820.html">Switch to decimal</a>.</div>
 </footer>
 </body>

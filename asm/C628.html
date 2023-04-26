@@ -34,7 +34,7 @@ Next: <a href="C64D.html">C64D</a>
 </td>
 </tr>
 </table>
-<div class="description">C628: Displays "Extra" and Bonus Score text.</div>
+<div class="description">C628: Displays "Extra" and Bonus Score text</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -46,10 +46,10 @@ Handles whether to display points or "EXTRA" above each downed Bandit.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_POINTS</td>
+<td class="asm-label">Duel_Points</td>
 <td class="address-2"><span id="c628"></span>C628</td>
 <td class="instruction">LD A,($C6E4)</td>
-<td class="comment-1" rowspan="4">If <a href="C6E4.html">DUEL_EXTRA_LIFE</a> is NOT zero then award 9(00) bonus points.</td>
+<td class="comment-1" rowspan="4">If <a href="C6E4.html">Duel_Extra_Life</a> is NOT zero then award 9(00) bonus points.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -64,13 +64,13 @@ Handles whether to display points or "EXTRA" above each downed Bandit.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c62e"></span>C62E</td>
-<td class="instruction">JR NZ,<a href="C607.html">PRINT_BONUS_SCORE</a></td>
+<td class="instruction">JR NZ,<a href="C607.html">Print_BonusScore</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c630"></span>C630</td>
 <td class="instruction">LD HL,($5B86)</td>
-<td class="comment-1" rowspan="5">Fetch a 16 bit address from <a href="5B86.html">LIVES_ADDR</a> (<a href="CC59.html">LIVES</a>), if it is higher than $05 then award 9(00) bonus points.</td>
+<td class="comment-1" rowspan="5">Fetch a 16 bit address from <a href="5B86.html">Lives_Address</a> (<a href="CC59.html">Lives</a>), if it is higher than $05 then award 9(00) bonus points.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -90,13 +90,13 @@ Handles whether to display points or "EXTRA" above each downed Bandit.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c638"></span>C638</td>
-<td class="instruction">JR NC,<a href="C607.html">PRINT_BONUS_SCORE</a></td>
+<td class="instruction">JR NC,<a href="C607.html">Print_BonusScore</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c63a"></span>C63A</td>
 <td class="instruction">LD HL,$C622</td>
-<td class="comment-1" rowspan="4">Points to <a href="C622.html">EXTRA_TEXT_COPY</a> and sends it to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="4">Points to <a href="C622.html">Extra_Text_Copy</a> and sends it to <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -104,16 +104,16 @@ Handles whether to display points or "EXTRA" above each downed Bandit.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$2A</td>
-<td class="" colspan="1" rowspan="1">$02</td>
-<td class="" colspan="1" rowspan="1">$05</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">2A</td>
+<td class="" colspan="1" rowspan="1">02</td>
+<td class="" colspan="1" rowspan="1">05</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$29</td>
-<td class="" colspan="1" rowspan="1">$01</td>
-<td class="" colspan="1" rowspan="1">$05</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">29</td>
+<td class="" colspan="1" rowspan="1">01</td>
+<td class="" colspan="1" rowspan="1">05</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -130,13 +130,13 @@ Handles whether to display points or "EXTRA" above each downed Bandit.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c641"></span>C641</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c644"></span>C644</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="2">Writes $01 to <a href="C6E4.html">DUEL_EXTRA_LIFE</a>.</td>
+<td class="comment-1" rowspan="2">Writes $01 to <a href="C6E4.html">Duel_Extra_Life</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -169,8 +169,8 @@ Next: <a href="C64D.html">C64D</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/50728.html">Switch to decimal</a>.</div>
 </footer>
 </body>

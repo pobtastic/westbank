@@ -43,10 +43,10 @@ Next: <a href="54364.html">54364</a>
 </td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_PREP</td>
+<td class="asm-label">Door_Prep_01</td>
 <td class="address-2"><span id="54250"></span>54250</td>
 <td class="instruction">LD HL,52756</td>
-<td class="comment-1" rowspan="1"><a href="52756.html">DOOR_1_ROUTINE</a></td>
+<td class="comment-1" rowspan="1"><a href="52756.html">Door_Routine_01</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -60,7 +60,7 @@ Next: <a href="54364.html">54364</a>
 <td class="instruction">LD B,6</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_PREP_0</td>
+<td class="asm-label">Door_Prep_01_0</td>
 <td class="address-2"><span id="54256"></span>54256</td>
 <td class="instruction">OR (HL)</td>
 <td class="comment-1" rowspan="1"></td>
@@ -74,7 +74,7 @@ Next: <a href="54364.html">54364</a>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54258"></span>54258</td>
-<td class="instruction">DJNZ <a href="54250.html#54256">DOOR_1_PREP_0</a></td>
+<td class="instruction">DJNZ <a href="54250.html#54256">Door_Prep_01_0</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -122,7 +122,7 @@ Next: <a href="54364.html">54364</a>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54271"></span>54271</td>
-<td class="instruction">CALL <a href="54250.html#54279">DOOR_1_PREP_1</a></td>
+<td class="instruction">CALL <a href="54250.html#54279">Door_Prep_01_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -156,7 +156,7 @@ Next: <a href="54364.html">54364</a>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_PREP_1</td>
+<td class="asm-label">Door_Prep_01_1</td>
 <td class="address-2"><span id="54279"></span>54279</td>
 <td class="instruction">LD HL,51840</td>
 <td class="comment-1" rowspan="1"></td>
@@ -202,19 +202,19 @@ Next: <a href="54364.html">54364</a>
 <span id="54289"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
+This entry point is used by the routine at <a href="51136.html">New_Game</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_PREP_2</td>
+<td class="asm-label">Door_Prep_01_2</td>
 <td class="address-2"><span id="54289"></span>54289</td>
-<td class="instruction">CALL <a href="54250.html#54250">DOOR_1_PREP</a></td>
+<td class="instruction">CALL <a href="54250.html#54250">Door_Prep_01</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_PREP_3</td>
+<td class="asm-label">Door_Prep_01_3</td>
 <td class="address-2"><span id="54292"></span>54292</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-1" rowspan="1"></td>
@@ -240,7 +240,7 @@ This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54300"></span>54300</td>
-<td class="instruction">CALL NZ,<a href="54250.html#54317">DOOR_1_PREP_4</a></td>
+<td class="instruction">CALL NZ,<a href="54250.html#54317">Door_Prep_01_4</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -258,7 +258,7 @@ This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54307"></span>54307</td>
-<td class="instruction">CALL NZ,<a href="54250.html#54345">DOOR_1_PREP_6</a></td>
+<td class="instruction">CALL NZ,<a href="54250.html#54345">Door_Prep_01_6</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -294,13 +294,13 @@ This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54315"></span>54315</td>
-<td class="instruction">JR <a href="54250.html#54292">DOOR_1_PREP_3</a></td>
+<td class="instruction">JR <a href="54250.html#54292">Door_Prep_01_3</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_PREP_4</td>
+<td class="asm-label">Door_Prep_01_4</td>
 <td class="address-2"><span id="54317"></span>54317</td>
-<td class="instruction">CALL <a href="26112.html">26112</a></td>
+<td class="instruction">CALL <a href="26112.html">ScreenScroll_Right</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -342,7 +342,7 @@ This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54331"></span>54331</td>
-<td class="instruction">JR C,<a href="54250.html#54335">DOOR_1_PREP_5</a></td>
+<td class="instruction">JR C,<a href="54250.html#54335">Door_Prep_01_5</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -352,7 +352,7 @@ This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_PREP_5</td>
+<td class="asm-label">Door_Prep_01_5</td>
 <td class="address-2"><span id="54335"></span>54335</td>
 <td class="instruction">CALL <a href="54366.html">54366</a></td>
 <td class="comment-1" rowspan="1"></td>
@@ -376,9 +376,9 @@ This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_PREP_6</td>
+<td class="asm-label">Door_Prep_01_6</td>
 <td class="address-2"><span id="54345"></span>54345</td>
-<td class="instruction">CALL <a href="26112.html#26368">26368</a></td>
+<td class="instruction">CALL <a href="26368.html">26368</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -420,7 +420,7 @@ This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54358"></span>54358</td>
-<td class="instruction">JR NZ,<a href="54250.html#54335">DOOR_1_PREP_5</a></td>
+<td class="instruction">JR NZ,<a href="54250.html#54335">Door_Prep_01_5</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -432,7 +432,7 @@ This entry point is used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54362"></span>54362</td>
-<td class="instruction">JR <a href="54250.html#54335">DOOR_1_PREP_5</a></td>
+<td class="instruction">JR <a href="54250.html#54335">Door_Prep_01_5</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
@@ -449,8 +449,8 @@ Next: <a href="54364.html">54364</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/D3EA.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

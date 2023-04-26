@@ -34,21 +34,21 @@ Next: <a href="25984.html">25984</a>
 </td>
 </tr>
 </table>
-<div class="description">25856: Sounds.</div>
+<div class="description">25856: Sounds</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="25472.html">LEVEL_SELECT</a>, <a href="50210.html">DUEL_PREP</a> and <a href="54023.html">CONTROLS</a>.
+Used by the routines at <a href="25472.html">LevelSelect</a>, <a href="50210.html">Duel_Prep</a> and <a href="54023.html">Controls</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_1_ALIAS</td>
+<td class="asm-label">Shot_Sound_01_Alias</td>
 <td class="address-2"><span id="25856"></span>25856</td>
-<td class="instruction">JR <a href="25856.html#25911">SHOT_SOUND_1</a></td>
+<td class="instruction">JR <a href="25856.html#25911">Shot_Sound_01</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -56,15 +56,15 @@ Used by the routines at <a href="25472.html">LEVEL_SELECT</a>, <a href="50210.ht
 <span id="25858"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="49152.html">BANG</a> and <a href="54023.html">CONTROLS</a>.
+This entry point is used by the routines at <a href="49152.html">Bang</a> and <a href="54023.html">Controls</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_2_ALIAS</td>
+<td class="asm-label">Shot_Sound_02_Alias</td>
 <td class="address-2"><span id="25858"></span>25858</td>
-<td class="instruction">JR <a href="25856.html#25919">SHOT_SOUND_2</a></td>
+<td class="instruction">JR <a href="25856.html#25919">Shot_Sound_02</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -72,15 +72,15 @@ This entry point is used by the routines at <a href="49152.html">BANG</a> and <a
 <span id="25860"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="54023.html">CONTROLS</a>.
+This entry point is used by the routine at <a href="54023.html">Controls</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_3_ALIAS</td>
+<td class="asm-label">Shot_Sound_03_Alias</td>
 <td class="address-2"><span id="25860"></span>25860</td>
-<td class="instruction">JR <a href="25856.html#25927">SHOT_SOUND_3</a></td>
+<td class="instruction">JR <a href="25856.html#25927">Shot_Sound_03</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -160,7 +160,7 @@ Sound data.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DATA_SOUND_1</td>
+<td class="asm-label">Data_Sound_01</td>
 <td class="address-1"><span id="25887"></span>25887</td>
 <td class="instruction">DEFW 2562</td>
 <td class="comment-1" rowspan="1"></td>
@@ -184,7 +184,7 @@ Sound data.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DATA_SOUND_2</td>
+<td class="asm-label">Data_Sound_02</td>
 <td class="address-1"><span id="25895"></span>25895</td>
 <td class="instruction">DEFW 2562</td>
 <td class="comment-1" rowspan="1"></td>
@@ -208,7 +208,7 @@ Sound data.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DATA_SOUND_3</td>
+<td class="asm-label">Data_Sound_03</td>
 <td class="address-1"><span id="25903"></span>25903</td>
 <td class="instruction">DEFW 2562</td>
 <td class="comment-1" rowspan="1"></td>
@@ -242,15 +242,15 @@ Shot sound 1.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_1</td>
+<td class="asm-label">Shot_Sound_01</td>
 <td class="address-2"><span id="25911"></span>25911</td>
 <td class="instruction">LD IX,25887</td>
-<td class="comment-1" rowspan="2">Calls <a href="25856.html#25935">PLAY_SHOT_SOUND</a> using <a href="25856.html#25887">DATA_SOUND_1</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="25856.html#25935">Play_Shot_Sound</a> using <a href="25856.html#25887">Data_Sound_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="25915"></span>25915</td>
-<td class="instruction">CALL <a href="25856.html#25935">PLAY_SHOT_SOUND</a></td>
+<td class="instruction">CALL <a href="25856.html#25935">Play_Shot_Sound</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -269,15 +269,15 @@ Shot sound 2.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_2</td>
+<td class="asm-label">Shot_Sound_02</td>
 <td class="address-2"><span id="25919"></span>25919</td>
 <td class="instruction">LD IX,25895</td>
-<td class="comment-1" rowspan="2">Calls <a href="25856.html#25935">PLAY_SHOT_SOUND</a> using <a href="25856.html#25895">DATA_SOUND_2</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="25856.html#25935">Play_Shot_Sound</a> using <a href="25856.html#25895">Data_Sound_02</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="25923"></span>25923</td>
-<td class="instruction">CALL <a href="25856.html#25935">PLAY_SHOT_SOUND</a></td>
+<td class="instruction">CALL <a href="25856.html#25935">Play_Shot_Sound</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -296,15 +296,15 @@ Shot sound 3.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_3</td>
+<td class="asm-label">Shot_Sound_03</td>
 <td class="address-2"><span id="25927"></span>25927</td>
 <td class="instruction">LD IX,25903</td>
-<td class="comment-1" rowspan="2">Calls <a href="25856.html#25935">PLAY_SHOT_SOUND</a> using <a href="25856.html#25903">DATA_SOUND_3</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="25856.html#25935">Play_Shot_Sound</a> using <a href="25856.html#25903">Data_Sound_03</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="25931"></span>25931</td>
-<td class="instruction">CALL <a href="25856.html#25935">PLAY_SHOT_SOUND</a></td>
+<td class="instruction">CALL <a href="25856.html#25935">Play_Shot_Sound</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -313,16 +313,16 @@ Shot sound 3.
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">PLAY_SHOT_SOUND</td>
+<td class="asm-label">Play_Shot_Sound</td>
 <td class="address-2"><span id="25935"></span>25935</td>
-<td class="instruction">CALL <a href="25856.html#25950">SHOT_SOUND</a></td>
-<td class="comment-1" rowspan="1">Call <a href="25856.html#25950">SHOT_SOUND</a>.</td>
+<td class="instruction">CALL <a href="25856.html#25950">Shot_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="25856.html#25950">Shot_Sound</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="25938"></span>25938</td>
 <td class="instruction">INC IX</td>
-<td class="comment-1" rowspan="4">Increase <span class="register">IX</span> by 4.</td>
+<td class="comment-1" rowspan="4">Increase <span class="register">IX</span> by $04.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -342,8 +342,8 @@ Shot sound 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="25946"></span>25946</td>
-<td class="instruction">CALL <a href="25856.html#25950">SHOT_SOUND</a></td>
-<td class="comment-1" rowspan="1">Call <a href="25856.html#25950">SHOT_SOUND</a>.</td>
+<td class="instruction">CALL <a href="25856.html#25950">Shot_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="25856.html#25950">Shot_Sound</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -352,7 +352,7 @@ Shot sound 3.
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND</td>
+<td class="asm-label">Shot_Sound</td>
 <td class="address-2"><span id="25950"></span>25950</td>
 <td class="instruction">LD E,(IX+0)</td>
 <td class="comment-1" rowspan="7">jjj</td>
@@ -363,7 +363,7 @@ Shot sound 3.
 <td class="instruction">LD A,24</td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_1_ALIAS_0</td>
+<td class="asm-label">Shot_Sound_01_Alias_0</td>
 <td class="address-2"><span id="25955"></span>25955</td>
 <td class="instruction">XOR 24</td>
 </tr>
@@ -378,7 +378,7 @@ Shot sound 3.
 <td class="instruction">LD C,(IX+1)</td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_1_ALIAS_1</td>
+<td class="asm-label">Shot_Sound_01_Alias_1</td>
 <td class="address-2"><span id="25962"></span>25962</td>
 <td class="instruction">XOR 24</td>
 </tr>
@@ -394,9 +394,9 @@ Shot sound 3.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_LOOPBACK</td>
+<td class="asm-label">Shot_Sound_Loopback</td>
 <td class="address-2"><span id="25969"></span>25969</td>
-<td class="instruction">DJNZ <a href="25856.html#25969">SHOT_SOUND_LOOPBACK</a></td>
+<td class="instruction">DJNZ <a href="25856.html#25969">Shot_Sound_Loopback</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -408,7 +408,7 @@ Shot sound 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="25972"></span>25972</td>
-<td class="instruction">JR NZ,<a href="25856.html#25962">SHOT_SOUND_1_ALIAS_1</a></td>
+<td class="instruction">JR NZ,<a href="25856.html#25962">Shot_Sound_01_Alias_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -418,7 +418,7 @@ Shot sound 3.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_SOUND_1_ALIAS_2</td>
+<td class="asm-label">Shot_Sound_01_Alias_2</td>
 <td class="address-2"><span id="25977"></span>25977</td>
 <td class="instruction">DEC D</td>
 <td class="comment-1" rowspan="1"></td>
@@ -426,7 +426,7 @@ Shot sound 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="25978"></span>25978</td>
-<td class="instruction">JR NZ,<a href="25856.html#25977">SHOT_SOUND_1_ALIAS_2</a></td>
+<td class="instruction">JR NZ,<a href="25856.html#25977">Shot_Sound_01_Alias_2</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -438,7 +438,7 @@ Shot sound 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="25981"></span>25981</td>
-<td class="instruction">JR NZ,<a href="25856.html#25955">SHOT_SOUND_1_ALIAS_0</a></td>
+<td class="instruction">JR NZ,<a href="25856.html#25955">Shot_Sound_01_Alias_0</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -461,8 +461,8 @@ Next: <a href="25984.html">25984</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/6500.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

@@ -40,7 +40,7 @@ Next: <a href="50154.html">50154</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="51136.html">NEW_GAME</a>.
+Used by the routine at <a href="51136.html">New_Game</a>.
 </div>
 </div>
 </td>
@@ -48,8 +48,8 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-2"><span id="50112"></span>50112</td>
-<td class="instruction">CALL <a href="50112.html#50141">INIT_DUEL</a></td>
-<td class="comment-1" rowspan="1">Call <a href="50112.html#50141">INIT_DUEL</a>.</td>
+<td class="instruction">CALL <a href="50112.html#50141">Init_Duel</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50112.html#50141">Init_Duel</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -60,7 +60,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50118"></span>50118</td>
-<td class="instruction">JR NC,<a href="50112.html#50121">REBUILD</a></td>
+<td class="instruction">JR NC,<a href="50112.html#50121">Rebuild</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -70,20 +70,20 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">REBUILD</td>
+<td class="asm-label">Rebuild</td>
 <td class="address-2"><span id="50121"></span>50121</td>
 <td class="instruction">LD B,32</td>
 <td class="comment-1" rowspan="3">Interrupt driven HALT loop ($20 cycles).</td>
 </tr>
 <tr>
-<td class="asm-label">REBUILD_HALT_LOOP</td>
+<td class="asm-label">Rebuild_Halt_Loop</td>
 <td class="address-2"><span id="50123"></span>50123</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50124"></span>50124</td>
-<td class="instruction">DJNZ <a href="50112.html#50123">REBUILD_HALT_LOOP</a></td>
+<td class="instruction">DJNZ <a href="50112.html#50123">Rebuild_Halt_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -95,7 +95,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="50127"></span>50127</td>
 <td class="instruction">LD HL,(23430)</td>
-<td class="comment-1" rowspan="3">Is <a href="52313.html">LIVES</a> more than $06?</td>
+<td class="comment-1" rowspan="3">Is <a href="52313.html">Lives</a> more than $06?</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -123,7 +123,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-2"><span id="50136"></span>50136</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="3">If <a href="52313.html">LIVES</a> is zero then return.</td>
+<td class="comment-1" rowspan="3">If <a href="52313.html">Lives</a> is zero then return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -157,7 +157,7 @@ Kicks off the duelling bonus round.
 </td>
 </tr>
 <tr>
-<td class="asm-label">INIT_DUEL</td>
+<td class="asm-label">Init_Duel</td>
 <td class="address-2"><span id="50141"></span>50141</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="2">Stashes <span class="register">BC</span> and <span class="register">DE</span>.</td>
@@ -171,7 +171,7 @@ Kicks off the duelling bonus round.
 <td class="asm-label"></td>
 <td class="address-1"><span id="50143"></span>50143</td>
 <td class="instruction">LD DE,23424</td>
-<td class="comment-1" rowspan="3">Copies $1B of data from <span class="register">HL</span> to <a href="23424.html">PRINT_TWO_TONE_TEXT_ALIAS</a>.</td>
+<td class="comment-1" rowspan="3">Copies $1B of data from <span class="register">HL</span> to <a href="23424.html">Print_TwoToneText_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -186,8 +186,8 @@ Kicks off the duelling bonus round.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="50151"></span>50151</td>
-<td class="instruction">JP <a href="50210.html">DUEL_PREP</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="50210.html">DUEL_PREP</a>.</td>
+<td class="instruction">JP <a href="50210.html">Duel_Prep</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50210.html">Duel_Prep</a>.</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -203,8 +203,8 @@ Next: <a href="50154.html">50154</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/C3C0.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

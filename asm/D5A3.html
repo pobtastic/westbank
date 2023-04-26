@@ -34,19 +34,19 @@ Next: <a href="D5B0.html">D5B0</a>
 </td>
 </tr>
 </table>
-<div class="description">D5A3: Hit Detection.</div>
+<div class="description">D5A3: Hit Detection</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Compares the <a href="CE1A.html">DOOR_FRAME_REF</a> against the user input for a shot. If there isn't a shot to account for then we simply return, else we action a jump to the address held in <span class="register">DE</span> on entry.
+Compares the <a href="CE1A.html">Door_Frame_Reference</a> against the user input for a shot. If there isn't a shot to account for then we simply return, else we action a jump to the address held in <span class="register">DE</span> on entry.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">HIT_DETECTION</td>
+<td class="asm-label">Hit_Detection</td>
 <td class="address-2"><span id="d5a3"></span>D5A3</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1">Store <span class="register">HL</span> on the stack for later.</td>
@@ -55,7 +55,7 @@ Compares the <a href="CE1A.html">DOOR_FRAME_REF</a> against the user input for a
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5a4"></span>D5A4</td>
 <td class="instruction">LD A,($D300)</td>
-<td class="comment-1" rowspan="3">Does a comparison of <a href="D300.html">HIT</a> against <a href="CE1A.html">DOOR_FRAME_REF</a>.</td>
+<td class="comment-1" rowspan="3">Does a comparison of <a href="D300.html">Hit</a> against <a href="CE1A.html">Door_Frame_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -109,8 +109,8 @@ Next: <a href="D5B0.html">D5B0</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/54691.html">Switch to decimal</a>.</div>
 </footer>
 </body>

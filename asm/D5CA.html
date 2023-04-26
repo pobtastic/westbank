@@ -34,7 +34,7 @@ Next: <a href="D5E6.html">D5E6</a>
 </td>
 </tr>
 </table>
-<div class="description">D5CA: Draw Character In Doorway.</div>
+<div class="description">D5CA: Draw Character In Doorway</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -46,9 +46,9 @@ Draws the character frame at the location of one of the three (open) doors. This
 </td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_CHARACTER_IN_DOORWAY</td>
+<td class="asm-label">Draw_CharacterInDoorway</td>
 <td class="address-2"><span id="d5ca"></span>D5CA</td>
-<td class="instruction">CALL <a href="D5B0.html">CHARACTER_ADDR</a></td>
+<td class="instruction">CALL <a href="D5B0.html">Character_Address</a></td>
 <td class="comment-1" rowspan="1">Retrieve the memory location for the character frame from the passed index in <span class="register">A</span>.</td>
 </tr>
 <tr>
@@ -72,7 +72,7 @@ Draws the character frame at the location of one of the three (open) doors. This
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5d2"></span>D5D2</td>
 <td class="instruction">LD A,($CE1A)</td>
-<td class="comment-1" rowspan="1">Retrieves the currently in-focus door from <a href="CE1A.html">DOOR_FRAME_REF</a>.</td>
+<td class="comment-1" rowspan="1">Retrieves the currently in-focus door from <a href="CE1A.html">Door_Frame_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -84,18 +84,18 @@ Draws the character frame at the location of one of the three (open) doors. This
 <th colspan="1" rowspan="1">Screen Address</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">01</td>
 <td class="" colspan="1" rowspan="1">$4082</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
 <td class="" colspan="1" rowspan="1">$408D</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
 <td class="" colspan="1" rowspan="1">$4098</td>
 </tr>
-</table> Jump to <a href="D5E6.html">COPY_ROUTINE</a> to draw the character and handle the return.</td>
+</table> Jump to <a href="D5E6.html">Copy_Routine</a> to draw the character and handle the return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -105,7 +105,7 @@ Draws the character frame at the location of one of the three (open) doors. This
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5d9"></span>D5D9</td>
-<td class="instruction">JR Z,<a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">JR Z,<a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -120,7 +120,7 @@ Draws the character frame at the location of one of the three (open) doors. This
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5df"></span>D5DF</td>
-<td class="instruction">JR Z,<a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">JR Z,<a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -130,7 +130,7 @@ Draws the character frame at the location of one of the three (open) doors. This
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5e4"></span>D5E4</td>
-<td class="instruction">JR <a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">JR <a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -146,8 +146,8 @@ Next: <a href="D5E6.html">D5E6</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/54730.html">Switch to decimal</a>.</div>
 </footer>
 </body>

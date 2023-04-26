@@ -34,22 +34,22 @@ Next: <a href="C622.html">C622</a>
 </td>
 </tr>
 </table>
-<div class="description">C607: Displays The Bonus Score Text.</div>
+<div class="description">C607: Displays The Bonus Score Text</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C628.html">DUEL_POINTS</a>.
+Used by the routine at <a href="C628.html">Duel_Points</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PRINT_BONUS_SCORE</td>
+<td class="asm-label">Print_BonusScore</td>
 <td class="address-2"><span id="c607"></span>C607</td>
 <td class="instruction">LD (IX+$07),A</td>
-<td class="comment-1" rowspan="4">Stores the ASCII representation of the number at <a href="C3EA.html#c41d">DUEL_BONUS_TEXT</a> (it adds ASCII "0") so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII).</td>
+<td class="comment-1" rowspan="4">Stores the ASCII representation of the number at <a href="C3EA.html#c41d">Duel_Bonus_Text</a> (it adds ASCII "0") so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -70,7 +70,7 @@ Used by the routine at <a href="C628.html">DUEL_POINTS</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c610"></span>C610</td>
 <td class="instruction">LD BC,$2928</td>
-<td class="comment-1" rowspan="2">Print using <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="2">Print using <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -78,34 +78,34 @@ Used by the routine at <a href="C628.html">DUEL_POINTS</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$29</td>
-<td class="centre" colspan="1" rowspan="1">$01</td>
-<td class="centre" colspan="1" rowspan="1">$05</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">29</td>
+<td class="centre" colspan="1" rowspan="1">01</td>
+<td class="centre" colspan="1" rowspan="1">05</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$28</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$05</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">28</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">05</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c613"></span>C613</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c616"></span>C616</td>
-<td class="instruction">CALL <a href="5B8C.html">SCORING_PREP_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B8C.html">Scoring_Prep_Alias</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c619"></span>C619</td>
-<td class="instruction">CALL <a href="5B98.html">DRAW_SCORE_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B98.html">Draw_Score_Alias</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -117,8 +117,8 @@ Used by the routine at <a href="C628.html">DUEL_POINTS</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c61f"></span>C61F</td>
-<td class="instruction">JP <a href="C422.html#c583">DUEL_PREP_0</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="C422.html#c583">DUEL_PREP_0</a>.</td>
+<td class="instruction">JP <a href="C422.html#c583">Duel_Prep_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C422.html#c583">Duel_Prep_0</a>.</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -134,8 +134,8 @@ Next: <a href="C622.html">C622</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/50695.html">Switch to decimal</a>.</div>
 </footer>
 </body>

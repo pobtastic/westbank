@@ -34,13 +34,13 @@ Next: <a href="52920.html">52920</a>
 </td>
 </tr>
 </table>
-<div class="description">52769: Choose Door Character.</div>
+<div class="description">52769: Choose Door Character</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="51136.html">NEW_GAME</a>.
+Used by the routine at <a href="51136.html">New_Game</a>.
 </div>
 </div>
 </td>
@@ -50,17 +50,17 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <span id="52769"></span>
 <div class="comments">
 <div class="paragraph">
-The characters available on a particular level are determined by <a href="52763.html#52767">CHOOSER_ROUTINE_BUFFER</a>. <table class="default">
+The characters available on a particular level are determined by <a href="52763.html#52767">Chooser_Routine_Buffer</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Initialisation Routine</th>
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="52769.html#52802">CHOOSE_DEFAULT_SET</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="52769.html#52802">Choose_Default_Set</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="52769.html#52877">CHOOSE_BANDIT_5</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="52769.html#52877">Choose_Bandit_05</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
@@ -73,7 +73,7 @@ The characters available on a particular level are determined by <a href="52763.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHARACTER_CHOOSER</td>
+<td class="asm-label">Character_Chooser</td>
 <td class="address-2"><span id="52769"></span>52769</td>
 <td class="instruction">LD HL,52766</td>
 <td class="comment-1" rowspan="4">Decrease <a href="52763.html#52766">52766</a> by one.</td>
@@ -160,10 +160,10 @@ f
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSER</td>
+<td class="asm-label">Chooser</td>
 <td class="address-1"><span id="52788"></span>52788</td>
-<td class="instruction">CALL <a href="55472.html">RANDOM_NUMBER</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">RANDOM_NUMBER</a>.</td>
+<td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -203,7 +203,7 @@ f
 <td class="asm-label"></td>
 <td class="address-1"><span id="52798"></span>52798</td>
 <td class="instruction">LD HL,(52767)</td>
-<td class="comment-1" rowspan="2">Jump to the memory address contained at <a href="52763.html#52767">CHOOSER_ROUTINE_BUFFER</a>.</td>
+<td class="comment-1" rowspan="2">Jump to the memory address contained at <a href="52763.html#52767">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -221,7 +221,7 @@ Handles choosing one of the initial "default" characters. A character is always 
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSE_DEFAULT_SET</td>
+<td class="asm-label">Choose_Default_Set</td>
 <td class="address-2"><span id="52802"></span>52802</td>
 <td class="instruction">CALL <a href="56047.html">56047</a></td>
 <td class="comment-1" rowspan="1">Call <a href="56047.html">56047</a>.</td>
@@ -235,27 +235,27 @@ Handles choosing one of the initial "default" characters. A character is always 
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52807"></span>52807</td>
-<td class="instruction">JR Z,<a href="52920.html">INIT_BANDIT_OPEN</a></td>
+<td class="instruction">JR Z,<a href="52920.html">Init_Bandit_Open</a></td>
 <td class="comment-1" rowspan="7">Determines which character initialisation to run; <table class="default">
 <tr>
 <th colspan="1" rowspan="1"><span class="register">A</span></th>
 <th colspan="1" rowspan="1">Initialisation Routine</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1"><a href="52920.html">INIT_BANDIT_OPEN</a></td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52920.html">Init_Bandit_Open</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
-<td class="centre" colspan="1" rowspan="1"><a href="52920.html#52988">INIT_BOWIE</a></td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52920.html#52988">Init_Bowie</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1"><a href="52920.html#53086">INIT_CUSTOMER_CLOSE</a></td>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52920.html#53086">Init_Customer_Close</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
-<td class="centre" colspan="1" rowspan="1"><a href="52920.html#53035">INIT_CUSTOMER_OPEN</a></td>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="52920.html#53035">Init_Customer_Open</a></td>
 </tr>
 </table></td>
 </tr>
@@ -267,7 +267,7 @@ Handles choosing one of the initial "default" characters. A character is always 
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52810"></span>52810</td>
-<td class="instruction">JP Z,<a href="52920.html#52988">INIT_BOWIE</a></td>
+<td class="instruction">JP Z,<a href="52920.html#52988">Init_Bowie</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -277,7 +277,7 @@ Handles choosing one of the initial "default" characters. A character is always 
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52814"></span>52814</td>
-<td class="instruction">JP Z,<a href="52920.html#53086">INIT_CUSTOMER_CLOSE</a></td>
+<td class="instruction">JP Z,<a href="52920.html#53086">Init_Customer_Close</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -287,7 +287,7 @@ Handles choosing one of the initial "default" characters. A character is always 
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52818"></span>52818</td>
-<td class="instruction">JP <a href="52920.html#53035">INIT_CUSTOMER_OPEN</a></td>
+<td class="instruction">JP <a href="52920.html#53035">Init_Customer_Open</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -300,27 +300,27 @@ Handles whether or not to choose Julius.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSE_JULIUS</td>
+<td class="asm-label">Choose_Julius</td>
 <td class="address-2"><span id="52821"></span>52821</td>
-<td class="instruction">CALL <a href="55472.html">RANDOM_NUMBER</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">RANDOM_NUMBER</a>.</td>
+<td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52824"></span>52824</td>
 <td class="instruction">AND 12</td>
-<td class="comment-1" rowspan="2">Keep only bits 2 and 3. Jump to the next character "test" if this is a non-zero number at <a href="52769.html#52831">CHOOSE_BANDIT_2</a>.</td>
+<td class="comment-1" rowspan="2">Keep only bits 2 and 3. Jump to the next character "test" if this is a non-zero number at <a href="52769.html#52831">Choose_Bandit_02</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52826"></span>52826</td>
-<td class="instruction">JR NZ,<a href="52769.html#52831">CHOOSE_BANDIT_2</a></td>
+<td class="instruction">JR NZ,<a href="52769.html#52831">Choose_Bandit_02</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52828"></span>52828</td>
-<td class="instruction">JP <a href="52920.html#53175">INIT_JULIUS_OPEN</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="52920.html#53175">INIT_JULIUS_OPEN</a>.</td>
+<td class="instruction">JP <a href="52920.html#53175">Init_Julius_Open</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52920.html#53175">Init_Julius_Open</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -333,21 +333,21 @@ Handles whether or not to choose Bandit 2.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSE_BANDIT_2</td>
+<td class="asm-label">Choose_Bandit_02</td>
 <td class="address-2"><span id="52831"></span>52831</td>
-<td class="instruction">CALL <a href="55472.html">RANDOM_NUMBER</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">RANDOM_NUMBER</a>.</td>
+<td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52834"></span>52834</td>
 <td class="instruction">AND 152</td>
-<td class="comment-1" rowspan="2">Keep only bits 3, 4 and 7. Jump to the next character "test" if this is a non-zero number at <a href="52769.html#52847">CHOOSE_BANDIT_3</a>.</td>
+<td class="comment-1" rowspan="2">Keep only bits 3, 4 and 7. Jump to the next character "test" if this is a non-zero number at <a href="52769.html#52847">Choose_Bandit_03</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52836"></span>52836</td>
-<td class="instruction">JR NZ,<a href="52769.html#52847">CHOOSE_BANDIT_3</a></td>
+<td class="instruction">JR NZ,<a href="52769.html#52847">Choose_Bandit_03</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -364,8 +364,8 @@ Handles whether or not to choose Bandit 2.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52844"></span>52844</td>
-<td class="instruction">JP <a href="52769.html#52905">CHOOSE_ACTION</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">CHOOSE_ACTION</a>.</td>
+<td class="instruction">JP <a href="52769.html#52905">Choose_Action</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">Choose_Action</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -378,21 +378,21 @@ Handles whether or not to choose Bandit 3.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSE_BANDIT_3</td>
+<td class="asm-label">Choose_Bandit_03</td>
 <td class="address-2"><span id="52847"></span>52847</td>
-<td class="instruction">CALL <a href="55472.html">RANDOM_NUMBER</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">RANDOM_NUMBER</a>.</td>
+<td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52850"></span>52850</td>
 <td class="instruction">AND 49</td>
-<td class="comment-1" rowspan="2">Keep only bits 0, 4 and 5. Jump to the next character "test" if this is a non-zero number then jump back to the <a href="52769.html#52802">CHOOSE_DEFAULT_SET</a>.</td>
+<td class="comment-1" rowspan="2">Keep only bits 0, 4 and 5. Jump to the next character "test" if this is a non-zero number then jump back to the <a href="52769.html#52802">Choose_Default_Set</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52852"></span>52852</td>
-<td class="instruction">JR NZ,<a href="52769.html#52802">CHOOSE_DEFAULT_SET</a></td>
+<td class="instruction">JR NZ,<a href="52769.html#52802">Choose_Default_Set</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -409,8 +409,8 @@ Handles whether or not to choose Bandit 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52860"></span>52860</td>
-<td class="instruction">JR <a href="52769.html#52905">CHOOSE_ACTION</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">CHOOSE_ACTION</a>.</td>
+<td class="instruction">JR <a href="52769.html#52905">Choose_Action</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">Choose_Action</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -423,21 +423,21 @@ Handles whether or not to choose Bandit 4.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSE_BANDIT_4</td>
+<td class="asm-label">Choose_Bandit_04</td>
 <td class="address-2"><span id="52862"></span>52862</td>
-<td class="instruction">CALL <a href="55472.html">RANDOM_NUMBER</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">RANDOM_NUMBER</a>.</td>
+<td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52865"></span>52865</td>
 <td class="instruction">AND 131</td>
-<td class="comment-1" rowspan="2">Keep only bits 0, 1 and 7. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52821">CHOOSE_JULIUS</a>.</td>
+<td class="comment-1" rowspan="2">Keep only bits 0, 1 and 7. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52821">Choose_Julius</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52867"></span>52867</td>
-<td class="instruction">JR NZ,<a href="52769.html#52821">CHOOSE_JULIUS</a></td>
+<td class="instruction">JR NZ,<a href="52769.html#52821">Choose_Julius</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -454,8 +454,8 @@ Handles whether or not to choose Bandit 4.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52875"></span>52875</td>
-<td class="instruction">JR <a href="52769.html#52905">CHOOSE_ACTION</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">CHOOSE_ACTION</a>.</td>
+<td class="instruction">JR <a href="52769.html#52905">Choose_Action</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">Choose_Action</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -468,21 +468,21 @@ Handles whether or not to choose Bandit 5.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSE_BANDIT_5</td>
+<td class="asm-label">Choose_Bandit_05</td>
 <td class="address-2"><span id="52877"></span>52877</td>
-<td class="instruction">CALL <a href="55472.html">RANDOM_NUMBER</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">RANDOM_NUMBER</a>.</td>
+<td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52880"></span>52880</td>
 <td class="instruction">AND 88</td>
-<td class="comment-1" rowspan="2">Keep only bits 3, 4 and 6. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52862">CHOOSE_BANDIT_4</a>.</td>
+<td class="comment-1" rowspan="2">Keep only bits 3, 4 and 6. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52862">Choose_Bandit_04</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52882"></span>52882</td>
-<td class="instruction">JR NZ,<a href="52769.html#52862">CHOOSE_BANDIT_4</a></td>
+<td class="instruction">JR NZ,<a href="52769.html#52862">Choose_Bandit_04</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -499,8 +499,8 @@ Handles whether or not to choose Bandit 5.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52890"></span>52890</td>
-<td class="instruction">JR <a href="52769.html#52905">CHOOSE_ACTION</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">CHOOSE_ACTION</a>.</td>
+<td class="instruction">JR <a href="52769.html#52905">Choose_Action</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52769.html#52905">Choose_Action</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -513,21 +513,21 @@ Handles whether or not to choose Bandit 6.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSE_BANDIT_6</td>
+<td class="asm-label">Choose_Bandit_06</td>
 <td class="address-1"><span id="52892"></span>52892</td>
-<td class="instruction">CALL <a href="55472.html">RANDOM_NUMBER</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">RANDOM_NUMBER</a>.</td>
+<td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52895"></span>52895</td>
 <td class="instruction">AND 113</td>
-<td class="comment-1" rowspan="2">Keep only bits 0, 4, 5 and 6. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52877">CHOOSE_BANDIT_5</a>.</td>
+<td class="comment-1" rowspan="2">Keep only bits 0, 4, 5 and 6. Jump to the next character "test" if this is a non-zero number <a href="52769.html#52877">Choose_Bandit_05</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52897"></span>52897</td>
-<td class="instruction">JR NZ,<a href="52769.html#52877">CHOOSE_BANDIT_5</a></td>
+<td class="instruction">JR NZ,<a href="52769.html#52877">Choose_Bandit_05</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -552,7 +552,7 @@ Stashes the chosen character source/ buffer to the door state buffer.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHOOSE_ACTION</td>
+<td class="asm-label">Choose_Action</td>
 <td class="address-2"><span id="52905"></span>52905</td>
 <td class="instruction">LD (IX+12),L</td>
 <td class="comment-1" rowspan="2">Writes the character source memory address to one of the following (depending on which door is currently being actioned); <table class="default">
@@ -561,15 +561,15 @@ Stashes the chosen character source/ buffer to the door state buffer.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53617">DOOR_1_CHAR_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53617">Door_Char_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53631">DOOR_2_CHAR_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53631">Door_Char_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53645">DOOR_3_CHAR_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53645">Door_Char_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table></td>
@@ -589,15 +589,15 @@ Stashes the chosen character source/ buffer to the door state buffer.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53615">DOOR_1_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53605.html#53615">Door_Char_Buffer_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53629">DOOR_2_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53619.html#53629">Door_Char_Buffer_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53643">DOOR_3_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="53633.html#53643">Door_Char_Buffer_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table></td>
@@ -627,8 +627,8 @@ Next: <a href="52920.html">52920</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/CE21.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

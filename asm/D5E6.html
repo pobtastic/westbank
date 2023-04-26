@@ -34,13 +34,13 @@ Next: <a href="D5FA.html">D5FA</a>
 </td>
 </tr>
 </table>
-<div class="description">D5E6: Copy Routine.</div>
+<div class="description">D5E6: Copy Routine</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="5B92.html">DRAW_CHARACTER</a>, <a href="C300.html">DRAW_PLAYFIELD</a>, <a href="CBD0.html">TWO_TONE_ATTRIBUTES_BUFFER</a>, <a href="CC5A.html">LIFE_IMAGES</a>, <a href="CC9B.html">CC9B</a>, <a href="CDAE.html">DRAW_NUMBER</a>, <a href="D5CA.html">DRAW_CHARACTER_IN_DOORWAY</a> and <a href="D664.html">DRAW_DOOR_FRAME_1</a>.
+Used by the routines at <a href="5B92.html">Draw_Character</a>, <a href="C300.html">Draw_Playfield</a>, <a href="CBD0.html">TwoTone_Attributes_Buffer</a>, <a href="CC5A.html">Life_Images</a>, <a href="CC9B.html">CC9B</a>, <a href="CDAE.html">Draw_Number</a>, <a href="D5CA.html">Draw_CharacterInDoorway</a> and <a href="D664.html">Draw_DoorFrame1</a>.
 </div>
 </div>
 </td>
@@ -56,7 +56,7 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 </td>
 </tr>
 <tr>
-<td class="asm-label">COPY_ROUTINE</td>
+<td class="asm-label">Copy_Routine</td>
 <td class="address-2"><span id="d5e6"></span>D5E6</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="5">Copies bytes from <span class="register">DE</span> TO <span class="register">HL</span> x <span class="register">C</span> number of times.</td>
@@ -111,18 +111,18 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5f3"></span>D5F3</td>
-<td class="instruction">CALL Z,<a href="D610.html">CALC_ATTR</a></td>
+<td class="instruction">CALL Z,<a href="D610.html">Calc_Attribute</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5f6"></span>D5F6</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="2">Grabs <span class="register">B</span> and decreases it by one. Loop back round to <a href="D5E6.html">COPY_ROUTINE</a> if <span class="register">B</span> is not zero.</td>
+<td class="comment-1" rowspan="2">Grabs <span class="register">B</span> and decreases it by one. Loop back round to <a href="D5E6.html">Copy_Routine</a> if <span class="register">B</span> is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5f7"></span>D5F7</td>
-<td class="instruction">DJNZ <a href="D5E6.html#d5e6">COPY_ROUTINE</a></td>
+<td class="instruction">DJNZ <a href="D5E6.html#d5e6">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -144,8 +144,8 @@ Next: <a href="D5FA.html">D5FA</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/54758.html">Switch to decimal</a>.</div>
 </footer>
 </body>

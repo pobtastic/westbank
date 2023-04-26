@@ -40,13 +40,13 @@ Next: <a href="6492.html">6492</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="FE00.html">TITLE_SCREEN</a>.
+Used by the routine at <a href="FE00.html">TitleScreen</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">LEVEL_SELECT</td>
+<td class="asm-label">LevelSelect</td>
 <td class="address-2"><span id="6380"></span>6380</td>
 <td class="instruction">LD DE,$5B80</td>
 <td class="comment-1" rowspan="3"><span class="register">HL</span> points to $5B80 on entry as <span class="register">DE</span> is also $5B80 - this does nothing, it just creates a very short pause.</td>
@@ -65,7 +65,7 @@ Used by the routine at <a href="FE00.html">TITLE_SCREEN</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="6388"></span>6388</td>
 <td class="instruction">LD HL,$4000</td>
-<td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen bufffer (i.e. "blanks it").</td>
+<td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -99,10 +99,10 @@ Used by the routine at <a href="FE00.html">TITLE_SCREEN</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$28</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$05</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">28</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">05</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -138,10 +138,10 @@ Used by the routine at <a href="FE00.html">TITLE_SCREEN</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$20</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$04</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">20</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">04</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -169,7 +169,7 @@ Prints the labels to the screen.
 <td class="asm-label"></td>
 <td class="address-1"><span id="63a9"></span>63A9</td>
 <td class="instruction">LD HL,$64AC</td>
-<td class="comment-1" rowspan="3">Pass <a href="6492.html#64ac">LEVEL_SELECT_ONE</a> to <a href="6380.html#647c">LEVEL_SELECT_PRINT</a> (index "1").</td>
+<td class="comment-1" rowspan="3">Pass <a href="6492.html#64ac">LevelSelect_One</a> to <a href="6380.html#647c">Print_LevelSelect</a> (index "1").</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -179,13 +179,13 @@ Prints the labels to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63ae"></span>63AE</td>
-<td class="instruction">CALL <a href="6380.html#647c">LEVEL_SELECT_PRINT</a></td>
+<td class="instruction">CALL <a href="6380.html#647c">Print_LevelSelect</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63b1"></span>63B1</td>
 <td class="instruction">LD HL,$64B3</td>
-<td class="comment-1" rowspan="3">Pass <a href="6492.html#64b3">LEVEL_SELECT_THREE</a> to <a href="6380.html#647c">LEVEL_SELECT_PRINT</a> (index "2").</td>
+<td class="comment-1" rowspan="3">Pass <a href="6492.html#64b3">LevelSelect_Three</a> to <a href="6380.html#647c">Print_LevelSelect</a> (index "2").</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -195,13 +195,13 @@ Prints the labels to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63b6"></span>63B6</td>
-<td class="instruction">CALL <a href="6380.html#647c">LEVEL_SELECT_PRINT</a></td>
+<td class="instruction">CALL <a href="6380.html#647c">Print_LevelSelect</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63b9"></span>63B9</td>
 <td class="instruction">LD HL,$64BA</td>
-<td class="comment-1" rowspan="3">Pass <a href="6492.html#64ba">LEVEL_SELECT_SIX</a> to <a href="6380.html#647c">LEVEL_SELECT_PRINT</a> (index "3").</td>
+<td class="comment-1" rowspan="3">Pass <a href="6492.html#64ba">LevelSelect_Six</a> to <a href="6380.html#647c">Print_LevelSelect</a> (index "3").</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -211,13 +211,13 @@ Prints the labels to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63be"></span>63BE</td>
-<td class="instruction">CALL <a href="6380.html#647c">LEVEL_SELECT_PRINT</a></td>
+<td class="instruction">CALL <a href="6380.html#647c">Print_LevelSelect</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63c1"></span>63C1</td>
 <td class="instruction">LD HL,$6492</td>
-<td class="comment-1" rowspan="4">Points to <a href="6492.html">LEVEL_SELECT_COPY</a> and sends it to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a> <table class="default">
+<td class="comment-1" rowspan="4">Points to <a href="6492.html">LevelSelect_Copy</a> and sends it to <a href="5B80.html">Print_TwoToneText_Alias</a> <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -225,16 +225,16 @@ Prints the labels to the screen.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="" colspan="1" rowspan="1">$07</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$06</td>
-<td class="" colspan="1" rowspan="1">$06</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">06</td>
+<td class="" colspan="1" rowspan="1">06</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -251,7 +251,7 @@ Prints the labels to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63ca"></span>63CA</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -267,7 +267,7 @@ Prints the images to the screen.
 <td class="asm-label"></td>
 <td class="address-1"><span id="63cd"></span>63CD</td>
 <td class="instruction">LD A,$25</td>
-<td class="comment-1" rowspan="3">Calls <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a> with (<a href="B240.html#b450">draw | $25</a>) for index "1".</td>
+<td class="comment-1" rowspan="3">Calls <a href="6380.html#643a">LevelSelect_Graphics</a> with (<a href="B240.html#b450">draw | 25</a>) for index "1".</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -277,13 +277,13 @@ Prints the images to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63d1"></span>63D1</td>
-<td class="instruction">CALL <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a></td>
+<td class="instruction">CALL <a href="6380.html#643a">LevelSelect_Graphics</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63d4"></span>63D4</td>
 <td class="instruction">LD A,$08</td>
-<td class="comment-1" rowspan="3">Calls <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a> with (<a href="7880.html">draw | $08</a>) for index "2".</td>
+<td class="comment-1" rowspan="3">Calls <a href="6380.html#643a">LevelSelect_Graphics</a> with (<a href="7880.html">draw | 08</a>) for index "2".</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -293,13 +293,13 @@ Prints the images to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63d8"></span>63D8</td>
-<td class="instruction">CALL <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a></td>
+<td class="instruction">CALL <a href="6380.html#643a">LevelSelect_Graphics</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63db"></span>63DB</td>
 <td class="instruction">LD A,$19</td>
-<td class="comment-1" rowspan="3">Calls <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a> with (<a href="9980.html#9b90">draw | $19</a>) for index "3".</td>
+<td class="comment-1" rowspan="3">Calls <a href="6380.html#643a">LevelSelect_Graphics</a> with (<a href="9980.html#9b90">draw | 19</a>) for index "3".</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -309,7 +309,7 @@ Prints the images to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63df"></span>63DF</td>
-<td class="instruction">CALL <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a></td>
+<td class="instruction">CALL <a href="6380.html#643a">LevelSelect_Graphics</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -325,13 +325,33 @@ Loop for getting user keyboard input.
 <td class="asm-label"></td>
 <td class="address-1"><span id="63e2"></span>63E2</td>
 <td class="instruction">LD HL,$5CB1</td>
-<td class="comment-1" rowspan="1">Used later for setting the current level at <a href="5CB1.html">LEVEL</a>.</td>
+<td class="comment-1" rowspan="1">Used later for setting the current level at <a href="5CB1.html">Level</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">LEVEL_SELECT_INPUT</td>
+<td class="asm-label">LevelSelect_Input</td>
 <td class="address-2"><span id="63e5"></span>63E5</td>
 <td class="instruction">LD A,$F7</td>
-<td class="comment-1" rowspan="2">Read keys 1-2-3-4-5.</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F7</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">5</td>
+</tr>
+</table></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -342,40 +362,40 @@ Loop for getting user keyboard input.
 <td class="asm-label"></td>
 <td class="address-1"><span id="63e9"></span>63E9</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="2">If "1" is pressed, jump to <a href="6380.html#63f4">LEVEL_SELECT_LEVEL_1</a>.</td>
+<td class="comment-1" rowspan="2">If "1" is pressed, jump to <a href="6380.html#63f4">LevelSelect_Level_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63ea"></span>63EA</td>
-<td class="instruction">JR NC,<a href="6380.html#63f4">LEVEL_SELECT_LEVEL_1</a></td>
+<td class="instruction">JR NC,<a href="6380.html#63f4">LevelSelect_Level_01</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63ec"></span>63EC</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="2">If "2" is pressed, jump to <a href="6380.html#6405">LEVEL_SELECT_LEVEL_3</a>.</td>
+<td class="comment-1" rowspan="2">If "2" is pressed, jump to <a href="6380.html#6405">LevelSelect_Level_03</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63ed"></span>63ED</td>
-<td class="instruction">JR NC,<a href="6380.html#6405">LEVEL_SELECT_LEVEL_3</a></td>
+<td class="instruction">JR NC,<a href="6380.html#6405">LevelSelect_Level_03</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63ef"></span>63EF</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="2">If "3" is pressed, jump to <a href="6380.html#6416">LEVEL_SELECT_LEVEL_6</a>.</td>
+<td class="comment-1" rowspan="2">If "3" is pressed, jump to <a href="6380.html#6416">LevelSelect_Level_06</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63f0"></span>63F0</td>
-<td class="instruction">JR NC,<a href="6380.html#6416">LEVEL_SELECT_LEVEL_6</a></td>
+<td class="instruction">JR NC,<a href="6380.html#6416">LevelSelect_Level_06</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63f2"></span>63F2</td>
-<td class="instruction">JR <a href="6380.html#63e5">LEVEL_SELECT_INPUT</a></td>
-<td class="comment-1" rowspan="1">Cycle back to <a href="6380.html#63e5">LEVEL_SELECT_INPUT</a>.</td>
+<td class="instruction">JR <a href="6380.html#63e5">LevelSelect_Input</a></td>
+<td class="comment-1" rowspan="1">Cycle back to <a href="6380.html#63e5">LevelSelect_Input</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -388,10 +408,10 @@ Act on level being selected.
 </td>
 </tr>
 <tr>
-<td class="asm-label">LEVEL_SELECT_LEVEL_1</td>
+<td class="asm-label">LevelSelect_Level_01</td>
 <td class="address-2"><span id="63f4"></span>63F4</td>
 <td class="instruction">LD (HL),$01</td>
-<td class="comment-1" rowspan="4">Store $01 at <a href="5CB1.html">LEVEL</a> and call <a href="6380.html#6427">LS_ANIMATE_SHOT</a> with (<a href="B240.html#b660">shot | $26</a>) for index "1".</td>
+<td class="comment-1" rowspan="4">Store $01 at <a href="5CB1.html">Level</a> and call <a href="6380.html#6427">LS_AnimateShot</a> with (<a href="B240.html#b660">shot | 26</a>) for index "1".</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -406,13 +426,13 @@ Act on level being selected.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63fa"></span>63FA</td>
-<td class="instruction">CALL <a href="6380.html#6427">LS_ANIMATE_SHOT</a></td>
+<td class="instruction">CALL <a href="6380.html#6427">LS_AnimateShot</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="63fd"></span>63FD</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="3">Jump to <a href="6380.html#6457">LS_TEXT_FLASH</a> with <span class="register">HL</span>=<a href="6492.html#64ac">LEVEL_SELECT_ONE</a> and <span class="register">A</span>=$01.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="6380.html#6457">LevelSelect_Text_Flash</a> with <span class="register">HL</span>=<a href="6492.html#64ac">LevelSelect_One</a> and <span class="register">A</span>=$01.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -422,13 +442,13 @@ Act on level being selected.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6402"></span>6402</td>
-<td class="instruction">JP <a href="6380.html#6457">LS_TEXT_FLASH</a></td>
+<td class="instruction">JP <a href="6380.html#6457">LevelSelect_Text_Flash</a></td>
 </tr>
 <tr>
-<td class="asm-label">LEVEL_SELECT_LEVEL_3</td>
+<td class="asm-label">LevelSelect_Level_03</td>
 <td class="address-2"><span id="6405"></span>6405</td>
 <td class="instruction">LD (HL),$02</td>
-<td class="comment-1" rowspan="4">Store $02 at <a href="5CB1.html">LEVEL</a> and call <a href="6380.html#6427">LS_ANIMATE_SHOT</a> with (<a href="7880.html#7a90">shot | $09</a>) for index "2".</td>
+<td class="comment-1" rowspan="4">Store $02 at <a href="5CB1.html">Level</a> and call <a href="6380.html#6427">LS_AnimateShot</a> with (<a href="7880.html#7a90">shot | 09</a>) for index "2".</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -443,13 +463,13 @@ Act on level being selected.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="640b"></span>640B</td>
-<td class="instruction">CALL <a href="6380.html#6427">LS_ANIMATE_SHOT</a></td>
+<td class="instruction">CALL <a href="6380.html#6427">LS_AnimateShot</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="640e"></span>640E</td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-1" rowspan="3">Jump to <a href="6380.html#6457">LS_TEXT_FLASH</a> with <span class="register">HL</span>=<a href="6492.html#64b3">LEVEL_SELECT_THREE</a> and <span class="register">A</span>=$02.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="6380.html#6457">LevelSelect_Text_Flash</a> with <span class="register">HL</span>=<a href="6492.html#64b3">LevelSelect_Three</a> and <span class="register">A</span>=$02.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -459,13 +479,13 @@ Act on level being selected.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6413"></span>6413</td>
-<td class="instruction">JP <a href="6380.html#6457">LS_TEXT_FLASH</a></td>
+<td class="instruction">JP <a href="6380.html#6457">LevelSelect_Text_Flash</a></td>
 </tr>
 <tr>
-<td class="asm-label">LEVEL_SELECT_LEVEL_6</td>
+<td class="asm-label">LevelSelect_Level_06</td>
 <td class="address-2"><span id="6416"></span>6416</td>
 <td class="instruction">LD (HL),$03</td>
-<td class="comment-1" rowspan="4">Store $03 at <a href="5CB1.html">LEVEL</a> and call <a href="6380.html#6427">LS_ANIMATE_SHOT</a> with (<a href="9980.html#9da0">shot | $1A</a>) for index "3".</td>
+<td class="comment-1" rowspan="4">Store $03 at <a href="5CB1.html">Level</a> and call <a href="6380.html#6427">LS_AnimateShot</a> with (<a href="9980.html#9da0">shot | 1A</a>) for index "3".</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -480,13 +500,13 @@ Act on level being selected.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="641c"></span>641C</td>
-<td class="instruction">CALL <a href="6380.html#6427">LS_ANIMATE_SHOT</a></td>
+<td class="instruction">CALL <a href="6380.html#6427">LS_AnimateShot</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="641f"></span>641F</td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-1" rowspan="3">Jump to <a href="6380.html#6457">LS_TEXT_FLASH</a> with <span class="register">HL</span>=<a href="6492.html#64ba">LEVEL_SELECT_SIX</a> and <span class="register">A</span>=$03.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="6380.html#6457">LevelSelect_Text_Flash</a> with <span class="register">HL</span>=<a href="6492.html#64ba">LevelSelect_Six</a> and <span class="register">A</span>=$03.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -496,7 +516,7 @@ Act on level being selected.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6424"></span>6424</td>
-<td class="instruction">JP <a href="6380.html#6457">LS_TEXT_FLASH</a></td>
+<td class="instruction">JP <a href="6380.html#6457">LevelSelect_Text_Flash</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -509,7 +529,7 @@ Animates the selected bandit being shot.
 </td>
 </tr>
 <tr>
-<td class="asm-label">LS_ANIMATE_SHOT</td>
+<td class="asm-label">LS_AnimateShot</td>
 <td class="address-2"><span id="6427"></span>6427</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="1"></td>
@@ -517,14 +537,14 @@ Animates the selected bandit being shot.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6428"></span>6428</td>
-<td class="instruction">CALL <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a>.</td>
+<td class="instruction">CALL <a href="6380.html#643a">LevelSelect_Graphics</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6380.html#643a">LevelSelect_Graphics</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="642b"></span>642B</td>
-<td class="instruction">CALL <a href="6500.html">SHOT_SOUND_1_ALIAS</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6500.html">SHOT_SOUND_1_ALIAS</a>.</td>
+<td class="instruction">CALL <a href="6500.html">Shot_Sound_01_Alias</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6500.html">Shot_Sound_01_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -533,14 +553,14 @@ Animates the selected bandit being shot.
 <td class="comment-1" rowspan="3">Short interrupt driven halt loop.</td>
 </tr>
 <tr>
-<td class="asm-label">LS_ANIMATE_SHOT_HALT_LOOP</td>
+<td class="asm-label">LS_AnimateShot_Halt_Loop</td>
 <td class="address-2"><span id="6430"></span>6430</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6431"></span>6431</td>
-<td class="instruction">DJNZ <a href="6380.html#6430">LS_ANIMATE_SHOT_HALT_LOOP</a></td>
+<td class="instruction">DJNZ <a href="6380.html#6430">LS_AnimateShot_Halt_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -552,12 +572,12 @@ Animates the selected bandit being shot.
 <td class="asm-label"></td>
 <td class="address-1"><span id="6434"></span>6434</td>
 <td class="instruction">LD A,$27</td>
-<td class="comment-1" rowspan="2">Call <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a> with (<a href="B240.html#b870">floor | $27</a>).</td>
+<td class="comment-1" rowspan="2">Call <a href="6380.html#643a">LevelSelect_Graphics</a> with (<a href="B240.html#b870">floor | 1B</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6436"></span>6436</td>
-<td class="instruction">CALL <a href="6380.html#643a">LEVEL_SELECT_GRAPHICS</a></td>
+<td class="instruction">CALL <a href="6380.html#643a">LevelSelect_Graphics</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -576,7 +596,7 @@ Prints the images to the screen.
 </td>
 </tr>
 <tr>
-<td class="asm-label">LEVEL_SELECT_GRAPHICS</td>
+<td class="asm-label">LevelSelect_Graphics</td>
 <td class="address-2"><span id="643a"></span>643A</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="2">Stash the current counter and convert the accumulator which is holding a character ID into their memory location.</td>
@@ -584,7 +604,7 @@ Prints the images to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="643b"></span>643B</td>
-<td class="instruction">CALL <a href="5B8F.html">CHARACTER_ADDR_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B8F.html">Character_Address_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -608,15 +628,15 @@ Prints the images to the screen.
 <th colspan="1" rowspan="1">Screen Address</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">01</td>
 <td class="" colspan="1" rowspan="1">$40A2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
 <td class="" colspan="1" rowspan="1">$40AD</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
 <td class="" colspan="1" rowspan="1">$40B8</td>
 </tr>
 </table></td>
@@ -629,7 +649,7 @@ Prints the images to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6444"></span>6444</td>
-<td class="instruction">JR Z,<a href="6380.html#644f">LS_GRAPHICS_SKIP</a></td>
+<td class="instruction">JR Z,<a href="6380.html#644f">LevelSelect_Graphics_Skip</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -644,7 +664,7 @@ Prints the images to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="644a"></span>644A</td>
-<td class="instruction">JR Z,<a href="6380.html#644f">LS_GRAPHICS_SKIP</a></td>
+<td class="instruction">JR Z,<a href="6380.html#644f">LevelSelect_Graphics_Skip</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -652,10 +672,10 @@ Prints the images to the screen.
 <td class="instruction">LD HL,$40B8</td>
 </tr>
 <tr>
-<td class="asm-label">LS_GRAPHICS_SKIP</td>
+<td class="asm-label">LevelSelect_Graphics_Skip</td>
 <td class="address-2"><span id="644f"></span>644F</td>
 <td class="instruction">LD B,$58</td>
-<td class="comment-1" rowspan="3">Set the dimensions and call <a href="5B92.html">DRAW_CHARACTER</a>.</td>
+<td class="comment-1" rowspan="3">Set the dimensions and call <a href="5B92.html">Draw_Character</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -665,7 +685,7 @@ Prints the images to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6453"></span>6453</td>
-<td class="instruction">CALL <a href="5B92.html">DRAW_CHARACTER</a></td>
+<td class="instruction">CALL <a href="5B92.html">Draw_Character</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -684,10 +704,10 @@ Flashes the selected level text.
 </td>
 </tr>
 <tr>
-<td class="asm-label">LS_TEXT_FLASH</td>
+<td class="asm-label">LevelSelect_Text_Flash</td>
 <td class="address-2"><span id="6457"></span>6457</td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-1" rowspan="22">This prints <a href="6492.html#64c1">LEVEL_SELECT_WHITESPACE</a> and the passed level copy alternately with a delay caused by a HALT loop (which continues execution after an interrupt is fired), the sequence repeats $08 times.</td>
+<td class="comment-1" rowspan="22">This prints <a href="6492.html#64c1">LevelSelect_Whitespace</a> and the passed level copy alternately with a delay caused by a HALT loop (which continues execution after an interrupt is fired), the sequence repeats $08 times.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -695,7 +715,7 @@ Flashes the selected level text.
 <td class="instruction">LD C,A</td>
 </tr>
 <tr>
-<td class="asm-label">LS_TEXT_FLASH_LOOP</td>
+<td class="asm-label">LevelSelect_Text_Flash_Loop</td>
 <td class="address-2"><span id="645a"></span>645A</td>
 <td class="instruction">PUSH HL</td>
 </tr>
@@ -712,7 +732,7 @@ Flashes the selected level text.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="645d"></span>645D</td>
-<td class="instruction">CALL <a href="6380.html#647c">LEVEL_SELECT_PRINT</a></td>
+<td class="instruction">CALL <a href="6380.html#647c">Print_LevelSelect</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -720,14 +740,14 @@ Flashes the selected level text.
 <td class="instruction">LD B,$10</td>
 </tr>
 <tr>
-<td class="asm-label">LS_FLASH_HALT_LOOP_1</td>
+<td class="asm-label">LevelSelect_Flash_Halt_Loop_01</td>
 <td class="address-2"><span id="6462"></span>6462</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6463"></span>6463</td>
-<td class="instruction">DJNZ <a href="6380.html#6462">LS_FLASH_HALT_LOOP_1</a></td>
+<td class="instruction">DJNZ <a href="6380.html#6462">LevelSelect_Flash_Halt_Loop_01</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -752,7 +772,7 @@ Flashes the selected level text.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="646b"></span>646B</td>
-<td class="instruction">CALL <a href="6380.html#647c">LEVEL_SELECT_PRINT</a></td>
+<td class="instruction">CALL <a href="6380.html#647c">Print_LevelSelect</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -760,14 +780,14 @@ Flashes the selected level text.
 <td class="instruction">LD B,$10</td>
 </tr>
 <tr>
-<td class="asm-label">LS_FLASH_HALT_LOOP_2</td>
+<td class="asm-label">LevelSelect_Flash_Halt_Loop_02</td>
 <td class="address-2"><span id="6470"></span>6470</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6471"></span>6471</td>
-<td class="instruction">DJNZ <a href="6380.html#6470">LS_FLASH_HALT_LOOP_2</a></td>
+<td class="instruction">DJNZ <a href="6380.html#6470">LevelSelect_Flash_Halt_Loop_02</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -782,7 +802,7 @@ Flashes the selected level text.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6475"></span>6475</td>
-<td class="instruction">DJNZ <a href="6380.html#645a">LS_TEXT_FLASH_LOOP</a></td>
+<td class="instruction">DJNZ <a href="6380.html#645a">LevelSelect_Text_Flash_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -792,7 +812,7 @@ Flashes the selected level text.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6478"></span>6478</td>
-<td class="instruction">CALL <a href="6380.html#647c">LEVEL_SELECT_PRINT</a></td>
+<td class="instruction">CALL <a href="6380.html#647c">Print_LevelSelect</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -811,7 +831,7 @@ Print level select copy to the screen.
 </td>
 </tr>
 <tr>
-<td class="asm-label">LEVEL_SELECT_PRINT</td>
+<td class="asm-label">Print_LevelSelect</td>
 <td class="address-2"><span id="647c"></span>647C</td>
 <td class="instruction">LD DE,$5022</td>
 <td class="comment-1" rowspan="7">First, work out which screen position to use; <table class="default">
@@ -820,15 +840,15 @@ Print level select copy to the screen.
 <th colspan="1" rowspan="1">Screen Address</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">01</td>
 <td class="" colspan="1" rowspan="1">$5022</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
 <td class="" colspan="1" rowspan="1">$502D</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
 <td class="" colspan="1" rowspan="1">$5038</td>
 </tr>
 </table></td>
@@ -841,7 +861,7 @@ Print level select copy to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6480"></span>6480</td>
-<td class="instruction">JR Z,<a href="6380.html#648b">LEVEL_SELECT_0</a></td>
+<td class="instruction">JR Z,<a href="6380.html#648b">LevelSelect_0</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -856,7 +876,7 @@ Print level select copy to the screen.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6486"></span>6486</td>
-<td class="instruction">JR Z,<a href="6380.html#648b">LEVEL_SELECT_0</a></td>
+<td class="instruction">JR Z,<a href="6380.html#648b">LevelSelect_0</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -864,10 +884,10 @@ Print level select copy to the screen.
 <td class="instruction">LD DE,$5038</td>
 </tr>
 <tr>
-<td class="asm-label">LEVEL_SELECT_0</td>
+<td class="asm-label">LevelSelect_0</td>
 <td class="address-2"><span id="648b"></span>648B</td>
 <td class="instruction">LD BC,$0702</td>
-<td class="comment-1" rowspan="2">Then call the print routine at <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="2">Then call the print routine at <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -875,23 +895,23 @@ Print level select copy to the screen.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="" colspan="1" rowspan="1">$07</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="" colspan="1" rowspan="1">$02</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="" colspan="1" rowspan="1">02</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="648e"></span>648E</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -913,8 +933,8 @@ Next: <a href="6492.html">6492</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/25472.html">Switch to decimal</a>.</div>
 </footer>
 </body>

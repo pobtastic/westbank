@@ -34,7 +34,7 @@ Next: <a href="D2CF.html">D2CF</a>
 </td>
 </tr>
 </table>
-<div class="description">D192: Copy Source Character Data To Character State Data.</div>
+<div class="description">D192: Copy Source Character Data To Character State Data</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -47,13 +47,13 @@ Next: <a href="D2CF.html">D2CF</a>
 <span id="d192"></span>
 <div class="comments">
 <div class="paragraph">
-Handles copying a "normal" bandit into the bandit state cache at <a href="D71E.html">BANDIT_STATE_REF</a>.
+Handles copying a "normal" bandit into the bandit state cache at <a href="D71E.html">Bandit_State_Reference</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_BANDIT_OPEN</td>
+<td class="asm-label">Prep_Bandit_Open</td>
 <td class="address-2"><span id="d192"></span>D192</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -62,18 +62,18 @@ Handles copying a "normal" bandit into the bandit state cache at <a href="D71E.h
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="D71E.html">BANDIT_STATE_REF</a>.</td>
+</table> to <a href="D71E.html">Bandit_State_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -113,8 +113,8 @@ Handles copying a "normal" bandit into the bandit state cache at <a href="D71E.h
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d1a3"></span>D1A3</td>
-<td class="instruction">CALL <a href="D71E.html#d725">BANDIT_OPEN_ROUTING</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D71E.html#d725">BANDIT_OPEN_ROUTING</a> to begin this characters actions.</td>
+<td class="instruction">CALL <a href="D71E.html#d725">Bandit_Open_Routing</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D71E.html#d725">Bandit_Open_Routing</a> to begin this characters actions.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -186,7 +186,7 @@ And copying a successful bandit encounter to close the door.
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_BANDIT_CLOSE</td>
+<td class="asm-label">Prep_Bandit_Close</td>
 <td class="address-1"><span id="d1b7"></span>D1B7</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -195,18 +195,18 @@ And copying a successful bandit encounter to close the door.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="D71E.html">BANDIT_STATE_REF</a>.</td>
+</table> to <a href="D71E.html">Bandit_State_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -246,8 +246,8 @@ And copying a successful bandit encounter to close the door.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d1c8"></span>D1C8</td>
-<td class="instruction">CALL <a href="D71E.html#d771">BANDIT_CLOSE_ROUTING</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D71E.html#d771">BANDIT_CLOSE_ROUTING</a> to begin this characters actions.</td>
+<td class="instruction">CALL <a href="D71E.html#d771">Bandit_Close_Routing</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D71E.html#d771">Bandit_Close_Routing</a> to begin this characters actions.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -313,13 +313,13 @@ And copying a successful bandit encounter to close the door.
 <span id="d1dc"></span>
 <div class="comments">
 <div class="paragraph">
-Handles copying Bowie state data into the state cache at <a href="D7C5.html">BOWIE_GOOD_BAD</a>.
+Handles copying Bowie state data into the state cache at <a href="D7C5.html">Bowie_Good_Bad</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_BOWIE</td>
+<td class="asm-label">Prep_Bowie</td>
 <td class="address-1"><span id="d1dc"></span>D1DC</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $0009 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -328,18 +328,18 @@ Handles copying Bowie state data into the state cache at <a href="D7C5.html">BOW
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="D7C5.html">BOWIE_GOOD_BAD</a>.</td>
+</table> to <a href="D7C5.html">Bowie_Good_Bad</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -379,8 +379,8 @@ Handles copying Bowie state data into the state cache at <a href="D7C5.html">BOW
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d1ed"></span>D1ED</td>
-<td class="instruction">CALL <a href="D7C5.html#d7ce">BOWIE_ROUTING</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D7C5.html#d7ce">BOWIE_ROUTING</a> to begin this characters actions.</td>
+<td class="instruction">CALL <a href="D7C5.html#d7ce">Bowie_Routing</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D7C5.html#d7ce">Bowie_Routing</a> to begin this characters actions.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -446,13 +446,13 @@ Handles copying Bowie state data into the state cache at <a href="D7C5.html">BOW
 <span id="d201"></span>
 <div class="comments">
 <div class="paragraph">
-Handles copying customer state data into the state cache at <a href="D48F.html">CUSTOMER_FRAME_1</a>.
+Handles copying customer state data into the state cache at <a href="D48F.html">Customer_Frame_01</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_CUSTOMER</td>
+<td class="asm-label">Prep_Customer</td>
 <td class="address-1"><span id="d201"></span>D201</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $000F bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -461,18 +461,18 @@ Handles copying customer state data into the state cache at <a href="D48F.html">
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="D48F.html">CUSTOMER_FRAME_1</a>.</td>
+</table> to <a href="D48F.html">Customer_Frame_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -512,8 +512,8 @@ Handles copying customer state data into the state cache at <a href="D48F.html">
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d212"></span>D212</td>
-<td class="instruction">CALL <a href="D48F.html#d49e">CUSTOMER_ROUTING</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D48F.html#d49e">CUSTOMER_ROUTING</a> to begin this characters actions.</td>
+<td class="instruction">CALL <a href="D48F.html#d49e">Customer_Routing</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D48F.html#d49e">Customer_Routing</a> to begin this characters actions.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -579,13 +579,13 @@ Handles copying customer state data into the state cache at <a href="D48F.html">
 <span id="d226"></span>
 <div class="comments">
 <div class="paragraph">
-Handles copying customer "is shot" state data into the state cache at <a href="D48F.html">CUSTOMER_FRAME_1</a>.
+Handles copying customer "is shot" state data into the state cache at <a href="D48F.html">Customer_Frame_01</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_CUSTOMER_SHOT</td>
+<td class="asm-label">Prep_Customer_Shot</td>
 <td class="address-1"><span id="d226"></span>D226</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $000F bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -594,18 +594,18 @@ Handles copying customer "is shot" state data into the state cache at <a href="D
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="D48F.html">CUSTOMER_FRAME_1</a>.</td>
+</table> to <a href="D48F.html">Customer_Frame_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -645,8 +645,8 @@ Handles copying customer "is shot" state data into the state cache at <a href="D
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d237"></span>D237</td>
-<td class="instruction">CALL <a href="D48F.html#d57b">CUSTOMER_SHOT</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D48F.html#d57b">CUSTOMER_SHOT</a>.</td>
+<td class="instruction">CALL <a href="D48F.html#d57b">Customer_Shot</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D48F.html#d57b">Customer_Shot</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -686,13 +686,13 @@ Handles copying customer "is shot" state data into the state cache at <a href="D
 <span id="d241"></span>
 <div class="comments">
 <div class="paragraph">
-Handles copying Julius state data into the state cache at <a href="D8E5.html">JULIUS_GOOD_BAD</a>.
+Handles copying Julius state data into the state cache at <a href="D8E5.html">Julius_Good_Bad</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_JULIUS_OPEN</td>
+<td class="asm-label">Prep_Julius_Open</td>
 <td class="address-1"><span id="d241"></span>D241</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $000A bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -701,18 +701,18 @@ Handles copying Julius state data into the state cache at <a href="D8E5.html">JU
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="D8E5.html">JULIUS_GOOD_BAD</a>.</td>
+</table> to <a href="D8E5.html">Julius_Good_Bad</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -752,8 +752,8 @@ Handles copying Julius state data into the state cache at <a href="D8E5.html">JU
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d252"></span>D252</td>
-<td class="instruction">CALL <a href="D8E5.html#d8ef">JULIUS_OPEN_ROUTING</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D8E5.html#d8ef">JULIUS_OPEN_ROUTING</a>.</td>
+<td class="instruction">CALL <a href="D8E5.html#d8ef">Julius_Open_Routing</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D8E5.html#d8ef">Julius_Open_Routing</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -819,7 +819,7 @@ And copying a successful Julius encounter to close the door.
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_JULIUS_CLOSE</td>
+<td class="asm-label">Prep_Julius_Close</td>
 <td class="address-1"><span id="d265"></span>D265</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $000A bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -828,18 +828,18 @@ And copying a successful Julius encounter to close the door.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="D8E5.html">JULIUS_GOOD_BAD</a>.</td>
+</table> to <a href="D8E5.html">Julius_Good_Bad</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -879,8 +879,8 @@ And copying a successful Julius encounter to close the door.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d276"></span>D276</td>
-<td class="instruction">CALL <a href="D8E5.html#d997">JULIUS_CLOSE_ROUTING</a></td>
-<td class="comment-1" rowspan="1">Call <a href="D8E5.html#d997">JULIUS_CLOSE_ROUTING</a>.</td>
+<td class="instruction">CALL <a href="D8E5.html#d997">Julius_Close_Routing</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D8E5.html#d997">Julius_Close_Routing</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -940,13 +940,13 @@ And copying a successful Julius encounter to close the door.
 <span id="d289"></span>
 <div class="comments">
 <div class="paragraph">
-Handles copying a "drawing bandit" into the bandit state cache at <a href="DA0C.html">BANDIT_DRAW</a>.
+Handles copying a "drawing bandit" into the bandit state cache at <a href="DA0C.html">Bandit_Draw</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_BANDIT_DRAW_OPEN</td>
+<td class="asm-label">Prep_Bandit_Draw_Open</td>
 <td class="address-1"><span id="d289"></span>D289</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $000B bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -955,18 +955,18 @@ Handles copying a "drawing bandit" into the bandit state cache at <a href="DA0C.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="DA0C.html">BANDIT_DRAW</a>.</td>
+</table> to <a href="DA0C.html">Bandit_Draw</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1006,8 +1006,8 @@ Handles copying a "drawing bandit" into the bandit state cache at <a href="DA0C.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d29a"></span>D29A</td>
-<td class="instruction">CALL <a href="DA0C.html#da17">BANDIT_DRAW_OPEN_ROUTING</a></td>
-<td class="comment-1" rowspan="1">Call <a href="DA0C.html#da17">BANDIT_DRAW_OPEN_ROUTING</a>.</td>
+<td class="instruction">CALL <a href="DA0C.html#da17">Bandit_Draw_Open_Routing</a></td>
+<td class="comment-1" rowspan="1">Call <a href="DA0C.html#da17">Bandit_Draw_Open_Routing</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1073,7 +1073,7 @@ And copying a successful "drawing bandit" encounter to close the door.
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_BANDIT_DRAW_CLOSE</td>
+<td class="asm-label">Prep_Bandit_Draw_Close</td>
 <td class="address-1"><span id="d2ad"></span>D2AD</td>
 <td class="instruction">LD L,(IX+$02)</td>
 <td class="comment-1" rowspan="8">Handles copying $000B bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -1082,18 +1082,18 @@ And copying a successful "drawing bandit" encounter to close the door.
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> to <a href="DA0C.html">BANDIT_DRAW</a>.</td>
+</table> to <a href="DA0C.html">Bandit_Draw</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1133,8 +1133,8 @@ And copying a successful "drawing bandit" encounter to close the door.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d2be"></span>D2BE</td>
-<td class="instruction">CALL <a href="DA0C.html#da85">BANDIT_DRAW_CLOSE_ROUTING</a></td>
-<td class="comment-1" rowspan="1">Call <a href="DA0C.html#da85">BANDIT_DRAW_CLOSE_ROUTING</a>.</td>
+<td class="instruction">CALL <a href="DA0C.html#da85">Bandit_Draw_Close_Routing</a></td>
+<td class="comment-1" rowspan="1">Call <a href="DA0C.html#da85">Bandit_Draw_Close_Routing</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1198,8 +1198,8 @@ Next: <a href="D2CF.html">D2CF</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/53650.html">Switch to decimal</a>.</div>
 </footer>
 </body>

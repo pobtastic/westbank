@@ -34,7 +34,7 @@ Next: <a href="D392.html">D392</a>
 </td>
 </tr>
 </table>
-<div class="description">D307: Action Controls.</div>
+<div class="description">D307: Action Controls</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -57,30 +57,30 @@ On entry <span class="register">A</span> will contain one of; <table class="defa
 <td class="centre" colspan="1" rowspan="1">Door</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$10</td>
+<td class="centre" colspan="1" rowspan="1">10</td>
 <td class="centre" colspan="1" rowspan="1">00010000</td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$11</td>
+<td class="centre" colspan="1" rowspan="1">11</td>
 <td class="centre" colspan="1" rowspan="1">00010001</td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$12</td>
+<td class="centre" colspan="1" rowspan="1">12</td>
 <td class="centre" colspan="1" rowspan="1">00010010</td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
-</table> This is written to <a href="D303.html#d306">CONTROLS_BYTE</a>, and then decoded into writing a $01, $02 or $03 to <a href="D300.html">HIT</a> to represent which door has been shot at.  This routine also writes $01 to <a href="D303.html#d305">ONE</a>, <a href="D303.html">TWO</a> and <a href="D303.html#d304">THREE</a> to represent the same thing. Before returning, <span class="register">HL</span> is set to the screen location for displaying the shot mask/ shot image in the centre of the door.
+</table> This is written to <a href="D303.html#d306">Controls_Byte</a>, and then decoded into writing a $01, $02 or $03 to <a href="D300.html">Hit</a> to represent which door has been shot at.  This routine also writes $01 to <a href="D303.html#d305">One</a>, <a href="D303.html">Two</a> and <a href="D303.html#d304">Three</a> to represent the same thing. Before returning, <span class="register">HL</span> is set to the screen location for displaying the shot mask/ shot image in the centre of the door.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">CONTROLS</td>
+<td class="asm-label">Controls</td>
 <td class="address-2"><span id="d307"></span>D307</td>
 <td class="instruction">LD HL,$D306</td>
-<td class="comment-1" rowspan="3">Writes <span class="register">A</span> to <a href="D303.html#d306">CONTROLS_BYTE</a> and sets <span class="register">HL</span>=<a href="D300.html">HIT</a>.</td>
+<td class="comment-1" rowspan="3">Writes <span class="register">A</span> to <a href="D303.html#d306">Controls_Byte</a> and sets <span class="register">HL</span>=<a href="D300.html">Hit</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -102,23 +102,23 @@ On entry <span class="register">A</span> will contain one of; <table class="defa
 <td class="asm-label"></td>
 <td class="address-1"><span id="d30f"></span>D30F</td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-1" rowspan="2">If "3" was pressed then jump to <a href="D307.html#d33b">SHOT_THREE</a> (a check for if bit 0 is set).</td>
+<td class="comment-1" rowspan="2">If "3" was pressed then jump to <a href="D307.html#d33b">Shot_Three</a> (a check for if bit 0 is set).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d311"></span>D311</td>
-<td class="instruction">JR NZ,<a href="D307.html#d33b">SHOT_THREE</a></td>
+<td class="instruction">JR NZ,<a href="D307.html#d33b">Shot_Three</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d313"></span>D313</td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-1" rowspan="2">If "1" was pressed then jump to <a href="D307.html#d360">SHOT_ONE</a> (a check for if bit 1 is set).</td>
+<td class="comment-1" rowspan="2">If "1" was pressed then jump to <a href="D307.html#d360">Shot_One</a> (a check for if bit 1 is set).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d315"></span>D315</td>
-<td class="instruction">JR NZ,<a href="D307.html#d360">SHOT_ONE</a></td>
+<td class="instruction">JR NZ,<a href="D307.html#d360">Shot_One</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -131,10 +131,10 @@ Handles settings flags and shot drawing location for door 2.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_TWO</td>
+<td class="asm-label">Shot_Two</td>
 <td class="address-1"><span id="d317"></span>D317</td>
 <td class="instruction">LD A,($D303)</td>
-<td class="comment-1" rowspan="3">If <a href="D303.html">TWO</a> is not zero then return.</td>
+<td class="comment-1" rowspan="3">If <a href="D303.html">Two</a> is not zero then return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -150,7 +150,7 @@ Handles settings flags and shot drawing location for door 2.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d31c"></span>D31C</td>
 <td class="instruction">LD ($D304),A</td>
-<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html#d304">THREE</a> and <a href="D303.html#d305">ONE</a>).</td>
+<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html#d304">Three</a> and <a href="D303.html#d305">One</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -161,7 +161,7 @@ Handles settings flags and shot drawing location for door 2.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d322"></span>D322</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="4">Indicate the the middle door is being shot at (write $01 to <a href="D303.html">TWO</a> and $02 to <a href="D300.html">HIT</a>).</td>
+<td class="comment-1" rowspan="4">Indicate the the middle door is being shot at (write $01 to <a href="D303.html">Two</a> and $02 to <a href="D300.html">Hit</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -203,7 +203,7 @@ Handles settings flags and shot drawing location for door 2.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d331"></span>D331</td>
-<td class="instruction">CALL <a href="D3B4.html">DRAW_SHOT_MASK</a></td>
+<td class="instruction">CALL <a href="D3B4.html">Draw_GunShot_Mask</a></td>
 <td class="comment-1" rowspan="1">Draw the shot mask.</td>
 </tr>
 <tr>
@@ -215,13 +215,13 @@ Handles settings flags and shot drawing location for door 2.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d335"></span>D335</td>
-<td class="instruction">CALL <a href="D3CB.html">DRAW_GUN_SHOT</a></td>
+<td class="instruction">CALL <a href="D3CB.html">Draw_GunShot</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d338"></span>D338</td>
-<td class="instruction">JP <a href="6500.html">SHOT_SOUND_1_ALIAS</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="6500.html">SHOT_SOUND_1_ALIAS</a>.</td>
+<td class="instruction">JP <a href="6500.html">Shot_Sound_01_Alias</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="6500.html">Shot_Sound_01_Alias</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -234,10 +234,10 @@ Handles settings flags and shot drawing location for door 3.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_THREE</td>
+<td class="asm-label">Shot_Three</td>
 <td class="address-2"><span id="d33b"></span>D33B</td>
 <td class="instruction">LD A,($D304)</td>
-<td class="comment-1" rowspan="3">If <a href="D303.html#d304">THREE</a> is not zero then return.</td>
+<td class="comment-1" rowspan="3">If <a href="D303.html#d304">Three</a> is not zero then return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -253,7 +253,7 @@ Handles settings flags and shot drawing location for door 3.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d340"></span>D340</td>
 <td class="instruction">LD ($D303),A</td>
-<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html">TWO</a> and <a href="D303.html#d305">ONE</a>).</td>
+<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html">Two</a> and <a href="D303.html#d305">One</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -264,7 +264,7 @@ Handles settings flags and shot drawing location for door 3.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d346"></span>D346</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="4">Indicate the the right door is being shot at (write $01 to <a href="D303.html#d304">THREE</a> and $03 to <a href="D300.html">HIT</a>).</td>
+<td class="comment-1" rowspan="4">Indicate the the right door is being shot at (write $01 to <a href="D303.html#d304">Three</a> and $03 to <a href="D300.html">Hit</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -306,7 +306,7 @@ Handles settings flags and shot drawing location for door 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d356"></span>D356</td>
-<td class="instruction">CALL <a href="D3B4.html">DRAW_SHOT_MASK</a></td>
+<td class="instruction">CALL <a href="D3B4.html">Draw_GunShot_Mask</a></td>
 <td class="comment-1" rowspan="1">Draw the shot mask.</td>
 </tr>
 <tr>
@@ -318,13 +318,13 @@ Handles settings flags and shot drawing location for door 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d35a"></span>D35A</td>
-<td class="instruction">CALL <a href="D3CB.html">DRAW_GUN_SHOT</a></td>
+<td class="instruction">CALL <a href="D3CB.html">Draw_GunShot</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d35d"></span>D35D</td>
-<td class="instruction">JP <a href="6500.html#6502">SHOT_SOUND_2_ALIAS</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="6500.html#6502">SHOT_SOUND_2_ALIAS</a>.</td>
+<td class="instruction">JP <a href="6500.html#6502">Shot_Sound_02_Alias</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="6500.html#6502">Shot_Sound_02_Alias</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -337,10 +337,10 @@ Handles settings flags and shot drawing location for door 1.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHOT_ONE</td>
+<td class="asm-label">Shot_One</td>
 <td class="address-2"><span id="d360"></span>D360</td>
 <td class="instruction">LD A,($D305)</td>
-<td class="comment-1" rowspan="3">If <a href="D303.html#d305">ONE</a> is not zero then return.</td>
+<td class="comment-1" rowspan="3">If <a href="D303.html#d305">One</a> is not zero then return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -356,7 +356,7 @@ Handles settings flags and shot drawing location for door 1.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d365"></span>D365</td>
 <td class="instruction">LD ($D303),A</td>
-<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html">TWO</a> and <a href="D303.html#d304">THREE</a>).</td>
+<td class="comment-1" rowspan="2">Sets the other two door flags to zero (<a href="D303.html">Two</a> and <a href="D303.html#d304">Three</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -367,7 +367,7 @@ Handles settings flags and shot drawing location for door 1.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d36b"></span>D36B</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="4">Indicate the the left door is being shot at (write $01 to <a href="D303.html#d305">ONE</a> and $01 to <a href="D300.html">HIT</a>).</td>
+<td class="comment-1" rowspan="4">Indicate the the left door is being shot at (write $01 to <a href="D303.html#d305">One</a> and $01 to <a href="D300.html">Hit</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -409,7 +409,7 @@ Handles settings flags and shot drawing location for door 1.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d37b"></span>D37B</td>
-<td class="instruction">CALL <a href="D3B4.html">DRAW_SHOT_MASK</a></td>
+<td class="instruction">CALL <a href="D3B4.html">Draw_GunShot_Mask</a></td>
 <td class="comment-1" rowspan="1">Draw the shot mask.</td>
 </tr>
 <tr>
@@ -421,13 +421,13 @@ Handles settings flags and shot drawing location for door 1.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d37f"></span>D37F</td>
-<td class="instruction">CALL <a href="D3CB.html">DRAW_GUN_SHOT</a></td>
+<td class="instruction">CALL <a href="D3CB.html">Draw_GunShot</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d382"></span>D382</td>
-<td class="instruction">CALL <a href="6500.html#6504">SHOT_SOUND_3_ALIAS</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="6500.html#6504">SHOT_SOUND_3_ALIAS</a>.</td>
+<td class="instruction">CALL <a href="6500.html#6504">Shot_Sound_03_Alias</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="6500.html#6504">Shot_Sound_03_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -446,10 +446,10 @@ Sets the flag for indicating "right" has been pressed by the player.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SET_RIGHT</td>
+<td class="asm-label">Set_Right</td>
 <td class="address-2"><span id="d386"></span>D386</td>
 <td class="instruction">LD HL,$D301</td>
-<td class="comment-1" rowspan="3">Write $01 to <a href="D301.html">RIGHT</a> and return.</td>
+<td class="comment-1" rowspan="3">Write $01 to <a href="D301.html">Right</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -472,10 +472,10 @@ Sets the flag for indicating "left" has been pressed by the player.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SET_LEFT</td>
+<td class="asm-label">Set_Left</td>
 <td class="address-2"><span id="d38c"></span>D38C</td>
 <td class="instruction">LD HL,$D302</td>
-<td class="comment-1" rowspan="3">Write $01 to <a href="D301.html#d302">LEFT</a> and return.</td>
+<td class="comment-1" rowspan="3">Write $01 to <a href="D301.html#d302">Left</a> and return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -501,8 +501,8 @@ Next: <a href="D392.html">D392</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/54023.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -34,7 +34,7 @@ Next: <a href="C5EB.html">C5EB</a>
 </td>
 </tr>
 </table>
-<div class="description">C422: Duel Bonus Round.</div>
+<div class="description">C422: Duel Bonus Round</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -46,10 +46,10 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP</td>
+<td class="asm-label">Duel_Prep</td>
 <td class="address-2"><span id="c422"></span>C422</td>
 <td class="instruction">LD HL,$C3EA</td>
-<td class="comment-1" rowspan="4">Copies $33 bytes of data from <a href="C3EA.html">DUEL_DATA</a> to <a href="5BC0.html">DUELLER_1</a> (and across all three duellists).</td>
+<td class="comment-1" rowspan="4">Copies $33 bytes of data from <a href="C3EA.html">Duel_Data</a> to <a href="5BC0.html">Dueller_01</a> (and across all three duellists).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -88,12 +88,12 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c430"></span>C430</td>
 <td class="instruction">LD IX,$5BC0</td>
-<td class="comment-1" rowspan="2">Calls <a href="C67F.html">DUEL_UPDATE_TIMER</a> with <a href="5BC0.html">DUELLER_1</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="C67F.html">Update_Duel_Timer</a> with <a href="5BC0.html">Dueller_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c434"></span>C434</td>
-<td class="instruction">CALL <a href="C67F.html">DUEL_UPDATE_TIMER</a></td>
+<td class="instruction">CALL <a href="C67F.html">Update_Duel_Timer</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -105,12 +105,12 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c438"></span>C438</td>
 <td class="instruction">LD IX,$5BD1</td>
-<td class="comment-1" rowspan="2">Calls <a href="C67F.html">DUEL_UPDATE_TIMER</a> with <a href="5BD1.html">DUELLER_2</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="C67F.html">Update_Duel_Timer</a> with <a href="5BD1.html">Dueller_02</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c43c"></span>C43C</td>
-<td class="instruction">CALL <a href="C67F.html">DUEL_UPDATE_TIMER</a></td>
+<td class="instruction">CALL <a href="C67F.html">Update_Duel_Timer</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -122,18 +122,18 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c440"></span>C440</td>
 <td class="instruction">LD IX,$5BE2</td>
-<td class="comment-1" rowspan="2">Calls <a href="C67F.html">DUEL_UPDATE_TIMER</a> with <a href="5BE2.html">DUELLER_3</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="C67F.html">Update_Duel_Timer</a> with <a href="5BE2.html">Dueller_03</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c444"></span>C444</td>
-<td class="instruction">CALL <a href="C67F.html">DUEL_UPDATE_TIMER</a></td>
+<td class="instruction">CALL <a href="C67F.html">Update_Duel_Timer</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c447"></span>C447</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="7">Reset the flags (writes $00 to <a href="C6E2.html">DUEL_BANG_FLAG</a>, <a href="C6E3.html">DUEL_LOSE_LIFE</a> and <a href="C6E4.html">DUEL_EXTRA_LIFE</a>).</td>
+<td class="comment-1" rowspan="7">Reset the flags (writes $00 to <a href="C6E2.html">Duel_Bang_Flag</a>, <a href="C6E3.html">Duel_Lose_Life</a> and <a href="C6E4.html">Duel_Extra_Life</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -192,7 +192,7 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c45a"></span>C45A</td>
-<td class="instruction">JR NC,<a href="C422.html#c463">DUEL_CLEAR_SCREEN</a></td>
+<td class="instruction">JR NC,<a href="C422.html#c463">Duel_Clear_Screen</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -208,7 +208,7 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP_LOOP</td>
+<td class="asm-label">Duel_Prep_Loop</td>
 <td class="address-2"><span id="c460"></span>C460</td>
 <td class="instruction">DEC DE</td>
 <td class="comment-1" rowspan="1"></td>
@@ -216,11 +216,11 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c461"></span>C461</td>
-<td class="instruction">DJNZ <a href="C422.html#c460">DUEL_PREP_LOOP</a></td>
+<td class="instruction">DJNZ <a href="C422.html#c460">Duel_Prep_Loop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_CLEAR_SCREEN</td>
+<td class="asm-label">Duel_Clear_Screen</td>
 <td class="address-2"><span id="c463"></span>C463</td>
 <td class="instruction">LD ($C52E),DE</td>
 <td class="comment-1" rowspan="1">....</td>
@@ -288,10 +288,10 @@ Writes the attributes for the playfield (sky, grass, footer).
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$05</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">05</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -327,10 +327,10 @@ Writes the attributes for the playfield (sky, grass, footer).
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$04</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">04</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -356,10 +356,10 @@ Writes the attributes for the playfield (sky, grass, footer).
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -387,24 +387,24 @@ Creates the footer.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c48f"></span>C48F</td>
 <td class="instruction">LD HL,$C655</td>
-<td class="comment-1" rowspan="2">Point to <a href="C64D.html#c655">PLAYFIELD_LIVES</a> and print using <a href="C6A7.html">DUEL_PRINT_LIVES</a>.</td>
+<td class="comment-1" rowspan="2">Point to <a href="C64D.html#c655">Playfield_Lives</a> and print using <a href="C6A7.html">Duel_Print_Lives</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c492"></span>C492</td>
-<td class="instruction">CALL <a href="C6A7.html">DUEL_PRINT_LIVES</a></td>
+<td class="instruction">CALL <a href="C6A7.html">Duel_Print_Lives</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c495"></span>C495</td>
-<td class="instruction">CALL <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B83.html">Draw_Lives_Images_Alias</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c498"></span>C498</td>
 <td class="instruction">LD HL,$C64D</td>
-<td class="comment-1" rowspan="4">Point to <a href="C64D.html">PLAYFIELD_SCORE</a> and prints using <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="4">Point to <a href="C64D.html">Playfield_Score</a> and prints using <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -412,16 +412,16 @@ Creates the footer.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
-<td class="centre" colspan="1" rowspan="1">$03</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -438,12 +438,12 @@ Creates the footer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4a1"></span>C4A1</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4a4"></span>C4A4</td>
-<td class="instruction">CALL <a href="5B98.html">DRAW_SCORE_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B98.html">Draw_Score_Alias</a></td>
 <td class="comment-1" rowspan="1">Writes the players score.</td>
 </tr>
 <tr>
@@ -460,7 +460,7 @@ Initialise duellers.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4a7"></span>C4A7</td>
 <td class="instruction">LD IX,$5BC0</td>
-<td class="comment-1" rowspan="3">Initialise <a href="5BC0.html">DUELLER_1</a> (draws frame 1).</td>
+<td class="comment-1" rowspan="3">Initialise <a href="5BC0.html">Dueller_01</a> (draws frame 1).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -470,13 +470,13 @@ Initialise duellers.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4ae"></span>C4AE</td>
-<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="instruction">CALL <a href="C661.html">Duel_Draw_Bandit_Prep</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4b1"></span>C4B1</td>
 <td class="instruction">LD IX,$5BD1</td>
-<td class="comment-1" rowspan="3">Initialise <a href="5BD1.html">DUELLER_2</a> (draws frame 1).</td>
+<td class="comment-1" rowspan="3">Initialise <a href="5BD1.html">Dueller_02</a> (draws frame 1).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -486,13 +486,13 @@ Initialise duellers.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4b8"></span>C4B8</td>
-<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="instruction">CALL <a href="C661.html">Duel_Draw_Bandit_Prep</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4bb"></span>C4BB</td>
 <td class="instruction">LD IX,$5BE2</td>
-<td class="comment-1" rowspan="3">Initialise <a href="5BE2.html">DUELLER_3</a> (draws frame 1).</td>
+<td class="comment-1" rowspan="3">Initialise <a href="5BE2.html">Dueller_03</a> (draws frame 1).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -502,7 +502,7 @@ Initialise duellers.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4c2"></span>C4C2</td>
-<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="instruction">CALL <a href="C661.html">Duel_Draw_Bandit_Prep</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -515,13 +515,13 @@ Count down 5-4-3-2-1...0!
 </td>
 </tr>
 <tr>
-<td class="asm-label">COUNTDOWN_INITIALISE</td>
+<td class="asm-label">Countdown_Initialise</td>
 <td class="address-1"><span id="c4c5"></span>C4C5</td>
 <td class="instruction">LD A,$35</td>
-<td class="comment-1" rowspan="3">Initialise countdown to "5" seconds ($35 in ASCII), hold this at <a href="C6E0.html">DUEL_TIMER</a>.</td>
+<td class="comment-1" rowspan="3">Initialise countdown to "5" seconds ($35 in ASCII), hold this at <a href="C6E0.html">Duel_Timer</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">COUNTDOWN_LOOP</td>
+<td class="asm-label">Countdown_Loop</td>
 <td class="address-2"><span id="c4c7"></span>C4C7</td>
 <td class="instruction">PUSH AF</td>
 </tr>
@@ -533,7 +533,7 @@ Count down 5-4-3-2-1...0!
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4cb"></span>C4CB</td>
-<td class="instruction">CALL <a href="C6D3.html">DUEL_PRINT_COUNTDOWN</a></td>
+<td class="instruction">CALL <a href="C6D3.html">Duel_Print_Countdown</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -543,20 +543,20 @@ Count down 5-4-3-2-1...0!
 <td class="comment-1" rowspan="3">Short halt loop (1 second pause).</td>
 </tr>
 <tr>
-<td class="asm-label">COUNTDOWN_HALT_LOOP</td>
+<td class="asm-label">Countdown_Halt_Loop</td>
 <td class="address-2"><span id="c4d0"></span>C4D0</td>
 <td class="instruction">HALT</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4d1"></span>C4D1</td>
-<td class="instruction">DJNZ <a href="C422.html#c4d0">COUNTDOWN_HALT_LOOP</a></td>
+<td class="instruction">DJNZ <a href="C422.html#c4d0">Countdown_Halt_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4d3"></span>C4D3</td>
 <td class="instruction">POP AF</td>
-<td class="comment-1" rowspan="4">Keep looping back to <a href="C422.html#c4c7">COUNTDOWN_LOOP</a> until the countdown is "0" ($30 in ASCII).</td>
+<td class="comment-1" rowspan="4">Keep looping back to <a href="C422.html#c4c7">Countdown_Loop</a> until the countdown is "0" ($30 in ASCII).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -571,7 +571,7 @@ Count down 5-4-3-2-1...0!
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4d7"></span>C4D7</td>
-<td class="instruction">JR NZ,<a href="C422.html#c4c7">COUNTDOWN_LOOP</a></td>
+<td class="instruction">JR NZ,<a href="C422.html#c4c7">Countdown_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -587,46 +587,46 @@ Count down 5-4-3-2-1...0!
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4de"></span>C4DE</td>
-<td class="instruction">CALL <a href="C6D3.html">DUEL_PRINT_COUNTDOWN</a></td>
+<td class="instruction">CALL <a href="C6D3.html">Duel_Print_Countdown</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4e1"></span>C4E1</td>
-<td class="instruction">JR <a href="C422.html#c4f9">DUEL_START</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="C422.html#c4f9">DUEL_START</a> and start the duel!</td>
+<td class="instruction">JR <a href="C422.html#c4f9">Duel_Start</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C422.html#c4f9">Duel_Start</a> and start the duel!</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_LOOP</td>
+<td class="asm-label">Duel_Loop</td>
 <td class="address-2"><span id="c4e3"></span>C4E3</td>
 <td class="instruction">LD IX,$5BC0</td>
-<td class="comment-1" rowspan="2">Calls <a href="C422.html#c530">DUEL_ACTIONS</a> with <a href="5BC0.html">DUELLER_1</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="C422.html#c530">Duel_Actions</a> with <a href="5BC0.html">Dueller_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4e7"></span>C4E7</td>
-<td class="instruction">CALL <a href="C422.html#c530">DUEL_ACTIONS</a></td>
+<td class="instruction">CALL <a href="C422.html#c530">Duel_Actions</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4ea"></span>C4EA</td>
 <td class="instruction">LD IX,$5BD1</td>
-<td class="comment-1" rowspan="2">Calls <a href="C422.html#c530">DUEL_ACTIONS</a> with <a href="5BD1.html">DUELLER_2</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="C422.html#c530">Duel_Actions</a> with <a href="5BD1.html">Dueller_02</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4ee"></span>C4EE</td>
-<td class="instruction">CALL <a href="C422.html#c530">DUEL_ACTIONS</a></td>
+<td class="instruction">CALL <a href="C422.html#c530">Duel_Actions</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4f1"></span>C4F1</td>
 <td class="instruction">LD IX,$5BE2</td>
-<td class="comment-1" rowspan="2">Calls <a href="C422.html#c530">DUEL_ACTIONS</a> with <a href="5BE2.html">DUELLER_3</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="C422.html#c530">Duel_Actions</a> with <a href="5BE2.html">Dueller_03</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4f5"></span>C4F5</td>
-<td class="instruction">CALL <a href="C422.html#c530">DUEL_ACTIONS</a></td>
+<td class="instruction">CALL <a href="C422.html#c530">Duel_Actions</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -645,20 +645,20 @@ DRAW!
 </td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_START</td>
+<td class="asm-label">Duel_Start</td>
 <td class="address-2"><span id="c4f9"></span>C4F9</td>
 <td class="instruction">LD DE,($C52E)</td>
 <td class="comment-1" rowspan="2"><span class="register">DE</span>=<a href="C422.html#c52e">C52E</a> and push it on the stack.</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_START_LOOP</td>
+<td class="asm-label">Duel_Start_Loop</td>
 <td class="address-2"><span id="c4fd"></span>C4FD</td>
 <td class="instruction">PUSH DE</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4fe"></span>C4FE</td>
-<td class="instruction">CALL <a href="C422.html#c4e3">DUEL_LOOP</a></td>
+<td class="instruction">CALL <a href="C422.html#c4e3">Duel_Loop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -688,7 +688,7 @@ DRAW!
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c505"></span>C505</td>
-<td class="instruction">JR NZ,<a href="C422.html#c4fd">DUEL_START_LOOP</a></td>
+<td class="instruction">JR NZ,<a href="C422.html#c4fd">Duel_Start_Loop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -700,7 +700,7 @@ DRAW!
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c50b"></span>C50B</td>
-<td class="instruction">CALL <a href="C422.html#c58b">DUEL_PREP_1</a></td>
+<td class="instruction">CALL <a href="C422.html#c58b">Duel_Prep_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -712,7 +712,7 @@ DRAW!
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c512"></span>C512</td>
-<td class="instruction">CALL <a href="C422.html#c58b">DUEL_PREP_1</a></td>
+<td class="instruction">CALL <a href="C422.html#c58b">Duel_Prep_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -724,7 +724,7 @@ DRAW!
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c519"></span>C519</td>
-<td class="instruction">CALL <a href="C422.html#c58b">DUEL_PREP_1</a></td>
+<td class="instruction">CALL <a href="C422.html#c58b">Duel_Prep_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -754,13 +754,13 @@ DRAW!
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c529"></span>C529</td>
-<td class="instruction">JP Z,<a href="C690.html">DUEL_COMPLETE</a></td>
+<td class="instruction">JP Z,<a href="C690.html">Duel_Complete</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c52c"></span>C52C</td>
-<td class="instruction">JR <a href="C422.html#c4f9">DUEL_START</a></td>
+<td class="instruction">JR <a href="C422.html#c4f9">Duel_Start</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -770,39 +770,39 @@ DRAW!
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_ACTIONS</td>
+<td class="asm-label">Duel_Actions</td>
 <td class="address-2"><span id="c530"></span>C530</td>
-<td class="instruction">CALL <a href="C422.html#c543">DUEL_ACTION_1</a></td>
+<td class="instruction">CALL <a href="C422.html#c543">Duel_Action_01</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c533"></span>C533</td>
-<td class="instruction">CALL <a href="C422.html#c56b">DUEL_ACTION_4</a></td>
+<td class="instruction">CALL <a href="C422.html#c56b">Duel_Action_04</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c536"></span>C536</td>
-<td class="instruction">CALL <a href="C422.html#c550">DUEL_ACTION_2</a></td>
+<td class="instruction">CALL <a href="C422.html#c550">Duel_Action_02</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c539"></span>C539</td>
-<td class="instruction">CALL <a href="C422.html#c56b">DUEL_ACTION_4</a></td>
+<td class="instruction">CALL <a href="C422.html#c56b">Duel_Action_04</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c53c"></span>C53C</td>
-<td class="instruction">CALL <a href="C422.html#c55d">DUEL_ACTION_3</a></td>
+<td class="instruction">CALL <a href="C422.html#c55d">Duel_Action_03</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c53f"></span>C53F</td>
-<td class="instruction">CALL <a href="C422.html#c56b">DUEL_ACTION_4</a></td>
+<td class="instruction">CALL <a href="C422.html#c56b">Duel_Action_04</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -812,10 +812,10 @@ DRAW!
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_ACTION_1</td>
+<td class="asm-label">Duel_Action_01</td>
 <td class="address-2"><span id="c543"></span>C543</td>
-<td class="instruction">CALL <a href="5B88.html">JUMP_CONTROL_METHOD</a></td>
-<td class="comment-1" rowspan="1">Calls <a href="5B88.html">JUMP_CONTROL_METHOD</a>.</td>
+<td class="instruction">CALL <a href="5B88.html">Jump_Control_Method</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="5B88.html">Jump_Control_Method</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -856,10 +856,10 @@ DRAW!
 <td class="instruction">RET</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_ACTION_2</td>
+<td class="asm-label">Duel_Action_02</td>
 <td class="address-2"><span id="c550"></span>C550</td>
-<td class="instruction">CALL <a href="5B88.html">JUMP_CONTROL_METHOD</a></td>
-<td class="comment-1" rowspan="1">Calls <a href="5B88.html">JUMP_CONTROL_METHOD</a>.</td>
+<td class="instruction">CALL <a href="5B88.html">Jump_Control_Method</a></td>
+<td class="comment-1" rowspan="1">Calls <a href="5B88.html">Jump_Control_Method</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -900,9 +900,9 @@ DRAW!
 <td class="instruction">RET</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_ACTION_3</td>
+<td class="asm-label">Duel_Action_03</td>
 <td class="address-2"><span id="c55d"></span>C55D</td>
-<td class="instruction">CALL <a href="5B88.html">JUMP_CONTROL_METHOD</a></td>
+<td class="instruction">CALL <a href="5B88.html">Jump_Control_Method</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -948,15 +948,15 @@ DRAW!
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_ACTION_4</td>
+<td class="asm-label">Duel_Action_04</td>
 <td class="address-2"><span id="c56b"></span>C56B</td>
 <td class="instruction">CP (IX+$03)</td>
-<td class="comment-1" rowspan="2">If the dueller position has been changed to zero then jump to <a href="C422.html#c575">DUEL_DUNNO</a>.</td>
+<td class="comment-1" rowspan="2">If the dueller position has been changed to zero then jump to <a href="C422.html#c575">Duel_Dunno</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c56e"></span>C56E</td>
-<td class="instruction">JR Z,<a href="C422.html#c575">DUEL_DUNNO</a></td>
+<td class="instruction">JR Z,<a href="C422.html#c575">Duel_Dunno</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -971,7 +971,7 @@ DRAW!
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_DUNNO</td>
+<td class="asm-label">Duel_Dunno</td>
 <td class="address-2"><span id="c575"></span>C575</td>
 <td class="instruction">LD A,(IX+$0D)</td>
 <td class="comment-1" rowspan="1"></td>
@@ -1017,13 +1017,13 @@ DRAW!
 <span id="c583"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCORE</a> and <a href="C6E5.html">DUELLER_SHOT</a>.
+This entry point is used by the routines at <a href="C607.html">Print_BonusScore</a> and <a href="C6E5.html">Dueller_Shot</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP_0</td>
+<td class="asm-label">Duel_Prep_0</td>
 <td class="address-2"><span id="c583"></span>C583</td>
 <td class="instruction">PUSH IX</td>
 <td class="comment-1" rowspan="1"></td>
@@ -1031,7 +1031,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c585"></span>C585</td>
-<td class="instruction">CALL <a href="6500.html">SHOT_SOUND_1_ALIAS</a></td>
+<td class="instruction">CALL <a href="6500.html">Shot_Sound_01_Alias</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1047,7 +1047,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP_1</td>
+<td class="asm-label">Duel_Prep_1</td>
 <td class="address-2"><span id="c58b"></span>C58B</td>
 <td class="instruction">LD A,(IX+$08)</td>
 <td class="comment-1" rowspan="3">If IX+$08 is zero then return.</td>
@@ -1066,7 +1066,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <td class="asm-label"></td>
 <td class="address-1"><span id="c590"></span>C590</td>
 <td class="instruction">LD A,(IX+$09)</td>
-<td class="comment-1" rowspan="3">If dueller frame index is $01 then jump to <a href="C422.html#c5a1">DUEL_PREP_2</a>.</td>
+<td class="comment-1" rowspan="3">If dueller frame index is $01 then jump to <a href="C422.html#c5a1">Duel_Prep_2</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1076,57 +1076,57 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c594"></span>C594</td>
-<td class="instruction">JR Z,<a href="C422.html#c5a1">DUEL_PREP_2</a></td>
+<td class="instruction">JR Z,<a href="C422.html#c5a1">Duel_Prep_2</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c596"></span>C596</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="2">If dueller frame index is $02 then jump to <a href="C422.html#c5b5">DUEL_PREP_3</a>.</td>
+<td class="comment-1" rowspan="2">If dueller frame index is $02 then jump to <a href="C422.html#c5b5">Duel_Prep_3</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c597"></span>C597</td>
-<td class="instruction">JR Z,<a href="C422.html#c5b5">DUEL_PREP_3</a></td>
+<td class="instruction">JR Z,<a href="C422.html#c5b5">Duel_Prep_3</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c599"></span>C599</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="2">If dueller frame index is $03 then jump to <a href="C422.html#c5bd">DUEL_PREP_4</a>.</td>
+<td class="comment-1" rowspan="2">If dueller frame index is $03 then jump to <a href="C422.html#c5bd">Duel_Prep_4</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c59a"></span>C59A</td>
-<td class="instruction">JR Z,<a href="C422.html#c5bd">DUEL_PREP_4</a></td>
+<td class="instruction">JR Z,<a href="C422.html#c5bd">Duel_Prep_4</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c59c"></span>C59C</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="2">If dueller frame index is $04 then jump to <a href="C422.html#c5cf">DUEL_PREP_5</a>.</td>
+<td class="comment-1" rowspan="2">If dueller frame index is $04 then jump to <a href="C422.html#c5cf">Duel_Prep_5</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c59d"></span>C59D</td>
-<td class="instruction">JR Z,<a href="C422.html#c5cf">DUEL_PREP_5</a></td>
+<td class="instruction">JR Z,<a href="C422.html#c5cf">Duel_Prep_5</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c59f"></span>C59F</td>
-<td class="instruction">JR <a href="C422.html#c5dd">DUEL_PREP_6</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="C422.html#c5dd">DUEL_PREP_6</a>.</td>
+<td class="instruction">JR <a href="C422.html#c5dd">Duel_Prep_6</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="C422.html#c5dd">Duel_Prep_6</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP_2</td>
+<td class="asm-label">Duel_Prep_2</td>
 <td class="address-2"><span id="c5a1"></span>C5A1</td>
 <td class="instruction">LD HL,$C6E5</td>
-<td class="comment-1" rowspan="1"><a href="C6E5.html">DUELLER_SHOT</a>.</td>
+<td class="comment-1" rowspan="1"><a href="C6E5.html">Dueller_Shot</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c5a4"></span>C5A4</td>
-<td class="instruction">CALL <a href="C5EB.html">DUELLER_DOWN</a></td>
+<td class="instruction">CALL <a href="C5EB.html">Dueller_Down</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1156,7 +1156,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c5b1"></span>C5B1</td>
-<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="instruction">CALL <a href="C661.html">Duel_Draw_Bandit_Prep</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1166,7 +1166,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP_3</td>
+<td class="asm-label">Duel_Prep_3</td>
 <td class="address-2"><span id="c5b5"></span>C5B5</td>
 <td class="instruction">DEC (IX+$10)</td>
 <td class="comment-1" rowspan="1"></td>
@@ -1190,7 +1190,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP_4</td>
+<td class="asm-label">Duel_Prep_4</td>
 <td class="address-2"><span id="c5bd"></span>C5BD</td>
 <td class="instruction">LD HL,$C5F6</td>
 <td class="comment-1" rowspan="1"></td>
@@ -1198,7 +1198,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c5c0"></span>C5C0</td>
-<td class="instruction">CALL <a href="C5EB.html">DUELLER_DOWN</a></td>
+<td class="instruction">CALL <a href="C5EB.html">Dueller_Down</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1238,7 +1238,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP_5</td>
+<td class="asm-label">Duel_Prep_5</td>
 <td class="address-2"><span id="c5cf"></span>C5CF</td>
 <td class="instruction">DEC (IX+$0E)</td>
 <td class="comment-1" rowspan="1"></td>
@@ -1264,7 +1264,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c5d9"></span>C5D9</td>
-<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="instruction">CALL <a href="C661.html">Duel_Draw_Bandit_Prep</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1274,7 +1274,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DUEL_PREP_6</td>
+<td class="asm-label">Duel_Prep_6</td>
 <td class="address-2"><span id="c5dd"></span>C5DD</td>
 <td class="instruction">DEC (IX+$0F)</td>
 <td class="comment-1" rowspan="1"></td>
@@ -1294,7 +1294,7 @@ This entry point is used by the routines at <a href="C607.html">PRINT_BONUS_SCOR
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c5e3"></span>C5E3</td>
-<td class="instruction">CALL <a href="C661.html">DUEL_DRAW_BANDIT_PREP</a></td>
+<td class="instruction">CALL <a href="C661.html">Duel_Draw_Bandit_Prep</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1323,8 +1323,8 @@ Next: <a href="C5EB.html">C5EB</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/50210.html">Switch to decimal</a>.</div>
 </footer>
 </body>

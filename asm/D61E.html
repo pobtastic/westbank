@@ -34,13 +34,13 @@ Next: <a href="D664.html">D664</a>
 </td>
 </tr>
 </table>
-<div class="description">D61E: Write Character And Door To Buffer.</div>
+<div class="description">D61E: Write Character And Door To Buffer</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Door frames 2 and 3 both contain a "section" of a game character. This is copied into a buffer by first drawing the game character fully to <a href="EA90.html">DOOR_BUFFER</a>. Then the door frame is drawn over the top (in the correct position).
+Door frames 2 and 3 both contain a "section" of a game character. This is copied into a buffer by first drawing the game character fully to <a href="EA90.html">Door_Buffer</a>. Then the door frame is drawn over the top (in the correct position).
 </div>
 </div>
 </td>
@@ -56,21 +56,21 @@ Draws the game character together with door frame 2.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHARACTER_DOOR_FRAME_2</td>
+<td class="asm-label">Character_Door_Frame_02</td>
 <td class="address-2"><span id="d61e"></span>D61E</td>
-<td class="instruction">CALL <a href="D5B0.html">CHARACTER_ADDR</a></td>
-<td class="comment-1" rowspan="2">On entry <span class="register">A</span> points to a character index. The call to <a href="D5B0.html">CHARACTER_ADDR</a> translates this to the memory location of the character frame data (held in <span class="register">HL</span>) and then calls <a href="D61E.html#d654">DOOR_BUFFER_COPY</a>.</td>
+<td class="instruction">CALL <a href="D5B0.html">Character_Address</a></td>
+<td class="comment-1" rowspan="2">On entry <span class="register">A</span> points to a character index. The call to <a href="D5B0.html">Character_Address</a> translates this to the memory location of the character frame data (held in <span class="register">HL</span>) and then calls <a href="D61E.html#d654">Door_Buffer_Copy</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d621"></span>D621</td>
-<td class="instruction">CALL <a href="D61E.html#d654">DOOR_BUFFER_COPY</a></td>
+<td class="instruction">CALL <a href="D61E.html#d654">Door_Buffer_Copy</a></td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_FRAME_2_COPY</td>
+<td class="asm-label">Door_Frame_02_Copy</td>
 <td class="address-1"><span id="d624"></span>D624</td>
 <td class="instruction">LD HL,$BCE8</td>
-<td class="comment-1" rowspan="10">Copies <a href="BCE8.html">DOOR_FRAME_2</a> into the <a href="EA90.html">DOOR_BUFFER</a> (+2 bytes ~ $EA92).</td>
+<td class="comment-1" rowspan="10">Copies <a href="BCE8.html">Door_Frame_02</a> into the <a href="EA90.html">Door_Buffer</a> (+2 bytes ~ $EA92).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -83,7 +83,7 @@ Draws the game character together with door frame 2.
 <td class="instruction">LD B,$58</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_FRAME_2_COPY_LOOP</td>
+<td class="asm-label">Door_Frame_02_Copy_Loop</td>
 <td class="address-2"><span id="d62c"></span>D62C</td>
 <td class="instruction">PUSH BC</td>
 </tr>
@@ -115,7 +115,7 @@ Draws the game character together with door frame 2.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d635"></span>D635</td>
-<td class="instruction">DJNZ <a href="D61E.html#d62c">DOOR_FRAME_2_COPY_LOOP</a></td>
+<td class="instruction">DJNZ <a href="D61E.html#d62c">Door_Frame_02_Copy_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -134,21 +134,21 @@ Draws the game character together with door frame 3.
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHARACTER_DOOR_FRAME_3</td>
+<td class="asm-label">Character_Door_Frame_03</td>
 <td class="address-2"><span id="d638"></span>D638</td>
-<td class="instruction">CALL <a href="D5B0.html">CHARACTER_ADDR</a></td>
-<td class="comment-1" rowspan="2">On entry <span class="register">A</span> points to a character index. The call to <a href="D5B0.html">CHARACTER_ADDR</a> translates this to the memory location of the character frame data (held in <span class="register">HL</span>) and then calls <a href="D61E.html#d654">DOOR_BUFFER_COPY</a>.</td>
+<td class="instruction">CALL <a href="D5B0.html">Character_Address</a></td>
+<td class="comment-1" rowspan="2">On entry <span class="register">A</span> points to a character index. The call to <a href="D5B0.html">Character_Address</a> translates this to the memory location of the character frame data (held in <span class="register">HL</span>) and then calls <a href="D61E.html#d654">Door_Buffer_Copy</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d63b"></span>D63B</td>
-<td class="instruction">CALL <a href="D61E.html#d654">DOOR_BUFFER_COPY</a></td>
+<td class="instruction">CALL <a href="D61E.html#d654">Door_Buffer_Copy</a></td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_FRAME_3_COPY</td>
+<td class="asm-label">Door_Frame_03_Copy</td>
 <td class="address-1"><span id="d63e"></span>D63E</td>
 <td class="instruction">LD HL,$BEA0</td>
-<td class="comment-1" rowspan="12">Copies <a href="BEA0.html">DOOR_FRAME_3</a> into the <a href="EA90.html">DOOR_BUFFER</a> (+4 bytes ~ $EA94).</td>
+<td class="comment-1" rowspan="12">Copies <a href="BEA0.html">Door_Frame_03</a> into the <a href="EA90.html">Door_Buffer</a> (+4 bytes ~ $EA94).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -161,7 +161,7 @@ Draws the game character together with door frame 3.
 <td class="instruction">LD B,$58</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_FRAME_3_COPY_LOOP</td>
+<td class="asm-label">Door_Frame_03_Copy_Loop</td>
 <td class="address-2"><span id="d646"></span>D646</td>
 <td class="instruction">PUSH BC</td>
 </tr>
@@ -203,7 +203,7 @@ Draws the game character together with door frame 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d651"></span>D651</td>
-<td class="instruction">DJNZ <a href="D61E.html#d646">DOOR_FRAME_3_COPY_LOOP</a></td>
+<td class="instruction">DJNZ <a href="D61E.html#d646">Door_Frame_03_Copy_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -222,10 +222,10 @@ Draws the game character alone to the door frame buffer.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_BUFFER_COPY</td>
+<td class="asm-label">Door_Buffer_Copy</td>
 <td class="address-2"><span id="d654"></span>D654</td>
 <td class="instruction">LD DE,$EA90</td>
-<td class="comment-1" rowspan="9">Draws a character into the <a href="EA90.html">DOOR_BUFFER</a>.</td>
+<td class="comment-1" rowspan="9">Draws a character into the <a href="EA90.html">Door_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -233,7 +233,7 @@ Draws the game character alone to the door frame buffer.
 <td class="instruction">LD B,$58</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_BUFFER_COPY_LOOP</td>
+<td class="asm-label">Door_Buffer_Copy_Loop</td>
 <td class="address-2"><span id="d659"></span>D659</td>
 <td class="instruction">PUSH BC</td>
 </tr>
@@ -260,7 +260,7 @@ Draws the game character alone to the door frame buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d661"></span>D661</td>
-<td class="instruction">DJNZ <a href="D61E.html#d659">DOOR_BUFFER_COPY_LOOP</a></td>
+<td class="instruction">DJNZ <a href="D61E.html#d659">Door_Buffer_Copy_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -281,8 +281,8 @@ Next: <a href="D664.html">D664</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/54814.html">Switch to decimal</a>.</div>
 </footer>
 </body>

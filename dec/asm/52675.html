@@ -40,25 +40,25 @@ Next: <a href="52754.html">52754</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="51136.html">NEW_GAME</a>.
+Used by the routine at <a href="51136.html">New_Game</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">SCORING</td>
+<td class="asm-label">Scoring</td>
 <td class="address-2"><span id="52675"></span>52675</td>
 <td class="instruction">LD IX,53605</td>
-<td class="comment-1" rowspan="6">Calls <a href="52675.html#52700">SCORING_PREP</a> three times with <span class="register">IX</span> containing; <ul class="">
-<li><a href="53605.html">DOOR_1_FLAGS</a></li>
-<li><a href="53619.html">DOOR_2_FLAGS</a></li>
-<li><a href="53633.html">DOOR_3_FLAGS</a></li>
+<td class="comment-1" rowspan="6">Calls <a href="52675.html#52700">Scoring_Prep</a> three times with <span class="register">IX</span> containing; <ul class="">
+<li><a href="53605.html">Door_Flags_01</a></li>
+<li><a href="53619.html">Door_Flags_02</a></li>
+<li><a href="53633.html">Door_Flags_03</a></li>
 </ul></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52679"></span>52679</td>
-<td class="instruction">CALL <a href="52675.html#52700">SCORING_PREP</a></td>
+<td class="instruction">CALL <a href="52675.html#52700">Scoring_Prep</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -68,7 +68,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52686"></span>52686</td>
-<td class="instruction">CALL <a href="52675.html#52700">SCORING_PREP</a></td>
+<td class="instruction">CALL <a href="52675.html#52700">Scoring_Prep</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -78,13 +78,13 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52693"></span>52693</td>
-<td class="instruction">CALL <a href="52675.html#52700">SCORING_PREP</a></td>
+<td class="instruction">CALL <a href="52675.html#52700">Scoring_Prep</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52696"></span>52696</td>
-<td class="instruction">CALL <a href="52624.html">DRAW_SCORE</a></td>
-<td class="comment-1" rowspan="1">Call <a href="52624.html">DRAW_SCORE</a>.</td>
+<td class="instruction">CALL <a href="52624.html">Draw_Score</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52624.html">Draw_Score</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -97,16 +97,16 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <span id="52700"></span>
 <div class="comments">
 <div class="paragraph">
-Passes the higher and lower score values to <a href="52675.html#52727">SCORING_APPLY</a> for the current door.
+Passes the higher and lower score values to <a href="52675.html#52727">Scoring_Apply</a> for the current door.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">SCORING_PREP</td>
+<td class="asm-label">Scoring_Prep</td>
 <td class="address-2"><span id="52700"></span>52700</td>
 <td class="instruction">LD HL,52615</td>
-<td class="comment-1" rowspan="1">References <a href="52614.html#52615">SCORE_DIGIT_5</a>.</td>
+<td class="comment-1" rowspan="1">References <a href="52614.html#52615">Scoredigit05</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -123,14 +123,14 @@ Passes the higher and lower score values to <a href="52675.html#52727">SCORING_A
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52710"></span>52710</td>
-<td class="instruction">CALL <a href="52675.html#52727">SCORING_APPLY</a></td>
-<td class="comment-1" rowspan="1">Call <a href="52675.html#52727">SCORING_APPLY</a>.</td>
+<td class="instruction">CALL <a href="52675.html#52727">Scoring_Apply</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52675.html#52727">Scoring_Apply</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52713"></span>52713</td>
 <td class="instruction">LD HL,52616</td>
-<td class="comment-1" rowspan="1">References <a href="52614.html#52616">SCORE_DIGIT_4</a>.</td>
+<td class="comment-1" rowspan="1">References <a href="52614.html#52616">Scoredigit04</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -147,8 +147,8 @@ Passes the higher and lower score values to <a href="52675.html#52727">SCORING_A
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52723"></span>52723</td>
-<td class="instruction">CALL <a href="52675.html#52727">SCORING_APPLY</a></td>
-<td class="comment-1" rowspan="1">Call <a href="52675.html#52727">SCORING_APPLY</a>.</td>
+<td class="instruction">CALL <a href="52675.html#52727">Scoring_Apply</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52675.html#52727">Scoring_Apply</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -167,15 +167,15 @@ Applies the door scores into the player score.
 </td>
 </tr>
 <tr>
-<td class="asm-label">SCORING_APPLY</td>
+<td class="asm-label">Scoring_Apply</td>
 <td class="address-2"><span id="52727"></span>52727</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="3">Pass the current score digit to <a href="52675.html#52744">SCORING_BASE_10</a> and overwrite the digit with the result.</td>
+<td class="comment-1" rowspan="3">Pass the current score digit to <a href="52675.html#52744">Scoring_Base_10</a> and overwrite the digit with the result.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52728"></span>52728</td>
-<td class="instruction">CALL <a href="52675.html#52744">SCORING_BASE_10</a></td>
+<td class="instruction">CALL <a href="52675.html#52744">Scoring_Base_10</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -189,7 +189,7 @@ Applies the door scores into the player score.
 <td class="comment-1" rowspan="1">Sets a counter to $05 (5 more digits in the score).</td>
 </tr>
 <tr>
-<td class="asm-label">SCORING_APPLY_LOOP</td>
+<td class="asm-label">Scoring_Apply_Loop</td>
 <td class="address-2"><span id="52734"></span>52734</td>
 <td class="instruction">INC HL</td>
 <td class="comment-1" rowspan="1">Move onto the next scoring digit.</td>
@@ -198,12 +198,12 @@ Applies the door scores into the player score.
 <td class="asm-label"></td>
 <td class="address-1"><span id="52735"></span>52735</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="3">Pass the current score digit to <a href="52675.html#52744">SCORING_BASE_10</a> and overwrite the digit with the result.</td>
+<td class="comment-1" rowspan="3">Pass the current score digit to <a href="52675.html#52744">Scoring_Base_10</a> and overwrite the digit with the result.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52736"></span>52736</td>
-<td class="instruction">CALL <a href="52675.html#52744">SCORING_BASE_10</a></td>
+<td class="instruction">CALL <a href="52675.html#52744">Scoring_Base_10</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -214,12 +214,12 @@ Applies the door scores into the player score.
 <td class="asm-label"></td>
 <td class="address-1"><span id="52740"></span>52740</td>
 <td class="instruction">DEC E</td>
-<td class="comment-1" rowspan="2">Loop back to <a href="52675.html#52734">SCORING_APPLY_LOOP</a> until the counter is zero (and all scoring digits are accounted for).</td>
+<td class="comment-1" rowspan="2">Loop back to <a href="52675.html#52734">Scoring_Apply_Loop</a> until the counter is zero (and all scoring digits are accounted for).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52741"></span>52741</td>
-<td class="instruction">JR NZ,<a href="52675.html#52734">SCORING_APPLY_LOOP</a></td>
+<td class="instruction">JR NZ,<a href="52675.html#52734">Scoring_Apply_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -238,7 +238,7 @@ Ensures the current scoring digit remains 0-9 (if $0A then it's reset and the ca
 </td>
 </tr>
 <tr>
-<td class="asm-label">SCORING_BASE_10</td>
+<td class="asm-label">Scoring_Base_10</td>
 <td class="address-2"><span id="52744"></span>52744</td>
 <td class="instruction">ADD A,B</td>
 <td class="comment-1" rowspan="1">Adds current score digit with passed score.</td>
@@ -291,8 +291,8 @@ Next: <a href="52754.html">52754</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/CDC3.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

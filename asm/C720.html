@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>West Bank: Data at C720</title>
+<title>West Bank: Routine at C720</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
@@ -16,11 +16,11 @@ gtag('js', new Date());
 gtag('config', 'G-75RERFCHBG');
 </script>
 </head>
-<body class="Asm-b">
+<body class="Asm-c">
 <table class="header">
 <tr>
 <td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
-<td class="page-header">Data</td>
+<td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -40,14 +40,14 @@ Next: <a href="C765.html">C765</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
+Used by the routine at <a href="C7C0.html">New_Game</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">SHERIFF_STAR</td>
-<td class="address-1"><span id="c720"></span>C720</td>
+<td class="asm-label">Sheriff_Star</td>
+<td class="address-2"><span id="c720"></span>C720</td>
 <td class="instruction">LD HL,$4000</td>
 <td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
 </tr>
@@ -83,10 +83,10 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$06</td>
-<td class="centre" colspan="1" rowspan="1">$06</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">06</td>
+<td class="centre" colspan="1" rowspan="1">06</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -104,7 +104,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c734"></span>C734</td>
 <td class="instruction">LD HL,$408B</td>
-<td class="comment-1" rowspan="4">Points to <a href="F600.html">BADGE_IMAGE</a> and prints it to the screen using <a href="5B92.html">DRAW_CHARACTER</a>.</td>
+<td class="comment-1" rowspan="4">Points to <a href="F600.html">Badge_Image</a> and prints it to the screen using <a href="5B92.html">Draw_Character</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -119,13 +119,13 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c73d"></span>C73D</td>
-<td class="instruction">CALL <a href="5B92.html">DRAW_CHARACTER</a></td>
+<td class="instruction">CALL <a href="5B92.html">Draw_Character</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c740"></span>C740</td>
 <td class="instruction">LD HL,$C765</td>
-<td class="comment-1" rowspan="4">Points to <a href="C765.html">HEADER_1</a> and prints it to the screen using <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="4">Points to <a href="C765.html">Header_01</a> and prints it to the screen using <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -133,16 +133,16 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -159,13 +159,13 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c749"></span>C749</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c74c"></span>C74C</td>
 <td class="instruction">LD HL,$C784</td>
-<td class="comment-1" rowspan="4">Points to <a href="C765.html#c784">HEADER_2</a> and prints it to the screen using <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="4">Points to <a href="C765.html#c784">Header_02</a> and prints it to the screen using <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -173,16 +173,16 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -199,13 +199,13 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c755"></span>C755</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c758"></span>C758</td>
 <td class="instruction">LD HL,$C7A3</td>
-<td class="comment-1" rowspan="4">Points to <a href="C765.html#c7a3">HEADER_3</a> and prints it to the screen using <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="4">Points to <a href="C765.html#c7a3">Header_03</a> and prints it to the screen using <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -213,16 +213,16 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1">$02</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -239,7 +239,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c761"></span>C761</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -261,8 +261,8 @@ Next: <a href="C765.html">C765</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/50976.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -34,26 +34,26 @@ Next: <a href="52675.html">52675</a>
 </td>
 </tr>
 </table>
-<div class="description">52654: Draw Numbering from Character Set Index.</div>
+<div class="description">52654: Draw Numbering from Character Set Index</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="52176.html">TWO_TONE_ATTRIBUTES_BUFFER</a> and <a href="52624.html">DRAW_SCORE</a>.
+Used by the routines at <a href="52176.html">TwoTone_Attributes_Buffer</a> and <a href="52624.html">Draw_Score</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_NUMBER</td>
+<td class="asm-label">Draw_Number</td>
 <td class="address-2"><span id="52654"></span>52654</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-1" rowspan="13">Using $C000 as a base address, this works out the character set memory address from a given index passed in <span class="register">A</span>. To give an example using "2" ($25 - see <a href="52624.html">DRAW_SCORE</a>); <ul class="">
+<td class="comment-1" rowspan="13">Using $C000 as a base address, this works out the character set memory address from a given index passed in <span class="register">A</span>. To give an example using "2" ($25 - see <a href="52624.html">Draw_Score</a>); <ul class="">
 <li>Loads <strong>$25</strong> as the low-order byte; <span class="register">HL</span>=$0025</li>
 <li>Times by <strong>$10</strong>; <span class="register">HL</span>=$250</li>
-<li>Add <strong>$C000</strong>=<a href="49312.html#49744">CHAR_2</a></li>
-</ul> This is then passed to <a href="54758.html">COPY_ROUTINE</a>.</td>
+<li>Add <strong>$C000</strong>=<a href="49312.html#49744">Char_2</a></li>
+</ul> This is then passed to <a href="54758.html">Copy_Routine</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -113,7 +113,7 @@ Used by the routines at <a href="52176.html">TWO_TONE_ATTRIBUTES_BUFFER</a> and 
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52671"></span>52671</td>
-<td class="instruction">CALL <a href="54758.html">COPY_ROUTINE</a></td>
+<td class="instruction">CALL <a href="54758.html">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -135,8 +135,8 @@ Next: <a href="52675.html">52675</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/CDAE.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

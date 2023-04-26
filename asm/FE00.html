@@ -26,7 +26,7 @@ gtag('config', 'G-75RERFCHBG');
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="FD00.html">FD00</a>
+Prev: <a href="FDD1.html">FDD1</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#fe00">Map</a></td>
 <td class="next">
@@ -34,70 +34,88 @@ Next: <a href="FEEA.html">FEEA</a>
 </td>
 </tr>
 </table>
-<div class="description">FE00: Title Screen.</div>
+<div class="description">FE00: Title Screen</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
+Used by the routine at <a href="C7C0.html">New_Game</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">TITLE_SCREEN</td>
+<td class="routine-comment" colspan="5">
+<span id="fe00"></span>
+<div class="comments">
+<div class="paragraph">
+On initialisation, <span class="register">HL</span>=<a href="C7C0.html#cbb4">Copied_5B80</a>. So this section is resetting various jump aliases and game status flags to default values.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">TitleScreen</td>
 <td class="address-2"><span id="fe00"></span>FE00</td>
 <td class="instruction">LD DE,$5B80</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="5B80.html">Print_TwoToneText_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe03"></span>FE03</td>
 <td class="instruction">LD BC,$0040</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=40.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe06"></span>FE06</td>
 <td class="instruction">LDIR</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Copies 40 bytes of data from the address pointed to by <span class="register">HL</span> to the address pointed to by <span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe08"></span>FE08</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=01.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe0a"></span>FE0A</td>
 <td class="instruction">NOP</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">No-operation?</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe0b"></span>FE0B</td>
 <td class="instruction">NOP</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe0c"></span>FE0C</td>
 <td class="instruction">NOP</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe0d"></span>FE0D</td>
-<td class="instruction">CALL <a href="FE00.html#fea4">TS_DRAW_BANDIT</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="FE00.html#fea4">TitleScreen_Draw_Bandit</a></td>
+<td class="comment-1" rowspan="1">Call <a href="FE00.html#fea4">TitleScreen_Draw_Bandit</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fe10"></span>
+<div class="comments">
+<div class="paragraph">
+Write "WEST BANK" to the screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe10"></span>FE10</td>
 <td class="instruction">LD HL,$FEEA</td>
-<td class="comment-1" rowspan="4">Points to <a href="FEEA.html">TITLE_SCREEN_GAME_NAME</a> and sends it to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>.</td>
+<td class="comment-1" rowspan="4">Points to <a href="FEEA.html">TitleScreen_GameName</a> and sends it to <a href="5B80.html">Print_TwoToneText_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -112,13 +130,23 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe19"></span>FE19</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fe1c"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "0 PLAY" to the screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe1c"></span>FE1C</td>
 <td class="instruction">LD HL,$FEF4</td>
-<td class="comment-1" rowspan="3">Points to <a href="FEEA.html#fef4">TITLE_SCREEN_PLAY</a> and sends it to <a href="FE00.html#fee4">TITLE_SCREEN_PRINT</a>.</td>
+<td class="comment-1" rowspan="3">Points to <a href="FEEA.html#fef4">TitleScreen_Play</a> and sends it to <a href="FE00.html#fee4">TitleScreen_Print</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -128,91 +156,132 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe22"></span>FE22</td>
-<td class="instruction">CALL <a href="FE00.html#fee4">TITLE_SCREEN_PRINT</a></td>
+<td class="instruction">CALL <a href="FE00.html#fee4">TitleScreen_Print</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fe25"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "1 KEYS" to the screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe25"></span>FE25</td>
 <td class="instruction">LD HL,$FEFC</td>
-<td class="comment-1" rowspan="1">Points to <a href="FEEA.html#fefc">TITLE_SCREEN_KEYS</a> and sends it to <a href="FE00.html#fee4">TITLE_SCREEN_PRINT</a>.</td>
+<td class="comment-1" rowspan="3">Points to <a href="FEEA.html#fefc">TitleScreen_Keys</a> and sends it to <a href="FE00.html#fee4">TitleScreen_Print</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe28"></span>FE28</td>
 <td class="instruction">LD DE,$482B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe2b"></span>FE2B</td>
-<td class="instruction">CALL <a href="FE00.html#fee4">TITLE_SCREEN_PRINT</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="FE00.html#fee4">TitleScreen_Print</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fe2e"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "2 KEMPSTON" to the screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe2e"></span>FE2E</td>
 <td class="instruction">LD HL,$FF06</td>
-<td class="comment-1" rowspan="1">Points to <a href="FEEA.html#ff06">TITLE_SCREEN_JOYSTICK</a> and sends it to <a href="FE00.html#fee4">TITLE_SCREEN_PRINT</a>.</td>
+<td class="comment-1" rowspan="3">Points to <a href="FEEA.html#ff06">TitleScreen_Joystick</a> and sends it to <a href="FE00.html#fee4">TitleScreen_Print</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe31"></span>FE31</td>
 <td class="instruction">LD DE,$488B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe34"></span>FE34</td>
-<td class="instruction">CALL <a href="FE00.html#fee4">TITLE_SCREEN_PRINT</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="FE00.html#fee4">TitleScreen_Print</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fe37"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "N LEVEL" to the screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe37"></span>FE37</td>
 <td class="instruction">LD HL,$FF11</td>
-<td class="comment-1" rowspan="1">Points to <a href="FEEA.html#ff11">TITLE_SCREEN_LEVEL</a> and sends it to <a href="FE00.html#fee4">TITLE_SCREEN_PRINT</a>.</td>
+<td class="comment-1" rowspan="3">Points to <a href="FEEA.html#ff11">TitleScreen_Level</a> and sends it to <a href="FE00.html#fee4">TitleScreen_Print</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe3a"></span>FE3A</td>
 <td class="instruction">LD DE,$48EB</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe3d"></span>FE3D</td>
-<td class="instruction">CALL <a href="FE00.html#fee4">TITLE_SCREEN_PRINT</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="FE00.html#fee4">TitleScreen_Print</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fe40"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "PROGRAM BY ALVARO MATEOS" to the screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe40"></span>FE40</td>
 <td class="instruction">LD HL,$FF19</td>
-<td class="comment-1" rowspan="1">Points to <a href="FEEA.html#ff19">TITLE_SCREEN_AUTHOR</a> and sends it to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>.</td>
+<td class="comment-1" rowspan="4">Points to <a href="FEEA.html#ff19">TitleScreen_Author</a> and sends it to <a href="5B80.html">Print_TwoToneText_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe43"></span>FE43</td>
 <td class="instruction">LD DE,$5083</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe46"></span>FE46</td>
 <td class="instruction">LD BC,$0705</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe49"></span>FE49</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fe4c"></span>
+<div class="comments">
+<div class="paragraph">
+Writes "COPYRIGHT  DINAMIC SOFTWARE 1985" to the screen.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe4c"></span>FE4C</td>
 <td class="instruction">LD HL,$FF34</td>
-<td class="comment-1" rowspan="4">Points to <a href="FEEA.html#ff34">TITLE_SCREEN_COPYRIGHT</a> and sends it to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>.</td>
+<td class="comment-1" rowspan="4">Points to <a href="FEEA.html#ff34">TitleScreen_Copyright</a> and sends it to <a href="5B80.html">Print_TwoToneText_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -227,23 +296,23 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe55"></span>FE55</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="fe58"></span>
 <div class="comments">
 <div class="paragraph">
-Act on input.
+Act on inputs.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">TITLE_SCREEN_INPUT</td>
+<td class="asm-label">TitleScreen_Input</td>
 <td class="address-2"><span id="fe58"></span>FE58</td>
 <td class="instruction">LD A,($5CB0)</td>
-<td class="comment-1" rowspan="7">If <a href="5CB0.html">CONTROLLER</a> is zero (joystick) then <span class="register">DE</span>=$0787 else <span class="register">DE</span>=$8707. Then call the subroutine at <a href="FE00.html#fe95">TS_FLASH_TEXT</a>. The $07/ $87 correspond to white INK and white INK flashing for the selected control method. <table class="default">
+<td class="comment-1" rowspan="7">If <a href="5CB0.html">Controller</a> is zero (joystick) then <span class="register">DE</span>=$0787 else <span class="register">DE</span>=$8707. Then call the subroutine at <a href="FE00.html#fe95">TitleScreen_Flash_Text</a>. The $07/ $87 correspond to white INK and white INK flashing for the selected control method. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -252,18 +321,18 @@ Act on input.
 <th colspan="1" rowspan="1">Flash</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$87</td>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$00</td>
-<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">87</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="centre" colspan="1" rowspan="1">01</td>
 </tr>
 </table></td>
 </tr>
@@ -275,7 +344,7 @@ Act on input.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe5c"></span>FE5C</td>
-<td class="instruction">JR Z,<a href="FE00.html#fe63">TS_SELECT_KEMPSTON</a></td>
+<td class="instruction">JR Z,<a href="FE00.html#fe63">TitleScreen_Select_Kempston</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -285,29 +354,49 @@ Act on input.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe61"></span>FE61</td>
-<td class="instruction">JR <a href="FE00.html#fe66">TS_CALL_FLASH</a></td>
+<td class="instruction">JR <a href="FE00.html#fe66">TitleScreen_Call_Flash</a></td>
 </tr>
 <tr>
-<td class="asm-label">TS_SELECT_KEMPSTON</td>
+<td class="asm-label">TitleScreen_Select_Kempston</td>
 <td class="address-2"><span id="fe63"></span>FE63</td>
 <td class="instruction">LD DE,$0787</td>
 </tr>
 <tr>
-<td class="asm-label">TS_CALL_FLASH</td>
+<td class="asm-label">TitleScreen_Call_Flash</td>
 <td class="address-2"><span id="fe66"></span>FE66</td>
-<td class="instruction">CALL <a href="FE00.html#fe95">TS_FLASH_TEXT</a></td>
+<td class="instruction">CALL <a href="FE00.html#fe95">TitleScreen_Flash_Text</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe69"></span>FE69</td>
 <td class="instruction">LD HL,$5CB0</td>
-<td class="comment-1" rowspan="1">Point <span class="register">HL</span>=<a href="5CB0.html">CONTROLLER</a>.</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span>=<a href="5CB0.html">Controller</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe6c"></span>FE6C</td>
 <td class="instruction">LD A,$F7</td>
-<td class="comment-1" rowspan="2">Read keys 1, 2, 3, 4, 5.</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F7</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">5</td>
+</tr>
+</table></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -318,29 +407,49 @@ Act on input.
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe70"></span>FE70</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe86">TS_SET_KEYBOARD</a> if "1" is pressed.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe86">TitleScreen_Set_Keyboard</a> if "1" is pressed.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe71"></span>FE71</td>
-<td class="instruction">JR NC,<a href="FE00.html#fe86">TS_SET_KEYBOARD</a></td>
+<td class="instruction">JR NC,<a href="FE00.html#fe86">TitleScreen_Set_Keyboard</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe73"></span>FE73</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe8b">TS_SET_KEMPSTON</a> if "2" is pressed.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe8b">TitleScreen_Set_Kempston</a> if "2" is pressed.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe74"></span>FE74</td>
-<td class="instruction">JR NC,<a href="FE00.html#fe8b">TS_SET_KEMPSTON</a></td>
+<td class="instruction">JR NC,<a href="FE00.html#fe8b">TitleScreen_Set_Kempston</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe76"></span>FE76</td>
 <td class="instruction">LD A,$7F</td>
-<td class="comment-1" rowspan="2">Read keys SPACE, FULL-STOP, M, N, &amp; B.</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">$7F</td>
+<td class="centre" colspan="1" rowspan="1">SPACE</td>
+<td class="centre" colspan="1" rowspan="1">FULL-STOP</td>
+<td class="centre" colspan="1" rowspan="1">M</td>
+<td class="centre" colspan="1" rowspan="1">N</td>
+<td class="centre" colspan="1" rowspan="1">B</td>
+</tr>
+</table></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -351,18 +460,38 @@ Act on input.
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe7a"></span>FE7A</td>
 <td class="instruction">BIT 3,A</td>
-<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe8f">TS_SELECT_LEVEL</a> if "N" is pressed.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="FE00.html#fe8f">TitleScreen_Select_Level</a> if "N" is pressed.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe7c"></span>FE7C</td>
-<td class="instruction">JR Z,<a href="FE00.html#fe8f">TS_SELECT_LEVEL</a></td>
+<td class="instruction">JR Z,<a href="FE00.html#fe8f">TitleScreen_Select_Level</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe7e"></span>FE7E</td>
 <td class="instruction">LD A,$EF</td>
-<td class="comment-1" rowspan="2">Read keys 0, 9, 8, 7, 6.</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">EF</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">9</td>
+<td class="centre" colspan="1" rowspan="1">8</td>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">6</td>
+</tr>
+</table></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -373,7 +502,7 @@ Act on input.
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe82"></span>FE82</td>
 <td class="instruction">RRA</td>
-<td class="comment-1" rowspan="3">Return if "0" is pressed, else loop back around to <a href="FE00.html#fe58">TITLE_SCREEN_INPUT</a>.</td>
+<td class="comment-1" rowspan="3">Return if "0" is pressed, else loop back around to <a href="FE00.html#fe58">TitleScreen_Input</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -383,13 +512,23 @@ Act on input.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe84"></span>FE84</td>
-<td class="instruction">JR <a href="FE00.html#fe58">TITLE_SCREEN_INPUT</a></td>
+<td class="instruction">JR <a href="FE00.html#fe58">TitleScreen_Input</a></td>
 </tr>
 <tr>
-<td class="asm-label">TS_SET_KEYBOARD</td>
+<td class="routine-comment" colspan="5">
+<span id="fe86"></span>
+<div class="comments">
+<div class="paragraph">
+Keyboard has been selected so "highlight" it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">TitleScreen_Set_Keyboard</td>
 <td class="address-2"><span id="fe86"></span>FE86</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="3">Writes $01 to <a href="5CB0.html">CONTROLLER</a> and loop back around to <a href="FE00.html#fe58">TITLE_SCREEN_INPUT</a>.</td>
+<td class="comment-1" rowspan="3">Writes $01 to <a href="5CB0.html">Controller</a> and loop back around to <a href="FE00.html#fe58">TitleScreen_Input</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -399,13 +538,23 @@ Act on input.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe89"></span>FE89</td>
-<td class="instruction">JR <a href="FE00.html#fe58">TITLE_SCREEN_INPUT</a></td>
+<td class="instruction">JR <a href="FE00.html#fe58">TitleScreen_Input</a></td>
 </tr>
 <tr>
-<td class="asm-label">TS_SET_KEMPSTON</td>
+<td class="routine-comment" colspan="5">
+<span id="fe8b"></span>
+<div class="comments">
+<div class="paragraph">
+Kempston joystick has been selected so "highlight" it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">TitleScreen_Set_Kempston</td>
 <td class="address-2"><span id="fe8b"></span>FE8B</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="3">Writes $00 to <a href="5CB0.html">CONTROLLER</a> and loop back around to <a href="FE00.html#fe58">TITLE_SCREEN_INPUT</a>.</td>
+<td class="comment-1" rowspan="3">Writes $00 to <a href="5CB0.html">Controller</a> and loop back around to <a href="FE00.html#fe58">TitleScreen_Input</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -415,21 +564,31 @@ Act on input.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe8d"></span>FE8D</td>
-<td class="instruction">JR <a href="FE00.html#fe58">TITLE_SCREEN_INPUT</a></td>
+<td class="instruction">JR <a href="FE00.html#fe58">TitleScreen_Input</a></td>
 </tr>
 <tr>
-<td class="asm-label">TS_SELECT_LEVEL</td>
+<td class="routine-comment" colspan="5">
+<span id="fe8f"></span>
+<div class="comments">
+<div class="paragraph">
+Handles "level section".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">TitleScreen_Select_Level</td>
 <td class="address-2"><span id="fe8f"></span>FE8F</td>
 <td class="instruction">LD HL,$5B80</td>
-<td class="comment-1" rowspan="2">Jump to <a href="6380.html">LEVEL_SELECT</a> with <span class="register">HL</span>=<a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="6380.html">LevelSelect</a> with <span class="register">HL</span>=<a href="5B80.html">Print_TwoToneText_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fe92"></span>FE92</td>
-<td class="instruction">JP <a href="6380.html">LEVEL_SELECT</a></td>
+<td class="instruction">JP <a href="6380.html">LevelSelect</a></td>
 </tr>
 <tr>
-<td class="asm-label">TS_FLASH_TEXT</td>
+<td class="asm-label">TitleScreen_Flash_Text</td>
 <td class="address-2"><span id="fe95"></span>FE95</td>
 <td class="instruction">LD BC,$0020</td>
 <td class="comment-1" rowspan="10">ggg</td>
@@ -496,15 +655,15 @@ Draw bandits.
 </td>
 </tr>
 <tr>
-<td class="asm-label">TS_DRAW_BANDIT</td>
+<td class="asm-label">TitleScreen_Draw_Bandit</td>
 <td class="address-2"><span id="fea4"></span>FEA4</td>
 <td class="instruction">LD HL,$58C1</td>
-<td class="comment-1" rowspan="10">Sets attributes on the left and right of the screen and points <span class="register">DE</span> at <a href="6800.html">CHARACTER_00</a>.</td>
+<td class="comment-1" rowspan="10">Sets attributes on the left and right of the screen and points <span class="register">DE</span> at <a href="6800.html">Character_00</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fea7"></span>FEA7</td>
-<td class="instruction">CALL <a href="FE00.html#fec3">TS_BANDIT_ATTRIBUTES</a></td>
+<td class="instruction">CALL <a href="FE00.html#fec3">TitleScreen_Bandit_Attributes</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -514,7 +673,7 @@ Draw bandits.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fead"></span>FEAD</td>
-<td class="instruction">CALL <a href="FE00.html#fec3">TS_BANDIT_ATTRIBUTES</a></td>
+<td class="instruction">CALL <a href="FE00.html#fec3">TitleScreen_Bandit_Attributes</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -524,7 +683,7 @@ Draw bandits.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="feb3"></span>FEB3</td>
-<td class="instruction">CALL <a href="FE00.html#feb9">TITLE_SCREEN_0</a></td>
+<td class="instruction">CALL <a href="FE00.html#feb9">TitleScreen_0</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -532,7 +691,7 @@ Draw bandits.
 <td class="instruction">LD HL,$40D9</td>
 </tr>
 <tr>
-<td class="asm-label">TITLE_SCREEN_0</td>
+<td class="asm-label">TitleScreen_0</td>
 <td class="address-2"><span id="feb9"></span>FEB9</td>
 <td class="instruction">LD DE,$6800</td>
 </tr>
@@ -549,14 +708,14 @@ Draw bandits.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fec0"></span>FEC0</td>
-<td class="instruction">JP <a href="5B92.html">DRAW_CHARACTER</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="5B92.html">DRAW_CHARACTER</a>.</td>
+<td class="instruction">JP <a href="5B92.html">Draw_Character</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="5B92.html">Draw_Character</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">TS_BANDIT_ATTRIBUTES</td>
+<td class="asm-label">TitleScreen_Bandit_Attributes</td>
 <td class="address-2"><span id="fec3"></span>FEC3</td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-1" rowspan="3">Calls <a href="FE00.html#fece">TS_BANDIT_ATTR_LOOP</a> with <span class="register">B</span>=$08 and <span class="register">A</span>=$28.</td>
+<td class="comment-1" rowspan="3">Calls <a href="FE00.html#fece">TitleScreen_Bandit_Attributes_Loop</a> with <span class="register">B</span>=$08 and <span class="register">A</span>=$28.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -566,13 +725,13 @@ Draw bandits.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fec7"></span>FEC7</td>
-<td class="instruction">CALL <a href="FE00.html#fece">TS_BANDIT_ATTR_LOOP</a></td>
+<td class="instruction">CALL <a href="FE00.html#fece">TitleScreen_Bandit_Attributes_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="feca"></span>FECA</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-1" rowspan="3">Calls <a href="FE00.html#feda">TS_BANDIT_ATTR_COPY</a> with <span class="register">B</span>=$03 and <span class="register">A</span>=$20.</td>
+<td class="comment-1" rowspan="3">Calls <a href="FE00.html#feda">TitleScreen_Bandit_Attributes_Copy</a> with <span class="register">B</span>=$03 and <span class="register">A</span>=$20.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -580,14 +739,14 @@ Draw bandits.
 <td class="instruction">LD A,$20</td>
 </tr>
 <tr>
-<td class="asm-label">TS_BANDIT_ATTR_LOOP</td>
+<td class="asm-label">TitleScreen_Bandit_Attributes_Loop</td>
 <td class="address-2"><span id="fece"></span>FECE</td>
 <td class="instruction">PUSH BC</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fecf"></span>FECF</td>
-<td class="instruction">CALL <a href="FE00.html#feda">TS_BANDIT_ATTR_COPY</a></td>
+<td class="instruction">CALL <a href="FE00.html#feda">TitleScreen_Bandit_Attributes_Copy</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -611,7 +770,7 @@ Draw bandits.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fed7"></span>FED7</td>
-<td class="instruction">DJNZ <a href="FE00.html#fece">TS_BANDIT_ATTR_LOOP</a></td>
+<td class="instruction">DJNZ <a href="FE00.html#fece">TitleScreen_Bandit_Attributes_Loop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -621,7 +780,7 @@ Draw bandits.
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">TS_BANDIT_ATTR_COPY</td>
+<td class="asm-label">TitleScreen_Bandit_Attributes_Copy</td>
 <td class="address-2"><span id="feda"></span>FEDA</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
@@ -663,21 +822,21 @@ Draw bandits.
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">TITLE_SCREEN_PRINT</td>
+<td class="asm-label">TitleScreen_Print</td>
 <td class="address-2"><span id="fee4"></span>FEE4</td>
 <td class="instruction">LD BC,$0702</td>
-<td class="comment-1" rowspan="2"><span class="register">B</span>=$07, <span class="register">C</span>=$02 and jump to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">B</span>=$07, <span class="register">C</span>=$02 and jump to <a href="5B80.html">Print_TwoToneText_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fee7"></span>FEE7</td>
-<td class="instruction">JP <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">JP <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="FD00.html">FD00</a>
+Prev: <a href="FDD1.html">FDD1</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#fe00">Map</a></td>
 <td class="next">
@@ -687,8 +846,8 @@ Next: <a href="FEEA.html">FEEA</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/65024.html">Switch to decimal</a>.</div>
 </footer>
 </body>

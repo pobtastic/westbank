@@ -34,13 +34,13 @@ Next: <a href="54778.html">54778</a>
 </td>
 </tr>
 </table>
-<div class="description">54758: Copy Routine.</div>
+<div class="description">54758: Copy Routine</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="23442.html">DRAW_CHARACTER</a>, <a href="49920.html">DRAW_PLAYFIELD</a>, <a href="52176.html">TWO_TONE_ATTRIBUTES_BUFFER</a>, <a href="52314.html">LIFE_IMAGES</a>, <a href="52379.html">52379</a>, <a href="52654.html">DRAW_NUMBER</a>, <a href="54730.html">DRAW_CHARACTER_IN_DOORWAY</a> and <a href="54884.html">DRAW_DOOR_FRAME_1</a>.
+Used by the routines at <a href="23442.html">Draw_Character</a>, <a href="49920.html">Draw_Playfield</a>, <a href="52176.html">TwoTone_Attributes_Buffer</a>, <a href="52314.html">Life_Images</a>, <a href="52379.html">52379</a>, <a href="52654.html">Draw_Number</a>, <a href="54730.html">Draw_CharacterInDoorway</a> and <a href="54884.html">Draw_DoorFrame1</a>.
 </div>
 </div>
 </td>
@@ -56,7 +56,7 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 </td>
 </tr>
 <tr>
-<td class="asm-label">COPY_ROUTINE</td>
+<td class="asm-label">Copy_Routine</td>
 <td class="address-2"><span id="54758"></span>54758</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="5">Copies bytes from <span class="register">DE</span> TO <span class="register">HL</span> x <span class="register">C</span> number of times.</td>
@@ -111,18 +111,18 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54771"></span>54771</td>
-<td class="instruction">CALL Z,<a href="54800.html">CALC_ATTR</a></td>
+<td class="instruction">CALL Z,<a href="54800.html">Calc_Attribute</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54774"></span>54774</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="2">Grabs <span class="register">B</span> and decreases it by one. Loop back round to <a href="54758.html">COPY_ROUTINE</a> if <span class="register">B</span> is not zero.</td>
+<td class="comment-1" rowspan="2">Grabs <span class="register">B</span> and decreases it by one. Loop back round to <a href="54758.html">Copy_Routine</a> if <span class="register">B</span> is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="54775"></span>54775</td>
-<td class="instruction">DJNZ <a href="54758.html#54758">COPY_ROUTINE</a></td>
+<td class="instruction">DJNZ <a href="54758.html#54758">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -144,8 +144,8 @@ Next: <a href="54778.html">54778</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/D5E6.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

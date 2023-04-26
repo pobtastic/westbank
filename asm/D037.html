@@ -43,7 +43,7 @@ Next: <a href="D076.html">D076</a>
 </td>
 </tr>
 <tr>
-<td class="asm-label">TODO_DOOR_RESET</td>
+<td class="asm-label">Todo_Door_Reset</td>
 <td class="address-2"><span id="d037"></span>D037</td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-1" rowspan="4">Writes $01 to the address contained at (depending on which door is currently being actioned); <table class="default">
@@ -52,15 +52,15 @@ Next: <a href="D076.html">D076</a>
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">DOOR_1_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">Door_Char_Buffer_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">DOOR_2_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">Door_Char_Buffer_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">DOOR_3_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">Door_Char_Buffer_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table> This is the first byte of character state data.</td>
@@ -84,26 +84,26 @@ Next: <a href="D076.html">D076</a>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d040"></span>D040</td>
 <td class="instruction">LD DE,$D2AD</td>
-<td class="comment-1" rowspan="6">Writes <a href="D192.html#d2ad">PREP_BANDIT_DRAW_CLOSE</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="6">Writes <a href="D192.html#d2ad">Prep_Bandit_Draw_Close</a> to the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
 <th colspan="1" rowspan="1">Target</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html">DOOR_1_FLAGS</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html">Door_Flags_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">DOOR_1_ROUTINE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html">Door_Routine_01</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html">DOOR_2_FLAGS</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html">Door_Flags_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">DOOR_2_ROUTINE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce16">Door_Routine_02</a></td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html">DOOR_3_FLAGS</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html">Door_Flags_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">DOOR_3_ROUTINE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE14.html#ce18">Door_Routine_03</a></td>
 </tr>
 </table> This is copying the actual source data into the cache where it can be manipulated by the game events.</td>
 </tr>
@@ -143,18 +143,18 @@ Next: <a href="D076.html">D076</a>
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">DOOR_1_CHAR_BUFFER</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">DOOR_1_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">Door_Char_Buffer_01</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d167">Door_Source_01</a></td>
 <td class="" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">DOOR_2_CHAR_BUFFER</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">DOOR_2_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">Door_Char_Buffer_02</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d175">Door_Source_02</a></td>
 <td class="" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">DOOR_3_CHAR_BUFFER</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">DOOR_3_SOURCE</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">Door_Char_Buffer_03</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d183">Door_Source_03</a></td>
 <td class="" colspan="1" rowspan="1">Door 3</td>
 </tr>
 </table></td>
@@ -205,18 +205,18 @@ Next: <a href="D076.html">D076</a>
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">DOOR_1_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D165.html#d16f">Door_Char_Buffer_01</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 1</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">DOOR_2_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D173.html#d17d">Door_Char_Buffer_02</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 2</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">DOOR_3_CHAR_BUFFER</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D181.html#d18b">Door_Char_Buffer_03</a></td>
 <td class="centre" colspan="1" rowspan="1">Door 3</td>
 </tr>
-</table> As per <a href="D037.html">TODO_DOOR_RESET</a>, this should be $01.</td>
+</table> As per <a href="D037.html">Todo_Door_Reset</a>, this should be $01.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -278,8 +278,8 @@ Next: <a href="D076.html">D076</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/53303.html">Switch to decimal</a>.</div>
 </footer>
 </body>

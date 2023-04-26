@@ -34,19 +34,19 @@ Next: <a href="D610.html">D610</a>
 </td>
 </tr>
 </table>
-<div class="description">D5FA: Merge Gun Shot Onto Background.</div>
+<div class="description">D5FA: Merge Gun Shot Onto Background</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="5B95.html">MERGE_SHOT_ALIAS</a>, <a href="D3B4.html">DRAW_SHOT_MASK</a> and <a href="D3CB.html">DRAW_GUN_SHOT</a>.
+Used by the routines at <a href="5B95.html">Merge_Shot_Alias</a>, <a href="D3B4.html">Draw_GunShot_Mask</a> and <a href="D3CB.html">Draw_GunShot</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">MERGE_SHOT</td>
+<td class="asm-label">Merge_Shot</td>
 <td class="address-2"><span id="d5fa"></span>D5FA</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="2">Store <span class="register">BC</span> and <span class="register">HL</span> for later.</td>
@@ -57,7 +57,7 @@ Used by the routines at <a href="5B95.html">MERGE_SHOT_ALIAS</a>, <a href="D3B4.
 <td class="instruction">PUSH HL</td>
 </tr>
 <tr>
-<td class="asm-label">MERGE_SHOT_LOOP</td>
+<td class="asm-label">Merge_Shot_Loop</td>
 <td class="address-2"><span id="d5fc"></span>D5FC</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-1" rowspan="1">Loads the contents of the source address held in <span class="register">DE</span>.</td>
@@ -104,7 +104,7 @@ Used by the routines at <a href="5B95.html">MERGE_SHOT_ALIAS</a>, <a href="D3B4.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5ff"></span>D5FF</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="4">Increase the source and destination addresses by one, decrease the counter by one. Loop back to <a href="D5FA.html#d5fc">MERGE_SHOT_LOOP</a> until the <span class="register">C</span> counter is zero.</td>
+<td class="comment-1" rowspan="4">Increase the source and destination addresses by one, decrease the counter by one. Loop back to <a href="D5FA.html#d5fc">Merge_Shot_Loop</a> until the <span class="register">C</span> counter is zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -119,7 +119,7 @@ Used by the routines at <a href="5B95.html">MERGE_SHOT_ALIAS</a>, <a href="D3B4.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d602"></span>D602</td>
-<td class="instruction">JR NZ,<a href="D5FA.html#d5fc">MERGE_SHOT_LOOP</a></td>
+<td class="instruction">JR NZ,<a href="D5FA.html#d5fc">Merge_Shot_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -131,7 +131,7 @@ Used by the routines at <a href="5B95.html">MERGE_SHOT_ALIAS</a>, <a href="D3B4.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d605"></span>D605</td>
 <td class="instruction">INC H</td>
-<td class="comment-1" rowspan="4">Increase the high-order byte of <span class="register">HL</span> by one, if this is on a screen third boundary (@todo what's the term for this?) then call <a href="D610.html">CALC_ATTR</a>.</td>
+<td class="comment-1" rowspan="4">Increase the high-order byte of <span class="register">HL</span> by one, if this is on a screen third boundary (@todo what's the term for this?) then call <a href="D610.html">Calc_Attribute</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -146,18 +146,18 @@ Used by the routines at <a href="5B95.html">MERGE_SHOT_ALIAS</a>, <a href="D3B4.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d609"></span>D609</td>
-<td class="instruction">CALL Z,<a href="D610.html">CALC_ATTR</a></td>
+<td class="instruction">CALL Z,<a href="D610.html">Calc_Attribute</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d60c"></span>D60C</td>
 <td class="instruction">POP BC</td>
-<td class="comment-1" rowspan="2">Decrease the <span class="register">B</span> counter by one and loop back to <a href="D5FA.html">MERGE_SHOT</a> until it is zero.</td>
+<td class="comment-1" rowspan="2">Decrease the <span class="register">B</span> counter by one and loop back to <a href="D5FA.html">Merge_Shot</a> until it is zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d60d"></span>D60D</td>
-<td class="instruction">DJNZ <a href="D5FA.html#d5fa">MERGE_SHOT</a></td>
+<td class="instruction">DJNZ <a href="D5FA.html#d5fa">Merge_Shot</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -179,8 +179,8 @@ Next: <a href="D610.html">D610</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/54778.html">Switch to decimal</a>.</div>
 </footer>
 </body>

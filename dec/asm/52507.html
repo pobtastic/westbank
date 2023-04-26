@@ -34,19 +34,19 @@ Next: <a href="52551.html">52551</a>
 </td>
 </tr>
 </table>
-<div class="description">52507: Flash Lives/ Lose Life.</div>
+<div class="description">52507: Flash Lives/ Lose Life</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="51136.html">NEW_GAME</a>.
+Used by the routine at <a href="51136.html">New_Game</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">FLASH_LIVES</td>
+<td class="asm-label">Flash_Lives</td>
 <td class="address-2"><span id="52507"></span>52507</td>
 <td class="instruction">LD B,10</td>
 <td class="comment-1" rowspan="2">Short pause.</td>
@@ -54,13 +54,13 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52509"></span>52509</td>
-<td class="instruction">CALL <a href="52580.html">HALT_LOOP</a></td>
+<td class="instruction">CALL <a href="52580.html">Halt_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52512"></span>52512</td>
 <td class="instruction">LD HL,52313</td>
-<td class="comment-1" rowspan="3">Point to <a href="52313.html">LIVES</a>. Set a counter for $05 times and stash it.</td>
+<td class="comment-1" rowspan="3">Point to <a href="52313.html">Lives</a>. Set a counter for $05 times and stash it.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -68,7 +68,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <td class="instruction">LD B,5</td>
 </tr>
 <tr>
-<td class="asm-label">FLASH_LIVES_LOOP</td>
+<td class="asm-label">Flash_Lives_Loop</td>
 <td class="address-2"><span id="52517"></span>52517</td>
 <td class="instruction">PUSH BC</td>
 </tr>
@@ -86,7 +86,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52520"></span>52520</td>
-<td class="instruction">CALL <a href="52314.html">LIFE_IMAGES</a></td>
+<td class="instruction">CALL <a href="52314.html">Life_Images</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -97,7 +97,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52525"></span>52525</td>
-<td class="instruction">CALL <a href="52580.html">HALT_LOOP</a></td>
+<td class="instruction">CALL <a href="52580.html">Halt_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -118,7 +118,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52531"></span>52531</td>
-<td class="instruction">CALL <a href="52314.html">LIFE_IMAGES</a></td>
+<td class="instruction">CALL <a href="52314.html">Life_Images</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -129,7 +129,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52536"></span>52536</td>
-<td class="instruction">CALL <a href="52580.html">HALT_LOOP</a></td>
+<td class="instruction">CALL <a href="52580.html">Halt_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -146,13 +146,13 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52541"></span>52541</td>
-<td class="instruction">DJNZ <a href="52507.html#52517">FLASH_LIVES_LOOP</a></td>
+<td class="instruction">DJNZ <a href="52507.html#52517">Flash_Lives_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52543"></span>52543</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="4">Finally decrease lives by one and if they are not zero jump to <a href="51136.html#51915">NEW_GAME_8</a>.</td>
+<td class="comment-1" rowspan="4">Finally decrease lives by one and if they are not zero jump to <a href="51136.html#51915">New_Game_8</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -167,7 +167,7 @@ Used by the routine at <a href="51136.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="52546"></span>52546</td>
-<td class="instruction">JP NZ,<a href="51136.html#51915">NEW_GAME_8</a></td>
+<td class="instruction">JP NZ,<a href="51136.html#51915">New_Game_8</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -194,8 +194,8 @@ Next: <a href="52551.html">52551</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../asm/CD1B.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

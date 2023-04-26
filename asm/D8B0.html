@@ -40,7 +40,7 @@ Next: <a href="D8E5.html">D8E5</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="C7C0.html">NEW_GAME</a>, <a href="CE21.html">CHARACTER_CHOOSER</a>, <a href="CEB8.html">INIT_BANDIT_OPEN</a> and <a href="DAEF.html">DAEF</a>.
+Used by the routines at <a href="C7C0.html">New_Game</a>, <a href="CE21.html">Character_Chooser</a>, <a href="CEB8.html">Init_Bandit_Open</a> and <a href="DAEF.html">DAEF</a>.
 </div>
 </div>
 </td>
@@ -56,7 +56,7 @@ f
 </td>
 </tr>
 <tr>
-<td class="asm-label">RANDOM_NUMBER</td>
+<td class="asm-label">Random_Number</td>
 <td class="address-2"><span id="d8b0"></span>D8B0</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="2">Stashes <span class="register">BC</span> and <span class="register">HL</span> for later.</td>
@@ -85,8 +85,8 @@ f
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d8b9"></span>D8B9</td>
-<td class="instruction">JR NZ,<a href="D8B0.html#d8c8">RANDOM_NUMBER_1</a></td>
-<td class="comment-1" rowspan="1">If the result is not zero jump to <a href="D8B0.html#d8c8">RANDOM_NUMBER_1</a>.</td>
+<td class="instruction">JR NZ,<a href="D8B0.html#d8c8">Random_Number_01</a></td>
+<td class="comment-1" rowspan="1">If the result is not zero jump to <a href="D8B0.html#d8c8">Random_Number_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -145,11 +145,11 @@ f
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d8c6"></span>D8C6</td>
-<td class="instruction">JR <a href="D8B0.html#d8d7">RANDOM_NUMBER_2</a></td>
+<td class="instruction">JR <a href="D8B0.html#d8d7">Random_Number_02</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">RANDOM_NUMBER_1</td>
+<td class="asm-label">Random_Number_01</td>
 <td class="address-2"><span id="d8c8"></span>D8C8</td>
 <td class="instruction">LD HL,($D8AC)</td>
 <td class="comment-1" rowspan="1"></td>
@@ -227,7 +227,7 @@ f
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">RANDOM_NUMBER_2</td>
+<td class="asm-label">Random_Number_02</td>
 <td class="address-2"><span id="d8d7"></span>D8D7</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-1" rowspan="1"></td>
@@ -300,8 +300,8 @@ Next: <a href="D8E5.html">D8E5</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/55472.html">Switch to decimal</a>.</div>
 </footer>
 </body>

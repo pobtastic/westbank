@@ -34,48 +34,62 @@ Next: <a href="CC8D.html">CC8D</a>
 </td>
 </tr>
 </table>
-<div class="description">CC5A: Display The "Life" Images.</div>
+<div class="description">CC5A: Display The "Life" Images</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a>, <a href="C7C0.html">NEW_GAME</a> and <a href="CD1B.html">FLASH_LIVES</a>.
+Used by the routines at <a href="5B83.html">Draw_Lives_Images_Alias</a>, <a href="C7C0.html">New_Game</a> and <a href="CD1B.html">Flash_Lives</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">LIFE_IMAGES</td>
+<td class="routine-comment" colspan="5">
+<span id="cc5a"></span>
+<div class="comments">
+<div class="paragraph">
+Set up counter=$05 screen buffer=$50B6.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Life_Images</td>
 <td class="address-2"><span id="cc5a"></span>CC5A</td>
 <td class="instruction">LD B,$05</td>
-<td class="comment-1" rowspan="2">Set up counter=$05 screen buffer=$50B6.</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=$05.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc5c"></span>CC5C</td>
 <td class="instruction">LD HL,$50B6</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=$50B6.</td>
 </tr>
 <tr>
-<td class="asm-label">LIFE_IMAGES_LOOP</td>
+<td class="asm-label">Life_Images_Loop</td>
 <td class="address-2"><span id="cc5f"></span>CC5F</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="7">jjjss</td>
+<td class="comment-1" rowspan="1">Push the counter onto the stack.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc60"></span>CC60</td>
 <td class="instruction">LD DE,$5B00</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="5B00.html">BufferGeneral</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc63"></span>CC63</td>
-<td class="instruction">CALL <a href="CC5A.html#cc84">COPY_ROUTINE_LOOP</a></td>
+<td class="instruction">CALL <a href="CC5A.html#cc84">Copy_RoutineLoop</a></td>
+<td class="comment-1" rowspan="1">Call <a href="CC5A.html#cc84">Copy_RoutineLoop</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc66"></span>CC66</td>
 <td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Increase <span class="register">HL</span> by two.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -86,17 +100,19 @@ Used by the routines at <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a>, <a href=
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc68"></span>CC68</td>
 <td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore the counter off the stack.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc69"></span>CC69</td>
-<td class="instruction">DJNZ <a href="CC5A.html#cc5f">LIFE_IMAGES_LOOP</a></td>
+<td class="instruction">DJNZ <a href="CC5A.html#cc5f">Life_Images_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="CC5A.html#cc5f">Life_Images_Loop</a> until counter is zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc6b"></span>CC6B</td>
 <td class="instruction">LD A,($CC59)</td>
-<td class="comment-1" rowspan="3">If <a href="CC59.html">LIVES</a> are zero then return.</td>
+<td class="comment-1" rowspan="3">If <a href="CC59.html">Lives</a> are zero then return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -112,7 +128,7 @@ Used by the routines at <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a>, <a href=
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc70"></span>CC70</td>
 <td class="instruction">CP $06</td>
-<td class="comment-1" rowspan="2">If <a href="CC59.html">LIVES</a> is more than or equal to "6" then return.</td>
+<td class="comment-1" rowspan="2">If <a href="CC59.html">Lives</a> is more than or equal to "06" then return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -132,7 +148,7 @@ Used by the routines at <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a>, <a href=
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_LIFE_IMAGES_LOOP</td>
+<td class="asm-label">Draw_LivesLoop</td>
 <td class="address-2"><span id="cc77"></span>CC77</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="1"></td>
@@ -140,7 +156,7 @@ Used by the routines at <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a>, <a href=
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc78"></span>CC78</td>
-<td class="instruction">CALL <a href="CC5A.html#cc81">DRAW_LIFE_IMAGES</a></td>
+<td class="instruction">CALL <a href="CC5A.html#cc81">Draw_Lives_Images</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -164,7 +180,7 @@ Used by the routines at <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a>, <a href=
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc7e"></span>CC7E</td>
-<td class="instruction">DJNZ <a href="CC5A.html#cc77">DRAW_LIFE_IMAGES_LOOP</a></td>
+<td class="instruction">DJNZ <a href="CC5A.html#cc77">Draw_LivesLoop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -174,13 +190,13 @@ Used by the routines at <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a>, <a href=
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_LIFE_IMAGES</td>
+<td class="asm-label">Draw_Lives_Images</td>
 <td class="address-2"><span id="cc81"></span>CC81</td>
 <td class="instruction">LD DE,$FFB8</td>
-<td class="comment-1" rowspan="4">Point at the <a href="FFB8.html">LIVES_IMAGE</a> and call <a href="D5E6.html">COPY_ROUTINE</a>.</td>
+<td class="comment-1" rowspan="4">Point at the <a href="FFB8.html">Lives_Image</a> and call <a href="D5E6.html">Copy_Routine</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">COPY_ROUTINE_LOOP</td>
+<td class="asm-label">Copy_RoutineLoop</td>
 <td class="address-2"><span id="cc84"></span>CC84</td>
 <td class="instruction">PUSH HL</td>
 </tr>
@@ -192,7 +208,7 @@ Used by the routines at <a href="5B83.html">DRAW_LIFE_IMAGES_ALIAS</a>, <a href=
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc88"></span>CC88</td>
-<td class="instruction">CALL <a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">CALL <a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -220,8 +236,8 @@ Next: <a href="CC8D.html">CC8D</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/52314.html">Switch to decimal</a>.</div>
 </footer>
 </body>

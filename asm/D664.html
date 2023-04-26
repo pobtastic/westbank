@@ -34,13 +34,13 @@ Next: <a href="D71E.html">D71E</a>
 </td>
 </tr>
 </table>
-<div class="description">D664: Draw Doors.</div>
+<div class="description">D664: Draw Doors</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="CC3A.html">DRAW_PLAY_WITH_DOORS</a>, <a href="D48F.html">CUSTOMER_FRAME_1</a>, <a href="D71E.html">BANDIT_STATE_REF</a>, <a href="D7C5.html">BOWIE_GOOD_BAD</a>, <a href="D8E5.html">JULIUS_GOOD_BAD</a> and <a href="DA0C.html">BANDIT_DRAW</a>.
+Used by the routines at <a href="CC3A.html">Draw_PlayWithDoors</a>, <a href="D48F.html">Customer_Frame_01</a>, <a href="D71E.html">Bandit_State_Reference</a>, <a href="D7C5.html">Bowie_Good_Bad</a>, <a href="D8E5.html">Julius_Good_Bad</a> and <a href="DA0C.html">Bandit_Draw</a>.
 </div>
 </div>
 </td>
@@ -56,37 +56,37 @@ Preps door frame 1.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_DOOR_FRAME_1</td>
+<td class="asm-label">Draw_DoorFrame1</td>
 <td class="address-2"><span id="d664"></span>D664</td>
 <td class="instruction">LD HL,$D6B1</td>
-<td class="comment-1" rowspan="2">Calls <a href="D664.html#d684">DOOR_ATTRIBUTES</a> using <a href="D664.html#d6b1">DOOR_1_ATTRIBUTES</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="D664.html#d684">Door_Attributes</a> using <a href="D664.html#d6b1">Door_Attributes_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d667"></span>D667</td>
-<td class="instruction">CALL <a href="D664.html#d684">DOOR_ATTRIBUTES</a></td>
+<td class="instruction">CALL <a href="D664.html#d684">Door_Attributes</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d66a"></span>D66A</td>
 <td class="instruction">LD DE,$BA80</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="BA80.html">DOOR_FRAME_1</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="BA80.html">Door_Frame_01</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
 <span id="d66d"></span>
 <div class="comments">
 <div class="paragraph">
-Referencing the door frame index, work out the screen position and send it to the <a href="D664.html#d717">DRAW_DOOR_FRAME</a> routine.
+Referencing the door frame index, work out the screen position and send it to the <a href="D664.html#d717">Draw_DoorFrame</a> routine.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PREP_DOOR_FRAME</td>
+<td class="asm-label">Prep_Door_Frame</td>
 <td class="address-2"><span id="d66d"></span>D66D</td>
 <td class="instruction">LD A,($CE1A)</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="CE1A.html">DOOR_FRAME_REF</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="CE1A.html">Door_Frame_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -98,18 +98,18 @@ Referencing the door frame index, work out the screen position and send it to th
 <th colspan="1" rowspan="1">Screen Address</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">01</td>
 <td class="centre" colspan="1" rowspan="1">$4082</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
 <td class="centre" colspan="1" rowspan="1">$408D</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
 <td class="centre" colspan="1" rowspan="1">$4098</td>
 </tr>
-</table> Jump to <a href="D664.html#d717">DRAW_DOOR_FRAME</a>.</td>
+</table> Jump to <a href="D664.html#d717">Draw_DoorFrame</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -119,7 +119,7 @@ Referencing the door frame index, work out the screen position and send it to th
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d674"></span>D674</td>
-<td class="instruction">JP Z,<a href="D664.html#d717">DRAW_DOOR_FRAME</a></td>
+<td class="instruction">JP Z,<a href="D664.html#d717">Draw_DoorFrame</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -134,7 +134,7 @@ Referencing the door frame index, work out the screen position and send it to th
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d67b"></span>D67B</td>
-<td class="instruction">JP Z,<a href="D664.html#d717">DRAW_DOOR_FRAME</a></td>
+<td class="instruction">JP Z,<a href="D664.html#d717">Draw_DoorFrame</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -144,7 +144,7 @@ Referencing the door frame index, work out the screen position and send it to th
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d681"></span>D681</td>
-<td class="instruction">JP <a href="D664.html#d717">DRAW_DOOR_FRAME</a></td>
+<td class="instruction">JP <a href="D664.html#d717">Draw_DoorFrame</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -157,7 +157,7 @@ Copies attributes for the current door frame index.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_ATTRIBUTES</td>
+<td class="asm-label">Door_Attributes</td>
 <td class="address-2"><span id="d684"></span>D684</td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-1" rowspan="1">Stash the accumulator for later.</td>
@@ -166,7 +166,7 @@ Copies attributes for the current door frame index.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d685"></span>D685</td>
 <td class="instruction">LD A,($CE1A)</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="CE1A.html">DOOR_FRAME_REF</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="CE1A.html">Door_Frame_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -178,18 +178,18 @@ Copies attributes for the current door frame index.
 <th colspan="1" rowspan="1">Screen Address</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">01</td>
 <td class="centre" colspan="1" rowspan="1">$5882</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
 <td class="centre" colspan="1" rowspan="1">$588D</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
 <td class="centre" colspan="1" rowspan="1">$5898</td>
 </tr>
-</table> ...continue from <a href="D664.html#d697">DOOR_ATTRIBUTES_SKIP</a>.</td>
+</table> ...continue from <a href="D664.html#d697">Door_Attributes_Skip</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -199,7 +199,7 @@ Copies attributes for the current door frame index.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d68c"></span>D68C</td>
-<td class="instruction">JR Z,<a href="D664.html#d697">DOOR_ATTRIBUTES_SKIP</a></td>
+<td class="instruction">JR Z,<a href="D664.html#d697">Door_Attributes_Skip</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -214,7 +214,7 @@ Copies attributes for the current door frame index.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d692"></span>D692</td>
-<td class="instruction">JR Z,<a href="D664.html#d697">DOOR_ATTRIBUTES_SKIP</a></td>
+<td class="instruction">JR Z,<a href="D664.html#d697">Door_Attributes_Skip</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -222,16 +222,16 @@ Copies attributes for the current door frame index.
 <td class="instruction">LD DE,$5898</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_ATTRIBUTES_SKIP</td>
+<td class="asm-label">Door_Attributes_Skip</td>
 <td class="address-2"><span id="d697"></span>D697</td>
 <td class="instruction">LD B,$0B</td>
 <td class="comment-1" rowspan="1">Sets the height of the door image.</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_ATTRIBUTES_LOOP</td>
+<td class="asm-label">Door_Attributes_Loop</td>
 <td class="address-2"><span id="d699"></span>D699</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="4">Stash the references for later and call <a href="D664.html#d6ab">DOOR_ATTRIBUTES_COPY</a>.</td>
+<td class="comment-1" rowspan="4">Stash the references for later and call <a href="D664.html#d6ab">Door_Attributes_Copy</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -246,7 +246,7 @@ Copies attributes for the current door frame index.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d69c"></span>D69C</td>
-<td class="instruction">CALL <a href="D664.html#d6ab">DOOR_ATTRIBUTES_COPY</a></td>
+<td class="instruction">CALL <a href="D664.html#d6ab">Door_Attributes_Copy</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -273,7 +273,7 @@ Copies attributes for the current door frame index.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6a5"></span>D6A5</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="3">Restore the counter and loop back to <a href="D664.html#d699">DOOR_ATTRIBUTES_LOOP</a> until complete.</td>
+<td class="comment-1" rowspan="3">Restore the counter and loop back to <a href="D664.html#d699">Door_Attributes_Loop</a> until complete.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -283,7 +283,7 @@ Copies attributes for the current door frame index.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6a7"></span>D6A7</td>
-<td class="instruction">DJNZ <a href="D664.html#d699">DOOR_ATTRIBUTES_LOOP</a></td>
+<td class="instruction">DJNZ <a href="D664.html#d699">Door_Attributes_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -307,7 +307,7 @@ Simple helper copy routine for sending attribute data to the screen attribute bu
 </td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_ATTRIBUTES_COPY</td>
+<td class="asm-label">Door_Attributes_Copy</td>
 <td class="address-2"><span id="d6ab"></span>D6AB</td>
 <td class="instruction">LD BC,$0007</td>
 <td class="comment-1" rowspan="3">Set the door width, copy the attribute data to the screen and return.</td>
@@ -333,25 +333,25 @@ Door frame attribute data.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_1_ATTRIBUTES</td>
+<td class="asm-label">Door_Attributes_01</td>
 <td class="address-1"><span id="d6b1"></span>D6B1</td>
 <td class="instruction">DEFB $30,$30,$30,$30,$30,$30,$30,$30</td>
 <td class="comment-1" rowspan="1">Attribute data for door frame 1.</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_2_ATTRIBUTES</td>
+<td class="asm-label">Door_Attributes_02</td>
 <td class="address-1"><span id="d6b9"></span>D6B9</td>
 <td class="instruction">DEFB $28,$28,$30,$30,$30,$30,$30,$30</td>
 <td class="comment-1" rowspan="1">Attribute data for door frame 2.</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_3_ATTRIBUTES</td>
+<td class="asm-label">Door_Attributes_03</td>
 <td class="address-1"><span id="d6c1"></span>D6C1</td>
 <td class="instruction">DEFB $28,$28,$28,$28,$30,$30,$30,$30</td>
 <td class="comment-1" rowspan="1">Attribute data for door frame 3.</td>
 </tr>
 <tr>
-<td class="asm-label">DOOR_4_ATTRIBUTES</td>
+<td class="asm-label">Door_Attributes_04</td>
 <td class="address-1"><span id="d6c9"></span>D6C9</td>
 <td class="instruction">DEFB $28,$28,$28,$28,$28,$28,$30,$28</td>
 <td class="comment-1" rowspan="1">Attribute data for door frame 4.</td>
@@ -367,21 +367,21 @@ Preps door frame 2.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_DOOR_FRAME_2</td>
+<td class="asm-label">Draw_DoorFrame02</td>
 <td class="address-2"><span id="d6d1"></span>D6D1</td>
 <td class="instruction">LD HL,$D6B9</td>
-<td class="comment-1" rowspan="2">Calls <a href="D664.html#d684">DOOR_ATTRIBUTES</a> using <a href="D664.html#d6b9">DOOR_2_ATTRIBUTES</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="D664.html#d684">Door_Attributes</a> using <a href="D664.html#d6b9">Door_Attributes_02</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6d4"></span>D6D4</td>
-<td class="instruction">CALL <a href="D664.html#d684">DOOR_ATTRIBUTES</a></td>
+<td class="instruction">CALL <a href="D664.html#d684">Door_Attributes</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6d7"></span>D6D7</td>
-<td class="instruction">CALL <a href="D61E.html">CHARACTER_DOOR_FRAME_2</a></td>
-<td class="comment-1" rowspan="3">Prepare the character/ door image by calling <a href="D61E.html">CHARACTER_DOOR_FRAME_2</a>. Then pass <a href="EA90.html">DOOR_BUFFER</a> to <a href="D664.html#d66d">PREP_DOOR_FRAME</a> which will draw it to the screen.</td>
+<td class="instruction">CALL <a href="D61E.html">Character_Door_Frame_02</a></td>
+<td class="comment-1" rowspan="3">Prepare the character/ door image by calling <a href="D61E.html">Character_Door_Frame_02</a>. Then pass <a href="EA90.html">Door_Buffer</a> to <a href="D664.html#d66d">Prep_Door_Frame</a> which will draw it to the screen.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -391,7 +391,7 @@ Preps door frame 2.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6dd"></span>D6DD</td>
-<td class="instruction">JR <a href="D664.html#d66d">PREP_DOOR_FRAME</a></td>
+<td class="instruction">JR <a href="D664.html#d66d">Prep_Door_Frame</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -404,21 +404,21 @@ Preps door frame 3.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_DOOR_FRAME_3</td>
+<td class="asm-label">Draw_DoorFrame03</td>
 <td class="address-2"><span id="d6df"></span>D6DF</td>
 <td class="instruction">LD HL,$D6C1</td>
-<td class="comment-1" rowspan="2">Calls <a href="D664.html#d684">DOOR_ATTRIBUTES</a> using <a href="D664.html#d6c1">DOOR_3_ATTRIBUTES</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="D664.html#d684">Door_Attributes</a> using <a href="D664.html#d6c1">Door_Attributes_03</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6e2"></span>D6E2</td>
-<td class="instruction">CALL <a href="D664.html#d684">DOOR_ATTRIBUTES</a></td>
+<td class="instruction">CALL <a href="D664.html#d684">Door_Attributes</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6e5"></span>D6E5</td>
-<td class="instruction">CALL <a href="D61E.html#d638">CHARACTER_DOOR_FRAME_3</a></td>
-<td class="comment-1" rowspan="3">Prepare the character/ door image by calling <a href="D61E.html#d638">CHARACTER_DOOR_FRAME_3</a>. Then pass <a href="EA90.html">DOOR_BUFFER</a> to <a href="D664.html#d66d">PREP_DOOR_FRAME</a> which will draw it to the screen.</td>
+<td class="instruction">CALL <a href="D61E.html#d638">Character_Door_Frame_03</a></td>
+<td class="comment-1" rowspan="3">Prepare the character/ door image by calling <a href="D61E.html#d638">Character_Door_Frame_03</a>. Then pass <a href="EA90.html">Door_Buffer</a> to <a href="D664.html#d66d">Prep_Door_Frame</a> which will draw it to the screen.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -428,7 +428,7 @@ Preps door frame 3.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6eb"></span>D6EB</td>
-<td class="instruction">JR <a href="D664.html#d66d">PREP_DOOR_FRAME</a></td>
+<td class="instruction">JR <a href="D664.html#d66d">Prep_Door_Frame</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -441,27 +441,27 @@ Preps door frame 4.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_DOOR_FRAME_4</td>
+<td class="asm-label">Draw_DoorFrame04</td>
 <td class="address-2"><span id="d6ed"></span>D6ED</td>
 <td class="instruction">LD HL,$D6C9</td>
-<td class="comment-1" rowspan="2">Calls <a href="D664.html#d684">DOOR_ATTRIBUTES</a> using <a href="D664.html#d6c9">DOOR_4_ATTRIBUTES</a>.</td>
+<td class="comment-1" rowspan="2">Calls <a href="D664.html#d684">Door_Attributes</a> using <a href="D664.html#d6c9">Door_Attributes_04</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6f0"></span>D6F0</td>
-<td class="instruction">CALL <a href="D664.html#d684">DOOR_ATTRIBUTES</a></td>
+<td class="instruction">CALL <a href="D664.html#d684">Door_Attributes</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6f3"></span>D6F3</td>
-<td class="instruction">CALL <a href="D5CA.html">DRAW_CHARACTER_IN_DOORWAY</a></td>
+<td class="instruction">CALL <a href="D5CA.html">Draw_CharacterInDoorway</a></td>
 <td class="comment-1" rowspan="1">The door is fully open so draw the whole character in the doorway directly.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6f6"></span>D6F6</td>
 <td class="instruction">LD B,$58</td>
-<td class="comment-1" rowspan="3">Reference <a href="BFA8.html">DOOR_FRAME_4</a> and the dimensions for the copy routine.</td>
+<td class="comment-1" rowspan="3">Reference <a href="BFA8.html">Door_Frame_04</a> and the dimensions for the copy routine.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -477,7 +477,7 @@ Preps door frame 4.
 <td class="asm-label"></td>
 <td class="address-1"><span id="d6fd"></span>D6FD</td>
 <td class="instruction">LD A,($CE1A)</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="CE1A.html">DOOR_FRAME_REF</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="CE1A.html">Door_Frame_Reference</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -489,18 +489,18 @@ Preps door frame 4.
 <th colspan="1" rowspan="1">Screen Address</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$01</td>
+<td class="centre" colspan="1" rowspan="1">01</td>
 <td class="centre" colspan="1" rowspan="1">$4088</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$02</td>
+<td class="centre" colspan="1" rowspan="1">02</td>
 <td class="centre" colspan="1" rowspan="1">$4093</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
 <td class="centre" colspan="1" rowspan="1">$409E</td>
 </tr>
-</table> Jump to <a href="D5E6.html">COPY_ROUTINE</a>.</td>
+</table> Jump to <a href="D5E6.html">Copy_Routine</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -510,7 +510,7 @@ Preps door frame 4.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d704"></span>D704</td>
-<td class="instruction">JP Z,<a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">JP Z,<a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -525,7 +525,7 @@ Preps door frame 4.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d70b"></span>D70B</td>
-<td class="instruction">JP Z,<a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">JP Z,<a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -535,19 +535,19 @@ Preps door frame 4.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d711"></span>D711</td>
-<td class="instruction">JP <a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">JP <a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d714"></span>D714</td>
 <td class="instruction">LD DE,$EA90</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="EA90.html">DOOR_BUFFER</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="EA90.html">Door_Buffer</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_DOOR_FRAME</td>
+<td class="asm-label">Draw_DoorFrame</td>
 <td class="address-2"><span id="d717"></span>D717</td>
 <td class="instruction">LD B,$58</td>
-<td class="comment-1" rowspan="3">Draws the image pointed at by <span class="register">DE</span> to the screen address in <span class="register">HL</span> using <a href="D5E6.html">COPY_ROUTINE</a>.</td>
+<td class="comment-1" rowspan="3">Draws the image pointed at by <span class="register">DE</span> to the screen address in <span class="register">HL</span> using <a href="D5E6.html">Copy_Routine</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -557,7 +557,7 @@ Preps door frame 4.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d71b"></span>D71B</td>
-<td class="instruction">JP <a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">JP <a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -573,8 +573,8 @@ Next: <a href="D71E.html">D71E</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/54884.html">Switch to decimal</a>.</div>
 </footer>
 </body>

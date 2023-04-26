@@ -34,34 +34,34 @@ Next: <a href="FB78.html">FB78</a>
 </td>
 </tr>
 </table>
-<div class="description">FA00: High Score Entry.</div>
+<div class="description">FA00: High Score Entry</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
+Used by the routine at <a href="C7C0.html">New_Game</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE</td>
+<td class="asm-label">New_HighScore</td>
 <td class="address-2"><span id="fa00"></span>FA00</td>
-<td class="instruction">CALL <a href="FA00.html#fa06">HIGH_SCORE</a></td>
+<td class="instruction">CALL <a href="FA00.html#fa06">HighScore</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa03"></span>FA03</td>
-<td class="instruction">JP <a href="FA00.html#fb62">HIGH_SCORE_INPUT</a></td>
+<td class="instruction">JP <a href="FA00.html#fb62">HighScore_Input</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">HIGH_SCORE</td>
+<td class="asm-label">HighScore</td>
 <td class="address-2"><span id="fa06"></span>FA06</td>
 <td class="instruction">LD DE,$5B80</td>
-<td class="comment-1" rowspan="3">Copies $40 bytes of data from <span class="register">HL</span> to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>.</td>
+<td class="comment-1" rowspan="3">Copies $40 bytes of data from <span class="register">HL</span> to <a href="5B80.html">Print_TwoToneText_Alias</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -77,7 +77,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa0e"></span>FA0E</td>
 <td class="instruction">LD A,$30</td>
-<td class="comment-1" rowspan="2">Writes "0" ($30 in ASCII) to <a href="FB78.html#fb94">HIGH_SCORE_TEXT_BUFFER</a>.</td>
+<td class="comment-1" rowspan="2">Writes "0" ($30 in ASCII) to <a href="FB78.html#fb94">HighScore_Text_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -87,8 +87,8 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa13"></span>FA13</td>
-<td class="instruction">CALL <a href="FA00.html#fad4">HIGH_SCORE_CLEAR_SCREEN</a></td>
-<td class="comment-1" rowspan="1">Call <a href="FA00.html#fad4">HIGH_SCORE_CLEAR_SCREEN</a>.</td>
+<td class="instruction">CALL <a href="FA00.html#fad4">HighScore_Clear_Screen</a></td>
+<td class="comment-1" rowspan="1">Call <a href="FA00.html#fad4">HighScore_Clear_Screen</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -140,7 +140,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa2a"></span>FA2A</td>
-<td class="instruction">JP Z,<a href="FA00.html#fab0">NEW_HIGH_SCORE_1</a></td>
+<td class="instruction">JP Z,<a href="FA00.html#fab0">New_HighScore_1</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -164,7 +164,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa36"></span>FA36</td>
-<td class="instruction">CALL <a href="FA00.html#fb19">HIGH_SCORE_POSITION</a></td>
+<td class="instruction">CALL <a href="FA00.html#fb19">HighScore_Position</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -360,7 +360,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_0</td>
+<td class="asm-label">New_HighScore_0</td>
 <td class="address-2"><span id="fa6f"></span>FA6F</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="1"></td>
@@ -392,14 +392,14 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa75"></span>FA75</td>
-<td class="instruction">DJNZ <a href="FA00.html#fa6f">NEW_HIGH_SCORE_0</a></td>
+<td class="instruction">DJNZ <a href="FA00.html#fa6f">New_HighScore_0</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa77"></span>FA77</td>
 <td class="instruction">LD HL,$5BC0</td>
-<td class="comment-1" rowspan="5">Overwrites the text at <a href="5BC0.html">DUELLER_1</a> with spaces to "blank" it out ($12 characters).</td>
+<td class="comment-1" rowspan="5">Overwrites the text at <a href="5BC0.html">Dueller_01</a> with spaces to "blank" it out ($12 characters).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -430,14 +430,14 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa86"></span>FA86</td>
-<td class="instruction">CALL <a href="FA00.html#fad4">HIGH_SCORE_CLEAR_SCREEN</a></td>
+<td class="instruction">CALL <a href="FA00.html#fad4">HighScore_Clear_Screen</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa89"></span>FA89</td>
 <td class="instruction">LD HL,$FB78</td>
-<td class="comment-1" rowspan="4">Points to <a href="FB78.html">HIGH_SCORE_TITLE</a> and sends it to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="4">Points to <a href="FB78.html">HighScore_Title</a> and sends it to <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -445,16 +445,16 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="" colspan="1" rowspan="1">$07</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$03</td>
-<td class="" colspan="1" rowspan="1">$03</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">03</td>
+<td class="" colspan="1" rowspan="1">03</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -471,18 +471,18 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa92"></span>FA92</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa95"></span>FA95</td>
-<td class="instruction">CALL <a href="FA00.html#fb26">HIGH_SCORE_SOMETHING</a></td>
+<td class="instruction">CALL <a href="FA00.html#fb26">HighScore_Something</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa98"></span>FA98</td>
-<td class="instruction">CALL <a href="FA00.html#fad4">HIGH_SCORE_CLEAR_SCREEN</a></td>
+<td class="instruction">CALL <a href="FA00.html#fad4">HighScore_Clear_Screen</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -494,7 +494,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fa9e"></span>FA9E</td>
-<td class="instruction">CALL <a href="FA00.html#fb19">HIGH_SCORE_POSITION</a></td>
+<td class="instruction">CALL <a href="FA00.html#fb19">HighScore_Position</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -530,20 +530,20 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="faac"></span>FAAC</td>
-<td class="instruction">JR NC,<a href="FA00.html#fabd">NEW_HIGH_SCORE_3</a></td>
+<td class="instruction">JR NC,<a href="FA00.html#fabd">New_HighScore_3</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="faae"></span>FAAE</td>
-<td class="instruction">JR <a href="FA00.html#fabc">NEW_HIGH_SCORE_2</a></td>
+<td class="instruction">JR <a href="FA00.html#fabc">New_HighScore_2</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_1</td>
+<td class="asm-label">New_HighScore_1</td>
 <td class="address-2"><span id="fab0"></span>FAB0</td>
 <td class="instruction">LD HL,$FBB5</td>
-<td class="comment-1" rowspan="4">Points to <a href="FB78.html#fbb5">HIGH_SCORE_SUB_HEAD</a> and sends it to <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a>. <table class="default">
+<td class="comment-1" rowspan="4">Points to <a href="FB78.html#fbb5">HighScore_Sub_Head</a> and sends it to <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -551,16 +551,16 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <th colspan="1" rowspan="1">Bright</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$07</td>
-<td class="" colspan="1" rowspan="1">$07</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">$06</td>
-<td class="" colspan="1" rowspan="1">$06</td>
-<td class="" colspan="1" rowspan="1">$00</td>
-<td class="" colspan="1" rowspan="1">$00</td>
+<td class="centre" colspan="1" rowspan="1">06</td>
+<td class="" colspan="1" rowspan="1">06</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
 </tr>
 </table></td>
 </tr>
@@ -577,16 +577,16 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fab9"></span>FAB9</td>
-<td class="instruction">CALL <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a></td>
+<td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_2</td>
+<td class="asm-label">New_HighScore_2</td>
 <td class="address-2"><span id="fabc"></span>FABC</td>
 <td class="instruction">XOR A</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_3</td>
+<td class="asm-label">New_HighScore_3</td>
 <td class="address-2"><span id="fabd"></span>FABD</td>
 <td class="instruction">INC A</td>
 <td class="comment-1" rowspan="1"></td>
@@ -598,7 +598,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_4</td>
+<td class="asm-label">New_HighScore_4</td>
 <td class="address-2"><span id="fac0"></span>FAC0</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="1"></td>
@@ -612,7 +612,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fac2"></span>FAC2</td>
-<td class="instruction">CALL <a href="FA00.html#fae2">NEW_HIGH_SCORE_5</a></td>
+<td class="instruction">CALL <a href="FA00.html#fae2">New_HighScore_5</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -660,7 +660,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fad1"></span>FAD1</td>
-<td class="instruction">DJNZ <a href="FA00.html#fac0">NEW_HIGH_SCORE_4</a></td>
+<td class="instruction">DJNZ <a href="FA00.html#fac0">New_HighScore_4</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -670,7 +670,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">HIGH_SCORE_CLEAR_SCREEN</td>
+<td class="asm-label">HighScore_Clear_Screen</td>
 <td class="address-2"><span id="fad4"></span>FAD4</td>
 <td class="instruction">LD HL,$4000</td>
 <td class="comment-1" rowspan="6">Clears the screen buffer by writing $00 to all 6912 memory locations.</td>
@@ -701,7 +701,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="instruction">RET</td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_5</td>
+<td class="asm-label">New_HighScore_5</td>
 <td class="address-2"><span id="fae2"></span>FAE2</td>
 <td class="instruction">LD C,A</td>
 <td class="comment-1" rowspan="1"></td>
@@ -721,7 +721,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fae8"></span>FAE8</td>
-<td class="instruction">JR C,<a href="FA00.html#fafa">NEW_HIGH_SCORE_6</a></td>
+<td class="instruction">JR C,<a href="FA00.html#fafa">New_HighScore_6</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -739,7 +739,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="faee"></span>FAEE</td>
-<td class="instruction">JR C,<a href="FA00.html#fafa">NEW_HIGH_SCORE_6</a></td>
+<td class="instruction">JR C,<a href="FA00.html#fafa">New_HighScore_6</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -757,7 +757,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="faf4"></span>FAF4</td>
-<td class="instruction">JR C,<a href="FA00.html#fafa">NEW_HIGH_SCORE_6</a></td>
+<td class="instruction">JR C,<a href="FA00.html#fafa">New_HighScore_6</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -773,7 +773,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_6</td>
+<td class="asm-label">New_HighScore_6</td>
 <td class="address-2"><span id="fafa"></span>FAFA</td>
 <td class="instruction">ADD A,$0A</td>
 <td class="comment-1" rowspan="1"></td>
@@ -805,7 +805,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb01"></span>FB01</td>
-<td class="instruction">CALL <a href="FA00.html#fb19">HIGH_SCORE_POSITION</a></td>
+<td class="instruction">CALL <a href="FA00.html#fb19">HighScore_Position</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -885,10 +885,10 @@ Works out where in the high score table to place the score.
 </td>
 </tr>
 <tr>
-<td class="asm-label">HIGH_SCORE_POSITION</td>
+<td class="asm-label">HighScore_Position</td>
 <td class="address-2"><span id="fb19"></span>FB19</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="9">Using <a href="6000.html">HIGHSCORE_TABLE</a> as a base, work out where to place the new score. <ul class="">
+<td class="comment-1" rowspan="9">Using <a href="6000.html">Highscore_Table_Name</a> as a base, work out where to place the new score. <ul class="">
 <li>Decrease $1B by one...</li>
 <li>Loads $1A as the low-order byte; <span class="register">HL</span>=$001A</li>
 <li>Times by $10; <span class="register">HL</span>=$1A0</li>
@@ -942,13 +942,13 @@ Works out where in the high score table to place the score.
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">HIGH_SCORE_SOMETHING</td>
+<td class="asm-label">HighScore_Something</td>
 <td class="address-2"><span id="fb26"></span>FB26</td>
 <td class="instruction">LD HL,$5BC0</td>
-<td class="comment-1" rowspan="3">Stores <a href="5BC0.html">DUELLER_1</a> at <a href="FA00.html#fb55">FB55</a>.</td>
+<td class="comment-1" rowspan="3">Stores <a href="5BC0.html">Dueller_01</a> at <a href="FA00.html#fb55">FB55</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_7</td>
+<td class="asm-label">New_HighScore_7</td>
 <td class="address-2"><span id="fb29"></span>FB29</td>
 <td class="instruction">LD ($FB55),HL</td>
 </tr>
@@ -960,7 +960,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb2f"></span>FB2F</td>
-<td class="instruction">CALL <a href="FA00.html#fb62">HIGH_SCORE_INPUT</a></td>
+<td class="instruction">CALL <a href="FA00.html#fb62">HighScore_Input</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -990,7 +990,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb3a"></span>FB3A</td>
-<td class="instruction">JR Z,<a href="FA00.html#fb58">NEW_HIGH_SCORE_9</a></td>
+<td class="instruction">JR Z,<a href="FA00.html#fb58">New_HighScore_9</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1014,7 +1014,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb40"></span>FB40</td>
-<td class="instruction">JR NC,<a href="FA00.html#fb29">NEW_HIGH_SCORE_7</a></td>
+<td class="instruction">JR NC,<a href="FA00.html#fb29">New_HighScore_7</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1032,7 +1032,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb45"></span>FB45</td>
-<td class="instruction">JR Z,<a href="FA00.html#fb51">NEW_HIGH_SCORE_8</a></td>
+<td class="instruction">JR Z,<a href="FA00.html#fb51">New_HighScore_8</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1044,7 +1044,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb49"></span>FB49</td>
-<td class="instruction">JR C,<a href="FA00.html#fb29">NEW_HIGH_SCORE_7</a></td>
+<td class="instruction">JR C,<a href="FA00.html#fb29">New_HighScore_7</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1056,7 +1056,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb4d"></span>FB4D</td>
-<td class="instruction">JR NC,<a href="FA00.html#fb29">NEW_HIGH_SCORE_7</a></td>
+<td class="instruction">JR NC,<a href="FA00.html#fb29">New_HighScore_7</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1066,7 +1066,7 @@ Works out where in the high score table to place the score.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_8</td>
+<td class="asm-label">New_HighScore_8</td>
 <td class="address-2"><span id="fb51"></span>FB51</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-1" rowspan="1"></td>
@@ -1080,7 +1080,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb53"></span>FB53</td>
-<td class="instruction">JR <a href="FA00.html#fb29">NEW_HIGH_SCORE_7</a></td>
+<td class="instruction">JR <a href="FA00.html#fb29">New_HighScore_7</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1096,7 +1096,7 @@ Works out where in the high score table to place the score.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">NEW_HIGH_SCORE_9</td>
+<td class="asm-label">New_HighScore_9</td>
 <td class="address-2"><span id="fb58"></span>FB58</td>
 <td class="instruction">LD A,L</td>
 <td class="comment-1" rowspan="1"></td>
@@ -1110,7 +1110,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb5b"></span>FB5B</td>
-<td class="instruction">JR C,<a href="FA00.html#fb29">NEW_HIGH_SCORE_7</a></td>
+<td class="instruction">JR C,<a href="FA00.html#fb29">New_HighScore_7</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1128,7 +1128,7 @@ Works out where in the high score table to place the score.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb60"></span>FB60</td>
-<td class="instruction">JR <a href="FA00.html#fb29">NEW_HIGH_SCORE_7</a></td>
+<td class="instruction">JR <a href="FA00.html#fb29">New_HighScore_7</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -1142,7 +1142,7 @@ Returns a single keypress.
 </td>
 </tr>
 <tr>
-<td class="asm-label">HIGH_SCORE_INPUT</td>
+<td class="asm-label">HighScore_Input</td>
 <td class="address-2"><span id="fb62"></span>FB62</td>
 <td class="instruction">LD HL,$5C08</td>
 <td class="comment-1" rowspan="6">Keep looping around until <em>any</em> input is detected. This is achieved by writing $00 to <a href="https://skoolkid.github.io/rom/asm/5C08.html">LAST_K</a> and looping until it's non-zero.</td>
@@ -1153,7 +1153,7 @@ Returns a single keypress.
 <td class="instruction">LD (HL),$00</td>
 </tr>
 <tr>
-<td class="asm-label">HIGH_SCORE_INPUT_LOOP</td>
+<td class="asm-label">HighScore_Input_Loop</td>
 <td class="address-2"><span id="fb67"></span>FB67</td>
 <td class="instruction">HALT</td>
 </tr>
@@ -1170,7 +1170,7 @@ Returns a single keypress.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="fb6a"></span>FB6A</td>
-<td class="instruction">JR Z,<a href="FA00.html#fb67">HIGH_SCORE_INPUT_LOOP</a></td>
+<td class="instruction">JR Z,<a href="FA00.html#fb67">HighScore_Input_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1228,8 +1228,8 @@ Next: <a href="FB78.html">FB78</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/64000.html">Switch to decimal</a>.</div>
 </footer>
 </body>

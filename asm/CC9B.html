@@ -34,13 +34,13 @@ Next: <a href="CD1B.html">CD1B</a>
 </td>
 </tr>
 </table>
-<div class="description">CC9B: Draws Deposit Cashboxes.</div>
+<div class="description">CC9B: Draws Deposit Cashboxes</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
+Used by the routine at <a href="C7C0.html">New_Game</a>.
 </div>
 </div>
 </td>
@@ -49,7 +49,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-2"><span id="cc9b"></span>CC9B</td>
 <td class="instruction">LD A,($D45C)</td>
-<td class="comment-1" rowspan="5">Converts <a href="D45C.html">CASHBOX_REF</a> into cash deposit box flag address (e.g. "1" becomes <a href="CC8D.html">DOOR_DEPOSITED_01</a> and so on).</td>
+<td class="comment-1" rowspan="5">Converts <a href="D45C.html">Cashbox_Reference</a> into cash deposit box flag address (e.g. "01" becomes <a href="CC8D.html">DoorDeposited_01</a> and so on).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -75,7 +75,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="cca5"></span>CCA5</td>
 <td class="instruction">LD IX,$D165</td>
-<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="D165.html#d16d">DOOR_1_CASH_ACTION</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="D165.html#d16d">Door_Cash_Action_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -104,7 +104,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="ccaf"></span>CCAF</td>
 <td class="instruction">LD IX,$D173</td>
-<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="D173.html#d17b">DOOR_2_CASH_ACTION</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="D173.html#d17b">Door_Cash_Action_02</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -133,7 +133,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="ccb9"></span>CCB9</td>
 <td class="instruction">LD IX,$D181</td>
-<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="D181.html#d189">DOOR_3_CASH_ACTION</a>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=<a href="D181.html#d189">Door_Cash_Action_03</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -156,19 +156,19 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="ccc2"></span>CCC2</td>
 <td class="instruction">LD DE,$CC99</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="CC99.html">DOOR_DEPOSITED_01_06</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="CC99.html">DoorDeposited_01_06</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="ccc5"></span>CCC5</td>
 <td class="instruction">LD HL,$CC8D</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="CC8D.html">DOOR_DEPOSITED_01</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="CC8D.html">DoorDeposited_01</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="ccc8"></span>CCC8</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-1" rowspan="1">Fetch the flag for <a href="CC99.html">DOOR_DEPOSITED_01_06</a>.</td>
+<td class="comment-1" rowspan="1">Fetch the flag for <a href="CC99.html">DoorDeposited_01_06</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -192,13 +192,13 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="cccc"></span>CCCC</td>
 <td class="instruction">INC DE</td>
-<td class="comment-1" rowspan="1">Move onto <a href="CC99.html#cc9a">DOOR_DEPOSITED_07_12</a>.</td>
+<td class="comment-1" rowspan="1">Move onto <a href="CC99.html#cc9a">DoorDeposited_07_12</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cccd"></span>CCCD</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-1" rowspan="1">Fetch the flag for <a href="CC99.html#cc9a">DOOR_DEPOSITED_07_12</a>.</td>
+<td class="comment-1" rowspan="1">Fetch the flag for <a href="CC99.html#cc9a">DoorDeposited_07_12</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -215,20 +215,20 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="ccd0"></span>CCD0</td>
-<td class="instruction">CALL <a href="CC9B.html#ccfb">GAME_CASHBOXES</a></td>
+<td class="instruction">CALL <a href="CC9B.html#ccfb">Draw_GameCashboxes</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">CASHBOXES_COMPLETE</td>
+<td class="asm-label">Cashboxescomplete</td>
 <td class="address-1"><span id="ccd3"></span>CCD3</td>
 <td class="instruction">LD DE,$CC8D</td>
-<td class="comment-1" rowspan="1">Points to the cashbox flags (beginning at <a href="CC8D.html">DOOR_DEPOSITED_01</a>).</td>
+<td class="comment-1" rowspan="1">Points to the cashbox flags (beginning at <a href="CC8D.html">DoorDeposited_01</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="ccd6"></span>CCD6</td>
 <td class="instruction">LD HL,$CA80</td>
-<td class="comment-1" rowspan="2">Write $00 to <a href="C7C0.html#ca80">CASHBOXES_COMPLETED_FLAG</a>.</td>
+<td class="comment-1" rowspan="2">Write $00 to <a href="C7C0.html#ca80">Cashboxes_Completed_Flag</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -242,7 +242,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="comment-1" rowspan="1">Testing against all 12 cashboxes.</td>
 </tr>
 <tr>
-<td class="asm-label">CASHBOXES_COMPLETE_LOOP</td>
+<td class="asm-label">Cashboxescomplete_Loop</td>
 <td class="address-2"><span id="ccdd"></span>CCDD</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-1" rowspan="3">Fetch the cashbox flag, return if its zero.</td>
@@ -261,18 +261,18 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="cce0"></span>CCE0</td>
 <td class="instruction">INC DE</td>
-<td class="comment-1" rowspan="2">Move onto the next cashbox (loop back to <a href="CC9B.html#ccdd">CASHBOXES_COMPLETE_LOOP</a>) or continue once all 12 are checked.</td>
+<td class="comment-1" rowspan="2">Move onto the next cashbox (loop back to <a href="CC9B.html#ccdd">Cashboxescomplete_Loop</a>) or continue once all 12 are checked.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cce1"></span>CCE1</td>
-<td class="instruction">DJNZ <a href="CC9B.html#ccdd">CASHBOXES_COMPLETE_LOOP</a></td>
+<td class="instruction">DJNZ <a href="CC9B.html#ccdd">Cashboxescomplete_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cce3"></span>CCE3</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="2">Write <span class="register">A</span> ($01) to <a href="C7C0.html#ca80">CASHBOXES_COMPLETED_FLAG</a>.</td>
+<td class="comment-1" rowspan="2">Write <span class="register">A</span> ($01) to <a href="C7C0.html#ca80">Cashboxes_Completed_Flag</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -280,10 +280,10 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <td class="instruction">RET</td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_GAME_CASHBOX</td>
+<td class="asm-label">Draw_GameCashbox</td>
 <td class="address-2"><span id="cce5"></span>CCE5</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-1" rowspan="10">Determines whether to send <a href="FF78.html">EMPTY_BOX_IMAGE</a> or <a href="FF78.html#ff98">DOLLAR_BOX_IMAGE</a> to <a href="D5E6.html">COPY_ROUTINE</a>.</td>
+<td class="comment-1" rowspan="10">Determines whether to send <a href="FF78.html">EmptyBox_Image</a> or <a href="FF78.html#ff98">DollarBox_Image</a> to <a href="D5E6.html">Copy_Routine</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -328,7 +328,7 @@ Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="ccf7"></span>CCF7</td>
-<td class="instruction">CALL <a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">CALL <a href="D5E6.html">Copy_Routine</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -347,10 +347,10 @@ Draws all the cashboxes in two blocks of 6.
 </td>
 </tr>
 <tr>
-<td class="asm-label">GAME_CASHBOXES</td>
+<td class="asm-label">Draw_GameCashboxes</td>
 <td class="address-2"><span id="ccfb"></span>CCFB</td>
 <td class="instruction">LD IX,$CC8D</td>
-<td class="comment-1" rowspan="16">The statuses for the cashboxes begin at <a href="CC8D.html">DOOR_DEPOSITED_01</a>. This routine processes them in two blocks of 6 (as they appear. The first block is displayed at $401F, after processing the subroutine returns and continues for the next six blocks, just altering the screen location to $4025.</td>
+<td class="comment-1" rowspan="16">The statuses for the cashboxes begin at <a href="CC8D.html">DoorDeposited_01</a>. This routine processes them in two blocks of 6 (as they appear. The first block is displayed at $401F, after processing the subroutine returns and continues for the next six blocks, just altering the screen location to $4025.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -365,7 +365,7 @@ Draws all the cashboxes in two blocks of 6.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cd04"></span>CD04</td>
-<td class="instruction">CALL <a href="CC9B.html#cd0a">GAME_CASHBOXES_SKIP</a></td>
+<td class="instruction">CALL <a href="CC9B.html#cd0a">Draw_GameCashboxes_Skip</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -373,12 +373,12 @@ Draws all the cashboxes in two blocks of 6.
 <td class="instruction">LD HL,$4025</td>
 </tr>
 <tr>
-<td class="asm-label">GAME_CASHBOXES_SKIP</td>
+<td class="asm-label">Draw_GameCashboxes_Skip</td>
 <td class="address-2"><span id="cd0a"></span>CD0A</td>
 <td class="instruction">LD B,$06</td>
 </tr>
 <tr>
-<td class="asm-label">GAME_CASHBOXES_LOOP</td>
+<td class="asm-label">Draw_GameCashboxes_Loop</td>
 <td class="address-2"><span id="cd0c"></span>CD0C</td>
 <td class="instruction">PUSH BC</td>
 </tr>
@@ -395,7 +395,7 @@ Draws all the cashboxes in two blocks of 6.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cd0f"></span>CD0F</td>
-<td class="instruction">CALL <a href="CC9B.html#cce5">DRAW_GAME_CASHBOX</a></td>
+<td class="instruction">CALL <a href="CC9B.html#cce5">Draw_GameCashbox</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -425,7 +425,7 @@ Draws all the cashboxes in two blocks of 6.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cd18"></span>CD18</td>
-<td class="instruction">DJNZ <a href="CC9B.html#cd0c">GAME_CASHBOXES_LOOP</a></td>
+<td class="instruction">DJNZ <a href="CC9B.html#cd0c">Draw_GameCashboxes_Loop</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -447,8 +447,8 @@ Next: <a href="CD1B.html">CD1B</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/52379.html">Switch to decimal</a>.</div>
 </footer>
 </body>

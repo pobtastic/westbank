@@ -34,7 +34,7 @@ Next: <a href="CC2B.html">CC2B</a>
 </td>
 </tr>
 </table>
-<div class="description">CBD0: Draw Text.</div>
+<div class="description">CBD0: Draw Text</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -43,7 +43,7 @@ Next: <a href="CC2B.html">CC2B</a>
 </td>
 </tr>
 <tr>
-<td class="asm-label">TWO_TONE_ATTRIBUTES_BUFFER</td>
+<td class="asm-label">TwoTone_Attributes_Buffer</td>
 <td class="address-2"><span id="cbd0"></span>CBD0</td>
 <td class="instruction">DEFW $0705</td>
 <td class="comment-1" rowspan="1">Stores the attributes; top attribute/ bottom attribute.</td>
@@ -53,19 +53,19 @@ Next: <a href="CC2B.html">CC2B</a>
 <span id="cbd2"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="5B80.html">PRINT_TWO_TONE_TEXT_ALIAS</a> and <a href="C7C0.html">NEW_GAME</a>.
+This entry point is used by the routines at <a href="5B80.html">Print_TwoToneText_Alias</a> and <a href="C7C0.html">New_Game</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">PRINT_TWO_TONE_TEXT</td>
+<td class="asm-label">Print_TwoToneText</td>
 <td class="address-2"><span id="cbd2"></span>CBD2</td>
 <td class="instruction">LD ($CBD0),BC</td>
-<td class="comment-1" rowspan="1">Stash the attributes at <a href="CBD0.html">TWO_TONE_ATTRIBUTES_BUFFER</a>.</td>
+<td class="comment-1" rowspan="1">Stash the attributes at <a href="CBD0.html">TwoTone_Attributes_Buffer</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">PRINT_TWO_TONE_TEXT_LOOP</td>
+<td class="asm-label">Print_TwoToneText_Loop</td>
 <td class="address-2"><span id="cbd6"></span>CBD6</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="3">Grab the next character in the string, if it's $FF then return.</td>
@@ -89,7 +89,7 @@ This entry point is used by the routines at <a href="5B80.html">PRINT_TWO_TONE_T
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cbdc"></span>CBDC</td>
-<td class="instruction">JR NZ,<a href="CBD0.html#cbe0">TWO_TONE_ATTRIBUTES_BUFFER_0</a></td>
+<td class="instruction">JR NZ,<a href="CBD0.html#cbe0">TwoTone_Attributes_Buffer_0</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -99,7 +99,7 @@ This entry point is used by the routines at <a href="5B80.html">PRINT_TWO_TONE_T
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">TWO_TONE_ATTRIBUTES_BUFFER_0</td>
+<td class="asm-label">TwoTone_Attributes_Buffer_0</td>
 <td class="address-2"><span id="cbe0"></span>CBE0</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
@@ -113,7 +113,7 @@ This entry point is used by the routines at <a href="5B80.html">PRINT_TWO_TONE_T
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cbe2"></span>CBE2</td>
-<td class="instruction">CALL <a href="CBD0.html#cbfc">PRINT_TT_TEXT_SPACE_CHECK</a></td>
+<td class="instruction">CALL <a href="CBD0.html#cbfc">Print_TwoToneText_SpaceCheck</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -155,7 +155,7 @@ This entry point is used by the routines at <a href="5B80.html">PRINT_TWO_TONE_T
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cbec"></span>CBEC</td>
-<td class="instruction">JR NZ,<a href="CBD0.html#cbd6">PRINT_TWO_TONE_TEXT_LOOP</a></td>
+<td class="instruction">JR NZ,<a href="CBD0.html#cbd6">Print_TwoToneText_Loop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -185,7 +185,7 @@ This entry point is used by the routines at <a href="5B80.html">PRINT_TWO_TONE_T
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cbf4"></span>CBF4</td>
-<td class="instruction">JR NZ,<a href="CBD0.html#cbd6">PRINT_TWO_TONE_TEXT_LOOP</a></td>
+<td class="instruction">JR NZ,<a href="CBD0.html#cbd6">Print_TwoToneText_Loop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -209,7 +209,7 @@ This entry point is used by the routines at <a href="5B80.html">PRINT_TWO_TONE_T
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cbfa"></span>CBFA</td>
-<td class="instruction">JR <a href="CBD0.html#cbd6">PRINT_TWO_TONE_TEXT_LOOP</a></td>
+<td class="instruction">JR <a href="CBD0.html#cbd6">Print_TwoToneText_Loop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -223,15 +223,15 @@ This entry point is used by the routine at <a href="5B9B.html">5B9B</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label">PRINT_TT_TEXT_SPACE_CHECK</td>
+<td class="asm-label">Print_TwoToneText_SpaceCheck</td>
 <td class="address-2"><span id="cbfc"></span>CBFC</td>
 <td class="instruction">CP $20</td>
-<td class="comment-1" rowspan="2">If the character is a space then jump forward to <a href="CBD0.html#cc0e">TWO_TONE_ATTRIBUTES_BUFFER_1</a>.</td>
+<td class="comment-1" rowspan="2">If the character is a space then jump forward to <a href="CBD0.html#cc0e">TwoTone_Attributes_Buffer_1</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cbfe"></span>CBFE</td>
-<td class="instruction">JR NZ,<a href="CBD0.html#cc0e">TWO_TONE_ATTRIBUTES_BUFFER_1</a></td>
+<td class="instruction">JR NZ,<a href="CBD0.html#cc0e">TwoTone_Attributes_Buffer_1</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -260,7 +260,7 @@ This entry point is used by the routine at <a href="5B9B.html">5B9B</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc08"></span>CC08</td>
-<td class="instruction">CALL <a href="D5E6.html">COPY_ROUTINE</a></td>
+<td class="instruction">CALL <a href="D5E6.html">Copy_Routine</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -272,11 +272,11 @@ This entry point is used by the routine at <a href="5B9B.html">5B9B</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc0c"></span>CC0C</td>
-<td class="instruction">JR <a href="CBD0.html#cc1d">TWO_TONE_ATTRIBUTES_BUFFER_3</a></td>
+<td class="instruction">JR <a href="CBD0.html#cc1d">TwoTone_Attributes_Buffer_3</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">TWO_TONE_ATTRIBUTES_BUFFER_1</td>
+<td class="asm-label">TwoTone_Attributes_Buffer_1</td>
 <td class="address-2"><span id="cc0e"></span>CC0E</td>
 <td class="instruction">CP $41</td>
 <td class="comment-1" rowspan="1"></td>
@@ -284,7 +284,7 @@ This entry point is used by the routine at <a href="5B9B.html">5B9B</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc10"></span>CC10</td>
-<td class="instruction">JR NC,<a href="CBD0.html#cc14">TWO_TONE_ATTRIBUTES_BUFFER_2</a></td>
+<td class="instruction">JR NC,<a href="CBD0.html#cc14">TwoTone_Attributes_Buffer_2</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -294,7 +294,7 @@ This entry point is used by the routine at <a href="5B9B.html">5B9B</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">TWO_TONE_ATTRIBUTES_BUFFER_2</td>
+<td class="asm-label">TwoTone_Attributes_Buffer_2</td>
 <td class="address-2"><span id="cc14"></span>CC14</td>
 <td class="instruction">SUB $41</td>
 <td class="comment-1" rowspan="1"></td>
@@ -314,7 +314,7 @@ This entry point is used by the routine at <a href="5B9B.html">5B9B</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc19"></span>CC19</td>
-<td class="instruction">CALL <a href="CDAE.html">DRAW_NUMBER</a></td>
+<td class="instruction">CALL <a href="CDAE.html">Draw_Number</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -324,7 +324,7 @@ This entry point is used by the routine at <a href="5B9B.html">5B9B</a>.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">TWO_TONE_ATTRIBUTES_BUFFER_3</td>
+<td class="asm-label">TwoTone_Attributes_Buffer_3</td>
 <td class="address-2"><span id="cc1d"></span>CC1D</td>
 <td class="instruction">CALL <a href="CC2B.html">$CC2B</a></td>
 <td class="comment-1" rowspan="1"></td>
@@ -375,8 +375,8 @@ Next: <a href="CC2B.html">CC2B</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/52176.html">Switch to decimal</a>.</div>
 </footer>
 </body>

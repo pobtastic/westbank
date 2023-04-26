@@ -34,7 +34,7 @@ Next: <a href="D5CA.html">D5CA</a>
 </td>
 </tr>
 </table>
-<div class="description">D5B0: Character Index.</div>
+<div class="description">D5B0: Character Index</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -46,16 +46,16 @@ Returns the 16 bit memory location of a character from a given character index i
 </td>
 </tr>
 <tr>
-<td class="asm-label">CHARACTER_ADDR</td>
+<td class="asm-label">Character_Address</td>
 <td class="address-2"><span id="d5b0"></span>D5B0</td>
 <td class="instruction">LD H,$00</td>
-<td class="comment-1" rowspan="21">Using <a href="6800.html">CHARACTER_00</a> as a base address (which is the first character), this works out the character frame from a given index passed in <span class="register">A</span>. To give an example with $1A; <ul class="">
+<td class="comment-1" rowspan="21">Using <a href="6800.html">Character_00</a> as a base address (which is the first character), this works out the character frame from a given index passed in <span class="register">A</span>. To give an example with $1A; <ul class="">
 <li>Loads <strong>$1A</strong> as the low-order byte; <span class="register">HL</span>=$001A</li>
 <li>Times by <strong>$200</strong>; store this in <span class="register">DE</span>=$3400</li>
 <li>Loads <strong>$1A</strong> as the low-order byte; <span class="register">HL</span>=$001A</li>
 <li>Times by <strong>$10</strong>; <span class="register">HL</span>=$1A0</li>
 <li><span class="register">HL</span>+<span class="register">DE</span>=$35A0</li>
-<li>Add <strong>$6800</strong>=<a href="9980.html#9da0">CHARACTER_1A</a></li>
+<li>Add <strong>$6800</strong>=<a href="9980.html#9da0">Character_26</a></li>
 </ul></td>
 </tr>
 <tr>
@@ -178,8 +178,8 @@ Next: <a href="D5CA.html">D5CA</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/54704.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -34,13 +34,13 @@ Next: <a href="CC59.html">CC59</a>
 </td>
 </tr>
 </table>
-<div class="description">CC3A: Main Playfield Initialisation.</div>
+<div class="description">CC3A: Main Playfield Initialisation</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="C7C0.html">NEW_GAME</a>.
+Used by the routine at <a href="C7C0.html">New_Game</a>.
 </div>
 </div>
 </td>
@@ -56,7 +56,7 @@ Draws Main Playfield with all three doors closed.
 </td>
 </tr>
 <tr>
-<td class="asm-label">DRAW_PLAY_WITH_DOORS</td>
+<td class="asm-label">Draw_PlayWithDoors</td>
 <td class="address-2"><span id="cc3a"></span>CC3A</td>
 <td class="instruction">LD IX,$CC38</td>
 <td class="comment-1" rowspan="2">Draw the main game playfield.</td>
@@ -64,13 +64,13 @@ Draws Main Playfield with all three doors closed.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc3e"></span>CC3E</td>
-<td class="instruction">CALL <a href="C300.html">DRAW_PLAYFIELD</a></td>
+<td class="instruction">CALL <a href="C300.html">Draw_Playfield</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc41"></span>CC41</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="3">Calls <a href="D664.html">DRAW_DOOR_FRAME_1</a> with <a href="CE1A.html">DOOR_FRAME_REF</a> set to $01.</td>
+<td class="comment-1" rowspan="3">Calls <a href="D664.html">Draw_DoorFrame1</a> with <a href="CE1A.html">Door_Frame_Reference</a> set to $01.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -80,13 +80,13 @@ Draws Main Playfield with all three doors closed.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc46"></span>CC46</td>
-<td class="instruction">CALL <a href="D664.html">DRAW_DOOR_FRAME_1</a></td>
+<td class="instruction">CALL <a href="D664.html">Draw_DoorFrame1</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc49"></span>CC49</td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-1" rowspan="3">Calls <a href="D664.html">DRAW_DOOR_FRAME_1</a> with <a href="CE1A.html">DOOR_FRAME_REF</a> set to $02.</td>
+<td class="comment-1" rowspan="3">Calls <a href="D664.html">Draw_DoorFrame1</a> with <a href="CE1A.html">Door_Frame_Reference</a> set to $02.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -96,13 +96,13 @@ Draws Main Playfield with all three doors closed.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc4e"></span>CC4E</td>
-<td class="instruction">CALL <a href="D664.html">DRAW_DOOR_FRAME_1</a></td>
+<td class="instruction">CALL <a href="D664.html">Draw_DoorFrame1</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc51"></span>CC51</td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-1" rowspan="3">Jump to <a href="D664.html">DRAW_DOOR_FRAME_1</a> with <a href="CE1A.html">DOOR_FRAME_REF</a> set to $03.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="D664.html">Draw_DoorFrame1</a> with <a href="CE1A.html">Door_Frame_Reference</a> set to $03.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -112,7 +112,7 @@ Draws Main Playfield with all three doors closed.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cc56"></span>CC56</td>
-<td class="instruction">JP <a href="D664.html">DRAW_DOOR_FRAME_1</a></td>
+<td class="instruction">JP <a href="D664.html">Draw_DoorFrame1</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -128,8 +128,8 @@ Next: <a href="CC59.html">CC59</a>
 </table>
 <footer>
 <div class="release"></div>
-<div class="copyright">&copy; DINAMIC SOFTWARE 1985</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.7.</div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../dec/asm/52282.html">Switch to decimal</a>.</div>
 </footer>
 </body>
