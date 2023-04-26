@@ -31,13 +31,12 @@ class WestBankHtmlWriter(HtmlWriter):
         frame = Frame(lambda: self._play_area_udgs(x, y, w, h), scale)
         return self.handle_image(frame, fname, cwd, path_id='PlayAreaImagePath')
 
+
 class Udg(BaseUdg):
     def __init__(self, attr, data, mask=None, attr_addr=None, ref_addr=None, ref=None, udg_page=None, x=None, y=None, fg_udg=None):
         BaseUdg.__init__(self, attr, data, mask)
         self.attr_addr = attr_addr
         self.ref_addr = ref_addr
-        # We store the UDG reference now in case the snapshot changes before
-        # the reference is looked up via self.snapshot[udg.ref_addr]
         self.ref = ref
         self.udg_page = udg_page
         self.udg_addr = None if udg_page is None else ref + 256 * udg_page
