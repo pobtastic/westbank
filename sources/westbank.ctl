@@ -144,7 +144,7 @@ i $6302
 c $6380 Level Selection
 @ $6380 label=LevelSelect
   $6380 #REGhl points to $5B80 on entry as #REGde is also $5B80 - this does nothing, it just creates a very short pause.
-  $6388,$0D Writes $00 to all 6144 bytes of the screen bufffer (i.e. "blanks it").
+  $6388,$0D Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").
   $6395,$0D Writes $28 to $58A0 in the attribute buffer $100 times.
 . #TABLE(default,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
@@ -3322,7 +3322,7 @@ c $FD80 Blah
 . { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
 . { #N$FD | A | S | D | F | G }
 . TABLE#
-  $FD89,$02 Loop back to #R$FD8D.
+  $FD89,$02 Jump to #R$FD8D if "A" is pressed.
   $FD8B,$02 Jump to #R$FDA3.
 
   $FD8D,$04 Read from the keyboard;
@@ -3331,11 +3331,27 @@ c $FD80 Blah
 . { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
 . { $BF | ENTER | L | K | J | H }
 . TABLE#
-  $FD91,$03 If ...
+  $FD91,$03 Jump to #R$FD95 if "ENTER" is pressed.
   $FD94,$01 Return.
 
-  $FD95
+  $FD95,$03 #REGde=#R$5B80.
+  $FD98,$03 #REGbc=#N$0040.
+  $FD9B,$02 Copy...
+  $FD9D,$03 Load the contents of #R$5B86 into #REGhl.
+  $FDA0,$02 Write #N$FF to #REGhl.
   $FDA2,$01 Return.
+
+  $FDA3,$03 #REGsp=#R$5FF0.
+  $FDA6,$02 Jump to #R$FDBC.
+
+  $FDA8,$01 Enable interrupts.
+S $FDA9,$08
+  $FDB1,$06 Write #N$0101 to #R$5CB0.
+  $FDB7,$02 #REGa=#N$00.
+  $FDB9,$03 #HTML(Call <a href="https://skoolkid.github.io/rom/asm/2294.html#229B">BORDER</a> routine (not from the start).)
+  $FDBC,$0D Writes $00 to all #N$1AFF bytes of the screen buffer (i.e. "blanks it").
+  $FDC9,$03 Call #R$C7C0.
+  $FDCC,$02 Jump to #R$FDBC.
 
 b $FDD1
 

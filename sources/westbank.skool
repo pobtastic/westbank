@@ -608,8 +608,8 @@ i$6302
 c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
  $6383 LD BC,$0040   ; - this does nothing, it just creates a very short pause.
  $6386 LDIR          ; }
- $6388 LD HL,$4000   ; {Writes $00 to all 6144 bytes of the screen bufffer
- $638B LD DE,$4001   ; (i.e. "blanks it").
+ $6388 LD HL,$4000   ; {Writes $00 to all 6144 bytes of the screen buffer (i.e.
+ $638B LD DE,$4001   ; "blanks it").
  $638E LD BC,$1AFF   ;
  $6391 LD (HL),$00   ;
  $6393 LDIR          ; }
@@ -11074,7 +11074,7 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
                      ; { #N$FD | A | S | D | F | G }
                      ; TABLE#}
  $FD88 RRA           ;
- $FD89 JR NC,$FD8D   ; Loop back to #R$FD8D.
+ $FD89 JR NC,$FD8D   ; Jump to #R$FD8D if "A" is pressed.
  $FD8B JR $FDA3      ; Jump to #R$FDA3.
 *$FD8D LD A,$BF      ; {Read from the keyboard;
  $FD8F IN A,($FE)    ; #TABLE(default,centre,centre,centre,centre,centre,centre)
@@ -11082,37 +11082,32 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
                      ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
                      ; { $BF | ENTER | L | K | J | H }
                      ; TABLE#}
- $FD91 RRA           ; {If ...
+ $FD91 RRA           ; {Jump to #R$FD95 if "ENTER" is pressed.
  $FD92 JR NC,$FD95   ; }
  $FD94 RET           ; Return.
-*$FD95 LD DE,$5B80   ;
- $FD98 LD BC,$0040   ;
- $FD9B LDIR          ;
- $FD9D LD HL,($5B86) ;
- $FDA0 LD (HL),$FF   ;
+*$FD95 LD DE,$5B80   ; #REGde=#R$5B80.
+ $FD98 LD BC,$0040   ; #REGbc=#N$0040.
+ $FD9B LDIR          ; Copy...
+ $FD9D LD HL,($5B86) ; Load the contents of #R$5B86 into #REGhl.
+ $FDA0 LD (HL),$FF   ; Write #N$FF to #REGhl.
  $FDA2 RET           ; Return.
-*$FDA3 LD SP,$5FF0   ;
- $FDA6 JR $FDBC      ;
-*$FDA8 EI            ;
- $FDA9 NOP           ;
- $FDAA NOP           ;
- $FDAB NOP           ;
- $FDAC NOP           ;
- $FDAD NOP           ;
- $FDAE NOP           ;
- $FDAF NOP           ;
- $FDB0 NOP           ;
- $FDB1 LD HL,$0101   ;
- $FDB4 LD ($5CB0),HL ;
- $FDB7 LD A,$00      ;
- $FDB9 CALL $229B    ;
-*$FDBC LD HL,$4000   ;
- $FDBF LD DE,$4001   ;
+*$FDA3 LD SP,$5FF0   ; #REGsp=#R$5FF0.
+ $FDA6 JR $FDBC      ; Jump to #R$FDBC.
+*$FDA8 EI            ; Enable interrupts.
+ $FDA9 DEFS $08      ;
+ $FDB1 LD HL,$0101   ; {Write #N$0101 to #R$5CB0.
+ $FDB4 LD ($5CB0),HL ; }
+ $FDB7 LD A,$00      ; #REGa=#N$00.
+ $FDB9 CALL $229B    ; #HTML(Call <a
+                     ; href="https://skoolkid.github.io/rom/asm/2294.html#229B">BORDER</a>
+                     ; routine (not from the start).)
+*$FDBC LD HL,$4000   ; {Writes $00 to all #N$1AFF bytes of the screen buffer
+ $FDBF LD DE,$4001   ; (i.e. "blanks it").
  $FDC2 LD BC,$1AFF   ;
  $FDC5 LD (HL),$00   ;
- $FDC7 LDIR          ;
- $FDC9 CALL $C7C0    ;
- $FDCC JR $FDBC      ;
+ $FDC7 LDIR          ; }
+ $FDC9 CALL $C7C0    ; Call #R$C7C0.
+ $FDCC JR $FDBC      ; Jump to #R$FDBC.
  $FDCE JP $EA90      ;
 
 ; Data block at FDD1
