@@ -523,81 +523,82 @@ b$5CF0 DEFB $36,$34,$39,$34,$34,$0E,$00,$00
  $5FF8 DEFB $52,$1B,$76,$1A,$DB,$82,$FD,$3E
 
 ; High Score Table
-@label=Highscore_Table
-t$6000 DEFM "LUCKY LUCKE     "
- $6010 DEFM "BILLY THE KID   "
- $6020 DEFM "BUFALO BILL     "
- $6030 DEFM "CALAMITY JANE   "
- $6040 DEFM "JESSE JAMES     "
- $6050 DEFM "JOE DALTON      "
- $6060 DEFM "THE GOOD        "
- $6070 DEFM "JACK THE FAST   "
- $6080 DEFM "DAVY CROCKETT   "
- $6090 DEFM "PANCHO VILLA    "
- $60A0 DEFM "ALVARO MATEOS H "
- $60B0 DEFM "JACK DALTON     "
- $60C0 DEFM "THOMY WILLIANS  "
- $60D0 DEFM "LIBERTY B       "
- $60E0 DEFM "THE UGLY        "
- $60F0 DEFM "GRAL GRANT      "
- $6100 DEFM "JIMMY THE BLACK "
- $6110 DEFM "WILLIAM DALTON  "
- $6120 DEFM "THE BAD         "
- $6130 DEFM "GRAL CASTER     "
- $6140 DEFM "FRANK MATA      "
- $6150 DEFM "KIT WILLIANS    "
- $6160 DEFM "ALBERT THE HEAVY"
- $6170 DEFM "THE SCREW MAN   "
- $6180 DEFM "AVERELL DALTON  "
- $6190 DEFM "ANDREW THE BELL "
- $61A0 DEFM "GRAL LEE        "
- $61B0 DEFM "THE CHICKEN MAN "
- $61C0 DEFM "THE BLONDE GIRL "
- $61D0 DEFM "TOM SMITH       "
+@label=Highscore_Table_Name
+t$6000 DEFM "LUCKY LUCKE     " ; {#TABLE(default,centre) { =h Address | =h
+ $6010 DEFM "BILLY THE KID   " ; Entry } #FOR#(#PC),$61D0,$10,(n,{ #N(n) |
+ $6020 DEFM "BUFALO BILL     " ; #STR(n,$07,$10) },,)) TABLE#
+ $6030 DEFM "CALAMITY JANE   " ;
+ $6040 DEFM "JESSE JAMES     " ;
+ $6050 DEFM "JOE DALTON      " ;
+ $6060 DEFM "THE GOOD        " ;
+ $6070 DEFM "JACK THE FAST   " ;
+ $6080 DEFM "DAVY CROCKETT   " ;
+ $6090 DEFM "PANCHO VILLA    " ;
+ $60A0 DEFM "ALVARO MATEOS H " ;
+ $60B0 DEFM "JACK DALTON     " ;
+ $60C0 DEFM "THOMY WILLIANS  " ;
+ $60D0 DEFM "LIBERTY B       " ;
+ $60E0 DEFM "THE UGLY        " ;
+ $60F0 DEFM "GRAL GRANT      " ;
+ $6100 DEFM "JIMMY THE BLACK " ;
+ $6110 DEFM "WILLIAM DALTON  " ;
+ $6120 DEFM "THE BAD         " ;
+ $6130 DEFM "GRAL CASTER     " ;
+ $6140 DEFM "FRANK MATA      " ;
+ $6150 DEFM "KIT WILLIANS    " ;
+ $6160 DEFM "ALBERT THE HEAVY" ;
+ $6170 DEFM "THE SCREW MAN   " ;
+ $6180 DEFM "AVERELL DALTON  " ;
+ $6190 DEFM "ANDREW THE BELL " ;
+ $61A0 DEFM "GRAL LEE        " ;
+ $61B0 DEFM "THE CHICKEN MAN " ;
+ $61C0 DEFM "THE BLONDE GIRL " ;
+ $61D0 DEFM "TOM SMITH       " ; }
  $61E0 DEFS $20
- $6200 DEFM "275430"
- $6206 DEFM "265980"
- $620C DEFM "263230"
- $6212 DEFM "258980"
- $6218 DEFM "254070"
- $621E DEFM "255430"
- $6224 DEFM "250990"
- $622A DEFM "245430"
- $6230 DEFM "240510"
- $6236 DEFM "241610"
- $623C DEFM "231940"
- $6242 DEFM "226450"
- $6248 DEFM "226520"
- $624E DEFM "223320"
- $6254 DEFM "213230"
- $625A DEFM "204510"
- $6260 DEFM "200640"
- $6266 DEFM "195910"
- $626C DEFM "196900"
- $6272 DEFM "193030"
- $6278 DEFM "188320"
- $627E DEFM "176510"
- $6284 DEFM "164760"
- $628A DEFM "157110"
- $6290 DEFM "149070"
- $6296 DEFM "139970"
- $629C DEFM "135150"
- $62A2 DEFM "129110"
- $62A8 DEFM "129730"
- $62AE DEFM "125960"
- $62B4 DEFM "115240"
- $62BA DEFM "115040"
- $62C0 DEFM "105590"
- $62C6 DEFM "102670"
- $62CC DEFM "099200"
- $62D2 DEFM "096960"
- $62D8 DEFM "088620"
- $62DE DEFM "084720"
- $62E4 DEFM "078000"
- $62EA DEFM "069990"
- $62F0 DEFM "063130"
- $62F6 DEFM "058530"
- $62FC DEFM "000500"
+@label=Highscore_Table_Score
+ $6200 DEFM "275430"           ; {#TABLE(default,centre) { =h Address | =h
+ $6206 DEFM "265980"           ; Entry } #FOR#(#PC),$62FC,$06,(n,{ #N(n) |
+ $620C DEFM "263230"           ; #STR(n,$07,$06) },,)) TABLE#
+ $6212 DEFM "258980"           ;
+ $6218 DEFM "254070"           ;
+ $621E DEFM "255430"           ;
+ $6224 DEFM "250990"           ;
+ $622A DEFM "245430"           ;
+ $6230 DEFM "240510"           ;
+ $6236 DEFM "241610"           ;
+ $623C DEFM "231940"           ;
+ $6242 DEFM "226450"           ;
+ $6248 DEFM "226520"           ;
+ $624E DEFM "223320"           ;
+ $6254 DEFM "213230"           ;
+ $625A DEFM "204510"           ;
+ $6260 DEFM "200640"           ;
+ $6266 DEFM "195910"           ;
+ $626C DEFM "196900"           ;
+ $6272 DEFM "193030"           ;
+ $6278 DEFM "188320"           ;
+ $627E DEFM "176510"           ;
+ $6284 DEFM "164760"           ;
+ $628A DEFM "157110"           ;
+ $6290 DEFM "149070"           ;
+ $6296 DEFM "139970"           ;
+ $629C DEFM "135150"           ;
+ $62A2 DEFM "129110"           ;
+ $62A8 DEFM "129730"           ;
+ $62AE DEFM "125960"           ;
+ $62B4 DEFM "115240"           ;
+ $62BA DEFM "115040"           ;
+ $62C0 DEFM "105590"           ;
+ $62C6 DEFM "102670"           ;
+ $62CC DEFM "099200"           ;
+ $62D2 DEFM "096960"           ;
+ $62D8 DEFM "088620"           ;
+ $62DE DEFM "084720"           ;
+ $62E4 DEFM "078000"           ;
+ $62EA DEFM "069990"           ;
+ $62F0 DEFM "063130"           ;
+ $62F6 DEFM "058530"           ;
+ $62FC DEFM "000500"           ; }
 
 i$6302
 
@@ -691,12 +692,12 @@ c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
  $6421 LD HL,$64BA   ;
  $6424 JP $6457      ; }
 ; Animates the selected bandit being shot.
-@label=LevelSelect_AnimateShot
+@label=LS_AnimateShot
 *$6427 PUSH BC       ;
  $6428 CALL $643A    ; Call #R$643A.
  $642B CALL $6500    ; Call #R$6500.
  $642E LD B,$10      ; {Short interrupt driven halt loop.
-@label=LevelSelect_AnimateShot_Halt_Loop
+@label=LS_AnimateShot_Halt_Loop
 *$6430 HALT          ;
  $6431 DJNZ $6430    ; }
  $6433 POP BC        ;
@@ -769,13 +770,13 @@ c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
 
 ; Level Selection Text
 @label=LevelSelect_Copy
-t$6492 DEFM "CHOOSE THE LEVEL PREFERED",$FF ; "CHOOSE THE LEVEL PREFERED"
+t$6492 DEFM "CHOOSE THE LEVEL PREFERED",$FF ; "#STR#(#PC),$0B($b==$FF)".
 @label=LevelSelect_One
- $64AC DEFM " ONE  ",$FF                    ; "ONE"
+ $64AC DEFM " ONE  ",$FF                    ; "#STR#(#PC),$0B($b==$FF)".
 @label=LevelSelect_Three
- $64B3 DEFM " THREE",$FF                    ; "THREE"
+ $64B3 DEFM " THREE",$FF                    ; "#STR#(#PC),$0B($b==$FF)".
 @label=LevelSelect_Six
- $64BA DEFM "  SIX ",$FF                    ; "SIX"
+ $64BA DEFM "  SIX ",$FF                    ; "#STR#(#PC),$0B($b==$FF)".
 @label=LevelSelect_Whitespace
  $64C1 DEFM "      ",$FF                    ; "WHITESPACE"
 
@@ -5603,7 +5604,8 @@ c$C3EA DEFB $00             ; Dueller state ("0" is complete).
  $C419 DEFB $00,$08,$08,$0A ;
 ; Buffer holding bonus text.
 @label=Duel_Bonus_Text
- $C41D DEFM "900",$FF       ; Bonus text.
+ $C41D DEFM "900",$FF       ; Bonus text buffer changes during play -
+                            ; "#STR#(#PC),$08($b==$FF)".
 ; Not sure ... it is used though @todo.
  $C421 DEFB $00             ;
 
@@ -5880,7 +5882,7 @@ c$C607 LD (IX+$07),A ; {Stores the ASCII representation of the number at #R$C41D
 
 ; "Extra" text
 @label=Extra_Text_Copy
-t$C622 DEFM "EXTRA",$FF
+t$C622 DEFM "EXTRA",$FF ; "#STR#(#PC),$08($b==$FF)".
 
 ; Displays "Extra" and Bonus Score text
 ;
@@ -5908,11 +5910,11 @@ c$C628 LD A,($C6E4)  ; {If #R$C6E4 is NOT zero then award 9(00) bonus points.
 
 ; Playfield Text
 @label=Playfield_Score
-t$C64D DEFM " SCORE ",$FF
+t$C64D DEFM " SCORE ",$FF ; "#STR#(#PC),$08($b==$FF)".
 @label=Playfield_Lives
- $C655 DEFM "LIVES",$FF
+ $C655 DEFM "LIVES",$FF   ; "#STR#(#PC),$08($b==$FF)".
 @label=Playfield_Whitespace
- $C65B DEFM "     ",$FF
+ $C65B DEFM "     ",$FF   ; "WHITESPACE".
 
 ; Draw Duel Bandit
 ;
@@ -6129,11 +6131,11 @@ c$C720 LD HL,$4000   ; {Writes $00 to all 6144 bytes of the screen buffer (i.e.
 
 ; Sheriff's Star Page Text
 @label=Header_01
-t$C765 DEFM "      THIS IS YOUR STAR       ",$FF
+t$C765 DEFM "      THIS IS YOUR STAR       ",$FF ; "#STR#(#PC),$08($b==$FF)".
 @label=Header_02
- $C784 DEFM "YOU ARE THE SOFT CITY SHERIFF ",$FF
+ $C784 DEFM "YOU ARE THE SOFT CITY SHERIFF ",$FF ; "#STR#(#PC),$08($b==$FF)".
 @label=Header_03
- $C7A3 DEFM "    NOW DO YOUR WORK     ",$FF
+ $C7A3 DEFM "    NOW DO YOUR WORK     ",$FF      ; "#STR#(#PC),$08($b==$FF)".
 
 ; Unused
 u$C7BD DEFB $C3,$90,$00
@@ -6449,15 +6451,17 @@ c$C7C0 LD HL,($5C78)                        ; #HTML(Fetch <a
 @label=Day
  $CA4C DEFW $0001                           ;
 @label=Phase_Copy
- $CA4E DEFM "PHASE"                         ;
+ $CA4E DEFM "PHASE"                         ; "#STR#(#PC),$04,$05".
 @label=Day_Copy
- $CA53 DEFM " DAY "                         ;
+ $CA53 DEFM " DAY "                         ; "#STR#(#PC),$04,$05".
 @label=Day_ASCII
- $CA58 DEFM " 1"                            ;
+ $CA58 DEFM " 1"                            ; "#STR#(#PC),$04,$02".
 @label=Phase_ASCII
- $CA5A DEFM " 6"                            ;
+ $CA5A DEFM " 6"                            ; "#STR#(#PC),$04,$02".
 @label=Progress_Buffer
- $CA5C DEFM "PHASE 6",$FF                   ;
+ $CA5C DEFM "PHASE 6",$FF                   ; This is a buffer - so text
+                                            ; changes during play:
+                                            ; "#STR#(#PC),$08($b==$FF)".
 ; Clears the screen and displays the day number.
 @label=Prep_Display_Day
 *$CA64 XOR A                                ; {Clears the screen by passing $00
@@ -10928,11 +10932,14 @@ c$FA00 CALL $FA06    ;
 
 ; High Score Table Name Entry
 @label=HighScore_Title
-t$FB78 DEFM "  WRITE YOUR NAME PLEASE   ",$FF
+t$FB78 DEFM "  WRITE YOUR NAME PLEASE   ",$FF      ; "#STR#(#PC),$08($b==$FF)".
 @label=HighScore_Text_Buffer
- $FB94 DEFM "10    PANCHO VILLA        241610",$FF
+ $FB94 DEFM "10    PANCHO VILLA        241610",$FF ; This is a buffer - so text
+                                                   ; changes with playing
+                                                   ; input:
+                                                   ; "#STR#(#PC),$08($b==$FF)".
 @label=HighScore_Sub_Head
- $FBB5 DEFM "     THESE ARE THE BEST        ",$FF
+ $FBB5 DEFM "     THESE ARE THE BEST        ",$FF  ; "#STR#(#PC),$08($b==$FF)".
 
 ; Routine at FBD5
 ;
@@ -11094,9 +11101,12 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
 *$FDA3 LD SP,$5FF0   ; #REGsp=#R$5FF0.
  $FDA6 JR $FDBC      ; Jump to #R$FDBC.
 *$FDA8 EI            ; Enable interrupts.
- $FDA9 DEFS $08      ;
+ $FDA9 DEFS $08      ; No-operation.
+; Oddly enable both keyboard and kempston joystick input methods at the same
+; time.
  $FDB1 LD HL,$0101   ; {Write #N$0101 to #R$5CB0.
  $FDB4 LD ($5CB0),HL ; }
+; Set the border to black and blank the screen buffer.
  $FDB7 LD A,$00      ; #REGa=#N$00.
  $FDB9 CALL $229B    ; #HTML(Call <a
                      ; href="https://skoolkid.github.io/rom/asm/2294.html#229B">BORDER</a>
@@ -11121,10 +11131,16 @@ b$FDD1 DEFB $00,$00,$00,$00,$00,$00,$00,$00
 ; Title Screen
 ;
 ; Used by the routine at #R$C7C0.
+;
+; .
+;
+; On initialisation, #REGhl=#R$CBB4. So this section is resetting various jump aliases and game status flags to
+;       default values.
 @label=TitleScreen
 c$FE00 LD DE,$5B80   ; #REGde=#R$5B80.
  $FE03 LD BC,$0040   ; #REGbc=#N$0040.
- $FE06 LDIR          ;
+ $FE06 LDIR          ; Copies #N$0040 bytes of data from the address pointed to
+                     ; by #REGhl to the address pointed to by #REGde.
  $FE08 LD A,$01      ; #REGa=#N$01.
  $FE0A NOP           ; {No-operation?
  $FE0B NOP           ;
@@ -11161,7 +11177,7 @@ c$FE00 LD DE,$5B80   ; #REGde=#R$5B80.
  $FE4F LD DE,$50C0   ;
  $FE52 LD BC,$0704   ;
  $FE55 CALL $5B80    ; }
-; Act on input.
+; Act on inputs.
 @label=TitleScreen_Input
 *$FE58 LD A,($5CB0)  ; {If #R$5CB0 is zero (joystick) then #REGde=$0787 else #REGde=$8707. Then call the subroutine at #R$FE95.
  $FE5B AND A         ; The $07/ $87 correspond to white INK and white INK flashing for the selected control method.
@@ -11200,14 +11216,17 @@ c$FE00 LD DE,$5B80   ; #REGde=#R$5B80.
  $FE82 RRA           ; {Return if "0" is pressed, else loop back around to
  $FE83 RET NC        ; #R$FE58.
  $FE84 JR $FE58      ; }
+; Keyboard has been selected so "highlight" it.
 @label=TitleScreen_Set_Keyboard
 *$FE86 LD A,$01      ; {Writes $01 to #R$5CB0 and loop back around to #R$FE58.
  $FE88 LD (HL),A     ;
  $FE89 JR $FE58      ; }
+; Kempston joystick has been selected so "highlight" it.
 @label=TitleScreen_Set_Kempston
 *$FE8B XOR A         ; {Writes $00 to #R$5CB0 and loop back around to #R$FE58.
  $FE8C LD (HL),A     ;
  $FE8D JR $FE58      ; }
+; Handles "level section".
 @label=TitleScreen_Select_Level
 *$FE8F LD HL,$5B80   ; {Jump to #R$6380 with #REGhl=#R$5B80.
  $FE92 JP $6380      ; }
@@ -11264,22 +11283,22 @@ c$FE00 LD DE,$5B80   ; #REGde=#R$5B80.
 
 ; Title Screen/ Game Options
 @label=TitleScreen_GameName
-t$FEEA DEFM "WEST BANK",$FF
+t$FEEA DEFM "WEST BANK",$FF                        ; "#STR#(#PC),$08($b==$FF)".
 ; Playing Options.
 @label=TitleScreen_Play
- $FEF4 DEFM "0 PLAY ",$FF
+ $FEF4 DEFM "0 PLAY ",$FF                          ; "#STR#(#PC),$08($b==$FF)".
 @label=TitleScreen_Keys
- $FEFC DEFM "1 KEYS   ",$FF
+ $FEFC DEFM "1 KEYS   ",$FF                        ; "#STR#(#PC),$08($b==$FF)".
 @label=TitleScreen_Joystick
- $FF06 DEFM "2 KEMPSTON",$FF
+ $FF06 DEFM "2 KEMPSTON",$FF                       ; "#STR#(#PC),$08($b==$FF)".
 @label=TitleScreen_Level
- $FF11 DEFM "N LEVEL",$FF
+ $FF11 DEFM "N LEVEL",$FF                          ; "#STR#(#PC),$08($b==$FF)".
 ; Credits.
 @label=TitleScreen_Author
- $FF19 DEFM " PROGRAM BY ALVARO MATEOS ",$FF
+ $FF19 DEFM " PROGRAM BY ALVARO MATEOS ",$FF       ; "#STR#(#PC),$08($b==$FF)".
 @label=TitleScreen_Copyright
- $FF34 DEFM "COPYRIGHT  DINAMIC SOFTWARE 1985",$FF
- $FF55 DEFM $00,$00,$FF
+ $FF34 DEFM "COPYRIGHT  DINAMIC SOFTWARE 1985",$FF ; "#STR#(#PC),$08($b==$FF)".
+ $FF55 DEFM $00,$00,$FF                            ; "#STR#(#PC),$08($b==$FF)".
 
 ; Gun Shot Mask
 @label=GunShot_Mask_Image

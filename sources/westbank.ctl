@@ -133,11 +133,12 @@ g $5CB1 Current Level
 i $5CB2
 b $5CF0
 
-@ $6000 label=Highscore_Table
 t $6000 High Score Table
-  $6000,$1E0,$10
+@ $6000 label=Highscore_Table_Name
+  $6000,$1E0,$10 #TABLE(default,centre) { =h Address | =h Entry } #FOR#(#PC),$61D0,$10,(n,{ #N(n) | #STR(n,$07,$10) },,)) TABLE#
 S $61E0,$20
-  $6200,$102,$06
+@ $6200 label=Highscore_Table_Score
+  $6200,$102,$06 #TABLE(default,centre) { =h Address | =h Entry } #FOR#(#PC),$62FC,$06,(n,{ #N(n) | #STR(n,$07,$06) },,)) TABLE#
 
 i $6302
 
@@ -200,8 +201,8 @@ N $63F4 Act on level being selected.
   $641F,$08 Jump to #R$6457 with #REGhl=#R$64BA and #REGa=$03.
 
 N $6427 Animates the selected bandit being shot.
-@ $6427 label=LevelSelect_AnimateShot
-@ $6430 label=LevelSelect_AnimateShot_Halt_Loop
+@ $6427 label=LS_AnimateShot
+@ $6430 label=LS_AnimateShot_Halt_Loop
   $6428,$03 Call #R$643A.
   $642B,$03 Call #R$6500.
   $642E,$05 Short interrupt driven halt loop.
@@ -250,13 +251,13 @@ N $647C Print level select copy to the screen.
 
 t $6492 Level Selection Text
 @ $6492 label=LevelSelect_Copy
-  $6492,$1A "CHOOSE THE LEVEL PREFERED"
+  $6492,$1A "#STR#(#PC),$0B($b==$FF)".
 @ $64AC label=LevelSelect_One
-  $64AC,$07 "ONE"
+  $64AC,$07 "#STR#(#PC),$0B($b==$FF)".
 @ $64B3 label=LevelSelect_Three
-  $64B3,$07 "THREE"
+  $64B3,$07 "#STR#(#PC),$0B($b==$FF)".
 @ $64BA label=LevelSelect_Six
-  $64BA,$07 "SIX"
+  $64BA,$07 "#STR#(#PC),$0B($b==$FF)".
 @ $64C1 label=LevelSelect_Whitespace
   $64C1,$07 "WHITESPACE"
 
@@ -789,7 +790,7 @@ B $C416,$03 Dueller 3 frames.
 B $C419,$04
 @ $C41D label=Duel_Bonus_Text
 N $C41D Buffer holding bonus text.
-T $C41D,$04 Bonus text.
+T $C41D,$04 Bonus text buffer changes during play - "#STR#(#PC),$08($b==$FF)".
 N $C421 Not sure ... it is used though @todo.
 B $C421,$01
 
@@ -927,7 +928,7 @@ c $C607 Displays The Bonus Score Text
 
 t $C622 "Extra" text
 @ $C622 label=Extra_Text_Copy
-  $C622,$06
+  $C622,$06 "#STR#(#PC),$08($b==$FF)".
 
 c $C628 Displays "Extra" and Bonus Score text
 @ $C628 label=Duel_Points
@@ -946,11 +947,11 @@ D $C628 Handles whether to display points or "EXTRA" above each downed Bandit.
 
 t $C64D Playfield Text
 @ $C64D label=Playfield_Score
-  $C64D,$08
+  $C64D,$08 "#STR#(#PC),$08($b==$FF)".
 @ $C655 label=Playfield_Lives
-  $C655,$06
+  $C655,$06 "#STR#(#PC),$08($b==$FF)".
 @ $C65B label=Playfield_Whitespace
-  $C65B,$06
+  $C65B,$06 "WHITESPACE".
 
 c $C661 Draw Duel Bandit
 @ $C661 label=Duel_Draw_Bandit_Prep
@@ -1087,11 +1088,11 @@ c $C720 Sheriff's Star Page
 
 t $C765 Sheriff's Star Page Text
 @ $C765 label=Header_01
-  $C765,$1F
+  $C765,$1F "#STR#(#PC),$08($b==$FF)".
 @ $C784 label=Header_02
-  $C784,$1F
+  $C784,$1F "#STR#(#PC),$08($b==$FF)".
 @ $C7A3 label=Header_03
-  $C7A3,$1A
+  $C7A3,$1A "#STR#(#PC),$08($b==$FF)".
 
 u $C7BD
 
@@ -1240,16 +1241,16 @@ N $CA38 Prints the current progress buffer message to the screen.
 @ $CA4C label=Day
 W $CA4A,$04,$02
 @ $CA4E label=Phase_Copy
-T $CA4E,$05
+T $CA4E,$05 "#STR#(#PC),$04,$05".
 @ $CA53 label=Day_Copy
-T $CA53,$05
+T $CA53,$05 "#STR#(#PC),$04,$05".
 
 @ $CA58 label=Day_ASCII
-T $CA58,$02
+T $CA58,$02 "#STR#(#PC),$04,$02".
 @ $CA5A label=Phase_ASCII
-T $CA5A,$02
+T $CA5A,$02 "#STR#(#PC),$04,$02".
 @ $CA5C label=Progress_Buffer
-T $CA5C,$08
+T $CA5C,$08 This is a buffer - so text changes during play: "#STR#(#PC),$08($b==$FF)".
 
 N $CA64 Clears the screen and displays the day number.
 @ $CA64 label=Prep_Display_Day
@@ -3292,11 +3293,11 @@ N $FB62 Returns a single keypress.
 
 t $FB78 High Score Table Name Entry
 @ $FB78 label=HighScore_Title
-  $FB78,$1C
+  $FB78,$1C "#STR#(#PC),$08($b==$FF)".
 @ $FB94 label=HighScore_Text_Buffer
-  $FB94,$21
+  $FB94,$21 This is a buffer - so text changes with playing input: "#STR#(#PC),$08($b==$FF)".
 @ $FBB5 label=HighScore_Sub_Head
-  $FBB5,$20
+  $FBB5,$20 "#STR#(#PC),$08($b==$FF)".
 
 c $FBD5
 W $FBF0,$02 Cache
@@ -3345,8 +3346,10 @@ c $FD80 Blah
   $FDA6,$02 Jump to #R$FDBC.
 
   $FDA8,$01 Enable interrupts.
-S $FDA9,$08
+S $FDA9,$08 No-operation.
+N $FDB1 Oddly enable both keyboard and kempston joystick input methods at the same time.
   $FDB1,$06 Write #N$0101 to #R$5CB0.
+N $FDB7 Set the border to black and blank the screen buffer.
   $FDB7,$02 #REGa=#N$00.
   $FDB9,$03 #HTML(Call <a href="https://skoolkid.github.io/rom/asm/2294.html#229B">BORDER</a> routine (not from the start).)
   $FDBC,$0D Writes $00 to all #N$1AFF bytes of the screen buffer (i.e. "blanks it").
@@ -3357,9 +3360,11 @@ b $FDD1
 
 c $FE00 Title Screen
 @ $FE00 label=TitleScreen
+N $FE00 On initialisation, #REGhl=#R$CBB4. So this section is resetting various jump aliases and game status flags to
+.       default values.
   $FE00,$03 #REGde=#R$5B80.
   $FE03,$03 #REGbc=#N$0040.
-  $FE06,$02
+  $FE06,$02 Copies #N$0040 bytes of data from the address pointed to by #REGhl to the address pointed to by #REGde.
   $FE08,$02 #REGa=#N$01.
   $FE0A,$03 No-operation?
   $FE0D,$03 Call #R$FEA4.
@@ -3378,7 +3383,7 @@ N $FE40 Writes "PROGRAM BY ALVARO MATEOS" to the screen.
 N $FE4C Writes "COPYRIGHT  DINAMIC SOFTWARE 1985" to the screen.
   $FE4C,$0C Points to #R$FF34 and sends it to #R$5B80.
 
-N $FE58 Act on input.
+N $FE58 Act on inputs.
 @ $FE58 label=TitleScreen_Input
 @ $FE63 label=TitleScreen_Select_Kempston
 @ $FE66 label=TitleScreen_Call_Flash
@@ -3413,13 +3418,13 @@ N $FE58 Act on input.
 . { #N$EF | 0 | 9 | 8 | 7 | 6 }
 . TABLE#
   $FE82,$04 Return if "0" is pressed, else loop back around to #R$FE58.
-
+N $FE86 Keyboard has been selected so "highlight" it.
 @ $FE86 label=TitleScreen_Set_Keyboard
   $FE86,$05 Writes $01 to #R$5CB0 and loop back around to #R$FE58.
-
+N $FE8B Kempston joystick has been selected so "highlight" it.
 @ $FE8B label=TitleScreen_Set_Kempston
   $FE8B,$04 Writes $00 to #R$5CB0 and loop back around to #R$FE58.
-
+N $FE8F Handles "level section".
 @ $FE8F label=TitleScreen_Select_Level
   $FE8F,$06 Jump to #R$6380 with #REGhl=#R$5B80.
 
@@ -3447,22 +3452,22 @@ N $FEA4 Draw bandits.
 
 t $FEEA Title Screen/ Game Options
 @ $FEEA label=TitleScreen_GameName
-  $FEEA,$0A
+  $FEEA,$0A "#STR#(#PC),$08($b==$FF)".
 N $FEF4 Playing Options.
 @ $FEF4 label=TitleScreen_Play
-  $FEF4,$08
+  $FEF4,$08 "#STR#(#PC),$08($b==$FF)".
 @ $FEFC label=TitleScreen_Keys
-  $FEFC,$0A
+  $FEFC,$0A "#STR#(#PC),$08($b==$FF)".
 @ $FF06 label=TitleScreen_Joystick
-  $FF06,$0B
+  $FF06,$0B "#STR#(#PC),$08($b==$FF)".
 @ $FF11 label=TitleScreen_Level
-  $FF11,$08
+  $FF11,$08 "#STR#(#PC),$08($b==$FF)".
 N $FF19 Credits.
 @ $FF19 label=TitleScreen_Author
-  $FF19,$1B
+  $FF19,$1B "#STR#(#PC),$08($b==$FF)".
 @ $FF34 label=TitleScreen_Copyright
-  $FF34,$21
-  $FF55,$03
+  $FF34,$21 "#STR#(#PC),$08($b==$FF)".
+  $FF55,$03 "#STR#(#PC),$08($b==$FF)".
 
 b $FF58 Gun Shot Mask
 @ $FF58 label=GunShot_Mask_Image
