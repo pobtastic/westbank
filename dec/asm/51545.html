@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 51545</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51173.html">51173</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51545">Map</a></td>
+<td class="next">
+Next: <a href="51639.html">51639</a>
+</td>
+</tr>
+</table>
+<div class="description">51545: Door Attributes</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51173.html">Init_Title_Screen</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51545"></span>
+<div class="comments">
+<div class="paragraph">
+Sets the door attributes for the "time of day".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Set_Day_Attributes</td>
+<td class="address-2"><span id="51545"></span>51545</td>
+<td class="instruction">LD HL,51567</td>
+<td class="comment-1" rowspan="2">Call <a href="51545.html#51558">Set_Door_Attributes</a> using <a href="51545.html#51567">Door_Attributes_Day</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51548"></span>51548</td>
+<td class="instruction">JR <a href="51545.html#51558">Set_Door_Attributes</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51550"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="51173.html">Init_Title_Screen</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Set_Dusk_Attributes</td>
+<td class="address-2"><span id="51550"></span>51550</td>
+<td class="instruction">LD HL,51591</td>
+<td class="comment-1" rowspan="2">Call <a href="51545.html#51558">Set_Door_Attributes</a> using <a href="51545.html#51591">Door_Attributes_Dusk</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51553"></span>51553</td>
+<td class="instruction">JR <a href="51545.html#51558">Set_Door_Attributes</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51555"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="51173.html">Init_Title_Screen</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Set_Night_Attributes</td>
+<td class="address-2"><span id="51555"></span>51555</td>
+<td class="instruction">LD HL,51615</td>
+<td class="comment-1" rowspan="1">Call <a href="51545.html#51558">Set_Door_Attributes</a> using <a href="51545.html#51615">Door_Attributes_Night</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51558"></span>
+<div class="comments">
+<div class="paragraph">
+Note this is for the opened door background hence it starts from frame 2 (as frame 1 is a closed door).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Set_Door_Attributes</td>
+<td class="address-2"><span id="51558"></span>51558</td>
+<td class="instruction">LD DE,54969</td>
+<td class="comment-1" rowspan="4">Copies $18 bytes of data to <a href="54884.html#54969">Door_Attributes_02</a>, then return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51561"></span>51561</td>
+<td class="instruction">LD BC,24</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51564"></span>51564</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51566"></span>51566</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51567"></span>
+<div class="comments">
+<div class="paragraph">
+Door frame attribute data for each day phase.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Door_Attributes_Day</td>
+<td class="address-1"><span id="51567"></span>51567</td>
+<td class="instruction">DEFB 40,40,48,48,48,48,48,48</td>
+<td class="comment-1" rowspan="3">The attributes for the "day" state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51575"></span>51575</td>
+<td class="instruction">DEFB 40,40,40,40,48,48,48,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51583"></span>51583</td>
+<td class="instruction">DEFB 40,40,40,40,40,40,48,40</td>
+</tr>
+<tr>
+<td class="asm-label">Door_Attributes_Dusk</td>
+<td class="address-1"><span id="51591"></span>51591</td>
+<td class="instruction">DEFB 13,13,48,48,48,48,48,48</td>
+<td class="comment-1" rowspan="3">The attributes for the "dusk" state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51599"></span>51599</td>
+<td class="instruction">DEFB 13,13,13,13,48,48,48,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51607"></span>51607</td>
+<td class="instruction">DEFB 13,13,13,13,13,13,48,13</td>
+</tr>
+<tr>
+<td class="asm-label">Door_Attributes_Night</td>
+<td class="address-1"><span id="51615"></span>51615</td>
+<td class="instruction">DEFB 5,5,48,48,48,48,48,48</td>
+<td class="comment-1" rowspan="3">The attributes for the "night" state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51623"></span>51623</td>
+<td class="instruction">DEFB 5,5,5,5,48,48,48,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51631"></span>51631</td>
+<td class="instruction">DEFB 5,5,5,5,5,5,48,5</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51173.html">51173</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51545">Map</a></td>
+<td class="next">
+Next: <a href="51639.html">51639</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
+<div><a href="../../asm/C959.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

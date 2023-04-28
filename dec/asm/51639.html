@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 51639</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51545.html">51545</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51639">Map</a></td>
+<td class="next">
+Next: <a href="51943.html">51943</a>
+</td>
+</tr>
+</table>
+<div class="description">51639: Prepare To Display The Current Phase</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51639"></span>
+<div class="comments">
+<div class="paragraph">
+Clears the cashbox flags, clears the screen and displays the phase number.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Prep_Display_Phase</td>
+<td class="address-2"><span id="51639"></span>51639</td>
+<td class="instruction">LD HL,257</td>
+<td class="comment-1" rowspan="2">Writes $0101 to <a href="54364.html">Cashbox_Reference</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51642"></span>51642</td>
+<td class="instruction">LD (54364),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51645"></span>51645</td>
+<td class="instruction">LD HL,52365</td>
+<td class="comment-1" rowspan="5">Clear down the deposit flags (copies $00 to each from <a href="52365.html">DoorDeposited_01</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51648"></span>51648</td>
+<td class="instruction">LD DE,52366</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51651"></span>51651</td>
+<td class="instruction">LD BC,13</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51654"></span>51654</td>
+<td class="instruction">LD (HL),0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51656"></span>51656</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51658"></span>51658</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Call <a href="51639.html#51664">Clear_Screen</a> (using $00).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51659"></span>51659</td>
+<td class="instruction">CALL <a href="51639.html#51664">Clear_Screen</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51662"></span>51662</td>
+<td class="instruction">JR <a href="51639.html#51677">Display_Phase</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="51639.html#51677">Display_Phase</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51664"></span>
+<div class="comments">
+<div class="paragraph">
+This routine has the ability to write any value across the screen buffer, however it's only ever called with <span class="register">A</span>=$00 (clear screen).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Clear_Screen</td>
+<td class="address-2"><span id="51664"></span>51664</td>
+<td class="instruction">LD HL,16384</td>
+<td class="comment-1" rowspan="6">Clears the screen buffer by writing $00 to all 6912 memory locations.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51667"></span>51667</td>
+<td class="instruction">LD DE,16385</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51670"></span>51670</td>
+<td class="instruction">LD BC,6911</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51673"></span>51673</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51674"></span>51674</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51676"></span>51676</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51677"></span>
+<div class="comments">
+<div class="paragraph">
+Displays the current "phase".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Display_Phase</td>
+<td class="address-2"><span id="51677"></span>51677</td>
+<td class="instruction">LD HL,51790</td>
+<td class="comment-1" rowspan="4">Copies <a href="51639.html#51790">Phase_Copy</a> into <a href="51639.html#51804">Progress_Buffer</a> ($05 bytes of text data).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51680"></span>51680</td>
+<td class="instruction">LD DE,51804</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51683"></span>51683</td>
+<td class="instruction">LD BC,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51686"></span>51686</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51688"></span>51688</td>
+<td class="instruction">LD HL,(51802)</td>
+<td class="comment-1" rowspan="2">Writes <a href="51639.html#51802">Phase_ASCII</a> to <a href="51639.html#51804">Progress_Buffer</a> (at $CA61 - just overwriting the numeric part).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51691"></span>51691</td>
+<td class="instruction">LD (51809),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51694"></span>51694</td>
+<td class="instruction">LD HL,51786</td>
+<td class="comment-1" rowspan="2">Call <a href="51639.html#51737">Progress_Base_10</a> with <a href="51639.html#51786">Phase</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51697"></span>51697</td>
+<td class="instruction">CALL <a href="51639.html#51737">Progress_Base_10</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51700"></span>51700</td>
+<td class="instruction">LD HL,(51809)</td>
+<td class="comment-1" rowspan="2">Writes $CA61 back to <a href="51639.html#51802">Phase_ASCII</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51703"></span>51703</td>
+<td class="instruction">LD (51802),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51706"></span>51706</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51707"></span>
+<div class="comments">
+<div class="paragraph">
+Displays the current "day".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Display_Day</td>
+<td class="address-2"><span id="51707"></span>51707</td>
+<td class="instruction">LD HL,51795</td>
+<td class="comment-1" rowspan="4">Copies <a href="51639.html#51795">Day_Copy</a> into <a href="51639.html#51804">Progress_Buffer</a> ($05 bytes of text data).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51710"></span>51710</td>
+<td class="instruction">LD DE,51804</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51713"></span>51713</td>
+<td class="instruction">LD BC,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51716"></span>51716</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51718"></span>51718</td>
+<td class="instruction">LD HL,(51800)</td>
+<td class="comment-1" rowspan="2">Writes <a href="51639.html#51800">Day_ASCII</a> to <a href="51639.html#51804">Progress_Buffer</a> (at $CA61 - just overwriting the numeric part).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51721"></span>51721</td>
+<td class="instruction">LD (51809),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51724"></span>51724</td>
+<td class="instruction">LD HL,51788</td>
+<td class="comment-1" rowspan="2">Call <a href="51639.html#51737">Progress_Base_10</a> with <a href="51639.html#51788">Day</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51727"></span>51727</td>
+<td class="instruction">CALL <a href="51639.html#51737">Progress_Base_10</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51730"></span>51730</td>
+<td class="instruction">LD HL,(51809)</td>
+<td class="comment-1" rowspan="2">Writes $CA61 back to <a href="51639.html#51800">Day_ASCII</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51733"></span>51733</td>
+<td class="instruction">LD (51800),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51736"></span>51736</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51737"></span>
+<div class="comments">
+<div class="paragraph">
+This routine is for converting progress numbers into ASCII. On entry <span class="register">HL</span> will be either <a href="51639.html#51786">Phase</a> or <a href="51639.html#51788">Day</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Progress_Base_10</td>
+<td class="address-2"><span id="51737"></span>51737</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">If the passed number is not more than 10 jump to <a href="51639.html#51751">Progress_Divisible_10</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51738"></span>51738</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51739"></span>51739</td>
+<td class="instruction">CP 10</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51741"></span>51741</td>
+<td class="instruction">JR NC,<a href="51639.html#51751">Progress_Divisible_10</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51743"></span>51743</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="3">Stores the ASCII representation of the number at $CA62 (for <a href="51639.html#51804">Progress_Buffer</a>). It adds ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51744"></span>51744</td>
+<td class="instruction">ADD A,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51746"></span>51746</td>
+<td class="instruction">LD (51810),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51749"></span>51749</td>
+<td class="instruction">JR <a href="51639.html#51768">Print_Progress</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="51639.html#51768">Print_Progress</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51751"></span>
+<div class="comments">
+<div class="paragraph">
+Ensures the progress digit remains 0-9. On entry <span class="register">HL</span> will be either <a href="51639.html#51786">Phase</a> or <a href="51639.html#51788">Day</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Progress_Divisible_10</td>
+<td class="address-2"><span id="51751"></span>51751</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-1" rowspan="1">Reset the current progress digit to $00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51753"></span>51753</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Use the secondary digit of the currently focused progress.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51754"></span>
+<div class="comments">
+<div class="paragraph">
+Note this doesn't account for a third digit and so leads to eventual corruption. Once past day/ phase "99", this will display "00" and past "09" the first ASCII digit doesn't point to any usable image data. Note however, this occurs after ~4 hours of game play so isn't especially an issue.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51754"></span>51754</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Increase this second digit by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51755"></span>51755</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Add ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII). Write this number to $CA61 (for <a href="51639.html#51804">Progress_Buffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51756"></span>51756</td>
+<td class="instruction">ADD A,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51758"></span>51758</td>
+<td class="instruction">LD (51809),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51761"></span>51761</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Move back to point to the original location of <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51762"></span>51762</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Again, add ASCII "0" for this digit too. Write this number to $CA62 (for <a href="51639.html#51804">Progress_Buffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51763"></span>51763</td>
+<td class="instruction">ADD A,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51765"></span>51765</td>
+<td class="instruction">LD (51810),A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51768"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the current progress buffer message to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Progress</td>
+<td class="address-2"><span id="51768"></span>51768</td>
+<td class="instruction">LD HL,51804</td>
+<td class="comment-1" rowspan="4">Prints <a href="51639.html#51804">Progress_Buffer</a> to the screen buffer at $486C using <a href="52176.html#52178">Print_TwoToneText</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51771"></span>51771</td>
+<td class="instruction">LD DE,18540</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51774"></span>51774</td>
+<td class="instruction">LD BC,1795</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51777"></span>51777</td>
+<td class="instruction">CALL <a href="52176.html#52178">Print_TwoToneText</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51780"></span>51780</td>
+<td class="instruction">LD B,80</td>
+<td class="comment-1" rowspan="3">Interrupt driven HALT loop ($50 cycles).</td>
+</tr>
+<tr>
+<td class="asm-label">Progress_Halt_Loop</td>
+<td class="address-2"><span id="51782"></span>51782</td>
+<td class="instruction">HALT</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51783"></span>51783</td>
+<td class="instruction">DJNZ <a href="51639.html#51782">Progress_Halt_Loop</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51785"></span>51785</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Phase</td>
+<td class="address-1"><span id="51786"></span>51786</td>
+<td class="instruction">DEFW 6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">Day</td>
+<td class="address-1"><span id="51788"></span>51788</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">Phase_Copy</td>
+<td class="address-1"><span id="51790"></span>51790</td>
+<td class="instruction">DEFM "PHASE"</td>
+<td class="comment-1" rowspan="1">"PHASE".</td>
+</tr>
+<tr>
+<td class="asm-label">Day_Copy</td>
+<td class="address-1"><span id="51795"></span>51795</td>
+<td class="instruction">DEFM " DAY "</td>
+<td class="comment-1" rowspan="1">" DAY ".</td>
+</tr>
+<tr>
+<td class="asm-label">Day_ASCII</td>
+<td class="address-1"><span id="51800"></span>51800</td>
+<td class="instruction">DEFM " 1"</td>
+<td class="comment-1" rowspan="1">" 1".</td>
+</tr>
+<tr>
+<td class="asm-label">Phase_ASCII</td>
+<td class="address-1"><span id="51802"></span>51802</td>
+<td class="instruction">DEFM " 6"</td>
+<td class="comment-1" rowspan="1">" 6".</td>
+</tr>
+<tr>
+<td class="asm-label">Progress_Buffer</td>
+<td class="address-1"><span id="51804"></span>51804</td>
+<td class="instruction">DEFM "PHASE 6",255</td>
+<td class="comment-1" rowspan="1">This is a buffer - so text changes during play: "PHASE 6".</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51812"></span>
+<div class="comments">
+<div class="paragraph">
+Clears the screen and displays the day number.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Prep_Display_Day</td>
+<td class="address-2"><span id="51812"></span>51812</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Clears the screen by passing $00 to <a href="51639.html#51664">Clear_Screen</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51813"></span>51813</td>
+<td class="instruction">CALL <a href="51639.html#51664">Clear_Screen</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51816"></span>51816</td>
+<td class="instruction">CALL <a href="51639.html#51707">Display_Day</a></td>
+<td class="comment-1" rowspan="1">Call <a href="51639.html#51707">Display_Day</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51819"></span>51819</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51820"></span>
+<div class="comments">
+<div class="paragraph">
+Clear down the day/ progress states.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Init_Progress</td>
+<td class="address-2"><span id="51820"></span>51820</td>
+<td class="instruction">LD HL,0</td>
+<td class="comment-1" rowspan="3">Clears <a href="51639.html#51786">Phase</a> and <a href="51639.html#51788">Day</a> (writes $0000 to them).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51823"></span>51823</td>
+<td class="instruction">LD (51786),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51826"></span>51826</td>
+<td class="instruction">LD (51788),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51829"></span>51829</td>
+<td class="instruction">LD A,32</td>
+<td class="comment-1" rowspan="6">Writes ASCII space ($20) to $CA61 and ASCII "0" ($30) to $CA62 (i.e. writes " 0" to the numeric portion of <a href="51639.html#51804">Progress_Buffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51831"></span>51831</td>
+<td class="instruction">LD HL,51809</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51834"></span>51834</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51835"></span>51835</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51836"></span>51836</td>
+<td class="instruction">LD A,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51838"></span>51838</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51839"></span>51839</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Cashboxes_Completed_Flag</td>
+<td class="address-1"><span id="51840"></span>51840</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51841"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="51173.html">Init_Title_Screen</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Cashboxes_Completed</td>
+<td class="address-2"><span id="51841"></span>51841</td>
+<td class="instruction">CALL <a href="51639.html#51912">Prep_Display_Phase_0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51844"></span>51844</td>
+<td class="instruction">RET C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51845"></span>51845</td>
+<td class="instruction">LD B,16</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">Cashboxes_Flash_Loop</td>
+<td class="address-2"><span id="51847"></span>51847</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51848"></span>51848</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51849"></span>51849</td>
+<td class="instruction">AND 1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51851"></span>51851</td>
+<td class="instruction">CALL <a href="51639.html#51897">Deposit_Flash_Prep</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51854"></span>51854</td>
+<td class="instruction">LD B,16</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51856"></span>51856</td>
+<td class="instruction">CALL <a href="52580.html">Halt_Loop</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51859"></span>51859</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51860"></span>51860</td>
+<td class="instruction">DJNZ <a href="51639.html#51847">Cashboxes_Flash_Loop</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51862"></span>51862</td>
+<td class="instruction">LD B,48</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51864"></span>51864</td>
+<td class="instruction">CALL <a href="52580.html">Halt_Loop</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51867"></span>51867</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51868"></span>51868</td>
+<td class="instruction">CALL <a href="51639.html#51897">Deposit_Flash_Prep</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51871"></span>51871</td>
+<td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51874"></span>51874</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51875"></span>51875</td>
+<td class="instruction">LD A,R</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51877"></span>51877</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51878"></span>51878</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51879"></span>51879</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51880"></span>51880</td>
+<td class="instruction">LD A,(52175)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51883"></span>51883</td>
+<td class="instruction">LD HL,52148</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51886"></span>51886</td>
+<td class="instruction">CALL <a href="50112.html">50112</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51889"></span>51889</td>
+<td class="instruction">LD (52175),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51892"></span>51892</td>
+<td class="instruction">LD B,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51894"></span>51894</td>
+<td class="instruction">JP <a href="52580.html">Halt_Loop</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">Deposit_Flash_Prep</td>
+<td class="address-2"><span id="51897"></span>51897</td>
+<td class="instruction">LD HL,52365</td>
+<td class="comment-1" rowspan="5">Writes <span class="register">A</span> across all the deposit flags (copies to each from <a href="52365.html">DoorDeposited_01</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51900"></span>51900</td>
+<td class="instruction">LD DE,52366</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51903"></span>51903</td>
+<td class="instruction">LD BC,13</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51906"></span>51906</td>
+<td class="instruction">LD (HL),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51907"></span>51907</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51909"></span>51909</td>
+<td class="instruction">JP <a href="52379.html">52379</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52379.html">52379</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Prep_Display_Phase_0</td>
+<td class="address-2"><span id="51912"></span>51912</td>
+<td class="instruction">CALL <a href="51639.html#51639">Prep_Display_Phase</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51915"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="52507.html">Flash_Lives</a> and <a href="52551.html">52551</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Prep_Display_Phase_1</td>
+<td class="address-2"><span id="51915"></span>51915</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Writes $00 to <a href="53967.html#54014">54014</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51916"></span>51916</td>
+<td class="instruction">LD (54014),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51919"></span>51919</td>
+<td class="instruction">CALL <a href="51639.html#51924">Prep_Display_Phase_2</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51922"></span>51922</td>
+<td class="instruction">JR <a href="51943.html">51943</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">Prep_Display_Phase_2</td>
+<td class="address-2"><span id="51924"></span>51924</td>
+<td class="instruction">CALL <a href="52584.html">Populate_Door_Buffer</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52584.html">Populate_Door_Buffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51927"></span>51927</td>
+<td class="instruction">CALL <a href="52282.html">Draw_PlayWithDoors</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52282.html">Draw_PlayWithDoors</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51930"></span>51930</td>
+<td class="instruction">CALL <a href="52314.html">Life_Images</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52314.html">Life_Images</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51933"></span>51933</td>
+<td class="instruction">CALL <a href="52379.html">52379</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52379.html">52379</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51936"></span>51936</td>
+<td class="instruction">CALL <a href="52624.html">Draw_Score</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52624.html">Draw_Score</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51939"></span>51939</td>
+<td class="instruction">CALL <a href="54366.html">54366</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54366.html">54366</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51942"></span>51942</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51545.html">51545</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51639">Map</a></td>
+<td class="next">
+Next: <a href="51943.html">51943</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
+<div><a href="../../asm/C9B7.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

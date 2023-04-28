@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at CAE7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C9B7.html">C9B7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cae7">Map</a></td>
+<td class="next">
+Next: <a href="CBD0.html">CBD0</a>
+</td>
+</tr>
+</table>
+<div class="description">CAE7: A</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="C9B7.html">Prep_Display_Phase</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cae7"></span>CAE7</td>
+<td class="instruction">LD A,$7F</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7F</td>
+<td class="centre" colspan="1" rowspan="1">SPACE</td>
+<td class="centre" colspan="1" rowspan="1">FULL-STOP</td>
+<td class="centre" colspan="1" rowspan="1">M</td>
+<td class="centre" colspan="1" rowspan="1">N</td>
+<td class="centre" colspan="1" rowspan="1">B</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cae9"></span>CAE9</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caeb"></span>CAEB</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="2">If "SPACE" is pressed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caec"></span>CAEC</td>
+<td class="instruction">JR C,<a href="CAE7.html#cafb">$CAFB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caee"></span>CAEE</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FE</td>
+<td class="centre" colspan="1" rowspan="1">SHIFT</td>
+<td class="centre" colspan="1" rowspan="1">Z</td>
+<td class="centre" colspan="1" rowspan="1">X</td>
+<td class="centre" colspan="1" rowspan="1">C</td>
+<td class="centre" colspan="1" rowspan="1">V</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caf0"></span>CAF0</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caf2"></span>CAF2</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caf3"></span>CAF3</td>
+<td class="instruction">JR C,<a href="CAE7.html#cafb">$CAFB</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caf5"></span>CAF5</td>
+<td class="instruction">LD HL,$CBB4</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caf8"></span>CAF8</td>
+<td class="instruction">CALL <a href="FD80.html">$FD80</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cafb"></span>CAFB</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FE</td>
+<td class="centre" colspan="1" rowspan="1">SHIFT</td>
+<td class="centre" colspan="1" rowspan="1">Z</td>
+<td class="centre" colspan="1" rowspan="1">X</td>
+<td class="centre" colspan="1" rowspan="1">C</td>
+<td class="centre" colspan="1" rowspan="1">V</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cafd"></span>CAFD</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caff"></span>CAFF</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb01"></span>CB01</td>
+<td class="instruction">JR NZ,<a href="CAE7.html#cb0b">$CB0B</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cb03"></span>CB03</td>
+<td class="instruction">LD A,$FE</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FE</td>
+<td class="centre" colspan="1" rowspan="1">SHIFT</td>
+<td class="centre" colspan="1" rowspan="1">Z</td>
+<td class="centre" colspan="1" rowspan="1">X</td>
+<td class="centre" colspan="1" rowspan="1">C</td>
+<td class="centre" colspan="1" rowspan="1">V</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb05"></span>CB05</td>
+<td class="instruction">IN A,($FE)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb07"></span>CB07</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb09"></span>CB09</td>
+<td class="instruction">JR NZ,<a href="CAE7.html#cb03">$CB03</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cb0b"></span>CB0B</td>
+<td class="instruction">CALL <a href="D2CF.html">$D2CF</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D2CF.html">D2CF</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb0e"></span>CB0E</td>
+<td class="instruction">LD BC,($CE1C)</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="CE1B.html#ce1c">CE1C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cb12"></span>CB12</td>
+<td class="instruction">DEC BC</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb13"></span>CB13</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb14"></span>CB14</td>
+<td class="instruction">OR C</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb15"></span>CB15</td>
+<td class="instruction">JR NZ,<a href="CAE7.html#cb12">$CB12</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb17"></span>CB17</td>
+<td class="instruction">CALL <a href="D3EA.html#d411">Door_Prep_01_2</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb1a"></span>CB1A</td>
+<td class="instruction">CALL <a href="CAE7.html#cba6">$CBA6</a></td>
+<td class="comment-1" rowspan="1">Call <a href="CAE7.html#cba6">CBA6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb1d"></span>CB1D</td>
+<td class="instruction">LD IX,$D165</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="D165.html">Door_Flags_01</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb21"></span>CB21</td>
+<td class="instruction">LD (IX+$08),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb25"></span>CB25</td>
+<td class="instruction">LD HL,$CE14</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="CE14.html">Door_Routine_01</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb28"></span>CB28</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb29"></span>CB29</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb2a"></span>CB2A</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb2b"></span>CB2B</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb2c"></span>CB2C</td>
+<td class="instruction">CALL Z,<a href="CE21.html">Character_Chooser</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb2f"></span>CB2F</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb30"></span>CB30</td>
+<td class="instruction">JR Z,<a href="CAE7.html#cb3f">$CB3F</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb32"></span>CB32</td>
+<td class="instruction">LD HL,($CE14)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb35"></span>CB35</td>
+<td class="instruction">LD DE,$CB3F</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb38"></span>CB38</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb39"></span>CB39</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb3b"></span>CB3B</td>
+<td class="instruction">LD ($CE1A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb3e"></span>CB3E</td>
+<td class="instruction">JP (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cb3f"></span>CB3F</td>
+<td class="instruction">LD IX,$D173</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb43"></span>CB43</td>
+<td class="instruction">LD (IX+$08),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb47"></span>CB47</td>
+<td class="instruction">LD HL,$CE16</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb4a"></span>CB4A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb4b"></span>CB4B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb4c"></span>CB4C</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb4d"></span>CB4D</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb4e"></span>CB4E</td>
+<td class="instruction">CALL Z,<a href="CE21.html">Character_Chooser</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb51"></span>CB51</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb52"></span>CB52</td>
+<td class="instruction">JR Z,<a href="CAE7.html#cb61">$CB61</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb54"></span>CB54</td>
+<td class="instruction">LD HL,($CE16)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb57"></span>CB57</td>
+<td class="instruction">LD DE,$CB61</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb5a"></span>CB5A</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb5b"></span>CB5B</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb5d"></span>CB5D</td>
+<td class="instruction">LD ($CE1A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb60"></span>CB60</td>
+<td class="instruction">JP (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cb61"></span>CB61</td>
+<td class="instruction">LD IX,$D181</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb65"></span>CB65</td>
+<td class="instruction">LD (IX+$08),$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb69"></span>CB69</td>
+<td class="instruction">LD HL,$CE18</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb6c"></span>CB6C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb6d"></span>CB6D</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb6e"></span>CB6E</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb6f"></span>CB6F</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb70"></span>CB70</td>
+<td class="instruction">CALL Z,<a href="CE21.html">Character_Chooser</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb73"></span>CB73</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb74"></span>CB74</td>
+<td class="instruction">JR Z,<a href="CAE7.html#cb83">$CB83</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb76"></span>CB76</td>
+<td class="instruction">LD HL,($CE18)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb79"></span>CB79</td>
+<td class="instruction">LD DE,$CB83</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb7c"></span>CB7C</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb7d"></span>CB7D</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb7f"></span>CB7F</td>
+<td class="instruction">LD ($CE1A),A</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb82"></span>CB82</td>
+<td class="instruction">JP (HL)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cb83"></span>CB83</td>
+<td class="instruction">LD A,($D2FE)</td>
+<td class="comment-1" rowspan="3">If bit 0 of <a href="D2CF.html#d2fe">D2FE</a> is not zero then jump to <a href="CD47.html">CD47</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb86"></span>CB86</td>
+<td class="instruction">BIT 0,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb88"></span>CB88</td>
+<td class="instruction">JP NZ,<a href="CD47.html">$CD47</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb8b"></span>CB8B</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Else if bit 1 is not zero, jump to <a href="CD1B.html">Flash_Lives</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb8d"></span>CB8D</td>
+<td class="instruction">JP NZ,<a href="CD1B.html">Flash_Lives</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb90"></span>CB90</td>
+<td class="instruction">CALL <a href="CDC3.html">Scoring</a></td>
+<td class="comment-1" rowspan="1">Call <a href="CDC3.html">Scoring</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb93"></span>CB93</td>
+<td class="instruction">LD HL,$D190</td>
+<td class="comment-1" rowspan="5">If <a href="D190.html">D190</a> is not zero then call <a href="CAE7.html#cba0">CBA0</a> (also, writes $00 to <a href="D190.html">D190</a> to clear it).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb96"></span>CB96</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb97"></span>CB97</td>
+<td class="instruction">AND A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb98"></span>CB98</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb9a"></span>CB9A</td>
+<td class="instruction">CALL NZ,<a href="CAE7.html#cba0">$CBA0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cb9d"></span>CB9D</td>
+<td class="instruction">JP <a href="CAE7.html#cae7">$CAE7</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cba0"></span>CBA0</td>
+<td class="instruction">CALL <a href="F950.html#f960">Dollar_Scroll_0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cba3"></span>CBA3</td>
+<td class="instruction">JP <a href="CC9B.html">$CC9B</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-2"><span id="cba6"></span>CBA6</td>
+<td class="instruction">LD HL,$5B00</td>
+<td class="comment-1" rowspan="6">Blanks $FF bytes from <a href="5B00.html">BufferGeneral</a> onwards, then returns.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cba9"></span>CBA9</td>
+<td class="instruction">LD DE,$5B01</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cbac"></span>CBAC</td>
+<td class="instruction">LD BC,$00FF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cbaf"></span>CBAF</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cbb1"></span>CBB1</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cbb3"></span>CBB3</td>
+<td class="instruction">RET</td>
+</tr>
+<tr>
+<td class="asm-label">Copied_5B80</td>
+<td class="address-1"><span id="cbb4"></span>CBB4</td>
+<td class="instruction">DEFB $C3,$D2,$CB,$C3,$5A,$CC,$59,$CC</td>
+<td class="comment-1" rowspan="4">Copied to $5B80.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cbbc"></span>CBBC</td>
+<td class="instruction">DEFB $2A,$12,$CE,$E9,$C3,$DC,$CD,$C3</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cbc4"></span>CBC4</td>
+<td class="instruction">DEFB $B0,$D5,$C3,$E6,$D5,$C3,$FA,$D5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cbcc"></span>CBCC</td>
+<td class="instruction">DEFB $C3,$90,$CD</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cbcf"></span>CBCF</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C9B7.html">C9B7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cae7">Map</a></td>
+<td class="next">
+Next: <a href="CBD0.html">CBD0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
+<div><a href="../dec/asm/51943.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>
