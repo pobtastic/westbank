@@ -37,6 +37,7 @@ class WestBank(WestBankHtmlWriter):
         self.ref_parser.parse('{}/sources/westbank.ref'.format(WESTBANK_HOME))
         self.init()
 
+
 def get_playarea(game):
     play_area_udgs = game.get_play_area_udgs(0, 0, 32, 24)
     return play_area_udgs

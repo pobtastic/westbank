@@ -87,3 +87,5 @@ Z 8 50931 0 0
 SectionType=BulletPoints
 [Changelog:20200913]
 - First draft created in SkoolKit 8.2.
+[Changelog:20230426]
+- Major updates, altered a lot of the formatting to latest versions.

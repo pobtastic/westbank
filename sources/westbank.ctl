@@ -1105,7 +1105,8 @@ c $C7C0 New Game
   $C7D6,$05 Calls #R$CD64 with the counter $80.
   $C7DB,$0A Jump to #R$FA00 with #REGhl=#R$CBB4 and #REGix=#R$CD86.
 
-N $C7E5 Displays the title screen and on return, sets the control method and initiates variables for a new game.
+c $C7E5 Display title screen
+D $C7E5 Displays the title screen and on return, sets the control method and initiates variables for a new game.
 @ $C7E5 label=Init_Title_Screen
   $C7E5,$06 Calls #R$FE00 with #REGhl=#R$CBB4.
   $C7EB,$02 Unused.
@@ -1155,6 +1156,7 @@ N $C7FC Resets all game variables/ states ready for a new game.
 
   $C927,$03 Call #R$C720.
 
+c $C959 Door Attributes
 N $C959 Sets the door attributes for the "time of day".
 @ $C959 label=Set_Day_Attributes
   $C959,$05 Call #R$C966 using #R$C96F.
@@ -1171,12 +1173,13 @@ N $C966 Note this is for the opened door background hence it starts from frame 2
 
 N $C96F Door frame attribute data for each day phase.
 @ $C96F label=Door_Attributes_Day
-B $C96F,$18
+B $C96F,$18,$08 The attributes for the "day" state.
 @ $C987 label=Door_Attributes_Dusk
-B $C987,$18
+B $C987,$18,$08 The attributes for the "dusk" state.
 @ $C99F label=Door_Attributes_Night
-B $C99F,$18
+B $C99F,$18,$08 The attributes for the "night" state.
 
+c $C9B7 Prepare To Display The Current Phase
 N $C9B7 Clears the cashbox flags, clears the screen and displays the phase number.
 @ $C9B7 label=Prep_Display_Phase
   $C9B7,$06 Writes $0101 to #R$D45C.
@@ -1277,10 +1280,47 @@ B $CA80,$01
 
   $CACB,$04 Writes $00 to #R$D2FE.
 
-  $CAE7,$04 Read keys SPACE, FULL-STOP, M, N, & B.
-  $CAEE,$04 Read keys SHIFT, Z, X, C, & V.
-  $CAFB,$04 Read keys SHIFT, Z, X, C, & V.
-  $CB03,$04 Read keys SHIFT, Z, X, C, & V.
+  $CAD4,$03 Call #R$CD68.
+  $CAD7,$03 Call #R$CC3A.
+  $CADA,$03 Call #R$CC5A.
+  $CADD,$03 Call #R$CC9B.
+  $CAE0,$03 Call #R$CD90.
+  $CAE3,$03 Call #R$D45E.
+  $CAE6,$01 Return.
+
+c $CAE7 A
+  $CAE7,$04 Read from the keyboard;
+. #TABLE(default,centre,centre,centre,centre,centre,centre)
+. { =h,r2 Port Number | =h,c5 Bit }
+. { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
+. { #N$7F | SPACE | FULL-STOP | M | N | B }
+. TABLE#
+  $CAEB,$03 If "SPACE" is pressed.
+  $CAEE,$04 Read from the keyboard;
+. #TABLE(default,centre,centre,centre,centre,centre,centre)
+. { =h,r2 Port Number | =h,c5 Bit }
+. { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
+. { #N$FE | SHIFT | Z | X | C | V }
+. TABLE#
+  $CAFB,$04 Read from the keyboard;
+. #TABLE(default,centre,centre,centre,centre,centre,centre)
+. { =h,r2 Port Number | =h,c5 Bit }
+. { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
+. { #N$FE | SHIFT | Z | X | C | V }
+. TABLE#
+  $CB03,$04 Read from the keyboard;
+. #TABLE(default,centre,centre,centre,centre,centre,centre)
+. { =h,r2 Port Number | =h,c5 Bit }
+. { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
+. { #N$FE | SHIFT | Z | X | C | V }
+. TABLE#
+  $CB0B,$03 Call #R$D2CF.
+  $CB0E,$04 #REGbc=#R$CE1C.
+
+  $CB1A,$03 Call #R$CBA6.
+  $CB1D,$04 #REGix=#R$D165.
+
+  $CB25,$03 #REGhl=#R$CE14.
 
   $CB83,$08 If bit 0 of #R$D2FE is not zero then jump to #R$CD47.
   $CB8B,$05 Else if bit 1 is not zero, jump to #R$CD1B.
@@ -1823,6 +1863,9 @@ N $CFDD Writes "Julius closing the door" to the door flags/ cache.
 . { #R$D183 | Door 3 }
 . TABLE#
 .           to #R$D0B8.
+  $CFFD,$02 #REGa=#N$01.
+  $D002,$03 #REGhl=#R$D0B8.
+  $D018,$01 Return.
 
 
 c $D019

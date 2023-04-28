@@ -177,7 +177,6 @@ take care that the bottom hat doesn't conceal a bomb or you will lose a life.</p
 )
 
 [Playfield:Playfield]
-TODO: Need to work out the best way to do this...  For now, please enjoy the loading screen again!
 #CALL:play_area(playfield)
 
 [Bang:Message]

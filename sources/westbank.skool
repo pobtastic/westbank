@@ -5526,7 +5526,7 @@ c$C300 LD L,(IX+$00) ; {Set #R$D5E6 as the destination address at #R$C3B7.
 
 ; Routine at C3C0
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$C9B7.
 c$C3C0 CALL $C3DD    ; Call #R$C3DD.
  $C3C3 LD A,($C421)  ; Grab #R$C421.
  $C3C6 JR NC,$C3C9   ;
@@ -6093,7 +6093,7 @@ b$C71E DEFB $22,$FB
 
 ; Sheriff's Star Page
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$C7E5.
 @label=Sheriff_Star
 c$C720 LD HL,$4000   ; {Writes $00 to all 6144 bytes of the screen buffer (i.e.
  $C723 LD DE,$4001   ; "blanks it").
@@ -6144,193 +6144,205 @@ u$C7BD DEFB $C3,$90,$00
 ;
 ; Used by the routine at #R$FD80.
 @label=New_Game
-c$C7C0 LD HL,($5C78)                        ; #HTML(Fetch <a
-                                            ; href="https://skoolkid.github.io/rom/asm/5C78.html">FRAMES</a>
-                                            ; as a random number seed.)
- $C7C3 LD ($D8AC),HL                        ; Write it to #R$D8AC.
- $C7C6 CALL $C7E5                           ; Call #R$C7E5.
- $C7C9 LD HL,$4000                          ; {Clears the screen buffer by
- $C7CC LD DE,$4001                          ; writing $00 to all 6912 memory
- $C7CF LD BC,$1AFF                          ; locations.
- $C7D2 LD (HL),$00                          ;
- $C7D4 LDIR                                 ; }
- $C7D6 LD B,$80                             ; {Calls #R$CD64 with the counter
- $C7D8 CALL $CD64                           ; $80.}
- $C7DB LD HL,$CBB4                          ; {Jump to #R$FA00 with
- $C7DE LD IX,$CD86                          ; #REGhl=#R$CBB4 and
- $C7E2 JP $FA00                             ; #REGix=#R$CD86.}
+c$C7C0 LD HL,($5C78) ; #HTML(Fetch <a
+                     ; href="https://skoolkid.github.io/rom/asm/5C78.html">FRAMES</a>
+                     ; as a random number seed.)
+ $C7C3 LD ($D8AC),HL ; Write it to #R$D8AC.
+ $C7C6 CALL $C7E5    ; Call #R$C7E5.
+ $C7C9 LD HL,$4000   ; {Clears the screen buffer by writing $00 to all 6912
+ $C7CC LD DE,$4001   ; memory locations.
+ $C7CF LD BC,$1AFF   ;
+ $C7D2 LD (HL),$00   ;
+ $C7D4 LDIR          ; }
+ $C7D6 LD B,$80      ; {Calls #R$CD64 with the counter $80.
+ $C7D8 CALL $CD64    ; }
+ $C7DB LD HL,$CBB4   ; {Jump to #R$FA00 with #REGhl=#R$CBB4 and #REGix=#R$CD86.
+ $C7DE LD IX,$CD86   ;
+ $C7E2 JP $FA00      ; }
+
+; Display title screen
+;
 ; Displays the title screen and on return, sets the control method and
 ; initiates variables for a new game.
 @label=Init_Title_Screen
-*$C7E5 LD HL,$CBB4                          ; {Calls #R$FE00 with
- $C7E8 CALL $FE00                           ; #REGhl=#R$CBB4.}
- $C7EB LD B,$00                             ; Unused.
- $C7ED LD A,($5CB0)                         ; {Grab the value stored at #R$5CB0
- $C7F0 LD HL,$D39B                          ; and if it is $01 then jump ahead
- $C7F3 DEC A                                ; to #R$C7F9 which writes #R$D39B
- $C7F4 JR Z,$C7F9                           ; to #R$CE12.}
- $C7F6 LD HL,$D392                          ; {Write #R$D392 to #R$CE12.
+c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
+ $C7E8 CALL $FE00    ; }
+ $C7EB LD B,$00      ; Unused.
+ $C7ED LD A,($5CB0)  ; {Grab the value stored at #R$5CB0 and if it is $01 then
+ $C7F0 LD HL,$D39B   ; jump ahead to #R$C7F9 which writes #R$D39B to #R$CE12.
+ $C7F3 DEC A         ;
+ $C7F4 JR Z,$C7F9    ; }
+ $C7F6 LD HL,$D392   ; {Write #R$D392 to #R$CE12.
 @label=Set_Control_Alias
-*$C7F9 LD ($CE12),HL                        ; }
+*$C7F9 LD ($CE12),HL ; }
 ; Resets all game variables/ states ready for a new game.
- $C7FC LD HL,$CD86                          ; {Clears the score (writes $00
- $C7FF LD DE,$CD87                          ; over seven bytes from #R$CD86).
- $C802 LD (HL),$00                          ;
- $C804 LD BC,$0006                          ;
- $C807 LDIR                                 ; }
+ $C7FC LD HL,$CD86   ; {Clears the score (writes $00 over seven bytes from
+ $C7FF LD DE,$CD87   ; #R$CD86).
+ $C802 LD (HL),$00   ;
+ $C804 LD BC,$0006   ;
+ $C807 LDIR          ; }
 @label=Starting_Lives
- $C809 LD A,$03                             ; {Initialise #R$CC59 to $03.
- $C80B LD ($CC59),A                         ; }
- $C80E LD HL,$0101                          ; {Initialise #R$D45C to $0101.
- $C811 LD ($D45C),HL                        ; }
- $C814 LD HL,$0000                          ; {Clears #R$CE14, #R$CE16 and
- $C817 LD ($CE14),HL                        ; #R$CE18 (sets them to $0000).
- $C81A LD ($CE16),HL                        ;
- $C81D LD ($CE18),HL                        ; }
- $C820 LD HL,$2020                          ; {Clear #R$CA58 and #R$CA5A to
- $C823 LD ($CA58),HL                        ; $2020 (ASCII space-space).
- $C826 LD ($CA5A),HL                        ; }
- $C829 LD HL,$CC8D                          ; {Clear down the deposit flags
- $C82C LD DE,$CC8E                          ; (copies $00 to each from
- $C82F LD BC,$000D                          ; #R$CC8D).
- $C832 LD (HL),$00                          ;
- $C834 LDIR                                 ; }
- $C836 XOR A                                ; {Set the border to black.
- $C837 OUT ($FE),A                          ; }
- $C839 INC A                                ; {Write $01 to #R$CBCF.
- $C83A LD ($CBCF),A                         ; }
- $C83D CALL $CA6C                           ;
- $C840 CALL $C959                           ;
- $C843 CALL $CA64                           ;
- $C846 LD A,$03                             ; {Writes $03 to #R$CE1B.
- $C848 LD ($CE1B),A                         ; }
- $C84B LD HL,$0500                          ; {Writes $0500 to #R$CE1C.
- $C84E LD ($CE1C),HL                        ; }
- $C851 LD A,$01                             ; {Writes $01 to #R$D191.
- $C853 LD ($D191),A                         ; }
- $C856 LD A,($5CB1)                         ; {Grabs the #R$5CB1, if it's level
- $C859 LD HL,$CA4A                          ; 1 then jump to #R$C878 with
- $C85C DEC A                                ; #REGhl=#R$CA4A.
- $C85D JR Z,$C878                           ; }
- $C85F CALL $C941                           ;
- $C862 INC (HL)                             ;
- $C863 CALL $C941                           ;
- $C866 INC (HL)                             ;
- $C867 DEC A                                ;
- $C868 JR Z,$C88F                           ;
- $C86A CALL $C941                           ;
- $C86D INC (HL)                             ;
- $C86E CALL $C941                           ;
- $C871 INC (HL)                             ;
- $C872 CALL $C941                           ;
- $C875 INC (HL)                             ;
- $C876 JR $C8B6                             ;
+ $C809 LD A,$03      ; {Initialise #R$CC59 to $03.
+ $C80B LD ($CC59),A  ; }
+ $C80E LD HL,$0101   ; {Initialise #R$D45C to $0101.
+ $C811 LD ($D45C),HL ; }
+ $C814 LD HL,$0000   ; {Clears #R$CE14, #R$CE16 and #R$CE18 (sets them to
+ $C817 LD ($CE14),HL ; $0000).
+ $C81A LD ($CE16),HL ;
+ $C81D LD ($CE18),HL ; }
+ $C820 LD HL,$2020   ; {Clear #R$CA58 and #R$CA5A to $2020 (ASCII space-space).
+ $C823 LD ($CA58),HL ;
+ $C826 LD ($CA5A),HL ; }
+ $C829 LD HL,$CC8D   ; {Clear down the deposit flags (copies $00 to each from
+ $C82C LD DE,$CC8E   ; #R$CC8D).
+ $C82F LD BC,$000D   ;
+ $C832 LD (HL),$00   ;
+ $C834 LDIR          ; }
+ $C836 XOR A         ; {Set the border to black.
+ $C837 OUT ($FE),A   ; }
+ $C839 INC A         ; {Write $01 to #R$CBCF.
+ $C83A LD ($CBCF),A  ; }
+ $C83D CALL $CA6C    ;
+ $C840 CALL $C959    ;
+ $C843 CALL $CA64    ;
+ $C846 LD A,$03      ; {Writes $03 to #R$CE1B.
+ $C848 LD ($CE1B),A  ; }
+ $C84B LD HL,$0500   ; {Writes $0500 to #R$CE1C.
+ $C84E LD ($CE1C),HL ; }
+ $C851 LD A,$01      ; {Writes $01 to #R$D191.
+ $C853 LD ($D191),A  ; }
+ $C856 LD A,($5CB1)  ; {Grabs the #R$5CB1, if it's level 1 then jump to #R$C878
+ $C859 LD HL,$CA4A   ; with #REGhl=#R$CA4A.
+ $C85C DEC A         ;
+ $C85D JR Z,$C878    ; }
+ $C85F CALL $C941    ;
+ $C862 INC (HL)      ;
+ $C863 CALL $C941    ;
+ $C866 INC (HL)      ;
+ $C867 DEC A         ;
+ $C868 JR Z,$C88F    ;
+ $C86A CALL $C941    ;
+ $C86D INC (HL)      ;
+ $C86E CALL $C941    ;
+ $C871 INC (HL)      ;
+ $C872 CALL $C941    ;
+ $C875 INC (HL)      ;
+ $C876 JR $C8B6      ;
 @label=Level_01
-*$C878 LD HL,$CE42                          ; {Writes #R$CE42 to #R$CE1F.
- $C87B LD ($CE1F),HL                        ; }
- $C87E CALL $CA81                           ;
- $C881 RET C                                ;
- $C882 LD HL,$CE6F                          ; {Writes #R$CE6F to #R$CE1F.
- $C885 LD ($CE1F),HL                        ; }
- $C888 CALL $C941                           ;
- $C88B CALL $CA81                           ;
- $C88E RET C                                ;
-*$C88F LD HL,$CE5F                          ; {Writes #R$CE5F to #R$CE1F.
- $C892 LD ($CE1F),HL                        ; }
- $C895 CALL $C941                           ;
- $C898 CALL $CA81                           ;
- $C89B RET C                                ;
- $C89C LD HL,$CE55                          ; {Writes #R$CE55 to #R$CE1F.
- $C89F LD ($CE1F),HL                        ; }
- $C8A2 CALL $C941                           ;
- $C8A5 CALL $CA81                           ;
- $C8A8 RET C                                ;
- $C8A9 LD HL,$CE7E                          ; {Writes #R$CE7E to #R$CE1F.
- $C8AC LD ($CE1F),HL                        ; }
- $C8AF CALL $C941                           ;
- $C8B2 CALL $CA81                           ;
- $C8B5 RET C                                ;
-*$C8B6 LD HL,$CE8D                          ; {Writes #R$CE8D to #R$CE1F.
- $C8B9 LD ($CE1F),HL                        ; }
- $C8BC CALL $C941                           ;
- $C8BF CALL $CA81                           ;
- $C8C2 RET C                                ;
- $C8C3 LD HL,$CE9C                          ; {Writes #R$CE9C to #R$CE1F.
- $C8C6 LD ($CE1F),HL                        ; }
- $C8C9 CALL $C941                           ;
- $C8CC CALL $CA81                           ;
- $C8CF RET C                                ;
- $C8D0 LD HL,$CE9C                          ; {Writes #R$CE9C to #R$CE1F.
- $C8D3 LD ($CE1F),HL                        ; }
- $C8D6 CALL $C941                           ;
- $C8D9 CALL $C95E                           ;
- $C8DC CALL $CA81                           ;
- $C8DF RET C                                ;
- $C8E0 LD HL,$CE9C                          ; {Writes #R$CE9C to #R$CE1F.
- $C8E3 LD ($CE1F),HL                        ; }
- $C8E6 CALL $C941                           ;
- $C8E9 CALL $C963                           ;
- $C8EC CALL $CA81                           ;
- $C8EF RET C                                ;
-*$C8F0 CALL $C959                           ;
- $C8F3 CALL $CA64                           ;
- $C8F6 LD B,$07                             ;
-*$C8F8 PUSH BC                              ;
- $C8F9 CALL $CA81                           ;
- $C8FC POP BC                               ;
- $C8FD RET C                                ;
- $C8FE PUSH BC                              ;
- $C8FF CALL $C941                           ;
- $C902 POP BC                               ;
- $C903 DJNZ $C8F8                           ;
- $C905 CALL $C95E                           ;
- $C908 CALL $CA81                           ;
- $C90B RET C                                ;
- $C90C CALL $C963                           ;
- $C90F CALL $CA81                           ;
- $C912 RET C                                ;
- $C913 LD HL,$D191                          ;
- $C916 LD A,(HL)                            ;
- $C917 LD (HL),$00                          ;
- $C919 AND A                                ;
- $C91A JR Z,$C8F0                           ;
- $C91C LD HL,$CBB4                          ;
- $C91F LD DE,$5B80                          ;
- $C922 LD BC,$0040                          ;
- $C925 LDIR                                 ;
- $C927 CALL $C720                           ; Call #R$C720.
- $C92A CALL $CD64                           ;
- $C92D CALL $CD64                           ;
- $C930 CALL $CD64                           ;
- $C933 CALL $CD64                           ;
-*$C936 XOR A                                ;
- $C937 IN A,($FE)                           ;
- $C939 OR $E0                               ;
- $C93B INC A                                ;
- $C93C JR Z,$C936                           ;
- $C93E NOP                                  ;
- $C93F JR $C8F0                             ;
-*$C941 PUSH AF                              ;
- $C942 PUSH HL                              ;
- $C943 LD HL,($CE1C)                        ;
- $C946 LD BC,$0040                          ;
- $C949 AND A                                ;
- $C94A SBC HL,BC                            ;
- $C94C LD A,H                               ;
- $C94D OR L                                 ;
- $C94E JR NZ,$C953                          ;
- $C950 LD HL,$0040                          ;
-*$C953 LD ($CE1C),HL                        ;
- $C956 POP HL                               ;
- $C957 POP AF                               ;
- $C958 RET                                  ;
+*$C878 LD HL,$CE42   ; {Writes #R$CE42 to #R$CE1F.
+ $C87B LD ($CE1F),HL ; }
+ $C87E CALL $CA81    ;
+ $C881 RET C         ;
+ $C882 LD HL,$CE6F   ; {Writes #R$CE6F to #R$CE1F.
+ $C885 LD ($CE1F),HL ; }
+ $C888 CALL $C941    ;
+ $C88B CALL $CA81    ;
+ $C88E RET C         ;
+*$C88F LD HL,$CE5F   ; {Writes #R$CE5F to #R$CE1F.
+ $C892 LD ($CE1F),HL ; }
+ $C895 CALL $C941    ;
+ $C898 CALL $CA81    ;
+ $C89B RET C         ;
+ $C89C LD HL,$CE55   ; {Writes #R$CE55 to #R$CE1F.
+ $C89F LD ($CE1F),HL ; }
+ $C8A2 CALL $C941    ;
+ $C8A5 CALL $CA81    ;
+ $C8A8 RET C         ;
+ $C8A9 LD HL,$CE7E   ; {Writes #R$CE7E to #R$CE1F.
+ $C8AC LD ($CE1F),HL ; }
+ $C8AF CALL $C941    ;
+ $C8B2 CALL $CA81    ;
+ $C8B5 RET C         ;
+*$C8B6 LD HL,$CE8D   ; {Writes #R$CE8D to #R$CE1F.
+ $C8B9 LD ($CE1F),HL ; }
+ $C8BC CALL $C941    ;
+ $C8BF CALL $CA81    ;
+ $C8C2 RET C         ;
+ $C8C3 LD HL,$CE9C   ; {Writes #R$CE9C to #R$CE1F.
+ $C8C6 LD ($CE1F),HL ; }
+ $C8C9 CALL $C941    ;
+ $C8CC CALL $CA81    ;
+ $C8CF RET C         ;
+ $C8D0 LD HL,$CE9C   ; {Writes #R$CE9C to #R$CE1F.
+ $C8D3 LD ($CE1F),HL ; }
+ $C8D6 CALL $C941    ;
+ $C8D9 CALL $C95E    ;
+ $C8DC CALL $CA81    ;
+ $C8DF RET C         ;
+ $C8E0 LD HL,$CE9C   ; {Writes #R$CE9C to #R$CE1F.
+ $C8E3 LD ($CE1F),HL ; }
+ $C8E6 CALL $C941    ;
+ $C8E9 CALL $C963    ;
+ $C8EC CALL $CA81    ;
+ $C8EF RET C         ;
+*$C8F0 CALL $C959    ;
+ $C8F3 CALL $CA64    ;
+ $C8F6 LD B,$07      ;
+*$C8F8 PUSH BC       ;
+ $C8F9 CALL $CA81    ;
+ $C8FC POP BC        ;
+ $C8FD RET C         ;
+ $C8FE PUSH BC       ;
+ $C8FF CALL $C941    ;
+ $C902 POP BC        ;
+ $C903 DJNZ $C8F8    ;
+ $C905 CALL $C95E    ;
+ $C908 CALL $CA81    ;
+ $C90B RET C         ;
+ $C90C CALL $C963    ;
+ $C90F CALL $CA81    ;
+ $C912 RET C         ;
+ $C913 LD HL,$D191   ;
+ $C916 LD A,(HL)     ;
+ $C917 LD (HL),$00   ;
+ $C919 AND A         ;
+ $C91A JR Z,$C8F0    ;
+ $C91C LD HL,$CBB4   ;
+ $C91F LD DE,$5B80   ;
+ $C922 LD BC,$0040   ;
+ $C925 LDIR          ;
+ $C927 CALL $C720    ; Call #R$C720.
+ $C92A CALL $CD64    ;
+ $C92D CALL $CD64    ;
+ $C930 CALL $CD64    ;
+ $C933 CALL $CD64    ;
+*$C936 XOR A         ;
+ $C937 IN A,($FE)    ;
+ $C939 OR $E0        ;
+ $C93B INC A         ;
+ $C93C JR Z,$C936    ;
+ $C93E NOP           ;
+ $C93F JR $C8F0      ;
+*$C941 PUSH AF       ;
+ $C942 PUSH HL       ;
+ $C943 LD HL,($CE1C) ;
+ $C946 LD BC,$0040   ;
+ $C949 AND A         ;
+ $C94A SBC HL,BC     ;
+ $C94C LD A,H        ;
+ $C94D OR L          ;
+ $C94E JR NZ,$C953   ;
+ $C950 LD HL,$0040   ;
+*$C953 LD ($CE1C),HL ;
+ $C956 POP HL        ;
+ $C957 POP AF        ;
+ $C958 RET           ;
+
+; Door Attributes
+;
+; Used by the routine at #R$C7E5.
+;
+; .
+;
 ; Sets the door attributes for the "time of day".
 @label=Set_Day_Attributes
-*$C959 LD HL,$C96F                          ; {Call #R$C966 using #R$C96F.
+c$C959 LD HL,$C96F                          ; {Call #R$C966 using #R$C96F.
  $C95C JR $C966                             ; }
+; This entry point is used by the routine at #R$C7E5.
 @label=Set_Dusk_Attributes
 *$C95E LD HL,$C987                          ; {Call #R$C966 using #R$C987.
  $C961 JR $C966                             ; }
+; This entry point is used by the routine at #R$C7E5.
 @label=Set_Night_Attributes
 *$C963 LD HL,$C99F                          ; Call #R$C966 using #R$C99F.
 ; Note this is for the opened door background hence it starts from frame 2 (as
@@ -6342,224 +6354,247 @@ c$C7C0 LD HL,($5C78)                        ; #HTML(Fetch <a
  $C96E RET                                  ; }
 ; Door frame attribute data for each day phase.
 @label=Door_Attributes_Day
- $C96F DEFB $28,$28,$30,$30,$30,$30,$30,$30 ;
- $C977 DEFB $28,$28,$28,$28,$30,$30,$30,$30 ;
- $C97F DEFB $28,$28,$28,$28,$28,$28,$30,$28 ;
+ $C96F DEFB $28,$28,$30,$30,$30,$30,$30,$30 ; {The attributes for the "day"
+ $C977 DEFB $28,$28,$28,$28,$30,$30,$30,$30 ; state.
+ $C97F DEFB $28,$28,$28,$28,$28,$28,$30,$28 ; }
 @label=Door_Attributes_Dusk
- $C987 DEFB $0D,$0D,$30,$30,$30,$30,$30,$30 ;
- $C98F DEFB $0D,$0D,$0D,$0D,$30,$30,$30,$30 ;
- $C997 DEFB $0D,$0D,$0D,$0D,$0D,$0D,$30,$0D ;
+ $C987 DEFB $0D,$0D,$30,$30,$30,$30,$30,$30 ; {The attributes for the "dusk"
+ $C98F DEFB $0D,$0D,$0D,$0D,$30,$30,$30,$30 ; state.
+ $C997 DEFB $0D,$0D,$0D,$0D,$0D,$0D,$30,$0D ; }
 @label=Door_Attributes_Night
- $C99F DEFB $05,$05,$30,$30,$30,$30,$30,$30 ;
- $C9A7 DEFB $05,$05,$05,$05,$30,$30,$30,$30 ;
- $C9AF DEFB $05,$05,$05,$05,$05,$05,$30,$05 ;
+ $C99F DEFB $05,$05,$30,$30,$30,$30,$30,$30 ; {The attributes for the "night"
+ $C9A7 DEFB $05,$05,$05,$05,$30,$30,$30,$30 ; state.
+ $C9AF DEFB $05,$05,$05,$05,$05,$05,$30,$05 ; }
+
+; Prepare To Display The Current Phase
+;
+; .
+;
+; .
+;
 ; Clears the cashbox flags, clears the screen and displays the phase number.
 @label=Prep_Display_Phase
-*$C9B7 LD HL,$0101                          ; {Writes $0101 to #R$D45C.
- $C9BA LD ($D45C),HL                        ; }
- $C9BD LD HL,$CC8D                          ; {Clear down the deposit flags
- $C9C0 LD DE,$CC8E                          ; (copies $00 to each from
- $C9C3 LD BC,$000D                          ; #R$CC8D).
- $C9C6 LD (HL),$00                          ;
- $C9C8 LDIR                                 ; }
- $C9CA XOR A                                ; {Call #R$C9D0 (using $00).
- $C9CB CALL $C9D0                           ; }
- $C9CE JR $C9DD                             ; Jump to #R$C9DD.
+c$C9B7 LD HL,$0101        ; {Writes $0101 to #R$D45C.
+ $C9BA LD ($D45C),HL      ; }
+ $C9BD LD HL,$CC8D        ; {Clear down the deposit flags (copies $00 to each
+ $C9C0 LD DE,$CC8E        ; from #R$CC8D).
+ $C9C3 LD BC,$000D        ;
+ $C9C6 LD (HL),$00        ;
+ $C9C8 LDIR               ; }
+ $C9CA XOR A              ; {Call #R$C9D0 (using $00).
+ $C9CB CALL $C9D0         ; }
+ $C9CE JR $C9DD           ; Jump to #R$C9DD.
 ; This routine has the ability to write any value across the screen buffer, however it's only ever called with
 ;       #REGa=$00 (clear screen).
 @label=Clear_Screen
-*$C9D0 LD HL,$4000                          ; {Clears the screen buffer by
- $C9D3 LD DE,$4001                          ; writing $00 to all 6912 memory
- $C9D6 LD BC,$1AFF                          ; locations.
- $C9D9 LD (HL),A                            ;
- $C9DA LDIR                                 ;
- $C9DC RET                                  ; }
+*$C9D0 LD HL,$4000        ; {Clears the screen buffer by writing $00 to all
+ $C9D3 LD DE,$4001        ; 6912 memory locations.
+ $C9D6 LD BC,$1AFF        ;
+ $C9D9 LD (HL),A          ;
+ $C9DA LDIR               ;
+ $C9DC RET                ; }
 ; Displays the current "phase".
 @label=Display_Phase
-*$C9DD LD HL,$CA4E                          ; {Copies #R$CA4E into #R$CA5C ($05
- $C9E0 LD DE,$CA5C                          ; bytes of text data).
- $C9E3 LD BC,$0005                          ;
- $C9E6 LDIR                                 ; }
- $C9E8 LD HL,($CA5A)                        ; {Writes #R$CA5A to #R$CA5C (at
- $C9EB LD ($CA61),HL                        ; $CA61 - just overwriting the
-                                            ; numeric part).}
- $C9EE LD HL,$CA4A                          ; {Call #R$CA19 with #R$CA4A.
- $C9F1 CALL $CA19                           ; }
- $C9F4 LD HL,($CA61)                        ; {Writes $CA61 back to #R$CA5A.
- $C9F7 LD ($CA5A),HL                        ; }
- $C9FA RET                                  ; Return.
+*$C9DD LD HL,$CA4E        ; {Copies #R$CA4E into #R$CA5C ($05 bytes of text
+ $C9E0 LD DE,$CA5C        ; data).
+ $C9E3 LD BC,$0005        ;
+ $C9E6 LDIR               ; }
+ $C9E8 LD HL,($CA5A)      ; {Writes #R$CA5A to #R$CA5C (at $CA61 - just
+ $C9EB LD ($CA61),HL      ; overwriting the numeric part).}
+ $C9EE LD HL,$CA4A        ; {Call #R$CA19 with #R$CA4A.
+ $C9F1 CALL $CA19         ; }
+ $C9F4 LD HL,($CA61)      ; {Writes $CA61 back to #R$CA5A.
+ $C9F7 LD ($CA5A),HL      ; }
+ $C9FA RET                ; Return.
 ; Displays the current "day".
 @label=Display_Day
-*$C9FB LD HL,$CA53                          ; {Copies #R$CA53 into #R$CA5C ($05
- $C9FE LD DE,$CA5C                          ; bytes of text data).
- $CA01 LD BC,$0005                          ;
- $CA04 LDIR                                 ; }
- $CA06 LD HL,($CA58)                        ; {Writes #R$CA58 to #R$CA5C (at
- $CA09 LD ($CA61),HL                        ; $CA61 - just overwriting the
-                                            ; numeric part).}
- $CA0C LD HL,$CA4C                          ; {Call #R$CA19 with #R$CA4C.
- $CA0F CALL $CA19                           ; }
- $CA12 LD HL,($CA61)                        ; {Writes $CA61 back to #R$CA58.
- $CA15 LD ($CA58),HL                        ; }
- $CA18 RET                                  ; Return.
+*$C9FB LD HL,$CA53        ; {Copies #R$CA53 into #R$CA5C ($05 bytes of text
+ $C9FE LD DE,$CA5C        ; data).
+ $CA01 LD BC,$0005        ;
+ $CA04 LDIR               ; }
+ $CA06 LD HL,($CA58)      ; {Writes #R$CA58 to #R$CA5C (at $CA61 - just
+ $CA09 LD ($CA61),HL      ; overwriting the numeric part).}
+ $CA0C LD HL,$CA4C        ; {Call #R$CA19 with #R$CA4C.
+ $CA0F CALL $CA19         ; }
+ $CA12 LD HL,($CA61)      ; {Writes $CA61 back to #R$CA58.
+ $CA15 LD ($CA58),HL      ; }
+ $CA18 RET                ; Return.
 ; This routine is for converting progress numbers into ASCII. On entry #REGhl
 ; will be either #R$CA4A or #R$CA4C.
 @label=Progress_Base_10
-*$CA19 LD A,(HL)                            ; {If the passed number is not more
- $CA1A INC A                                ; than 10 jump to #R$CA27.
- $CA1B CP $0A                               ;
- $CA1D JR NC,$CA27                          ; }
- $CA1F LD (HL),A                            ; {Stores the ASCII representation of the number at $CA62 (for #R$CA5C). It adds ASCII "0" so for example 1
- $CA20 ADD A,$30                            ;           ends up being 1 + $30 = $31 (e.g. "1" in ASCII).
- $CA22 LD ($CA62),A                         ; }
- $CA25 JR $CA38                             ; Jump to #R$CA38.
+*$CA19 LD A,(HL)          ; {If the passed number is not more than 10 jump to
+ $CA1A INC A              ; #R$CA27.
+ $CA1B CP $0A             ;
+ $CA1D JR NC,$CA27        ; }
+ $CA1F LD (HL),A          ; {Stores the ASCII representation of the number at $CA62 (for #R$CA5C). It adds ASCII "0" so for example 1
+ $CA20 ADD A,$30          ;           ends up being 1 + $30 = $31 (e.g. "1" in ASCII).
+ $CA22 LD ($CA62),A       ; }
+ $CA25 JR $CA38           ; Jump to #R$CA38.
 ; Ensures the progress digit remains 0-9. On entry #REGhl will be either
 ; #R$CA4A or #R$CA4C.
 @label=Progress_Divisible_10
-*$CA27 LD (HL),$00                          ; Reset the current progress digit
-                                            ; to $00.
- $CA29 INC HL                               ; Use the secondary digit of the
-                                            ; currently focused progress.
+*$CA27 LD (HL),$00        ; Reset the current progress digit to $00.
+ $CA29 INC HL             ; Use the secondary digit of the currently focused
+                          ; progress.
 ; Note this doesn't account for a third digit and so leads to eventual corruption. Once past day/ phase "99", this
 ;       will display "00" and past "09" the first ASCII digit doesn't point to any usable image data. Note however, this
 ;       occurs after ~4 hours of game play so isn't especially an issue.
- $CA2A INC (HL)                             ; Increase this second digit by
-                                            ; one.
- $CA2B LD A,(HL)                            ; {Add ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII). Write this number to $CA61
- $CA2C ADD A,$30                            ;           (for #R$CA5C).
- $CA2E LD ($CA61),A                         ; }
- $CA31 DEC HL                               ; Move back to point to the
-                                            ; original location of #REGhl.
- $CA32 LD A,(HL)                            ; {Again, add ASCII "0" for this
- $CA33 ADD A,$30                            ; digit too. Write this number to
- $CA35 LD ($CA62),A                         ; $CA62 (for #R$CA5C).}
+ $CA2A INC (HL)           ; Increase this second digit by one.
+ $CA2B LD A,(HL)          ; {Add ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII). Write this number to $CA61
+ $CA2C ADD A,$30          ;           (for #R$CA5C).
+ $CA2E LD ($CA61),A       ; }
+ $CA31 DEC HL             ; Move back to point to the original location of
+                          ; #REGhl.
+ $CA32 LD A,(HL)          ; {Again, add ASCII "0" for this digit too. Write
+ $CA33 ADD A,$30          ; this number to $CA62 (for #R$CA5C).
+ $CA35 LD ($CA62),A       ; }
 ; Prints the current progress buffer message to the screen.
 @label=Print_Progress
-*$CA38 LD HL,$CA5C                          ; {Prints #R$CA5C to the screen buffer at $486C using #R$CBD2.
- $CA3B LD DE,$486C                          ; #TABLE(default,centre,centre,centre,centre)
- $CA3E LD BC,$0703                          ; { =h Value | =h Ink | =h Paper | =h Bright }
- $CA41 CALL $CBD2                           ; { #N$07 | #N$07 | #N$00 | #N$00 }
-                                            ; { #N$03 | #N$03 | #N$00 | #N$00 }
-                                            ; TABLE#}
- $CA44 LD B,$50                             ; {Interrupt driven HALT loop ($50
+*$CA38 LD HL,$CA5C        ; {Prints #R$CA5C to the screen buffer at $486C using #R$CBD2.
+ $CA3B LD DE,$486C        ; #TABLE(default,centre,centre,centre,centre)
+ $CA3E LD BC,$0703        ; { =h Value | =h Ink | =h Paper | =h Bright }
+ $CA41 CALL $CBD2         ; { #N$07 | #N$07 | #N$00 | #N$00 }
+                          ; { #N$03 | #N$03 | #N$00 | #N$00 }
+                          ; TABLE#}
+ $CA44 LD B,$50           ; {Interrupt driven HALT loop ($50 cycles).
 @label=Progress_Halt_Loop
-*$CA46 HALT                                 ; cycles).
- $CA47 DJNZ $CA46                           ; }
- $CA49 RET                                  ; Return.
+*$CA46 HALT               ;
+ $CA47 DJNZ $CA46         ; }
+ $CA49 RET                ; Return.
 @label=Phase
- $CA4A DEFW $0006                           ;
+ $CA4A DEFW $0006         ;
 @label=Day
- $CA4C DEFW $0001                           ;
+ $CA4C DEFW $0001         ;
 @label=Phase_Copy
- $CA4E DEFM "PHASE"                         ; "#STR#(#PC),$04,$05".
+ $CA4E DEFM "PHASE"       ; "#STR#(#PC),$04,$05".
 @label=Day_Copy
- $CA53 DEFM " DAY "                         ; "#STR#(#PC),$04,$05".
+ $CA53 DEFM " DAY "       ; "#STR#(#PC),$04,$05".
 @label=Day_ASCII
- $CA58 DEFM " 1"                            ; "#STR#(#PC),$04,$02".
+ $CA58 DEFM " 1"          ; "#STR#(#PC),$04,$02".
 @label=Phase_ASCII
- $CA5A DEFM " 6"                            ; "#STR#(#PC),$04,$02".
+ $CA5A DEFM " 6"          ; "#STR#(#PC),$04,$02".
 @label=Progress_Buffer
- $CA5C DEFM "PHASE 6",$FF                   ; This is a buffer - so text
-                                            ; changes during play:
-                                            ; "#STR#(#PC),$08($b==$FF)".
+ $CA5C DEFM "PHASE 6",$FF ; This is a buffer - so text changes during play:
+                          ; "#STR#(#PC),$08($b==$FF)".
 ; Clears the screen and displays the day number.
 @label=Prep_Display_Day
-*$CA64 XOR A                                ; {Clears the screen by passing $00
- $CA65 CALL $C9D0                           ; to #R$C9D0.}
- $CA68 CALL $C9FB                           ; Call #R$C9FB.
- $CA6B RET                                  ; Return.
+*$CA64 XOR A              ; {Clears the screen by passing $00 to #R$C9D0.
+ $CA65 CALL $C9D0         ; }
+ $CA68 CALL $C9FB         ; Call #R$C9FB.
+ $CA6B RET                ; Return.
 ; Clear down the day/ progress states.
 @label=Init_Progress
-*$CA6C LD HL,$0000                          ; {Clears #R$CA4A and #R$CA4C
- $CA6F LD ($CA4A),HL                        ; (writes $0000 to them).
- $CA72 LD ($CA4C),HL                        ; }
- $CA75 LD A,$20                             ; {Writes ASCII space ($20) to $CA61 and ASCII "0" ($30) to $CA62 (i.e. writes " 0" to the numeric portion of
- $CA77 LD HL,$CA61                          ;           #R$CA5C).
- $CA7A LD (HL),A                            ;
- $CA7B INC HL                               ;
- $CA7C LD A,$30                             ;
- $CA7E LD (HL),A                            ; }
- $CA7F RET                                  ; Return.
+*$CA6C LD HL,$0000        ; {Clears #R$CA4A and #R$CA4C (writes $0000 to them).
+ $CA6F LD ($CA4A),HL      ;
+ $CA72 LD ($CA4C),HL      ; }
+ $CA75 LD A,$20           ; {Writes ASCII space ($20) to $CA61 and ASCII "0" ($30) to $CA62 (i.e. writes " 0" to the numeric portion of
+ $CA77 LD HL,$CA61        ;           #R$CA5C).
+ $CA7A LD (HL),A          ;
+ $CA7B INC HL             ;
+ $CA7C LD A,$30           ;
+ $CA7E LD (HL),A          ; }
+ $CA7F RET                ; Return.
 @label=Cashboxes_Completed_Flag
- $CA80 DEFB $00                             ;
+ $CA80 DEFB $00           ;
+; This entry point is used by the routine at #R$C7E5.
 @label=Cashboxes_Completed
-*$CA81 CALL $CAC8                           ;
- $CA84 RET C                                ;
- $CA85 LD B,$10                             ;
+*$CA81 CALL $CAC8         ;
+ $CA84 RET C              ;
+ $CA85 LD B,$10           ;
 @label=Cashboxes_Flash_Loop
-*$CA87 PUSH BC                              ;
- $CA88 LD A,B                               ;
- $CA89 AND $01                              ;
- $CA8B CALL $CAB9                           ;
- $CA8E LD B,$10                             ;
- $CA90 CALL $CD64                           ;
- $CA93 POP BC                               ;
- $CA94 DJNZ $CA87                           ;
- $CA96 LD B,$30                             ;
- $CA98 CALL $CD64                           ;
- $CA9B LD A,B                               ;
- $CA9C CALL $CAB9                           ;
- $CA9F CALL $D8B0                           ;
- $CAA2 LD B,A                               ;
- $CAA3 LD A,R                               ;
- $CAA5 LD C,A                               ;
- $CAA6 ADD A,B                              ;
- $CAA7 LD D,A                               ;
- $CAA8 LD A,($CBCF)                         ;
- $CAAB LD HL,$CBB4                          ;
- $CAAE CALL $C3C0                           ;
- $CAB1 LD ($CBCF),A                         ;
- $CAB4 LD B,$00                             ;
- $CAB6 JP $CD64                             ;
+*$CA87 PUSH BC            ;
+ $CA88 LD A,B             ;
+ $CA89 AND $01            ;
+ $CA8B CALL $CAB9         ;
+ $CA8E LD B,$10           ;
+ $CA90 CALL $CD64         ;
+ $CA93 POP BC             ;
+ $CA94 DJNZ $CA87         ;
+ $CA96 LD B,$30           ;
+ $CA98 CALL $CD64         ;
+ $CA9B LD A,B             ;
+ $CA9C CALL $CAB9         ;
+ $CA9F CALL $D8B0         ;
+ $CAA2 LD B,A             ;
+ $CAA3 LD A,R             ;
+ $CAA5 LD C,A             ;
+ $CAA6 ADD A,B            ;
+ $CAA7 LD D,A             ;
+ $CAA8 LD A,($CBCF)       ;
+ $CAAB LD HL,$CBB4        ;
+ $CAAE CALL $C3C0         ;
+ $CAB1 LD ($CBCF),A       ;
+ $CAB4 LD B,$00           ;
+ $CAB6 JP $CD64           ;
 @label=Deposit_Flash_Prep
-*$CAB9 LD HL,$CC8D                          ; {Writes #REGa across all the
- $CABC LD DE,$CC8E                          ; deposit flags (copies to each
- $CABF LD BC,$000D                          ; from #R$CC8D).
- $CAC2 LD (HL),A                            ;
- $CAC3 LDIR                                 ; }
- $CAC5 JP $CC9B                             ; Jump to #R$CC9B.
-*$CAC8 CALL $C9B7                           ;
+*$CAB9 LD HL,$CC8D        ; {Writes #REGa across all the deposit flags (copies
+ $CABC LD DE,$CC8E        ; to each from #R$CC8D).
+ $CABF LD BC,$000D        ;
+ $CAC2 LD (HL),A          ;
+ $CAC3 LDIR               ; }
+ $CAC5 JP $CC9B           ; Jump to #R$CC9B.
+*$CAC8 CALL $C9B7         ;
 ; This entry point is used by the routines at #R$CD1B and #R$CD47.
-*$CACB XOR A                                ; {Writes $00 to #R$D2FE.
- $CACC LD ($D2FE),A                         ; }
- $CACF CALL $CAD4                           ;
- $CAD2 JR $CAE7                             ;
-*$CAD4 CALL $CD68                           ;
- $CAD7 CALL $CC3A                           ;
- $CADA CALL $CC5A                           ;
- $CADD CALL $CC9B                           ;
- $CAE0 CALL $CD90                           ;
- $CAE3 CALL $D45E                           ;
- $CAE6 RET                                  ;
-*$CAE7 LD A,$7F                             ; {Read keys SPACE, FULL-STOP, M,
- $CAE9 IN A,($FE)                           ; N, & B.}
- $CAEB RRA                                  ;
- $CAEC JR C,$CAFB                           ;
- $CAEE LD A,$FE                             ; {Read keys SHIFT, Z, X, C, & V.
- $CAF0 IN A,($FE)                           ; }
+*$CACB XOR A              ; {Writes $00 to #R$D2FE.
+ $CACC LD ($D2FE),A       ; }
+ $CACF CALL $CAD4         ;
+ $CAD2 JR $CAE7           ;
+*$CAD4 CALL $CD68         ; Call #R$CD68.
+ $CAD7 CALL $CC3A         ; Call #R$CC3A.
+ $CADA CALL $CC5A         ; Call #R$CC5A.
+ $CADD CALL $CC9B         ; Call #R$CC9B.
+ $CAE0 CALL $CD90         ; Call #R$CD90.
+ $CAE3 CALL $D45E         ; Call #R$D45E.
+ $CAE6 RET                ; Return.
+
+; A
+;
+; Used by the routine at #R$C9B7.
+c$CAE7 LD A,$7F                             ; {Read from the keyboard;
+ $CAE9 IN A,($FE)                           ; #TABLE(default,centre,centre,centre,centre,centre,centre)
+                                            ; { =h,r2 Port Number | =h,c5 Bit }
+                                            ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
+                                            ; { #N$7F | SPACE | FULL-STOP | M | N | B }
+                                            ; TABLE#}
+ $CAEB RRA                                  ; {If "SPACE" is pressed.
+ $CAEC JR C,$CAFB                           ; }
+ $CAEE LD A,$FE                             ; {Read from the keyboard;
+ $CAF0 IN A,($FE)                           ; #TABLE(default,centre,centre,centre,centre,centre,centre)
+                                            ; { =h,r2 Port Number | =h,c5 Bit }
+                                            ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
+                                            ; { #N$FE | SHIFT | Z | X | C | V }
+                                            ; TABLE#}
  $CAF2 RRA                                  ;
  $CAF3 JR C,$CAFB                           ;
  $CAF5 LD HL,$CBB4                          ;
  $CAF8 CALL $FD80                           ;
-*$CAFB LD A,$FE                             ; {Read keys SHIFT, Z, X, C, & V.
- $CAFD IN A,($FE)                           ; }
+*$CAFB LD A,$FE                             ; {Read from the keyboard;
+ $CAFD IN A,($FE)                           ; #TABLE(default,centre,centre,centre,centre,centre,centre)
+                                            ; { =h,r2 Port Number | =h,c5 Bit }
+                                            ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
+                                            ; { #N$FE | SHIFT | Z | X | C | V }
+                                            ; TABLE#}
  $CAFF BIT 1,A                              ;
  $CB01 JR NZ,$CB0B                          ;
-*$CB03 LD A,$FE                             ; {Read keys SHIFT, Z, X, C, & V.
- $CB05 IN A,($FE)                           ; }
+*$CB03 LD A,$FE                             ; {Read from the keyboard;
+ $CB05 IN A,($FE)                           ; #TABLE(default,centre,centre,centre,centre,centre,centre)
+                                            ; { =h,r2 Port Number | =h,c5 Bit }
+                                            ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
+                                            ; { #N$FE | SHIFT | Z | X | C | V }
+                                            ; TABLE#}
  $CB07 BIT 2,A                              ;
  $CB09 JR NZ,$CB03                          ;
-*$CB0B CALL $D2CF                           ;
- $CB0E LD BC,($CE1C)                        ;
+*$CB0B CALL $D2CF                           ; Call #R$D2CF.
+ $CB0E LD BC,($CE1C)                        ; #REGbc=#R$CE1C.
 *$CB12 DEC BC                               ;
  $CB13 LD A,B                               ;
  $CB14 OR C                                 ;
  $CB15 JR NZ,$CB12                          ;
  $CB17 CALL $D411                           ;
- $CB1A CALL $CBA6                           ;
- $CB1D LD IX,$D165                          ;
+ $CB1A CALL $CBA6                           ; Call #R$CBA6.
+ $CB1D LD IX,$D165                          ; #REGix=#R$D165.
  $CB21 LD (IX+$08),$00                      ;
- $CB25 LD HL,$CE14                          ;
+ $CB25 LD HL,$CE14                          ; #REGhl=#R$CE14.
  $CB28 LD A,(HL)                            ;
  $CB29 INC HL                               ;
  $CB2A OR (HL)                              ;
@@ -6635,7 +6670,7 @@ c$C7C0 LD HL,($5C78)                        ; #HTML(Fetch <a
 ; Draw Text
 @label=TwoTone_Attributes_Buffer
 c$CBD0 DEFW $0705    ; Stores the attributes; top attribute/ bottom attribute.
-; This entry point is used by the routines at #R$5B80 and #R$C7C0.
+; This entry point is used by the routines at #R$5B80 and #R$C9B7.
 @label=Print_TwoToneText
 *$CBD2 LD ($CBD0),BC ; Stash the attributes at #R$CBD0.
 @label=Print_TwoToneText_Loop
@@ -6709,7 +6744,7 @@ g$CC38 DEFW $D5E6
 
 ; Main Playfield Initialisation
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$C9B7.
 ;
 ; .
 ;
@@ -6733,7 +6768,7 @@ g$CC59 DEFB $00
 
 ; Display The "Life" Images
 ;
-; Used by the routines at #R$5B83, #R$C7C0 and #R$CD1B.
+; Used by the routines at #R$5B83, #R$C9B7 and #R$CD1B.
 ;
 ; .
 ;
@@ -6810,7 +6845,7 @@ g$CC99 DEFB $00
 
 ; Draws Deposit Cashboxes
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routines at #R$C9B7 and #R$CAE7.
 c$CC9B LD A,($D45C)  ; {Converts #R$D45C into cash deposit box flag address
  $CC9E LD L,A        ; (e.g. "#N$01" becomes #R$CC8D and so on).
  $CC9F LD H,$00      ;
@@ -6890,7 +6925,7 @@ c$CC9B LD A,($D45C)  ; {Converts #R$D45C into cash deposit box flag address
 
 ; Flash Lives/ Lose Life
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$CAE7.
 @label=Flash_Lives
 c$CD1B LD B,$0A      ; {Short pause.
  $CD1D CALL $CD64    ; }
@@ -6921,7 +6956,7 @@ c$CD1B LD B,$0A      ; {Short pause.
 
 ; Routine at CD47
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$CAE7.
 c$CD47 LD A,($D2FE)  ; {If bit 2 of #R$D2FE is zero then jump to #R$CD53.
  $CD4A BIT 2,A       ;
  $CD4C JR Z,$CD53    ; }
@@ -6939,7 +6974,7 @@ c$CD47 LD A,($D2FE)  ; {If bit 2 of #R$D2FE is zero then jump to #R$CD53.
 
 ; Configurable "pause"
 ;
-; Used by the routines at #R$C7C0 and #R$CD1B.
+; Used by the routines at #R$C7C0, #R$C7E5, #R$C9B7 and #R$CD1B.
 ;
 ; .
 ;
@@ -6951,7 +6986,7 @@ c$CD64 HALT          ; {Short interrupt driven pause, and return.
 
 ; Initialise Door Flags
 ;
-; Used by the routines at #R$C7C0 and #R$CD47.
+; Used by the routines at #R$C9B7 and #R$CD47.
 ;
 ; .
 ;
@@ -7001,7 +7036,7 @@ g$CD8D DEFB $07,$4F,$52 ; ???
 
 ; Draw Score To The Screen
 ;
-; Used by the routines at #R$5B98, #R$C7C0 and #R$CDC3.
+; Used by the routines at #R$5B98, #R$C9B7 and #R$CDC3.
 @label=Draw_Score
 c$CD90 LD HL,$CD8B   ; {Starting values; #TABLE(default,centre,centre,centre,centre)
  $CD93 LD DE,$50C8   ; { =h Source | =h Screen Buffer | =h Counter }
@@ -7047,7 +7082,7 @@ c$CDAE PUSH DE       ; {Using $C000 as a base address, this works out the charac
 
 ; Apply Scoring
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$CAE7.
 @label=Scoring
 c$CDC3 LD IX,$D165     ; {Calls #R$CDDC three times with #REGix containing;
  $CDC7 CALL $CDDC      ; #LIST
@@ -7146,7 +7181,7 @@ g$CE1B DEFB $03
 
 ; Choose Door Character
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$CAE7.
 ;
 ; .
 ;
@@ -7466,9 +7501,9 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
                        ; { #R$D183 | Door 3 }
                        ; TABLE#
                        ; to #R$D0B8.}
- $CFFD LD A,$01        ;
+ $CFFD LD A,$01        ; #REGa=#N$01.
  $CFFF LD ($D18F),A    ;
- $D002 LD HL,$D0B8     ;
+ $D002 LD HL,$D0B8     ; #REGhl=#R$D0B8.
  $D005 LD A,(HL)       ;
  $D006 LD (IX+$07),$02 ;
  $D00A LD (IX+$06),$05 ;
@@ -7478,7 +7513,7 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $D011 LD (IX+$07),A   ;
  $D014 LD (IX+$06),A   ;
  $D017 LD (HL),A       ;
- $D018 RET             ;
+ $D018 RET             ; Return.
 
 ; Routine at D019
 ;
@@ -7863,7 +7898,7 @@ c$D192 LD L,(IX+$02) ; {Handles copying $0007 bytes of data from the address con
 
 ; Routine at D2CF
 ;
-; Used by the routines at #R$C7C0 and #R$D3EA.
+; Used by the routines at #R$CAE7 and #R$D3EA.
 c$D2CF LD HL,($CE12) ; #R$CE12
  $D2D2 LD DE,$D2D7   ;
  $D2D5 PUSH DE       ;
@@ -8147,7 +8182,7 @@ c$D3EA LD HL,$CE14   ; #R$CE14
  $D40D LD (HL),$00   ;
  $D40F SCF           ;
  $D410 RET           ;
-; This entry point is used by the routine at #R$C7C0.
+; This entry point is used by the routine at #R$CAE7.
 *$D411 CALL $D3EA    ;
 *$D414 PUSH DE       ;
  $D415 CALL $D2CF    ;
@@ -8196,7 +8231,7 @@ g$D45C DEFB $01      ; Holds 01-12 which refer to the deposit cash boxes
 
 ; Routine at D45E
 ;
-; Used by the routines at #R$C7C0 and #R$D3EA.
+; Used by the routines at #R$C9B7 and #R$D3EA.
 c$D45E LD A,($D45C)  ;
  $D461 LD C,$38      ;
  $D463 CALL $D46B    ;
@@ -9031,7 +9066,7 @@ g$D8AE DEFW $E51B
 
 ; Routine at D8B0
 ;
-; Used by the routines at #R$C7C0, #R$CE21, #R$CEB8 and #R$DAEF.
+; Used by the routines at #R$C9B7, #R$CE21, #R$CEB8 and #R$DAEF.
 ;
 ; .
 ;
@@ -10618,7 +10653,7 @@ c$F950 NOP           ;
  $F95D NOP           ;
  $F95E NOP           ;
  $F95F NOP           ;
-; This entry point is used by the routine at #R$C7C0.
+; This entry point is used by the routine at #R$CAE7.
 *$F960 LD HL,$5B00   ; {Blanks 254 bytes from #R$5B00 onwards.
  $F963 LD DE,$5B01   ;
  $F966 LD BC,$00FE   ;
@@ -11071,7 +11106,7 @@ b$FD00 DEFB $A7,$C2,$0F,$FC,$3A,$0A,$FC
 
 ; Blah
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$CAE7.
 c$FD80 JR $FD84      ; Jump to #R$FD84.
  $FD82 JR $FDA8      ; Jump to #R$FDA8.
 *$FD84 LD A,$FD      ; {Read from the keyboard;
@@ -11130,7 +11165,7 @@ b$FDD1 DEFB $00,$00,$00,$00,$00,$00,$00,$00
 
 ; Title Screen
 ;
-; Used by the routine at #R$C7C0.
+; Used by the routine at #R$C7E5.
 ;
 ; .
 ;
