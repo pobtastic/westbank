@@ -58,9 +58,53 @@ class WestBankHtmlWriter(HtmlWriter):
         # Lives text.
         self._copy_routine(0x50B0, 0xE988, 0x06, 0x16)
 
+    def _draw_cashboxes(self, cashboxes):
+        if len(cashboxes) <= 12:
+            cashboxes += [0] * (12 - len(cashboxes))
+            addr = 0x4021
+            for box in cashboxes[:6]:
+                if box:
+                    self._copy_routine(addr, 0xFF98, 0x02, 0x10)
+                else:
+                    self._copy_routine(addr, 0xFF78, 0x02, 0x10)
+                addr += 0x02
+            addr = 0x4033
+            for box in cashboxes[6:]:
+                if box:
+                    self._copy_routine(addr, 0xFF98, 0x02, 0x10)
+                else:
+                    self._copy_routine(addr, 0xFF78, 0x02, 0x10)
+                addr += 0x02
+
+    def _draw_character(self, character, door):
+        frame = 0x6800 + character * 0x200 + character * 0x10
+        if 0x6800 <= frame <= 0xB870:
+            self._copy_routine(0x4077 + 0x0B * door, frame, 0x06, 0x58)
+
+    def _draw_door(self, door, frame):
+        if frame == 1:
+            self._copy_routine(0x4077 + 0x0B * door, 0xBA80, 0x07, 0x58)
+        elif frame == 2:
+            self._copy_routine(0x4079 + 0x0B * door, 0xBCE8, 0x05, 0x58)
+        elif frame == 3:
+            self._copy_routine(0x407B + 0x0B * door, 0xBEA0, 0x03, 0x58)
+        else:
+            self._copy_routine(0x407D + 0x0B * door, 0xBFA8, 0x01, 0x58)
+        # Paint the door.
+        attr = 0x5877 + door * 0x0B
+        for _ in range(0x0B):
+            paint = 0xD6A9 + frame * 0x08
+            self.snapshot[attr:attr + 0x07] = self.snapshot[paint:paint + 0x07]
+            attr += 0x20
+
+    def _draw_lives(self, lives):
+        addr = 0x50B6
+        for l in range(min(lives, 5)):
+            self._copy_routine(addr + 0x02 * l, 0xFFB8, 0x02, 0x18)
+
     def get_play_area_udgs(self, x, y, w, h, df_addr=16384, af_addr=22528):
-        width = min((w, 0x20 - x))
-        height = min((h, 0x18 - y))
+        width = min(w, 0x20 - x)
+        height = min(h, 0x18 - y)
         udgs = []
         for r in range(y, y + height):
             attr_addr = af_addr + 0x20 * r + x
