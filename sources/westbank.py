@@ -2,7 +2,7 @@
 
 import html
 
-from skoolkit.graphics import Frame, Udg as BaseUdg
+from skoolkit.graphics import Frame, Udg
 from skoolkit.skoolhtml import HtmlWriter
 from skoolkit.skoolmacro import parse_image_macro, MacroParsingError
 
@@ -81,6 +81,16 @@ class WestBankHtmlWriter(HtmlWriter):
         if 0x6800 <= frame <= 0xB870:
             self._copy_routine(0x4077 + 0x0B * door, frame, 0x06, 0x58)
 
+    def _set_time_of_day(self, time):
+        if time == 'dusk':
+            self.snapshot[0xD6B9:0xD6D0] = self.snapshot[0xC987:0xC99E]
+        elif time == 'night':
+            self.snapshot[0xD6B9:0xD6D0] = self.snapshot[0xC99F:0xC9B6]
+        else:
+            # Technically not needed, this is the default.
+            # But it saves throwing an exception for bad input.
+            self.snapshot[0xD6B9:0xD6D0] = self.snapshot[0xC96F:0xC986]
+
     def _draw_door(self, door, frame):
         if frame == 1:
             self._copy_routine(0x4077 + 0x0B * door, 0xBA80, 0x07, 0x58)
@@ -96,6 +106,22 @@ class WestBankHtmlWriter(HtmlWriter):
             paint = 0xD6A9 + frame * 0x08
             self.snapshot[attr:attr + 0x07] = self.snapshot[paint:paint + 0x07]
             attr += 0x20
+
+    def _highlight_doors(self, door):
+        if 0x00 < door < 0x0D:
+            for i in range(door, door + 0x03):
+                i = i if i <= 0x0C else i - 0x0C
+                addr = 0x02 * (i - 0x01) + (0x5801 if i < 0x07 else 0x5807)
+                self.snapshot[addr:addr + 0x02] = [0x3A] * 0x02
+
+    def _draw_score(self, score):
+        screen_loc = 0x50C8
+        base_addr = 0xC230
+        for digit in str(score).rjust(6, '0'):
+            digit_value = int(digit)
+            addr = base_addr + digit_value * 0x10 if digit_value > 0 else 0xC2D0
+            self._copy_routine(screen_loc, addr, 0x01, 0x10)
+            screen_loc += 0x01
 
     def _draw_lives(self, lives):
         addr = 0x50B6
@@ -123,16 +149,3 @@ class WestBankHtmlWriter(HtmlWriter):
     def play_area(self, cwd, fname, x=0x00, y=0x00, w=0x20, h=0x18, scale=2):
         frame = Frame(lambda: self._play_area_udgs(x, y, w, h), scale)
         return self.handle_image(frame, fname, cwd, path_id='PlayAreaImagePath')
-
-
-class Udg(BaseUdg):
-    def __init__(self, attr, data, mask=None, attr_addr=None, ref_addr=None, ref=None, udg_page=None, x=None, y=None, fg_udg=None):
-        BaseUdg.__init__(self, attr, data, mask)
-        self.attr_addr = attr_addr
-        self.ref_addr = ref_addr
-        self.ref = ref
-        self.udg_page = udg_page
-        self.udg_addr = None if udg_page is None else ref + 256 * udg_page
-        self.x = x
-        self.y = y
-        self.fg_udg = fg_udg

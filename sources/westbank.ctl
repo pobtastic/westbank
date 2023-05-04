@@ -1182,7 +1182,7 @@ B $C99F,$18,$08 The attributes for the "night" state.
 c $C9B7 Prepare To Display The Current Phase
 N $C9B7 Clears the cashbox flags, clears the screen and displays the phase number.
 @ $C9B7 label=Prep_Display_Phase
-  $C9B7,$06 Writes $0101 to #R$D45C.
+  $C9B7,$06 Writes $01 to both #R$D45C and #R$D45D.
   $C9BD,$0D Clear down the deposit flags (copies $00 to each from #R$CC8D).
   $C9CA,$04 Call #R$C9D0 (using $00).
   $C9CE,$02 Jump to #R$C9DD.
@@ -1462,6 +1462,7 @@ c $CD47
   $CD47,$07 If bit 2 of #R$D2FE is zero then jump to #R$CD53.
 
 c $CD64 Configurable "pause"
+R $CD64 B The counter
 N $CD64 Loops back on itself using #REGb as a counter.
 @ $CD64 label=Halt_Loop
   $CD64,$04 Short interrupt driven pause, and return.
@@ -2163,9 +2164,14 @@ N $D2AD And copying a successful "drawing bandit" encounter to close the door.
   $D2C4,$08 Check if #R$D18F is zero. If it wasn't zero then return.
   $D2CC,$03 Copy the source to the target again and return.
 
-c $D2CF
+c $D2CF 
+@ $D2CF label=Controls
   $D2CF,$03 #R$CE12
-;B $D2D7,$50
+  $D2D2,$04 Stash #R$D2D7 on the stack.
+  $D2D6,$01 Jumps to the control routine for whatever is in-use (either #R$D392 or #R$D39B).
+W $D2D7,$02
+
+c $D2D9
 
 B $D2FE,$01
 B $D2FF,$01
@@ -2215,7 +2221,7 @@ N $D307 On entry #REGa will contain one of;
 . been shot at.  This routine also writes $01 to #R$D305, #R$D303 and #R$D304 to represent the same thing.
 . Before returning, #REGhl is set to the screen location for displaying the shot mask/ shot image in the centre of the
 . door.
-@ $D307 label=Controls
+@ $D307 label=Action_Controls
   $D307,$07 Writes #REGa to #R$D306 and sets #REGhl=#R$D300.
   $D30F,$04 If "3" was pressed then jump to #R$D33B (a check for if bit 0 is set).
   $D313,$04 If "1" was pressed then jump to #R$D360 (a check for if bit 1 is set).
@@ -2332,11 +2338,46 @@ c $D3EA
   $D3F0
 
 g $D45C Cash Deposit Box Reference
-@ $D45C label=Cashbox_Reference
+@ $D45C label=CashboxReference_Inactive
 B $D45C,$01 Holds 01-12 which refer to the deposit cash boxes (#R$CC8D onwards).
+@ $D45D label=CashboxReference_Active
 B $D45D,$01 Holds 01-12 which refer to the deposit cash boxes (#R$CC8D onwards).
 
-c $D45E
+c $D45E Highlight Active Doors
+N $D45E This routine highlights the doors which are currently being displayed in the playarea.
+@ $D45E label=ActiveDoors
+  $D45E,$03 #REGa=#R$D45C.
+  $D461,$02 #REGc=#N$38 (not highlighted).
+  $D463,$03 Call #R$D46B.
+  $D466,$03 #REGa=#R$D45D.
+  $D469,$02 #REGc=#N$3A (highlighted).
+N $D46B Sets a counter as three doors are highlighted as being "in-view".
+@ $D46B label=ActiveDoors_Start
+  $D46B,$02 #REGb=#N$03.
+@ $D46D label=ActiveDoors_Loop
+  $D46D,$01 Stash #REGaf on the stack.
+  $D46E,$03 Call #R$D47E.
+  $D471,$01 Restore #REGaf from the stack.
+  $D472,$01 Increment #REGa by one.
+  $D473,$05 If #REGa is #N$0D then call #R$D47B.
+  $D478,$02 Decrease the #REGb counter by one and loop back to #R$D46D until it is zero.
+  $D47A,$01 Return.
+N $D47B If the active doors spill over the last door, then cycle back to the beginning.
+.       For example, if door 11 is active, then it's 11, 12 and 1 which are highlighted.
+@ $D47B label=ActiveDoors_SetDoorOne
+  $D47B,$02 #REGa=#N$01.
+  $D47D,$01 Return.
+N $D47E Handles writing the attribute value held by #REGc to the screen.
+@ $D47E label=ActiveDoors_Paint
+  $D47E,$02 Is #REGa less than #N$07?
+  $D480,$03 #REGhl=#N$5805 (left-hand side).
+  $D483,$02 If #REGa was less than #N$07, jump to #R$D488.
+  $D485,$03 #REGhl=#N$58FF (right-hand side).
+@ $D488 label=ActiveDoors_Paint_Skip
+  $D488,$03 #REGhl=#REGhl + #REGa * #N$02.
+  $D48B,$03 Writes the attribute value held by #REGc to #REGhl and #REGhl + #N$01. 
+.           This is because the number images are two characters wide.
+  $D48E,$01 Return.
 
 c $D48F Customer Logic
 N $D48F Character state variables/ flags.
@@ -3343,6 +3384,13 @@ t $FB78 High Score Table Name Entry
   $FBB5,$20 "#STR#(#PC),$08($b==$FF)".
 
 c $FBD5
+  $FBD5,$03 #REGhl=#R$FBF0.
+  $FBE2,$07 Sends #REGhl to #R$5B80.
+. #TABLE(default,centre)
+. { =h Value | =h Ink | =h Paper | =h Bright }
+. { #N$07 | #N$07 | #N$00 | #N$00 }
+. { #N$05 | #N$05 | #N$00 | #N$00 }
+. TABLE#
 W $FBF0,$02 Cache
   $FBF2,$0D Points to #R$5BC0 and sends it to #R$5B80.
 . #TABLE(default,centre)

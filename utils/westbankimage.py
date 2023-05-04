@@ -64,7 +64,10 @@ def run(imgfname, options):
     game = WestBank(snapshot)
     game._clear_screen_buffer()
     game._draw_playfield()
+    game._set_time_of_day(options.time)
     game._draw_cashboxes(list(map(int, options.cashboxes.split(','))))
+    game._highlight_doors(options.highlight)
+    game._draw_score(options.score)
     game._draw_lives(options.lives)
     for spec in options.place_char:
         n = spec.split(',')
@@ -102,7 +105,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('imgfname', help=argparse.SUPPRESS, nargs='?')
 group = parser.add_argument_group('Options')
 group.add_argument('-b', dest='cashboxes', metavar='0,1',
-                   help="In.")
+                   help="Set the state of the cashboxes, maximum of 12.")
 group.add_argument('-c', dest='place_char', metavar='C,D', action='append', default=[],
                    help="Place character frame C in door frame D (1, 2 or 3)\n"
                         "(this option may be used multiple times); if D is blank,\n"
@@ -135,6 +138,8 @@ group.add_argument('-d', dest='place_door', metavar='D,F', action='append', defa
                         "  03: Door is nearly open     04: Door is fully open")
 group.add_argument('-g', dest='geometry', metavar='WxH+X+Y',
                    help='Create an image with this geometry')
+group.add_argument('-h', dest='highlight', type=int, default=1,
+                   help='Set which door to highlight as active "from this number" (default: 1)')
 group.add_argument('-l', dest='lives', type=int, default=2,
                    help='Set the number of lives to display (default: 2)')
 group.add_argument('-p', dest='pokes', metavar='A[-B[-C]],V', action='append', default=[],
@@ -142,6 +147,11 @@ group.add_argument('-p', dest='pokes', metavar='A[-B[-C]],V', action='append', d
                         "be used multiple times)")
 group.add_argument('-s', dest='scale', type=int, default=2,
                    help='Set the scale of the image (default: 2)')
+group.add_argument('-t', dest='time', type=str, default="day",
+                   help='Set the time of day (default: day)\n'
+                   "  valid options: day, dusk, night.")
+group.add_argument('-z', dest='score', type=int, default=500,
+                   help='Set the score for the image (default: 500)')
 namespace, unknown_args = parser.parse_known_args()
 if unknown_args or not namespace.imgfname:
     parser.exit(2, parser.format_help())

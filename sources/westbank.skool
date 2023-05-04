@@ -6374,7 +6374,7 @@ c$C959 LD HL,$C96F                          ; {Call #R$C966 using #R$C96F.
 ;
 ; Clears the cashbox flags, clears the screen and displays the phase number.
 @label=Prep_Display_Phase
-c$C9B7 LD HL,$0101        ; {Writes $0101 to #R$D45C.
+c$C9B7 LD HL,$0101        ; {Writes $01 to both #R$D45C and #R$D45D.
  $C9BA LD ($D45C),HL      ; }
  $C9BD LD HL,$CC8D        ; {Clear down the deposit flags (copies $00 to each
  $C9C0 LD DE,$CC8E        ; from #R$CC8D).
@@ -6976,7 +6976,7 @@ c$CD47 LD A,($D2FE)  ; {If bit 2 of #R$D2FE is zero then jump to #R$CD53.
 ;
 ; Used by the routines at #R$C7C0, #R$C7E5, #R$C9B7 and #R$CD1B.
 ;
-; .
+; B The counter
 ;
 ; Loops back on itself using #REGb as a counter.
 @label=Halt_Loop
@@ -7899,13 +7899,16 @@ c$D192 LD L,(IX+$02) ; {Handles copying $0007 bytes of data from the address con
 ; Routine at D2CF
 ;
 ; Used by the routines at #R$CAE7 and #R$D3EA.
+@label=Controls
 c$D2CF LD HL,($CE12) ; #R$CE12
- $D2D2 LD DE,$D2D7   ;
- $D2D5 PUSH DE       ;
- $D2D6 JP (HL)       ;
- $D2D7 LD C,A        ;
- $D2D8 XOR A         ;
- $D2D9 LD HL,$D2FF   ;
+ $D2D2 LD DE,$D2D7   ; {Stash #R$D2D7 on the stack.
+ $D2D5 PUSH DE       ; }
+ $D2D6 JP (HL)       ; Jumps to the control routine for whatever is in-use
+                     ; (either #R$D392 or #R$D39B).
+ $D2D7 DEFW $AF4F    ;
+
+; Routine at D2D9
+c$D2D9 LD HL,$D2FF   ;
  $D2DC LD (HL),A     ;
  $D2DD INC HL        ;
  $D2DE LD (HL),A     ;
@@ -7976,7 +7979,7 @@ g$D303 DEFB $00      ; Defaults to $00, holds $01 when the player is pressing
 
 ; Action Controls
 ;
-; Used by the routine at #R$D2CF.
+; Used by the routine at #R$D2D9.
 ;
 ; .
 ;
@@ -7991,7 +7994,7 @@ g$D303 DEFB $00      ; Defaults to $00, holds $01 when the player is pressing
 ; been shot at.  This routine also writes $01 to #R$D305, #R$D303 and #R$D304 to represent the same thing.
 ; Before returning, #REGhl is set to the screen location for displaying the shot mask/ shot image in the centre of the
 ; door.
-@label=Controls
+@label=Action_Controls
 c$D307 LD HL,$D306   ; {Writes #REGa to #R$D306 and sets #REGhl=#R$D300.
  $D30A LD (HL),A     ;
  $D30B LD HL,$D300   ; }
@@ -8223,42 +8226,59 @@ c$D3EA LD HL,$CE14   ; #R$CE14
  $D45A JR $D43F      ;
 
 ; Cash Deposit Box Reference
-@label=Cashbox_Reference
+@label=CashboxReference_Inactive
 g$D45C DEFB $01      ; Holds 01-12 which refer to the deposit cash boxes
                      ; (#R$CC8D onwards).
+@label=CashboxReference_Active
  $D45D DEFB $01      ; Holds 01-12 which refer to the deposit cash boxes
                      ; (#R$CC8D onwards).
 
-; Routine at D45E
+; Highlight Active Doors
 ;
 ; Used by the routines at #R$C9B7 and #R$D3EA.
-c$D45E LD A,($D45C)  ;
- $D461 LD C,$38      ;
- $D463 CALL $D46B    ;
- $D466 LD A,($D45D)  ;
- $D469 LD C,$3A      ;
-*$D46B LD B,$03      ;
-*$D46D PUSH AF       ;
- $D46E CALL $D47E    ;
- $D471 POP AF        ;
- $D472 INC A         ;
- $D473 CP $0D        ;
- $D475 CALL NC,$D47B ;
- $D478 DJNZ $D46D    ;
- $D47A RET           ;
-*$D47B LD A,$01      ;
- $D47D RET           ;
-*$D47E CP $07        ;
- $D480 LD HL,$5805   ;
- $D483 JR NC,$D488   ;
- $D485 LD HL,$58FF   ;
-*$D488 ADD A,A       ;
+;
+; .
+;
+; This routine highlights the doors which are currently being displayed in the
+; playarea.
+@label=ActiveDoors
+c$D45E LD A,($D45C)  ; #REGa=#R$D45C.
+ $D461 LD C,$38      ; #REGc=#N$38 (not highlighted).
+ $D463 CALL $D46B    ; Call #R$D46B.
+ $D466 LD A,($D45D)  ; #REGa=#R$D45D.
+ $D469 LD C,$3A      ; #REGc=#N$3A (highlighted).
+; Sets a counter as three doors are highlighted as being "in-view".
+@label=ActiveDoors_Start
+*$D46B LD B,$03      ; #REGb=#N$03.
+@label=ActiveDoors_Loop
+*$D46D PUSH AF       ; Stash #REGaf on the stack.
+ $D46E CALL $D47E    ; Call #R$D47E.
+ $D471 POP AF        ; Restore #REGaf from the stack.
+ $D472 INC A         ; Increment #REGa by one.
+ $D473 CP $0D        ; {If #REGa is #N$0D then call #R$D47B.
+ $D475 CALL NC,$D47B ; }
+ $D478 DJNZ $D46D    ; Decrease the #REGb counter by one and loop back to
+                     ; #R$D46D until it is zero.
+ $D47A RET           ; Return.
+; If the active doors spill over the last door, then cycle back to the beginning.
+;       For example, if door 11 is active, then it's 11, 12 and 1 which are highlighted.
+@label=ActiveDoors_SetDoorOne
+*$D47B LD A,$01      ; #REGa=#N$01.
+ $D47D RET           ; Return.
+; Handles writing the attribute value held by #REGc to the screen.
+@label=ActiveDoors_Paint
+*$D47E CP $07        ; Is #REGa less than #N$07?
+ $D480 LD HL,$5805   ; #REGhl=#N$5805 (left-hand side).
+ $D483 JR NC,$D488   ; If #REGa was less than #N$07, jump to #R$D488.
+ $D485 LD HL,$58FF   ; #REGhl=#N$58FF (right-hand side).
+@label=ActiveDoors_Paint_Skip
+*$D488 ADD A,A       ; {#REGhl=#REGhl + #REGa * #N$02.
  $D489 ADD A,L       ;
- $D48A LD L,A        ;
- $D48B LD (HL),C     ;
- $D48C INC HL        ;
- $D48D LD (HL),C     ;
- $D48E RET           ;
+ $D48A LD L,A        ; }
+ $D48B LD (HL),C     ; {Writes the attribute value held by #REGc to #REGhl and #REGhl + #N$01.
+ $D48C INC HL        ;           This is because the number images are two characters wide.
+ $D48D LD (HL),C     ; }
+ $D48E RET           ; Return.
 
 ; Customer Logic
 ;
@@ -10979,15 +10999,18 @@ t$FB78 DEFM "  WRITE YOUR NAME PLEASE   ",$FF      ; "#STR#(#PC),$08($b==$FF)".
 ; Routine at FBD5
 ;
 ; Used by the routine at #R$FA00.
-c$FBD5 LD HL,($FBF0) ;
+c$FBD5 LD HL,($FBF0) ; #REGhl=#R$FBF0.
  $FBD8 LD A,L        ;
  $FBD9 ADD A,$40     ;
  $FBDB CALL C,$FBEA  ;
  $FBDE LD L,A        ;
  $FBDF LD ($FBF0),HL ;
- $FBE2 LD BC,$0705   ;
- $FBE5 EX DE,HL      ;
- $FBE6 CALL $5B80    ;
+ $FBE2 LD BC,$0705   ; {Sends #REGhl to #R$5B80.
+ $FBE5 EX DE,HL      ; #TABLE(default,centre)
+ $FBE6 CALL $5B80    ; { =h Value | =h Ink | =h Paper | =h Bright }
+                     ; { #N$07 | #N$07 | #N$00 | #N$00 }
+                     ; { #N$05 | #N$05 | #N$00 | #N$00 }
+                     ; TABLE#}
  $FBE9 RET           ;
 *$FBEA LD A,H        ;
  $FBEB ADD A,$08     ;
