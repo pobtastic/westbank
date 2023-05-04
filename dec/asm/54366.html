@@ -34,7 +34,7 @@ Next: <a href="54415.html">54415</a>
 </td>
 </tr>
 </table>
-<div class="description">54366: Routine at D45E</div>
+<div class="description">54366: Highlight Active Doors</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -46,139 +46,201 @@ Used by the routines at <a href="51639.html">Prep_Display_Phase</a> and <a href=
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="54366"></span>
+<div class="comments">
+<div class="paragraph">
+This routine highlights the doors which are currently being displayed in the playarea.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ActiveDoors</td>
 <td class="address-2"><span id="54366"></span>54366</td>
 <td class="instruction">LD A,(54364)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="54364.html">CashboxReference_Inactive</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54369"></span>54369</td>
 <td class="instruction">LD C,56</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=56 (not highlighted).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54371"></span>54371</td>
-<td class="instruction">CALL <a href="54366.html#54379">54379</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">CALL <a href="54366.html#54379">ActiveDoors_Start</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54366.html#54379">ActiveDoors_Start</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54374"></span>54374</td>
 <td class="instruction">LD A,(54365)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="54364.html#54365">CashboxReference_Active</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54377"></span>54377</td>
 <td class="instruction">LD C,58</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=58 (highlighted).</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="54379"></span>
+<div class="comments">
+<div class="paragraph">
+Sets a counter as three doors are highlighted as being "in-view".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ActiveDoors_Start</td>
 <td class="address-2"><span id="54379"></span>54379</td>
 <td class="instruction">LD B,3</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=3.</td>
 </tr>
 <tr>
+<td class="asm-label">ActiveDoors_Loop</td>
 <td class="address-2"><span id="54381"></span>54381</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Stash <span class="register">AF</span> on the stack.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54382"></span>54382</td>
-<td class="instruction">CALL <a href="54366.html#54398">54398</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">CALL <a href="54366.html#54398">ActiveDoors_Paint</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54366.html#54398">ActiveDoors_Paint</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54385"></span>54385</td>
 <td class="instruction">POP AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span> from the stack.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54386"></span>54386</td>
 <td class="instruction">INC A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment <span class="register">A</span> by one.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54387"></span>54387</td>
 <td class="instruction">CP 13</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If <span class="register">A</span> is 13 then call <a href="54366.html#54395">ActiveDoors_SetDoorOne</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54389"></span>54389</td>
-<td class="instruction">CALL NC,<a href="54366.html#54395">54395</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">CALL NC,<a href="54366.html#54395">ActiveDoors_SetDoorOne</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54392"></span>54392</td>
-<td class="instruction">DJNZ <a href="54366.html#54381">54381</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DJNZ <a href="54366.html#54381">ActiveDoors_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease the <span class="register">B</span> counter by one and loop back to <a href="54366.html#54381">ActiveDoors_Loop</a> until it is zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54394"></span>54394</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="54395"></span>
+<div class="comments">
+<div class="paragraph">
+If the active doors spill over the last door, then cycle back to the beginning. For example, if door 11 is active, then it's 11, 12 and 1 which are highlighted.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ActiveDoors_SetDoorOne</td>
 <td class="address-2"><span id="54395"></span>54395</td>
 <td class="instruction">LD A,1</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54397"></span>54397</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="54398"></span>
+<div class="comments">
+<div class="paragraph">
+Handles writing the attribute value held by <span class="register">C</span> to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ActiveDoors_Paint</td>
 <td class="address-2"><span id="54398"></span>54398</td>
 <td class="instruction">CP 7</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is <span class="register">A</span> less than 7?</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54400"></span>54400</td>
 <td class="instruction">LD HL,22533</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=22533 (left-hand side).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54403"></span>54403</td>
-<td class="instruction">JR NC,<a href="54366.html#54408">54408</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">JR NC,<a href="54366.html#54408">ActiveDoors_Paint_Skip</a></td>
+<td class="comment-1" rowspan="1">If <span class="register">A</span> was less than 7 jump to <a href="54366.html#54408">ActiveDoors_Paint_Skip</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54405"></span>54405</td>
 <td class="instruction">LD HL,22783</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=22783 (right-hand side).</td>
 </tr>
 <tr>
+<td class="asm-label">ActiveDoors_Paint_Skip</td>
 <td class="address-2"><span id="54408"></span>54408</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3"><span class="register">HL</span>=<span class="register">HL</span> + <span class="register">A</span> * 2.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54409"></span>54409</td>
 <td class="instruction">ADD A,L</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54410"></span>54410</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54411"></span>54411</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Writes the attribute value held by <span class="register">C</span> to <span class="register">HL</span> and <span class="register">HL</span> + 1. This is because the number images are two characters wide.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54412"></span>54412</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54413"></span>54413</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="54414"></span>54414</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

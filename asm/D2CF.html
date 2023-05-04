@@ -30,7 +30,7 @@ Prev: <a href="D192.html">D192</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#d2cf">Map</a></td>
 <td class="next">
-Next: <a href="D300.html">D300</a>
+Next: <a href="D2D9.html">D2D9</a>
 </td>
 </tr>
 </table>
@@ -46,153 +46,32 @@ Used by the routines at <a href="CAE7.html">CAE7</a> and <a href="D3EA.html">Doo
 </td>
 </tr>
 <tr>
+<td class="asm-label">Controls</td>
 <td class="address-2"><span id="d2cf"></span>D2CF</td>
 <td class="instruction">LD HL,($CE12)</td>
 <td class="comment-1" rowspan="1"><a href="CE12.html">Control_Routine_Alias</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d2d2"></span>D2D2</td>
 <td class="instruction">LD DE,$D2D7</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="2">Stash <a href="D2CF.html#d2d7">D2D7</a> on the stack.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d2d5"></span>D2D5</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d2d6"></span>D2D6</td>
 <td class="instruction">JP (HL)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jumps to the control routine for whatever is in-use (either <a href="D392.html">Controls_Joystick</a> or <a href="D39B.html">Controls_Keyboard</a>).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d2d7"></span>D2D7</td>
-<td class="instruction">LD C,A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2d8"></span>D2D8</td>
-<td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2d9"></span>D2D9</td>
-<td class="instruction">LD HL,$D2FF</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2dc"></span>D2DC</td>
-<td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2dd"></span>D2DD</td>
-<td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2de"></span>D2DE</td>
-<td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2df"></span>D2DF</td>
-<td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2e0"></span>D2E0</td>
-<td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2e1"></span>D2E1</td>
-<td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2e2"></span>D2E2</td>
-<td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2e3"></span>D2E3</td>
-<td class="instruction">LD A,C</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2e4"></span>D2E4</td>
-<td class="instruction">BIT 4,A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2e6"></span>D2E6</td>
-<td class="instruction">JR NZ,<a href="D307.html">Controls</a></td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2e8"></span>D2E8</td>
-<td class="instruction">LD HL,$D303</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2eb"></span>D2EB</td>
-<td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2ed"></span>D2ED</td>
-<td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2ee"></span>D2EE</td>
-<td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2f0"></span>D2F0</td>
-<td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2f1"></span>D2F1</td>
-<td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2f3"></span>D2F3</td>
-<td class="instruction">BIT 0,A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2f5"></span>D2F5</td>
-<td class="instruction">JP NZ,<a href="D307.html#d386">Set_Right</a></td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2f8"></span>D2F8</td>
-<td class="instruction">BIT 1,A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2fa"></span>D2FA</td>
-<td class="instruction">JP NZ,<a href="D307.html#d38c">Set_Left</a></td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2fd"></span>D2FD</td>
-<td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2fe"></span>D2FE</td>
-<td class="instruction">DEFB $02</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="address-1"><span id="d2ff"></span>D2FF</td>
-<td class="instruction">DEFB $00</td>
+<td class="instruction">DEFW $AF4F</td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
@@ -203,7 +82,7 @@ Prev: <a href="D192.html">D192</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#d2cf">Map</a></td>
 <td class="next">
-Next: <a href="D300.html">D300</a>
+Next: <a href="D2D9.html">D2D9</a>
 </td>
 </tr>
 </table>

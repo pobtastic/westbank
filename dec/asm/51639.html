@@ -56,7 +56,7 @@ Clears the cashbox flags, clears the screen and displays the phase number.
 <td class="asm-label">Prep_Display_Phase</td>
 <td class="address-2"><span id="51639"></span>51639</td>
 <td class="instruction">LD HL,257</td>
-<td class="comment-1" rowspan="2">Writes $0101 to <a href="54364.html">Cashbox_Reference</a>.</td>
+<td class="comment-1" rowspan="2">Writes $01 to both <a href="54364.html">CashboxReference_Inactive</a> and <a href="54364.html#54365">CashboxReference_Active</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -856,7 +856,7 @@ This entry point is used by the routines at <a href="52507.html">Flash_Lives</a>
 <td class="asm-label">Prep_Display_Phase_1</td>
 <td class="address-2"><span id="51915"></span>51915</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="2">Writes $00 to <a href="53967.html#54014">54014</a>.</td>
+<td class="comment-1" rowspan="2">Writes $00 to <a href="53977.html#54014">54014</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -908,8 +908,8 @@ This entry point is used by the routines at <a href="52507.html">Flash_Lives</a>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="51939"></span>51939</td>
-<td class="instruction">CALL <a href="54366.html">54366</a></td>
-<td class="comment-1" rowspan="1">Call <a href="54366.html">54366</a>.</td>
+<td class="instruction">CALL <a href="54366.html">ActiveDoors</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54366.html">ActiveDoors</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>

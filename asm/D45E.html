@@ -34,7 +34,7 @@ Next: <a href="D48F.html">D48F</a>
 </td>
 </tr>
 </table>
-<div class="description">D45E: Routine at D45E</div>
+<div class="description">D45E: Highlight Active Doors</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -46,139 +46,201 @@ Used by the routines at <a href="C9B7.html">Prep_Display_Phase</a> and <a href="
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="d45e"></span>
+<div class="comments">
+<div class="paragraph">
+This routine highlights the doors which are currently being displayed in the playarea.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ActiveDoors</td>
 <td class="address-2"><span id="d45e"></span>D45E</td>
 <td class="instruction">LD A,($D45C)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="D45C.html">CashboxReference_Inactive</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d461"></span>D461</td>
 <td class="instruction">LD C,$38</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=38 (not highlighted).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d463"></span>D463</td>
-<td class="instruction">CALL <a href="D45E.html#d46b">$D46B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">CALL <a href="D45E.html#d46b">ActiveDoors_Start</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D45E.html#d46b">ActiveDoors_Start</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d466"></span>D466</td>
 <td class="instruction">LD A,($D45D)</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="D45C.html#d45d">CashboxReference_Active</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d469"></span>D469</td>
 <td class="instruction">LD C,$3A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=3A (highlighted).</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="d46b"></span>
+<div class="comments">
+<div class="paragraph">
+Sets a counter as three doors are highlighted as being "in-view".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ActiveDoors_Start</td>
 <td class="address-2"><span id="d46b"></span>D46B</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=03.</td>
 </tr>
 <tr>
+<td class="asm-label">ActiveDoors_Loop</td>
 <td class="address-2"><span id="d46d"></span>D46D</td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Stash <span class="register">AF</span> on the stack.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d46e"></span>D46E</td>
-<td class="instruction">CALL <a href="D45E.html#d47e">$D47E</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">CALL <a href="D45E.html#d47e">ActiveDoors_Paint</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D45E.html#d47e">ActiveDoors_Paint</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d471"></span>D471</td>
 <td class="instruction">POP AF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span> from the stack.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d472"></span>D472</td>
 <td class="instruction">INC A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Increment <span class="register">A</span> by one.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d473"></span>D473</td>
 <td class="instruction">CP $0D</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="2">If <span class="register">A</span> is 0D then call <a href="D45E.html#d47b">ActiveDoors_SetDoorOne</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d475"></span>D475</td>
-<td class="instruction">CALL NC,<a href="D45E.html#d47b">$D47B</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">CALL NC,<a href="D45E.html#d47b">ActiveDoors_SetDoorOne</a></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d478"></span>D478</td>
-<td class="instruction">DJNZ <a href="D45E.html#d46d">$D46D</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">DJNZ <a href="D45E.html#d46d">ActiveDoors_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease the <span class="register">B</span> counter by one and loop back to <a href="D45E.html#d46d">ActiveDoors_Loop</a> until it is zero.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d47a"></span>D47A</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="d47b"></span>
+<div class="comments">
+<div class="paragraph">
+If the active doors spill over the last door, then cycle back to the beginning. For example, if door 11 is active, then it's 11, 12 and 1 which are highlighted.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ActiveDoors_SetDoorOne</td>
 <td class="address-2"><span id="d47b"></span>D47B</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=01.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d47d"></span>D47D</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="d47e"></span>
+<div class="comments">
+<div class="paragraph">
+Handles writing the attribute value held by <span class="register">C</span> to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ActiveDoors_Paint</td>
 <td class="address-2"><span id="d47e"></span>D47E</td>
 <td class="instruction">CP $07</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Is <span class="register">A</span> less than 07?</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d480"></span>D480</td>
 <td class="instruction">LD HL,$5805</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=5805 (left-hand side).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d483"></span>D483</td>
-<td class="instruction">JR NC,<a href="D45E.html#d488">$D488</a></td>
-<td class="comment-0" rowspan="1"></td>
+<td class="instruction">JR NC,<a href="D45E.html#d488">ActiveDoors_Paint_Skip</a></td>
+<td class="comment-1" rowspan="1">If <span class="register">A</span> was less than 07 jump to <a href="D45E.html#d488">ActiveDoors_Paint_Skip</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d485"></span>D485</td>
 <td class="instruction">LD HL,$58FF</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=58FF (right-hand side).</td>
 </tr>
 <tr>
+<td class="asm-label">ActiveDoors_Paint_Skip</td>
 <td class="address-2"><span id="d488"></span>D488</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3"><span class="register">HL</span>=<span class="register">HL</span> + <span class="register">A</span> * 02.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d489"></span>D489</td>
 <td class="instruction">ADD A,L</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d48a"></span>D48A</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d48b"></span>D48B</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Writes the attribute value held by <span class="register">C</span> to <span class="register">HL</span> and <span class="register">HL</span> + 01. This is because the number images are two characters wide.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d48c"></span>D48C</td>
 <td class="instruction">INC HL</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d48d"></span>D48D</td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-0" rowspan="1"></td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="d48e"></span>D48E</td>
 <td class="instruction">RET</td>
-<td class="comment-0" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 </table>
 <table class="asm-navigation">

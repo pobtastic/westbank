@@ -48,7 +48,7 @@ Used by the routine at <a href="FA00.html">New_HighScore</a>.
 <tr>
 <td class="address-2"><span id="fbd5"></span>FBD5</td>
 <td class="instruction">LD HL,($FBF0)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="FBD5.html#fbf0">FBF0</a>.</td>
 </tr>
 <tr>
 <td class="address-1"><span id="fbd8"></span>FBD8</td>
@@ -78,17 +78,34 @@ Used by the routine at <a href="FA00.html">New_HighScore</a>.
 <tr>
 <td class="address-1"><span id="fbe2"></span>FBE2</td>
 <td class="instruction">LD BC,$0705</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Sends <span class="register">HL</span> to <a href="5B80.html">Print_TwoToneText_Alias</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Value</th>
+<th colspan="1" rowspan="1">Ink</th>
+<th colspan="1" rowspan="1">Paper</th>
+<th colspan="1" rowspan="1">Bright</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">05</td>
+<td class="" colspan="1" rowspan="1">05</td>
+<td class="" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">00</td>
+</tr>
+</table></td>
 </tr>
 <tr>
 <td class="address-1"><span id="fbe5"></span>FBE5</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="fbe6"></span>FBE6</td>
 <td class="instruction">CALL <a href="5B80.html">Print_TwoToneText_Alias</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1"><span id="fbe9"></span>FBE9</td>
