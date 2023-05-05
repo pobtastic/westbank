@@ -177,7 +177,7 @@ take care that the bottom hat doesn't conceal a bomb or you will lose a life.</p
 )
 
 [Playfield:Playfield]
-#CALL:play_area(playfield)
+#CALL:play_area(playarea)
 
 [Bang:Message]
 #UDGARRAY*bang-1,10;bang-2;bang-3;bang-3;bang-3;bang-4;bang-5;bang-6(bang-frames)

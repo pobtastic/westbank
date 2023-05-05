@@ -238,7 +238,7 @@ s$5B00 DEFS $80
 @label=Print_TwoToneText_Alias
 c$5B80 JP $CBD2      ;
 
-; Displays The "Life" Images
+; Displays The "Life" Images (alias)
 ;
 ; An alias for a jump to #R$CC5A.
 @label=Draw_Lives_Images_Alias
@@ -285,7 +285,13 @@ c$5B95 JP $D5FA      ;
 @label=Draw_Score_Alias
 c$5B98 JP $CD90      ;
 
-; Routine at 5B9B
+; Unused
+;
+; .
+;
+; .
+;
+; Doesn't appear to be called from anywhere.
 c$5B9B LD BC,$0705   ; {Stashes a text attribute at #R$CBD0.
  $5B9E LD ($CBD0),BC ; #TABLE(default,centre)
                      ; { =h Value | =h Ink | =h Paper | =h Bright }
@@ -365,7 +371,7 @@ g$5BE2 DEFB $00      ; Dueller state ("0" is complete).
  $5BE3 DEFB $00      ; Dueller timer.
  $5BE4 DEFB $00
  $5BE5 DEFB $00      ; Dueller position.
- $5BE6 DEFB $00,$00  ; Screen position above dueller to display "EXTRA" or
+ $5BE6 DEFW $0000    ; Screen position above dueller to display "EXTRA" or
                      ; points.
  $5BE8 DEFB $00
  $5BE9 DEFB $00      ; Bonus points (x100, e.g. "9" == "900").
@@ -420,10 +426,18 @@ g$5CB0 DEFB $00
 @label=Level
 g$5CB1 DEFB $00
 
-i$5CB2
+; Unused
+u$5CB2 DEFB $FF,$5F,$FF,$FF,$F4,$09,$A8,$10
+ $5CBA DEFB $4B,$F4,$09,$C4,$15,$53,$81,$0F
+ $5CC2 DEFB $C4,$15,$52,$F4,$09,$C4,$15,$50
+ $5CCA DEFB $80,$00,$0A,$8C,$00,$FD,$32,$34
+ $5CD2 DEFB $35,$37,$35,$0E,$00,$00,$FF,$5F
+ $5CDA DEFB $00,$3A,$EF,$22,$22,$AF,$3A,$EB
+ $5CE2 DEFB $66,$3D,$36,$34,$39,$33,$36,$0E
+ $5CEA DEFB $00,$00,$A8,$FD,$00,$CC
 
-; Data block at 5CF0
-b$5CF0 DEFB $36,$34,$39,$34,$34,$0E,$00,$00
+; Unused
+u$5CF0 DEFB $36,$34,$39,$34,$34,$0E,$00,$00
  $5CF8 DEFB $B0,$FD,$00,$3A,$F4,$66,$2C,$30
  $5D00 DEFB $0E,$00,$00,$00,$00,$00,$3A,$F3
  $5D08 DEFB $66,$3A,$F4,$36,$34,$39,$33,$36
@@ -5443,6 +5457,13 @@ c$C2E0 NOP           ;
 ; Draw Playfield
 ;
 ; Used by the routine at #R$CC3A.
+;
+; .
+;
+; #UDGTABLE(default,centre)
+; { =h Playfield Output }
+; { #CALL:playfield(playfield) }
+; UDGTABLE#
 @label=Draw_Playfield
 c$C300 LD L,(IX+$00) ; {Set #R$D5E6 as the destination address at #R$C3B7.
  $C303 LD H,(IX+$01) ;
@@ -5516,13 +5537,15 @@ c$C300 LD L,(IX+$00) ; {Set #R$D5E6 as the destination address at #R$C3B7.
  $C3B1 LD BC,$0300   ;
  $C3B4 LDIR          ; }
  $C3B6 RET           ; Return.
+; An alias which just calls the normal #R$D5E6.
 @label=Alias_Copy_Routine
 *$C3B7 CALL $D5E6    ; Draws the image pointed to in #REGde to the screen
                      ; location in #REGhl using the dimensions in #REGbc.
  $C3BA RET           ; Return.
- $C3BB JP $EA90      ; {Unused.
- $C3BE NOP           ;
- $C3BF NOP           ; }
+
+; Unused
+u$C3BB JP $EA90      ; Jump to #R$EA90.
+ $C3BE DEFW $0000    ; Empty 16 bit address cache?
 
 ; Routine at C3C0
 ;
@@ -8540,22 +8563,25 @@ c$D5CA CALL $D5B0    ; Retrieve the memory location for the character frame
 ; Used by the routines at #R$5B92, #R$C300, #R$CBD0, #R$CC5A, #R$CC9B, #R$CDAE,
 ; #R$D5CA and #R$D664.
 ;
-; .
+; DE Source for image data
+; HL Screen buffer address for destination of image
+; B Number of lines to copy (height)
+; C Number of bytes to copy (width)
 ;
 ; This routine copies bytes from #REGde TO #REGhl and uses the #REGbc register to track the number of bytes
 ;       and the number of lines.
 @label=Copy_Routine
-c$D5E6 PUSH BC       ; {Copies bytes from #REGde TO #REGhl x #REGc number of
- $D5E7 PUSH HL       ; times.
- $D5E8 LD B,$00      ;
- $D5EA EX DE,HL      ;
+c$D5E6 PUSH BC       ; {Stashes #REGbc (the counter) and #REGhl (screen buffer
+ $D5E7 PUSH HL       ; address) on the stack.}
+ $D5E8 LD B,$00      ; {Copies bytes from #REGde TO #REGhl x #REGc number of
+ $D5EA EX DE,HL      ; times.
  $D5EB LDIR          ; }
  $D5ED EX DE,HL      ; {Restores #REGhl with the original screen buffer
  $D5EE POP HL        ; location.}
- $D5EF INC H         ; {ggg
- $D5F0 LD A,H        ;
- $D5F1 AND $07       ;
- $D5F3 CALL Z,$D610  ; }
+ $D5EF INC H         ; {Move to the next line down.
+ $D5F0 LD A,H        ; }
+ $D5F1 AND %00000111 ; Keep only bits 1-3.
+ $D5F3 CALL Z,$D610  ; If this crosses a screen boundary then call #R$D610.
  $D5F6 POP BC        ; {Grabs #REGb and decreases it by one. Loop back round to
  $D5F7 DJNZ $D5E6    ; #R$D5E6 if #REGb is not zero.}
  $D5F9 RET           ; Return.
@@ -10100,7 +10126,7 @@ i$EA0C
 
 ; Door Buffer
 ;
-; Used by the routines at #R$6700, #R$C300, #R$F950 and #R$FD80.
+; Used by the routines at #R$6700, #R$F950 and #R$FD80.
 @label=Door_Buffer
 b$EA90 DEFB $00,$00,$FF,$FF,$FF,$FF,$FF ; {#UDGARRAY7,scale=4,step=7;(#PC)-(#PC+$238)-$01-$38,$30(door-buffer)
  $EA97 DEFB $00,$00,$88,$0F,$FF,$FF,$FF ;

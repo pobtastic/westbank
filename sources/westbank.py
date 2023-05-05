@@ -4,18 +4,15 @@ import html
 
 from skoolkit.graphics import Frame, Udg
 from skoolkit.skoolhtml import HtmlWriter
-from skoolkit.skoolmacro import parse_image_macro, MacroParsingError
 
 
 class WestBankHtmlWriter(HtmlWriter):
-    def init(self):
-        self.characters = self.get_dictionary('Characters')
 
     def _clear_screen_buffer(self):
         self.snapshot[0x4000:0x5B00] = [0x00] * 0x1B00
 
     def _copy_routine(self, dest, source, length, lines):
-        for line in range(lines):
+        for _ in range(lines):
             self.snapshot[dest:dest + length] = self.snapshot[source:source + length]
             dest = self._get_line_below(dest)
             source += length
@@ -128,7 +125,8 @@ class WestBankHtmlWriter(HtmlWriter):
         for l in range(min(lives, 5)):
             self._copy_routine(addr + 0x02 * l, 0xFFB8, 0x02, 0x18)
 
-    def get_play_area_udgs(self, x, y, w, h, df_addr=16384, af_addr=22528):
+    def get_play_area_udgs(self, x, y, w, h):
+        df_addr, af_addr = 0x4000, 0x5800
         width = min(w, 0x20 - x)
         height = min(h, 0x18 - y)
         udgs = []
@@ -142,10 +140,28 @@ class WestBankHtmlWriter(HtmlWriter):
         self.push_snapshot()
         self._clear_screen_buffer()
         self._draw_playfield()
+        self._draw_cashboxes([0, 1, 1])
+        self._highlight_doors(1)
+        self._draw_score(500)
+        self._draw_lives(3)
+        self._draw_character(0, 1)
+        self._draw_character(23, 3)
+        self._draw_door(1, 3)
+        self._draw_door(2, 1)
+        self._draw_door(3, 4)
         udgs = self.get_play_area_udgs(x, y, w, h)
         self.pop_snapshot()
         return udgs
 
     def play_area(self, cwd, fname, x=0x00, y=0x00, w=0x20, h=0x18, scale=2):
         frame = Frame(lambda: self._play_area_udgs(x, y, w, h), scale)
+        return self.handle_image(frame, fname, cwd, path_id='PlayAreaImagePath')
+
+    def playfield(self, cwd, fname, x=0x00, y=0x00, w=0x20, h=0x18, scale=2):
+        self.push_snapshot()
+        self._clear_screen_buffer()
+        self._draw_playfield()
+        udgs = self.get_play_area_udgs(x, y, w, h)
+        self.pop_snapshot()
+        frame = Frame(lambda: udgs, scale)
         return self.handle_image(frame, fname, cwd, path_id='PlayAreaImagePath')

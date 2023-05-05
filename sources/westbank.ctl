@@ -23,7 +23,7 @@ c $5B80 Draw Text (alias)
 D $5B80 This is an alias for a jump to #R$CBD2.
 @ $5B80 label=Print_TwoToneText_Alias
 
-c $5B83 Displays The "Life" Images
+c $5B83 Displays The "Life" Images (alias)
 D $5B83 An alias for a jump to #R$CC5A.
 @ $5B83 label=Draw_Lives_Images_Alias
 
@@ -51,7 +51,8 @@ c $5B95 Merge Shot (alias)
 c $5B98 Display The "Score" Images (alias)
 @ $5B98 label=Draw_Score_Alias
 
-c $5B9B
+c $5B9B Unused
+N $5B9B Doesn't appear to be called from anywhere.
   $5B9B,$07 Stashes a text attribute at #R$CBD0.
 . #TABLE(default,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
@@ -104,7 +105,7 @@ B $5BE2,$01 Dueller state ("0" is complete).
 B $5BE3,$01 Dueller timer.
 B $5BE4,$01
 B $5BE5,$01 Dueller position.
-B $5BE6,$02 Screen position above dueller to display "EXTRA" or points.
+W $5BE6,$02 Screen position above dueller to display "EXTRA" or points.
 B $5BE8,$01
 B $5BE9,$01 Bonus points (x100, e.g. "9" == "900").
 B $5BEA,$01
@@ -127,11 +128,13 @@ E $5CB0 #TABLE(default,centre)
 . { #N$00 | Kempston }
 . { #N$01 | Keyboard }
 . TABLE#
+
 g $5CB1 Current Level
 @ $5CB1 label=Level
 
-i $5CB2
-b $5CF0
+u $5CB2 Unused
+
+u $5CF0 Unused
 
 t $6000 High Score Table
 @ $6000 label=Highscore_Table_Name
@@ -705,6 +708,7 @@ N $C240 Numbering.
 c $C2E0
 
 c $C300 Draw Playfield
+N $C300 #UDGTABLE(default,centre) { =h Playfield Output } { #CALL:playfield(playfield) } UDGTABLE#
 @ $C300 label=Draw_Playfield
   $C300,$09 Set #R$D5E6 as the destination address at #R$C3B7.
   $C309,$0D Clears the screen buffer by writing $00 to all 6912 memory locations.
@@ -728,10 +732,14 @@ N $C393 Writes the "SCORE" and "LIVES" labels (these aren't text, they're images
 N $C3AB Copies attribute data to the screen.
   $C3AB,$0B Copies $300 bytes of attribute data from #R$ED00 to $5800.
   $C3B6,$01 Return.
+N $C3B7 An alias which just calls the normal #R$D5E6.
   $C3B7,$03 Draws the image pointed to in #REGde to the screen location in #REGhl using the dimensions in #REGbc.
 @ $C3B7 label=Alias_Copy_Routine
   $C3BA,$01 Return.
-  $C3BB,$05 Unused.
+
+u $C3BB Unused
+C $C3BB,$03 Jump to #R$EA90.
+W $C3BE,$02 Empty 16 bit address cache?
 
 c $C3C0
   $C3C0,$03 Call #R$C3DD.
@@ -2559,9 +2567,16 @@ c $D5E6 Copy Routine
 @ $D5E6 label=Copy_Routine
 N $D5E6 This routine copies bytes from #REGde TO #REGhl and uses the #REGbc register to track the number of bytes
 .       and the number of lines.
-  $D5E6,$07 Copies bytes from #REGde TO #REGhl x #REGc number of times.
+R $D5E6 DE Source for image data
+R $D5E6 HL Screen buffer address for destination of image
+R $D5E6 B Number of lines to copy (height)
+R $D5E6 C Number of bytes to copy (width)
+  $D5E6,$02 Stashes #REGbc (the counter) and #REGhl (screen buffer address) on the stack.
+  $D5E8,$05 Copies bytes from #REGde TO #REGhl x #REGc number of times.
   $D5ED,$02 Restores #REGhl with the original screen buffer location.
-  $D5EF,$07 ggg
+  $D5EF,$02 Move to the next line down.
+  $D5F1,$02,b$01 Keep only bits 0-2.
+  $D5F3,$03 If this crosses a screen boundary then call #R$D610.
   $D5F6,$03 Grabs #REGb and decreases it by one. Loop back round to #R$D5E6 if #REGb is not zero.
   $D5F9,$01 Return.
 
