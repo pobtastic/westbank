@@ -43,6 +43,27 @@ Next: <a href="D5FA.html">D5FA</a>
 Used by the routines at <a href="5B92.html">Draw_Character</a>, <a href="C300.html">Draw_Playfield</a>, <a href="CBD0.html">TwoTone_Attributes_Buffer</a>, <a href="CC5A.html">Life_Images</a>, <a href="CC9B.html">CC9B</a>, <a href="CDAE.html">Draw_Number</a>, <a href="D5CA.html">Draw_CharacterInDoorway</a> and <a href="D664.html">Draw_DoorFrame1</a>.
 </div>
 </div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Source for image data</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Screen buffer address for destination of image</td>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Number of lines to copy (height)</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Number of bytes to copy (width)</td>
+</tr>
+</table>
 </td>
 </tr>
 <tr>
@@ -59,7 +80,7 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 <td class="asm-label">Copy_Routine</td>
 <td class="address-2"><span id="d5e6"></span>D5E6</td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-1" rowspan="5">Copies bytes from <span class="register">DE</span> TO <span class="register">HL</span> x <span class="register">C</span> number of times.</td>
+<td class="comment-1" rowspan="2">Stashes <span class="register">BC</span> (the counter) and <span class="register">HL</span> (screen buffer address) on the stack.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -70,6 +91,7 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5e8"></span>D5E8</td>
 <td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="3">Copies bytes from <span class="register">DE</span> TO <span class="register">HL</span> x <span class="register">C</span> number of times.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -96,7 +118,7 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5ef"></span>D5EF</td>
 <td class="instruction">INC H</td>
-<td class="comment-1" rowspan="4">ggg</td>
+<td class="comment-1" rowspan="2">Move to the next line down.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -106,12 +128,14 @@ This routine copies bytes from <span class="register">DE</span> TO <span class="
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5f1"></span>D5F1</td>
-<td class="instruction">AND $07</td>
+<td class="instruction">AND %00000111</td>
+<td class="comment-1" rowspan="1">Keep only bits 1-3.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="d5f3"></span>D5F3</td>
 <td class="instruction">CALL Z,<a href="D610.html">Calc_Attribute</a></td>
+<td class="comment-1" rowspan="1">If this crosses a screen boundary then call <a href="D610.html">Calc_Attribute</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
