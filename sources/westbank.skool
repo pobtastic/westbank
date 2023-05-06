@@ -959,7 +959,7 @@ c$6600 LD B,$0B      ; #REGb=#N$0B.
  $6674 LD DE,$0020   ;
  $6677 ADD HL,DE     ;
  $6678 LD A,H        ;
- $6679 AND $07       ;
+ $6679 AND %00000111 ; Keep only bits 0-2.
  $667B CALL NZ,$66D2 ;
  $667E DJNZ $6664    ;
  $6680 RET           ; Return.
@@ -8580,7 +8580,7 @@ c$D5E6 PUSH BC       ; {Stashes #REGbc (the counter) and #REGhl (screen buffer
  $D5EE POP HL        ; location.}
  $D5EF INC H         ; {Move to the next line down.
  $D5F0 LD A,H        ; }
- $D5F1 AND %00000111 ; Keep only bits 1-3.
+ $D5F1 AND %00000111 ; Keep only bits 0-2.
  $D5F3 CALL Z,$D610  ; If this crosses a screen boundary then call #R$D610.
  $D5F6 POP BC        ; {Grabs #REGb and decreases it by one. Loop back round to
  $D5F7 DJNZ $D5E6    ; #R$D5E6 if #REGb is not zero.}

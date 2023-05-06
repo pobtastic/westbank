@@ -366,6 +366,8 @@ N $6664 Copies screen data into the (general) buffer.
   $666C,$01 Increment #REGh by one.
   $666D,$01 Decrease #REGc by one.
 
+  $6679,$02,b$01 Keep only bits 0-2.
+
   $6680,$01 Return.
 N $6681 ...
 @ $6681 label=ScreenScroll_Right___
