@@ -46,6 +46,16 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="6600"></span>
+<div class="comments">
+<div class="paragraph">
+It's only necessary to scroll 0B character blocks as the display moves for one door only.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="asm-label">ScreenScroll_Right</td>
 <td class="address-2"><span id="6600"></span>6600</td>
 <td class="instruction">LD B,$0B</td>
@@ -60,20 +70,30 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6603"></span>6603</td>
-<td class="instruction">CALL <a href="6600.html#6610">ScreenScroll_Right_</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#6610">ScreenScroll_Right_</a>.</td>
+<td class="instruction">CALL <a href="6600.html#6610">ScreenScroll_Main_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#6610">ScreenScroll_Main_Right</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="6606"></span>
+<div class="comments">
+<div class="paragraph">
+Calling this twice provides parallax scrolling!
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6606"></span>6606</td>
-<td class="instruction">CALL <a href="6600.html#6647">ScreenScroll_Right__</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#6647">ScreenScroll_Right__</a>.</td>
+<td class="instruction">CALL <a href="6600.html#6647">ScreenScroll_Tellers_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#6647">ScreenScroll_Tellers_Right</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6609"></span>6609</td>
-<td class="instruction">CALL <a href="6600.html#6647">ScreenScroll_Right__</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#6647">ScreenScroll_Right__</a> again.</td>
+<td class="instruction">CALL <a href="6600.html#6647">ScreenScroll_Tellers_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#6647">ScreenScroll_Tellers_Right</a> again.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -98,13 +118,13 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <span id="6610"></span>
 <div class="comments">
 <div class="paragraph">
-...
+Copies the playfield data into the buffer, and then out onto the screen.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right_</td>
+<td class="asm-label">ScreenScroll_Main_Right</td>
 <td class="address-2"><span id="6610"></span>6610</td>
 <td class="instruction">LD IX,$5B00</td>
 <td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="5B00.html">BufferGeneral</a>.</td>
@@ -124,8 +144,8 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6619"></span>6619</td>
-<td class="instruction">CALL <a href="6600.html#6664">ScreenScroll_Right_Copy</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#6664">ScreenScroll_Right_Copy</a>.</td>
+<td class="instruction">CALL <a href="6600.html#6664">ScreenScroll_Buffer_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#6664">ScreenScroll_Buffer_Right</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -154,8 +174,8 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6628"></span>6628</td>
-<td class="instruction">CALL <a href="6600.html#66a0">ScreenScroll_Right_2</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#66a0">ScreenScroll_Right_2</a>.</td>
+<td class="instruction">CALL <a href="6600.html#66a0">ScreenScroll_Copy_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#66a0">ScreenScroll_Copy_Right</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -178,8 +198,8 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6634"></span>6634</td>
-<td class="instruction">CALL <a href="6600.html#6681">ScreenScroll_Right___</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#6681">ScreenScroll_Right___</a>.</td>
+<td class="instruction">CALL <a href="6600.html#6681">ScreenScroll_BufferAttrs_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#6681">ScreenScroll_BufferAttrs_Right</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -208,8 +228,8 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6643"></span>6643</td>
-<td class="instruction">CALL <a href="6600.html#668e">ScreenScroll_Right_1</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#668e">ScreenScroll_Right_1</a>.</td>
+<td class="instruction">CALL <a href="6600.html#668e">ScreenScroll_CopyAttrs_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#668e">ScreenScroll_CopyAttrs_Right</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -222,13 +242,13 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <span id="6647"></span>
 <div class="comments">
 <div class="paragraph">
-...
+Scroll Tellers Desk right one character block.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right__</td>
+<td class="asm-label">ScreenScroll_Tellers_Right</td>
 <td class="address-2"><span id="6647"></span>6647</td>
 <td class="instruction">LD IX,$5B00</td>
 <td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="5B00.html">BufferGeneral</a>.</td>
@@ -248,8 +268,8 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="6650"></span>6650</td>
-<td class="instruction">CALL <a href="6600.html#6664">ScreenScroll_Right_Copy</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#6664">ScreenScroll_Right_Copy</a>.</td>
+<td class="instruction">CALL <a href="6600.html#6664">ScreenScroll_Buffer_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#6664">ScreenScroll_Buffer_Right</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -278,8 +298,8 @@ Used by the routine at <a href="D3EA.html">Door_Prep_01</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="665f"></span>665F</td>
-<td class="instruction">CALL <a href="6600.html#66a0">ScreenScroll_Right_2</a></td>
-<td class="comment-1" rowspan="1">Call <a href="6600.html#66a0">ScreenScroll_Right_2</a>.</td>
+<td class="instruction">CALL <a href="6600.html#66a0">ScreenScroll_Copy_Right</a></td>
+<td class="comment-1" rowspan="1">Call <a href="6600.html#66a0">ScreenScroll_Copy_Right</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -304,13 +324,13 @@ Copies screen data into the (general) buffer.
 </td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right_Copy</td>
+<td class="asm-label">ScreenScroll_Buffer_Right</td>
 <td class="address-2"><span id="6664"></span>6664</td>
 <td class="instruction">LD C,$08</td>
 <td class="comment-1" rowspan="1"><span class="register">C</span>=08.</td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right_0</td>
+<td class="asm-label">ScreenScroll_Buffer_Right_Loop</td>
 <td class="address-2"><span id="6666"></span>6666</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="2">Store the contents of memory <span class="register">HL</span> is referencing to <span class="register">IX</span>.</td>
@@ -341,7 +361,7 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="666e"></span>666E</td>
-<td class="instruction">JR NZ,<a href="6600.html#6666">ScreenScroll_Right_0</a></td>
+<td class="instruction">JR NZ,<a href="6600.html#6666">ScreenScroll_Buffer_Right_Loop</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -389,13 +409,13 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="667b"></span>667B</td>
-<td class="instruction">CALL NZ,<a href="6600.html#66d2">ScreenScroll_Right_5</a></td>
+<td class="instruction">CALL NZ,<a href="6600.html#66d2">ScreenScroll_NextLine_Right</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="667e"></span>667E</td>
-<td class="instruction">DJNZ <a href="6600.html#6664">ScreenScroll_Right_Copy</a></td>
+<td class="instruction">DJNZ <a href="6600.html#6664">ScreenScroll_Buffer_Right</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -409,13 +429,13 @@ Copies screen data into the (general) buffer.
 <span id="6681"></span>
 <div class="comments">
 <div class="paragraph">
-...
+Copies attribute data into the (general) buffer.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right___</td>
+<td class="asm-label">ScreenScroll_BufferAttrs_Right</td>
 <td class="address-2"><span id="6681"></span>6681</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-1" rowspan="2">Store the contents of memory <span class="register">HL</span> is referencing to <span class="register">IX</span>.</td>
@@ -446,8 +466,8 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="668b"></span>668B</td>
-<td class="instruction">DJNZ <a href="6600.html#6681">ScreenScroll_Right___</a></td>
-<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="6600.html#6681">ScreenScroll_Right___</a> until counter is zero.</td>
+<td class="instruction">DJNZ <a href="6600.html#6681">ScreenScroll_BufferAttrs_Right</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="6600.html#6681">ScreenScroll_BufferAttrs_Right</a> until counter is zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -460,13 +480,13 @@ Copies screen data into the (general) buffer.
 <span id="668e"></span>
 <div class="comments">
 <div class="paragraph">
-...
+Writes the attribute bytes out of the buffer and onto the screen.
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right_1</td>
+<td class="asm-label">ScreenScroll_CopyAttrs_Right</td>
 <td class="address-2"><span id="668e"></span>668E</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="1"></td>
@@ -522,7 +542,7 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="669d"></span>669D</td>
-<td class="instruction">DJNZ <a href="6600.html#668e">ScreenScroll_Right_1</a></td>
+<td class="instruction">DJNZ <a href="6600.html#668e">ScreenScroll_CopyAttrs_Right</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -532,7 +552,17 @@ Copies screen data into the (general) buffer.
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right_2</td>
+<td class="routine-comment" colspan="5">
+<span id="66a0"></span>
+<div class="comments">
+<div class="paragraph">
+Copies the data held in the buffer back to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScreenScroll_Copy_Right</td>
 <td class="address-2"><span id="66a0"></span>66A0</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-1" rowspan="1"></td>
@@ -546,7 +576,7 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66a2"></span>66A2</td>
-<td class="instruction">CALL <a href="6600.html#66ba">ScreenScroll_Right_4</a></td>
+<td class="instruction">CALL <a href="6600.html#66ba">ScreenScroll_CopyTeller_Right</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -576,13 +606,13 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66ab"></span>66AB</td>
-<td class="instruction">AND $07</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">AND %00000111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-2.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66ad"></span>66AD</td>
-<td class="instruction">JR Z,<a href="6600.html#66b3">ScreenScroll_Right_3</a></td>
+<td class="instruction">JR Z,<a href="6600.html#66b3">ScreenScroll_Copy_Right_Skip</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -604,7 +634,17 @@ Copies screen data into the (general) buffer.
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right_3</td>
+<td class="routine-comment" colspan="5">
+<span id="66b3"></span>
+<div class="comments">
+<div class="paragraph">
+Skips over moving down one line from above.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScreenScroll_Copy_Right_Skip</td>
 <td class="address-2"><span id="66b3"></span>66B3</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
@@ -630,17 +670,27 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66b7"></span>66B7</td>
-<td class="instruction">DJNZ <a href="6600.html#66a0">ScreenScroll_Right_2</a></td>
+<td class="instruction">DJNZ <a href="6600.html#66a0">ScreenScroll_Copy_Right</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66b9"></span>66B9</td>
 <td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right_4</td>
+<td class="routine-comment" colspan="5">
+<span id="66ba"></span>
+<div class="comments">
+<div class="paragraph">
+Scrolls the very top part of the tellers desks.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScreenScroll_CopyTeller_Right</td>
 <td class="address-2"><span id="66ba"></span>66BA</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-1" rowspan="1"></td>
@@ -720,8 +770,8 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66cd"></span>66CD</td>
-<td class="instruction">AND $07</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">AND %00000111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-2.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -732,26 +782,34 @@ Copies screen data into the (general) buffer.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66d0"></span>66D0</td>
-<td class="instruction">JR <a href="6600.html#66ba">ScreenScroll_Right_4</a></td>
+<td class="instruction">JR <a href="6600.html#66ba">ScreenScroll_CopyTeller_Right</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label">ScreenScroll_Right_5</td>
+<td class="routine-comment" colspan="5">
+<span id="66d2"></span>
+<div class="comments">
+<div class="paragraph">
+Adds 07 to <span class="register">H</span> (as part of <span class="register">HL</span>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScreenScroll_NextLine_Right</td>
 <td class="address-2"><span id="66d2"></span>66D2</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="3">Adds 07 to <span class="register">H</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66d3"></span>66D3</td>
 <td class="instruction">ADD A,$07</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="66d5"></span>66D5</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
