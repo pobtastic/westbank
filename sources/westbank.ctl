@@ -134,7 +134,8 @@ g $5CB1 Current Level
 
 u $5CB2 Unused
 
-u $5CF0 Unused
+u $5CF0 Unused/ Stack
+D $5CF0 On initialisation the Stack Pointer is set to #N$5FF0.
 
 t $6000 High Score Table
 @ $6000 label=Highscore_Table_Name
@@ -264,8 +265,11 @@ t $6492 Level Selection Text
 @ $64C1 label=LevelSelect_Whitespace
   $64C1,$07 "WHITESPACE"
 
-u $64C8
-i $64CB
+u $64C8 Unused
+C $64C8,$03 Jump to #R$EA90.
+
+s $64CB
+  $64CB,$35
 
 c $6500 Sounds
 @ $6500 label=Shot_Sound_01_Alias
@@ -310,22 +314,29 @@ N $6547 Shot sound 3.
 u $6580
 
 i $65B1
-u $65AE
+
+u $65AA Unused
+C $65AA,$03 Jump to #R$EA90.
+C $65AD,$01 Return.
+
+u $65AE Unused
+C $65AE,$03 Jump to #R$EA90.
 
 c $6600 Scroll Screen Right
-N $6600
+N $6600 It's only necessary to scroll #N$0B character blocks as the display moves for one door only.
 @ $6600 label=ScreenScroll_Right
   $6600,$02 #REGb=#N$0B.
 @ $6602 label=ScreenScroll_Right_Loop
   $6602,$01 Push the counter onto the stack.
   $6603,$03 Call #R$6610.
+N $6606 Calling this twice provides parallax scrolling!
   $6606,$03 Call #R$6647.
   $6609,$03 Call #R$6647 again.
   $660C,$01 Restore the counter off the stack.
   $660D,$02 Decrease counter by one and loop back to #R$6602 until counter is zero.
   $660F,$01 Return.
-N $6610 ...
-@ $6610 label=ScreenScroll_Right_
+N $6610 Copies the playfield data into the buffer, and then out onto the screen.
+@ $6610 label=ScreenScroll_Main_Right
   $6610,$04 #REGix=#R$5B00.
   $6614,$03 #REGhl=#N$406A.
   $6617,$02 #REGb=#N$0D.
@@ -345,8 +356,8 @@ N $6610 ...
   $6641,$02 #REGb=#N$0D.
   $6643,$03 Call #R$668E.
   $6646,$01 Return.
-N $6647 ...
-@ $6647 label=ScreenScroll_Right__
+N $6647 Scroll Tellers Desk right one character block.
+@ $6647 label=ScreenScroll_Tellers_Right
   $6647,$04 #REGix=#R$5B00.
   $664B,$03 #REGhl=#N$502A.
   $664E,$02 #REGb=#N$04.
@@ -359,8 +370,9 @@ N $6647 ...
   $6662,$01 Return.
   $6663,$01 Return? Possibly unused.
 N $6664 Copies screen data into the (general) buffer.
-@ $6664 label=ScreenScroll_Right_Copy
+@ $6664 label=ScreenScroll_Buffer_Right
   $6664,$02 #REGc=#N$08.
+@ $6666 label=ScreenScroll_Buffer_Right_Loop
   $6666,$04 Store the contents of memory #REGhl is referencing to #REGix.
   $666A,$02 Increment #REGix by one.
   $666C,$01 Increment #REGh by one.
@@ -369,19 +381,40 @@ N $6664 Copies screen data into the (general) buffer.
   $6679,$02,b$01 Keep only bits 0-2.
 
   $6680,$01 Return.
-N $6681 ...
-@ $6681 label=ScreenScroll_Right___
+
+N $6681 Copies attribute data into the (general) buffer.
+@ $6681 label=ScreenScroll_BufferAttrs_Right
   $6681,$04 Store the contents of memory #REGhl is referencing to #REGix.
   $6685,$03 #REGde=#R$FFE0.
 
   $668B,$02 Decrease counter by one and loop back to #R$6681 until counter is zero.
   $668D,$01 Return.
 
-N $668E ...
-  $668E
+N $668E Writes the attribute bytes out of the buffer and onto the screen.
+@ $668E label=ScreenScroll_CopyAttrs_Right
   $669F,$01 Return.
 
+N $66A0 Copies the data held in the buffer back to the screen.
+@ $66A0 label=ScreenScroll_Copy_Right
+
+  $66AB,$02,b$01 Keep only bits 0-2.
+
+N $66B3 Skips over moving down one line from above.
+@ $66B3 label=ScreenScroll_Copy_Right_Skip
+
+  $66B9,$01 Return.
+
+N $66BA Scrolls the very top part of the tellers desks.
+@ $66BA label=ScreenScroll_CopyTeller_Right
+
+  $66CD,$02,b$01 Keep only bits 0-2.
+
+N $66D2 Adds #N$07 to #REGh (as part of #REGhl).
+@ $66D2 label=ScreenScroll_NextLine_Right
+  $66D2,$04 Adds #N$07 to #REGh.
+
   $66D6,$01 Return.
+
 i $66D7 Unused?
 
 c $6700 Scroll Screen Left
@@ -3450,7 +3483,7 @@ c $FD80 Blah
   $FDA0,$02 Write #N$FF to #REGhl.
   $FDA2,$01 Return.
 
-  $FDA3,$03 #REGsp=#R$5FF0.
+  $FDA3,$03 #REGsp=#N$5FF0.
   $FDA6,$02 Jump to #R$FDBC.
 
   $FDA8,$01 Enable interrupts.
@@ -3463,6 +3496,9 @@ N $FDB7 Set the border to black and blank the screen buffer.
   $FDBC,$0D Writes $00 to all #N$1AFF bytes of the screen buffer (i.e. "blanks it").
   $FDC9,$03 Call #R$C7C0.
   $FDCC,$02 Jump to #R$FDBC.
+
+u $FDCE Unused
+C $FDCE,$03 Jump to #R$EA90.
 
 b $FDD1
 

@@ -7,6 +7,7 @@
 https://www.worldofspectrum.org//pub/sinclair/games/w/WestBank(GremlinGraphicsSoftwareLtd).tzx.zip
 WestBank.z80
 
+--stack 24560
 ; from tape block #6 to address 16384.
 --ram load=6,$4000 ;  6914 bytes ; Loading SCREEN$
 --ram move=$CBB4,$40,$5B80

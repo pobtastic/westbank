@@ -436,7 +436,9 @@ u$5CB2 DEFB $FF,$5F,$FF,$FF,$F4,$09,$A8,$10
  $5CE2 DEFB $66,$3D,$36,$34,$39,$33,$36,$0E
  $5CEA DEFB $00,$00,$A8,$FD,$00,$CC
 
-; Unused
+; Unused/ Stack
+;
+; On initialisation the Stack Pointer is set to #N$5FF0.
 u$5CF0 DEFB $36,$34,$39,$34,$34,$0E,$00,$00
  $5CF8 DEFB $B0,$FD,$00,$3A,$F4,$66,$2C,$30
  $5D00 DEFB $0E,$00,$00,$00,$00,$00,$3A,$F3
@@ -795,9 +797,10 @@ t$6492 DEFM "CHOOSE THE LEVEL PREFERED",$FF ; "#STR#(#PC),$0B($b==$FF)".
  $64C1 DEFM "      ",$FF                    ; "WHITESPACE"
 
 ; Unused
-u$64C8 DEFB $C3,$90,$EA
+u$64C8 JP $EA90      ; Jump to #R$EA90.
 
-i$64CB
+; Unused
+s$64CB DEFS $35
 
 ; Sounds
 ;
@@ -886,10 +889,14 @@ u$6580 DEFB $00,$00,$00,$00,$CD,$A2,$65,$06
  $6590 DEFB $05,$76,$10,$FD,$CD,$A2,$65,$76
  $6598 DEFB $76,$CD,$A2,$65,$76,$76,$CD,$A2
  $65A0 DEFB $65,$C9,$DD,$21,$2F,$65,$CD,$4F
- $65A8 DEFB $65,$C9,$C3,$90,$EA,$C9
+ $65A8 DEFB $65,$C9
 
 ; Unused
-u$65AE DEFB $C3,$90,$EA
+u$65AA JP $EA90      ; Jump to #R$EA90.
+ $65AD RET           ; Return.
+
+; Unused
+u$65AE JP $EA90      ; Jump to #R$EA90.
 
 i$65B1
 
@@ -899,19 +906,22 @@ i$65B1
 ;
 ; .
 ;
+; It's only necessary to scroll #N$0B character blocks as the display moves for
+; one door only.
 @label=ScreenScroll_Right
 c$6600 LD B,$0B      ; #REGb=#N$0B.
 @label=ScreenScroll_Right_Loop
 *$6602 PUSH BC       ; Push the counter onto the stack.
  $6603 CALL $6610    ; Call #R$6610.
+; Calling this twice provides parallax scrolling!
  $6606 CALL $6647    ; Call #R$6647.
  $6609 CALL $6647    ; Call #R$6647 again.
  $660C POP BC        ; Restore the counter off the stack.
  $660D DJNZ $6602    ; Decrease counter by one and loop back to #R$6602 until
                      ; counter is zero.
  $660F RET           ; Return.
-; ...
-@label=ScreenScroll_Right_
+; Copies the playfield data into the buffer, and then out onto the screen.
+@label=ScreenScroll_Main_Right
 *$6610 LD IX,$5B00   ; #REGix=#R$5B00.
  $6614 LD HL,$406A   ; #REGhl=#N$406A.
  $6617 LD B,$0D      ; #REGb=#N$0D.
@@ -931,8 +941,8 @@ c$6600 LD B,$0B      ; #REGb=#N$0B.
  $6641 LD B,$0D      ; #REGb=#N$0D.
  $6643 CALL $668E    ; Call #R$668E.
  $6646 RET           ; Return.
-; ...
-@label=ScreenScroll_Right__
+; Scroll Tellers Desk right one character block.
+@label=ScreenScroll_Tellers_Right
 *$6647 LD IX,$5B00   ; #REGix=#R$5B00.
  $664B LD HL,$502A   ; #REGhl=#N$502A.
  $664E LD B,$04      ; #REGb=#N$04.
@@ -945,8 +955,9 @@ c$6600 LD B,$0B      ; #REGb=#N$0B.
  $6662 RET           ; Return.
  $6663 RET           ; Return? Possibly unused.
 ; Copies screen data into the (general) buffer.
-@label=ScreenScroll_Right_Copy
+@label=ScreenScroll_Buffer_Right
 *$6664 LD C,$08      ; #REGc=#N$08.
+@label=ScreenScroll_Buffer_Right_Loop
 *$6666 LD A,(HL)     ; {Store the contents of memory #REGhl is referencing to
  $6667 LD (IX+$00),A ; #REGix.}
  $666A INC IX        ; Increment #REGix by one.
@@ -963,8 +974,8 @@ c$6600 LD B,$0B      ; #REGb=#N$0B.
  $667B CALL NZ,$66D2 ;
  $667E DJNZ $6664    ;
  $6680 RET           ; Return.
-; ...
-@label=ScreenScroll_Right___
+; Copies attribute data into the (general) buffer.
+@label=ScreenScroll_BufferAttrs_Right
 *$6681 LD A,(HL)     ; {Store the contents of memory #REGhl is referencing to
  $6682 LD (IX+$00),A ; #REGix.}
  $6685 LD DE,$FFE0   ; #REGde=#R$FFE0.
@@ -973,7 +984,8 @@ c$6600 LD B,$0B      ; #REGb=#N$0B.
  $668B DJNZ $6681    ; Decrease counter by one and loop back to #R$6681 until
                      ; counter is zero.
  $668D RET           ; Return.
-; ...
+; Writes the attribute bytes out of the buffer and onto the screen.
+@label=ScreenScroll_CopyAttrs_Right
 *$668E PUSH BC       ;
  $668F LD BC,$001F   ;
  $6692 LD A,(IX+$00) ;
@@ -985,6 +997,8 @@ c$6600 LD B,$0B      ; #REGb=#N$0B.
  $669C POP BC        ;
  $669D DJNZ $668E    ;
  $669F RET           ; Return.
+; Copies the data held in the buffer back to the screen.
+@label=ScreenScroll_Copy_Right
 *$66A0 PUSH BC       ;
  $66A1 PUSH HL       ;
  $66A2 CALL $66BA    ;
@@ -992,17 +1006,21 @@ c$6600 LD B,$0B      ; #REGb=#N$0B.
  $66A6 LD BC,$0020   ;
  $66A9 ADD HL,BC     ;
  $66AA LD A,H        ;
- $66AB AND $07       ;
+ $66AB AND %00000111 ; Keep only bits 0-2.
  $66AD JR Z,$66B3    ;
  $66AF LD A,H        ;
  $66B0 ADD A,$07     ;
  $66B2 LD H,A        ;
+; Skips over moving down one line from above.
+@label=ScreenScroll_Copy_Right_Skip
 *$66B3 PUSH HL       ;
  $66B4 POP DE        ;
  $66B5 INC DE        ;
  $66B6 POP BC        ;
  $66B7 DJNZ $66A0    ;
- $66B9 RET           ;
+ $66B9 RET           ; Return.
+; Scrolls the very top part of the tellers desks.
+@label=ScreenScroll_CopyTeller_Right
 *$66BA PUSH HL       ;
  $66BB PUSH HL       ;
  $66BC LD BC,$001F   ;
@@ -1016,12 +1034,14 @@ c$6600 LD B,$0B      ; #REGb=#N$0B.
  $66CA INC D         ;
  $66CB INC DE        ;
  $66CC LD A,H        ;
- $66CD AND $07       ;
+ $66CD AND %00000111 ; Keep only bits 0-2.
  $66CF RET Z         ;
  $66D0 JR $66BA      ;
-*$66D2 LD A,H        ;
+; Adds #N$07 to #REGh (as part of #REGhl).
+@label=ScreenScroll_NextLine_Right
+*$66D2 LD A,H        ; {Adds #N$07 to #REGh.
  $66D3 ADD A,$07     ;
- $66D5 LD H,A        ;
+ $66D5 LD H,A        ; }
  $66D6 RET           ; Return.
 
 ; Unused?
@@ -10126,7 +10146,7 @@ i$EA0C
 
 ; Door Buffer
 ;
-; Used by the routines at #R$6700, #R$F950 and #R$FD80.
+; Used by the routines at #R$6700 and #R$F950.
 @label=Door_Buffer
 b$EA90 DEFB $00,$00,$FF,$FF,$FF,$FF,$FF ; {#UDGARRAY7,scale=4,step=7;(#PC)-(#PC+$238)-$01-$38,$30(door-buffer)
  $EA97 DEFB $00,$00,$88,$0F,$FF,$FF,$FF ;
@@ -11182,7 +11202,7 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
  $FD9D LD HL,($5B86) ; Load the contents of #R$5B86 into #REGhl.
  $FDA0 LD (HL),$FF   ; Write #N$FF to #REGhl.
  $FDA2 RET           ; Return.
-*$FDA3 LD SP,$5FF0   ; #REGsp=#R$5FF0.
+*$FDA3 LD SP,$5FF0   ; #REGsp=#N$5FF0.
  $FDA6 JR $FDBC      ; Jump to #R$FDBC.
 *$FDA8 EI            ; Enable interrupts.
  $FDA9 DEFS $08      ; No-operation.
@@ -11202,7 +11222,9 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
  $FDC7 LDIR          ; }
  $FDC9 CALL $C7C0    ; Call #R$C7C0.
  $FDCC JR $FDBC      ; Jump to #R$FDBC.
- $FDCE JP $EA90      ;
+
+; Unused
+u$FDCE JP $EA90      ; Jump to #R$EA90.
 
 ; Data block at FDD1
 b$FDD1 DEFB $00,$00,$00,$00,$00,$00,$00,$00
