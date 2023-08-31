@@ -13,7 +13,7 @@ b $4000 Loading screen
 D $4000 #UDGTABLE { #SCR2(loading) | West Bank Loading Screen. } TABLE#
 @ $4000 label=Loading
   $4000,$1800,$20 Pixels
-  $5800,$300,$20 Attributes
+  $5800,$0300,$20 Attributes
 
 s $5B00 General Buffer
 @ $5B00 label=BufferGeneral
@@ -1659,7 +1659,7 @@ B $CE1B,$01
 g $CE1C Game speed. Starts at $500 for phase one, then gradually gets faster.
 W $CE1C,$02
 g $CE1E Current door speed multiplier (larger = slower). Cycles between the value in #R$CE1B and 1,
-        allowing doors to open at different times. 
+        allowing doors to open at different times.
 B $CE1E,$01
 N $CE1F Defines the entry point for the choosing routines. Note, this isn't for one choice - they chain into each other
 .       this simply points to where the chain starts.
