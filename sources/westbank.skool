@@ -622,20 +622,20 @@ i$6302
 ;
 ; Used by the routine at #R$FE00.
 @label=LevelSelect
-c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
- $6383 LD BC,$0040   ; - this does nothing, it just creates a very short pause.
- $6386 LDIR          ; }
- $6388 LD HL,$4000   ; {Writes $00 to all 6144 bytes of the screen buffer (i.e.
- $638B LD DE,$4001   ; "blanks it").
+c$6380 LD DE,$5B80   ; {#REGhl points to #R$5B80 on entry as #REGde is also
+ $6383 LD BC,$0040   ; #R$5B80 - this does nothing, it just creates a very
+ $6386 LDIR          ; short pause.}
+ $6388 LD HL,$4000   ; {Writes #N$00 to all #N$1AFF bytes of the screen buffer
+ $638B LD DE,$4001   ; (i.e. "blanks it").
  $638E LD BC,$1AFF   ;
  $6391 LD (HL),$00   ;
  $6393 LDIR          ; }
- $6395 LD HL,$58A0   ; {Writes $28 to $58A0 in the attribute buffer $100 times.
+ $6395 LD HL,$58A0   ; {Writes #N$28 to #R$58A0 in the attribute buffer #N$100 times.
  $6398 LD DE,$58A1   ; #TABLE(default,centre)
  $639B LD BC,$0100   ; { =h Value | =h Ink | =h Paper | =h Bright }
  $639E LD (HL),$28   ; { #N$28 | #N$00 | #N$05 | #N$00 }
  $63A0 LDIR          ; TABLE#}
- $63A2 LD (HL),$20   ; {...and $20 to the attribute buffer another $5F times (following on from the previous location).
+ $63A2 LD (HL),$20   ; {...and #N$20 to the attribute buffer another #N$5F times (following on from the previous location).
  $63A4 LD BC,$005F   ; #TABLE(default,centre)
  $63A7 LDIR          ; { =h Value | =h Ink | =h Paper | =h Bright }
                      ; { #N$20 | #N$00 | #N$04 | #N$00 }
@@ -692,7 +692,7 @@ c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
  $63FF LD HL,$64AC   ;
  $6402 JP $6457      ; }
 @label=LevelSelect_Level_03
-*$6405 LD (HL),$02   ; {Store $02 at #R$5CB1 and call #R$6427 with
+*$6405 LD (HL),$02   ; {Store #N$02 at #R$5CB1 and call #R$6427 with
  $6407 LD A,$09      ; (#R$7A90(shot | #N$09)) for index "2".
  $6409 LD B,$02      ;
  $640B CALL $6427    ; }
@@ -700,11 +700,11 @@ c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
  $6410 LD HL,$64B3   ;
  $6413 JP $6457      ; }
 @label=LevelSelect_Level_06
-*$6416 LD (HL),$03   ; {Store $03 at #R$5CB1 and call #R$6427 with
+*$6416 LD (HL),$03   ; {Store #N$03 at #R$5CB1 and call #R$6427 with
  $6418 LD A,$1A      ; (#R$9DA0(shot | #N$1A)) for index "3".
  $641A LD B,$03      ;
  $641C CALL $6427    ; }
- $641F LD A,$03      ; {Jump to #R$6457 with #REGhl=#R$64BA and #REGa=$03.
+ $641F LD A,$03      ; {Jump to #R$6457 with #REGhl=#R$64BA and #REGa=#N$03.
  $6421 LD HL,$64BA   ;
  $6424 JP $6457      ; }
 ; Animates the selected bandit being shot.
@@ -730,9 +730,9 @@ c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
  $6440 LD HL,$40A2   ; {Work out which screen position to use;
  $6443 DEC A         ; #TABLE(default,centre)
  $6444 JR Z,$644F    ; { =h #REGa | =h Screen Address }
- $6446 LD HL,$40AD   ; { #N$01 | $40A2 }
- $6449 DEC A         ; { #N$02 | $40AD }
- $644A JR Z,$644F    ; { #N$03 | $40B8 }
+ $6446 LD HL,$40AD   ; { #N$01 | #N$40A2 }
+ $6449 DEC A         ; { #N$02 | #N$40AD }
+ $644A JR Z,$644F    ; { #N$03 | #N$40B8 }
  $644C LD HL,$40B8   ; TABLE#}
 @label=LevelSelect_Graphics_Skip
 *$644F LD B,$58      ; {Set the dimensions and call #R$5B92.
@@ -742,7 +742,7 @@ c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
 ; Flashes the selected level text.
 @label=LevelSelect_Text_Flash
 *$6457 LD B,$08      ; {This prints #R$64C1 and the passed level copy alternately with a delay caused by a HALT loop
- $6459 LD C,A        ;           (which continues execution after an interrupt is fired), the sequence repeats $08 times.
+ $6459 LD C,A        ;           (which continues execution after an interrupt is fired), the sequence repeats #N$08 times.
 @label=LevelSelect_Text_Flash_Loop
 *$645A PUSH HL       ;
  $645B PUSH BC       ;
@@ -772,9 +772,9 @@ c$6380 LD DE,$5B80   ; {#REGhl points to $5B80 on entry as #REGde is also $5B80
 *$647C LD DE,$5022   ; {First, work out which screen position to use;
  $647F DEC A         ; #TABLE(default,centre)
  $6480 JR Z,$648B    ; { =h #REGa | =h Screen Address }
- $6482 LD DE,$502D   ; { #N$01 | $5022 }
- $6485 DEC A         ; { #N$02 | $502D }
- $6486 JR Z,$648B    ; { #N$03 | $5038 }
+ $6482 LD DE,$502D   ; { #N$01 | #N$5022 }
+ $6485 DEC A         ; { #N$02 | #N$502D }
+ $6486 JR Z,$648B    ; { #N$03 | #N$5038 }
  $6488 LD DE,$5038   ; TABLE#}
 *$648B LD BC,$0702   ; {Then call the print routine at #R$5B80.
  $648E CALL $5B80    ; #TABLE(default,centre)
@@ -857,7 +857,7 @@ c$6500 JR $6537                 ;
  $654E RET                      ; Return.
 @label=Play_Shot_Sound
 *$654F CALL $655E               ; Call #R$655E.
- $6552 INC IX                   ; {Increase #REGix by $04.
+ $6552 INC IX                   ; {Increase #REGix by #N$04.
  $6554 INC IX                   ;
  $6556 INC IX                   ;
  $6558 INC IX                   ; }
@@ -5494,66 +5494,66 @@ c$C300 LD L,(IX+$00) ; {Set #R$D5E6 as the destination address at #R$C3B7.
  $C312 LD (HL),$00   ;
  $C314 LDIR          ; }
 ; Draws the numbering of the deposit boxes on the left and right of the screen.
- $C316 LD HL,$4001   ; {Points #REGhl to $4001 (screen buffer) and #REGde to
+ $C316 LD HL,$4001   ; {Points #REGhl to #N$4001 (screen buffer) and #REGde to
  $C319 LD DE,$DFA0   ; #R$DFA0, then calls the routine at #R$C3B7.
  $C31C LD BC,$080C   ;
  $C31F CALL $C3B7    ; }
- $C322 LD HL,$4013   ; {Points #REGhl to $4013 (screen buffer) and #REGde to
+ $C322 LD HL,$4013   ; {Points #REGhl to #N$4013 (screen buffer) and #REGde to
  $C325 LD DE,$E000   ; #R$E000, then calls the routine at #R$C3B7.
  $C328 LD BC,$080C   ;
  $C32B CALL $C3B7    ; }
 ; Draws the centrepiece "till" image.
- $C32E LD HL,$400E   ; {Points #REGhl to $400E (screen buffer) and #REGde to
+ $C32E LD HL,$400E   ; {Points #REGhl to #N$400E (screen buffer) and #REGde to
  $C331 LD DE,$E060   ; #R$E060, then calls the routine at #R$C3B7.
  $C334 LD B,$18      ;
  $C336 LD C,$04      ;
  $C338 CALL $C3B7    ; }
 ; Draws the game play area (doors and wall sections).
- $C33B LD HL,$4060   ; {Points #REGhl to $4060 (screen buffer) and #REGde to
+ $C33B LD HL,$4060   ; {Points #REGhl to #N$4060 (screen buffer) and #REGde to
  $C33E LD DE,$E0C0   ; #R$E0C0, then calls the routine at #R$C3B7.
  $C341 LD BC,$0820   ;
  $C344 CALL $C3B7    ; }
- $C347 LD HL,$4080   ; {Points #REGhl to $4080 (screen buffer) and #REGde to
+ $C347 LD HL,$4080   ; {Points #REGhl to #N$4080 (screen buffer) and #REGde to
  $C34A LD DE,$E1C0   ; #R$E1C0, then calls the routine at #R$C3B7.
  $C34D LD B,$58      ;
  $C34F LD C,$02      ;
  $C351 CALL $C3B7    ; }
- $C354 LD HL,$4089   ; {Points #REGhl to $4089 (screen buffer) and #REGde to
+ $C354 LD HL,$4089   ; {Points #REGhl to #N$4089 (screen buffer) and #REGde to
  $C357 LD DE,$E270   ; #R$E270, then calls the routine at #R$C3B7.
  $C35A LD B,$58      ;
  $C35C LD C,$04      ;
  $C35E CALL $C3B7    ; }
- $C361 LD HL,$4094   ; {Points #REGhl to $4094 (screen buffer) and #REGde to
+ $C361 LD HL,$4094   ; {Points #REGhl to #N$4094 (screen buffer) and #REGde to
  $C364 LD DE,$E270   ; #R$E270, then calls the routine at #R$C3B7.
  $C367 LD B,$58      ;
  $C369 LD C,$04      ;
  $C36B CALL $C3B7    ; }
- $C36E LD HL,$409F   ; {Points #REGhl to $409F (screen buffer) and #REGde to
+ $C36E LD HL,$409F   ; {Points #REGhl to #N$409F (screen buffer) and #REGde to
  $C371 LD DE,$E3D0   ; #R$E3D0, then calls the routine at #R$C3B7.
  $C374 LD B,$58      ;
  $C376 LD C,$01      ;
  $C378 CALL $C3B7    ; }
- $C37B LD HL,$48E0   ; {Points #REGhl to $48E0 (screen buffer) and #REGde to
+ $C37B LD HL,$48E0   ; {Points #REGhl to #N$48E0 (screen buffer) and #REGde to
  $C37E LD DE,$E428   ; #R$E428, then calls the routine at #R$C3B7.
  $C381 LD BC,$0820   ;
  $C384 CALL $C3B7    ; }
 ; Draws the Bank Teller desks.
- $C387 LD HL,$5020   ; {Points #REGhl to $5020 (screen buffer) and #REGde to
+ $C387 LD HL,$5020   ; {Points #REGhl to #N$5020 (screen buffer) and #REGde to
  $C38A LD DE,$E528   ; #R$E528, then calls the routine at #R$C3B7.
  $C38D LD BC,$2020   ;
  $C390 CALL $C3B7    ; }
 ; Writes the "SCORE" and "LIVES" labels (these aren't text, they're images).
- $C393 LD HL,$50C1   ; {Points #REGhl to $50C1 (screen buffer) and #REGde to
+ $C393 LD HL,$50C1   ; {Points #REGhl to #N$50C1 (screen buffer) and #REGde to
  $C396 LD DE,$E928   ; #R$E928, then calls the routine at #R$C3B7.
  $C399 LD BC,$1006   ;
  $C39C CALL $C3B7    ; }
- $C39F LD HL,$50B0   ; {Points #REGhl to $50B0 (screen buffer) and #REGde to
+ $C39F LD HL,$50B0   ; {Points #REGhl to #N$50B0 (screen buffer) and #REGde to
  $C3A2 LD DE,$E988   ; #R$E988, then calls the routine at #R$C3B7.
  $C3A5 LD BC,$1606   ;
  $C3A8 CALL $C3B7    ; }
 ; Copies attribute data to the screen.
- $C3AB LD HL,$ED00   ; {Copies $300 bytes of attribute data from #R$ED00 to
- $C3AE LD DE,$5800   ; $5800.
+ $C3AB LD HL,$ED00   ; {Copies #N$300 bytes of attribute data from #R$ED00 to
+ $C3AE LD DE,$5800   ; #N$5800.
  $C3B1 LD BC,$0300   ;
  $C3B4 LDIR          ; }
  $C3B6 RET           ; Return.
@@ -5580,7 +5580,7 @@ c$C3C0 CALL $C3DD    ; Call #R$C3DD.
 *$C3CB HALT          ;
  $C3CC DJNZ $C3CB    ; }
  $C3CE LD E,A        ;
- $C3CF LD HL,($5B86) ; {Is #R$CC59 more than $06?
+ $C3CF LD HL,($5B86) ; {Is #R$CC59 more than #N$06?
  $C3D2 LD A,(HL)     ;
  $C3D3 CP $06        ; }
  $C3D5 JR C,$C3D8    ; If so, jump to #R$C3D8.
@@ -5594,7 +5594,7 @@ c$C3C0 CALL $C3DD    ; Call #R$C3DD.
 @label=Init_Duel
 *$C3DD PUSH BC       ; {Stashes #REGbc and #REGde.
  $C3DE PUSH DE       ; }
- $C3DF LD DE,$5B80   ; {Copies $1B of data from #REGhl to #R$5B80.
+ $C3DF LD DE,$5B80   ; {Copies #N$1B of data from #REGhl to #R$5B80.
  $C3E2 LD BC,$001B   ;
  $C3E5 LDIR          ; }
  $C3E7 JP $C422      ; Jump to #R$C422.
@@ -5656,8 +5656,8 @@ c$C3EA DEFB $00             ; Dueller state ("0" is complete).
 ;
 ; Used by the routine at #R$C3C0.
 @label=Duel_Prep
-c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
- $C425 LD DE,$5BC0     ; across all three duellists).
+c$C422 LD HL,$C3EA     ; {Copies #N$33 bytes of data from #R$C3EA to #R$5BC0
+ $C425 LD DE,$5BC0     ; (and across all three duellists).
  $C428 LD BC,$0033     ;
  $C42B LDIR            ; }
  $C42D POP DE          ;
@@ -5671,7 +5671,7 @@ c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
  $C43F LD A,D          ;
  $C440 LD IX,$5BE2     ; {Calls #R$C67F with #R$5BE2.
  $C444 CALL $C67F      ; }
- $C447 XOR A           ; {Reset the flags (writes $00 to #R$C6E2, #R$C6E3 and
+ $C447 XOR A           ; {Reset the flags (writes #N$00 to #R$C6E2, #R$C6E3 and
  $C448 LD HL,$C6E2     ; #R$C6E4).
  $C44B LD (HL),A       ;
  $C44C INC HL          ;
@@ -5691,24 +5691,24 @@ c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
 @label=Duel_Clear_Screen
 *$C463 LD ($C52E),DE   ; ....
 ; Clears down the screen buffer.
- $C467 LD HL,$4000     ; {Writes $00 to all 6144 bytes of the screen buffer
- $C46A LD DE,$4001     ; (i.e. "blanks it").
+ $C467 LD HL,$4000     ; {Writes #N$00 to all #N$1AFF bytes of the screen
+ $C46A LD DE,$4001     ; buffer (i.e. "blanks it").
  $C46D LD BC,$1AFF     ;
  $C470 XOR A           ;
  $C471 LD (HL),A       ;
  $C472 LDIR            ; }
 ; Writes the attributes for the playfield (sky, grass, footer).
- $C474 LD HL,$5880     ; {Writes $28 to $5880 in the attribute buffer $180 times...
+ $C474 LD HL,$5880     ; {Writes #N$28 to #N$5880 in the attribute buffer #N$180 times...
  $C477 LD DE,$5881     ; #TABLE(default,centre,centre,centre,centre)
  $C47A LD BC,$0180     ; { =h Value | =h Ink | =h Paper | =h Bright }
  $C47D LD (HL),$28     ; { #N$00 | #N$05 | #N$00 | #N$00 }
  $C47F LDIR            ; TABLE#}
- $C481 LD (HL),$20     ; {...continuing, writes $20 $80 times...
+ $C481 LD (HL),$20     ; {...continuing, writes #N$20 #N$80 times...
  $C483 LD BC,$0080     ; #TABLE(default,centre,centre,centre,centre)
  $C486 LDIR            ; { =h Value | =h Ink | =h Paper | =h Bright }
                        ; { #N$00 | #N$04 | #N$00 | #N$00 }
                        ; TABLE#}
- $C488 LD (HL),$07     ; {...and finally, writes $07 $7F times.
+ $C488 LD (HL),$07     ; {...and finally, writes #N$07 #N$7F times.
  $C48A LD BC,$007F     ; #TABLE(default,centre,centre,centre,centre)
  $C48D LDIR            ; { =h Value | =h Ink | =h Paper | =h Bright }
                        ; { #N$07 | #N$00 | #N$00 | #N$00 }
@@ -5736,7 +5736,7 @@ c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
  $C4C2 CALL $C661      ; }
 ; Count down 5-4-3-2-1...0!
 @label=Countdown_Initialise
- $C4C5 LD A,$35        ; {Initialise countdown to "5" seconds ($35 in ASCII),
+ $C4C5 LD A,$35        ; {Initialise countdown to "5" seconds (#N$35 in ASCII),
 @label=Countdown_Loop
 *$C4C7 PUSH AF         ; hold this at #R$C6E0.
  $C4C8 LD ($C6E0),A    ; }
@@ -5746,11 +5746,11 @@ c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
 *$C4D0 HALT            ;
  $C4D1 DJNZ $C4D0      ; }
  $C4D3 POP AF          ; {Keep looping back to #R$C4C7 until the countdown is
- $C4D4 DEC A           ; "0" ($30 in ASCII).
+ $C4D4 DEC A           ; "0" (#N$30 in ASCII).
  $C4D5 CP $30          ;
  $C4D7 JR NZ,$C4C7     ; }
- $C4D9 LD A,$20        ; {Blank the countdown timer by printing a "SPACE" ($20
- $C4DB LD ($C6E0),A    ; in ASCII) over the top of it.
+ $C4D9 LD A,$20        ; {Blank the countdown timer by printing a "SPACE"
+ $C4DB LD ($C6E0),A    ; (#N$20 in ASCII) over the top of it.
  $C4DE CALL $C6D3      ; }
  $C4E1 JR $C4F9        ; Jump to #R$C4F9 and start the duel!
 @label=Duel_Loop
@@ -5798,7 +5798,7 @@ c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
  $C546 BIT 4,A         ; {Return if bit 4 of #REGa is zero.
  $C548 RET Z           ; }
  $C549 BIT 0,A         ; {If bit 0 is not zero then return setting #REGa to
- $C54B LD A,$03        ; $03.
+ $C54B LD A,$03        ; #N$03.
  $C54D RET NZ          ; }
  $C54E XOR A           ; {Set #REGa to zero and return.
  $C54F RET             ; }
@@ -5807,7 +5807,7 @@ c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
  $C553 BIT 4,A         ; {Return if bit 4 of #REGa is zero.
  $C555 RET Z           ; }
  $C556 BIT 1,A         ; {If bit 1 is not zero then return setting #REGa to
- $C558 LD A,$01        ; $01.
+ $C558 LD A,$01        ; #N$01.
  $C55A RET NZ          ; }
  $C55B XOR A           ; {Set #REGa to zero and return.
  $C55C RET             ; }
@@ -5831,7 +5831,7 @@ c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
  $C579 RET NZ          ;
  $C57A LD A,$01        ;
  $C57C LD (IX+$0D),A   ;
- $C57F LD (IX+$00),A   ; Set dueller state to $01.
+ $C57F LD (IX+$00),A   ; Set dueller state to #N$01.
  $C582 RET             ; Return.
 ; This entry point is used by the routines at #R$C607 and #R$C6E5.
 *$C583 PUSH IX         ;
@@ -5841,14 +5841,14 @@ c$C422 LD HL,$C3EA     ; {Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and
 *$C58B LD A,(IX+$08)   ; {If IX+$08 is zero then return.
  $C58E AND A           ;
  $C58F RET Z           ; }
- $C590 LD A,(IX+$09)   ; {If dueller frame index is $01 then jump to #R$C5A1.
+ $C590 LD A,(IX+$09)   ; {If dueller frame index is #N$01 then jump to #R$C5A1.
  $C593 DEC A           ;
  $C594 JR Z,$C5A1      ; }
- $C596 DEC A           ; {If dueller frame index is $02 then jump to #R$C5B5.
+ $C596 DEC A           ; {If dueller frame index is #N$02 then jump to #R$C5B5.
  $C597 JR Z,$C5B5      ; }
- $C599 DEC A           ; {If dueller frame index is $03 then jump to #R$C5BD.
+ $C599 DEC A           ; {If dueller frame index is #N$03 then jump to #R$C5BD.
  $C59A JR Z,$C5BD      ; }
- $C59C DEC A           ; {If dueller frame index is $04 then jump to #R$C5CF.
+ $C59C DEC A           ; {If dueller frame index is #N$04 then jump to #R$C5CF.
  $C59D JR Z,$C5CF      ; }
  $C59F JR $C5DD        ; Jump to #R$C5DD.
 *$C5A1 LD HL,$C6E5     ; #R$C6E5.
@@ -5909,7 +5909,7 @@ c$C5EB LD A,(IX+$00) ; {Check if the current duellers state is zero (complete),
 ; Used by the routine at #R$C628.
 @label=Print_BonusScore
 c$C607 LD (IX+$07),A ; {Stores the ASCII representation of the number at #R$C41D (it adds ASCII "0") so for example 1 ends up being
- $C60A LD HL,$C41D   ;           1 + $30 = $31 (e.g. "1" in ASCII).
+ $C60A LD HL,$C41D   ;           1 + #N$30 = #N$31 (e.g. "1" in ASCII).
  $C60D ADD A,$30     ;
  $C60F LD (HL),A     ; }
  $C610 LD BC,$2928   ; {Print using #R$5B80.
@@ -5946,7 +5946,7 @@ c$C628 LD A,($C6E4)  ; {If #R$C6E4 is NOT zero then award 9(00) bonus points.
  $C641 CALL $5B80    ; { #N$2A | #N$02 | #N$05 | #N$00 }
                      ; { #N$29 | #N$01 | #N$05 | #N$00 }
                      ; TABLE#}
- $C644 LD A,$01      ; {Writes $01 to #R$C6E4.
+ $C644 LD A,$01      ; {Writes #N$01 to #R$C6E4.
  $C646 LD ($C6E4),A  ; }
  $C649 INC (IX+$09)  ; Move onto the next frame.
  $C64C RET           ; Return.
@@ -5968,13 +5968,13 @@ c$C661 CALL $5B8F    ; Fetch the address of the character from the given index
  $C664 EX DE,HL      ;
  $C665 LD A,(IX+$03) ; Retrieve the character position.
  $C668 LD HL,$4804   ; {If this character is in position "1" then point to the
- $C66B DEC A         ; screen buffer at $4804 and jump to #R$C677.
+ $C66B DEC A         ; screen buffer at #N$4804 and jump to #R$C677.
  $C66C JR Z,$C677    ; }
  $C66E LD HL,$480C   ; {If this character is in position "2" then point to the
- $C671 DEC A         ; screen buffer at $480C and jump to #R$C677.
+ $C671 DEC A         ; screen buffer at #N$480C and jump to #R$C677.
  $C672 JR Z,$C677    ; }
  $C674 LD HL,$4814   ; Else this character is in position "3" so point to the
-                     ; screen buffer at $4814.
+                     ; screen buffer at #N$4814.
 @label=Duel_Draw_Bandit
 *$C677 LD B,$58      ; {Call the draw routine with the image dimensions.
  $C679 LD C,$06      ;
@@ -6075,7 +6075,7 @@ g$C6E0 DEFB $20
 ;
 ; See #R$C690 for the clearest example of usage.
 @label=Duel_Bang_Flag
-g$C6E2 DEFB $00      ; Holds $00/ $01 to indicate player has been shot.
+g$C6E2 DEFB $00      ; Holds #N$00/ #N$01 to indicate player has been shot.
 
 ; Duel Lost Life Flag
 ;
@@ -6088,14 +6088,14 @@ g$C6E3 DEFB $00      ; Holds $00/ $01 to indicate player should lose a life (as
 ;
 ; See #R$C690 for the clearest example of usage.
 @label=Duel_Extra_Life
-g$C6E4 DEFB $00      ; Holds $00/ $01 to indicate player has gained an extra
-                     ; life.
+g$C6E4 DEFB $00      ; Holds #N$00/ #N$01 to indicate player has gained an
+                     ; extra life.
 
 ; Process Dueller Shot
 @label=Dueller_Shot
-c$C6E5 LD A,$04      ; {Writes $04 to #R$C6E3.
+c$C6E5 LD A,$04      ; {Writes #N$04 to #R$C6E3.
  $C6E7 LD ($C6E3),A  ; }
- $C6EA LD (IX+$09),A ; Sets the dueller frame index to $04.
+ $C6EA LD (IX+$09),A ; Sets the dueller frame index to #N$04.
  $C6ED JP $C583      ; Jump to #R$C583.
 
 ; Flash Life Image
@@ -6138,8 +6138,8 @@ b$C71E DEFB $22,$FB
 ;
 ; Used by the routine at #R$C7E5.
 @label=Sheriff_Star
-c$C720 LD HL,$4000   ; {Writes $00 to all 6144 bytes of the screen buffer (i.e.
- $C723 LD DE,$4001   ; "blanks it").
+c$C720 LD HL,$4000   ; {Writes #N$00 to all #N$1AFF bytes of the screen buffer
+ $C723 LD DE,$4001   ; (i.e. "blanks it").
  $C726 LD BC,$1800   ;
  $C729 LD (HL),$00   ;
  $C72B LDIR          ; }
@@ -6197,7 +6197,7 @@ c$C7C0 LD HL,($5C78) ; #HTML(Fetch <a
  $C7CF LD BC,$1AFF   ;
  $C7D2 LD (HL),$00   ;
  $C7D4 LDIR          ; }
- $C7D6 LD B,$80      ; {Calls #R$CD64 with the counter $80.
+ $C7D6 LD B,$80      ; {Calls #R$CD64 with the counter #N$80.
  $C7D8 CALL $CD64    ; }
  $C7DB LD HL,$CBB4   ; {Jump to #R$FA00 with #REGhl=#R$CBB4 and #REGix=#R$CD86.
  $C7DE LD IX,$CD86   ;
@@ -6225,34 +6225,34 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C804 LD BC,$0006   ;
  $C807 LDIR          ; }
 @label=Starting_Lives
- $C809 LD A,$03      ; {Initialise #R$CC59 to $03.
+ $C809 LD A,$03      ; {Initialise #R$CC59 to #N$03.
  $C80B LD ($CC59),A  ; }
- $C80E LD HL,$0101   ; {Initialise #R$D45C to $0101.
+ $C80E LD HL,$0101   ; {Initialise #R$D45C to #N$0101.
  $C811 LD ($D45C),HL ; }
  $C814 LD HL,$0000   ; {Clears #R$CE14, #R$CE16 and #R$CE18 (sets them to
- $C817 LD ($CE14),HL ; $0000).
+ $C817 LD ($CE14),HL ; #N($0000,$04,$04)).
  $C81A LD ($CE16),HL ;
  $C81D LD ($CE18),HL ; }
- $C820 LD HL,$2020   ; {Clear #R$CA58 and #R$CA5A to $2020 (ASCII space-space).
- $C823 LD ($CA58),HL ;
+ $C820 LD HL,$2020   ; {Clear #R$CA58 and #R$CA5A to #N$2020 (ASCII
+ $C823 LD ($CA58),HL ; space-space).
  $C826 LD ($CA5A),HL ; }
- $C829 LD HL,$CC8D   ; {Clear down the deposit flags (copies $00 to each from
+ $C829 LD HL,$CC8D   ; {Clear down the deposit flags (copies #N$00 to each from
  $C82C LD DE,$CC8E   ; #R$CC8D).
  $C82F LD BC,$000D   ;
  $C832 LD (HL),$00   ;
  $C834 LDIR          ; }
  $C836 XOR A         ; {Set the border to black.
  $C837 OUT ($FE),A   ; }
- $C839 INC A         ; {Write $01 to #R$CBCF.
+ $C839 INC A         ; {Write #N$01 to #R$CBCF.
  $C83A LD ($CBCF),A  ; }
  $C83D CALL $CA6C    ;
  $C840 CALL $C959    ;
  $C843 CALL $CA64    ;
- $C846 LD A,$03      ; {Reset door speed multiplier at #R$CE1B to the default $03.
+ $C846 LD A,$03      ; {Writes #N$03 to #R$CE1B.
  $C848 LD ($CE1B),A  ; }
- $C84B LD HL,$0500   ; {Writes the default game speed ($0500) to #R$CE1C.
+ $C84B LD HL,$0500   ; {Writes #N$0500 to #R$CE1C.
  $C84E LD ($CE1C),HL ; }
- $C851 LD A,$01      ; {Writes that this is day 2 to the day indicator at #R$D191.
+ $C851 LD A,$01      ; {Writes #N$01 to #R$D191.
  $C853 LD ($D191),A  ; }
  $C856 LD A,($5CB1)  ; {Grabs the #R$5CB1, if it's level 1 then jump to #R$C878
  $C859 LD HL,$CA4A   ; with #REGhl=#R$CA4A.
@@ -6335,12 +6335,12 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C90C CALL $C963    ;
  $C90F CALL $CA81    ;
  $C912 RET C         ;
- $C913 LD HL,$D191   ; {Having got through all the phases,
- $C916 LD A,(HL)     ; are we on day 2?
+ $C913 LD HL,$D191   ;
+ $C916 LD A,(HL)     ;
  $C917 LD (HL),$00   ;
- $C919 AND A         ; }
- $C91A JR Z,$C8F0    ; Jump back if we're not
- $C91C LD HL,$CBB4   ; We have completed two days, display the reward screen.
+ $C919 AND A         ;
+ $C91A JR Z,$C8F0    ;
+ $C91C LD HL,$CBB4   ;
  $C91F LD DE,$5B80   ;
  $C922 LD BC,$0040   ;
  $C925 LDIR          ;
@@ -6358,28 +6358,28 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C93F JR $C8F0      ;
 
 ; Make the game run faster
-; 
-; Used by the routine at #R$C7E5
+;
+; Used by the routine at #R$C7E5.
 ;
 ; .
 ;
 ; This routine is called at the start of each phase, and makes it faster
-; than than the previous by decreasing the wait time.
-; This starts at $500 (slowest) and is decreased by $40 for each call,
-; so things generally run faster.
-c$C941 PUSH AF       ; { Remember these
- $C942 PUSH HL       ; }
- $C943 LD HL,($CE1C) ; Get the current speed
- $C946 LD BC,$0040   ; Decrease it by this
- $C949 AND A         ; Clear the carry flag so next instruction works
- $C94A SBC HL,BC     ; Drop the speed
- $C94C LD A,H        ; {Is it zero?
- $C94D OR L          ; }
- $C94E JR NZ,$C953   ; No, so move on
- $C950 LD HL,$0040   ; The game speed cannot be 0, it's impossible, so make it $40.
-*$C953 LD ($CE1C),HL ; Store it back
- $C956 POP HL        ; { Restore used registers
- $C957 POP AF        ; }
+;       than than the previous by decreasing the wait time.
+;       This starts at #N$500 (slowest) and is decreased by #N$40 for each call,
+;       so things generally open faster.
+c$C941 PUSH AF       ;
+ $C942 PUSH HL       ;
+ $C943 LD HL,($CE1C) ;
+ $C946 LD BC,$0040   ;
+ $C949 AND A         ;
+ $C94A SBC HL,BC     ;
+ $C94C LD A,H        ;
+ $C94D OR L          ;
+ $C94E JR NZ,$C953   ;
+ $C950 LD HL,$0040   ;
+*$C953 LD ($CE1C),HL ;
+ $C956 POP HL        ;
+ $C957 POP AF        ;
  $C958 RET           ;
 
 ; Door Attributes
@@ -6428,20 +6428,20 @@ c$C959 LD HL,$C96F                          ; {Call #R$C966 using #R$C96F.
 ;
 ; Clears the cashbox flags, clears the screen and displays the phase number.
 @label=Prep_Display_Phase
-c$C9B7 LD HL,$0101        ; {Writes $01 to both #R$D45C and #R$D45D.
+c$C9B7 LD HL,$0101        ; {Writes #N$01 to both #R$D45C and #R$D45D.
  $C9BA LD ($D45C),HL      ; }
- $C9BD LD HL,$CC8D        ; {Clear down the deposit flags (copies $00 to each
+ $C9BD LD HL,$CC8D        ; {Clear down the deposit flags (copies #N$00 to each
  $C9C0 LD DE,$CC8E        ; from #R$CC8D).
  $C9C3 LD BC,$000D        ;
  $C9C6 LD (HL),$00        ;
  $C9C8 LDIR               ; }
- $C9CA XOR A              ; {Call #R$C9D0 (using $00).
+ $C9CA XOR A              ; {Call #R$C9D0 (using #N$00).
  $C9CB CALL $C9D0         ; }
  $C9CE JR $C9DD           ; Jump to #R$C9DD.
 ; This routine has the ability to write any value across the screen buffer, however it's only ever called with
-;       #REGa=$00 (clear screen).
+;       #REGa=#N$00 (clear screen).
 @label=Clear_Screen
-*$C9D0 LD HL,$4000        ; {Clears the screen buffer by writing $00 to all
+*$C9D0 LD HL,$4000        ; {Clears the screen buffer by writing #N$00 to all
  $C9D3 LD DE,$4001        ; 6912 memory locations.
  $C9D6 LD BC,$1AFF        ;
  $C9D9 LD (HL),A          ;
@@ -6449,7 +6449,7 @@ c$C9B7 LD HL,$0101        ; {Writes $01 to both #R$D45C and #R$D45D.
  $C9DC RET                ; }
 ; Displays the current "phase".
 @label=Display_Phase
-*$C9DD LD HL,$CA4E        ; {Copies #R$CA4E into #R$CA5C ($05 bytes of text
+*$C9DD LD HL,$CA4E        ; {Copies #R$CA4E into #R$CA5C (#N$05 bytes of text
  $C9E0 LD DE,$CA5C        ; data).
  $C9E3 LD BC,$0005        ;
  $C9E6 LDIR               ; }
@@ -6481,20 +6481,20 @@ c$C9B7 LD HL,$0101        ; {Writes $01 to both #R$D45C and #R$D45D.
  $CA1B CP $0A             ;
  $CA1D JR NC,$CA27        ; }
  $CA1F LD (HL),A          ; {Stores the ASCII representation of the number at $CA62 (for #R$CA5C). It adds ASCII "0" so for example 1
- $CA20 ADD A,$30          ;           ends up being 1 + $30 = $31 (e.g. "1" in ASCII).
+ $CA20 ADD A,$30          ;           ends up being 1 + #N$30 = #N$31 (e.g. "1" in ASCII).
  $CA22 LD ($CA62),A       ; }
  $CA25 JR $CA38           ; Jump to #R$CA38.
 ; Ensures the progress digit remains 0-9. On entry #REGhl will be either
 ; #R$CA4A or #R$CA4C.
 @label=Progress_Divisible_10
-*$CA27 LD (HL),$00        ; Reset the current progress digit to $00.
+*$CA27 LD (HL),$00        ; Reset the current progress digit to #N$00.
  $CA29 INC HL             ; Use the secondary digit of the currently focused
                           ; progress.
 ; Note this doesn't account for a third digit and so leads to eventual corruption. Once past day/ phase "99", this
 ;       will display "00" and past "09" the first ASCII digit doesn't point to any usable image data. Note however, this
 ;       occurs after ~4 hours of game play so isn't especially an issue.
  $CA2A INC (HL)           ; Increase this second digit by one.
- $CA2B LD A,(HL)          ; {Add ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII). Write this number to $CA61
+ $CA2B LD A,(HL)          ; {Add ASCII "0" so for example 1 ends up being 1 + #N$30 = #N$31 (e.g. "1" in ASCII). Write this number to #N$CA61
  $CA2C ADD A,$30          ;           (for #R$CA5C).
  $CA2E LD ($CA61),A       ; }
  $CA31 DEC HL             ; Move back to point to the original location of
@@ -6541,7 +6541,7 @@ c$C9B7 LD HL,$0101        ; {Writes $01 to both #R$D45C and #R$D45D.
 *$CA6C LD HL,$0000        ; {Clears #R$CA4A and #R$CA4C (writes $0000 to them).
  $CA6F LD ($CA4A),HL      ;
  $CA72 LD ($CA4C),HL      ; }
- $CA75 LD A,$20           ; {Writes ASCII space ($20) to $CA61 and ASCII "0" ($30) to $CA62 (i.e. writes " 0" to the numeric portion of
+ $CA75 LD A,$20           ; {Writes ASCII space (#N$20) to #N$CA61 and ASCII "0" (#N$30) to #N$CA62 (i.e. writes " 0" to the numeric portion of
  $CA77 LD HL,$CA61        ;           #R$CA5C).
  $CA7A LD (HL),A          ;
  $CA7B INC HL             ;
@@ -6639,11 +6639,11 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB07 BIT 2,A                              ;
  $CB09 JR NZ,$CB03                          ;
 *$CB0B CALL $D2CF                           ; Call #R$D2CF.
- $CB0E LD BC,($CE1C)                        ; { Get the game speed
-*$CB12 DEC BC                               ; and delay for that period of time
- $CB13 LD A,B                               ; ...
- $CB14 OR C                                 ; ...
- $CB15 JR NZ,$CB12                          ; until we're done }
+ $CB0E LD BC,($CE1C)                        ; #REGbc=#R$CE1C.
+*$CB12 DEC BC                               ;
+ $CB13 LD A,B                               ;
+ $CB14 OR C                                 ;
+ $CB15 JR NZ,$CB12                          ;
  $CB17 CALL $D411                           ;
  $CB1A CALL $CBA6                           ; Call #R$CBA6.
  $CB1D LD IX,$D165                          ; #REGix=#R$D165.
@@ -6728,8 +6728,8 @@ c$CBD0 DEFW $0705    ; Stores the attributes; top attribute/ bottom attribute.
 @label=Print_TwoToneText
 *$CBD2 LD ($CBD0),BC ; Stash the attributes at #R$CBD0.
 @label=Print_TwoToneText_Loop
-*$CBD6 LD A,(HL)     ; {Grab the next character in the string, if it's $FF then
- $CBD7 CP $FF        ; return.
+*$CBD6 LD A,(HL)     ; {Grab the next character in the string, if it's #N$FF
+ $CBD7 CP $FF        ; then return.
  $CBD9 RET Z         ; }
  $CBDA CP $30        ;
  $CBDC JR NZ,$CBE0   ;
@@ -6806,13 +6806,13 @@ g$CC38 DEFW $D5E6
 @label=Draw_PlayWithDoors
 c$CC3A LD IX,$CC38   ; {Draw the main game playfield.
  $CC3E CALL $C300    ; }
- $CC41 LD A,$01      ; {Calls #R$D664 with #R$CE1A set to $01.
+ $CC41 LD A,$01      ; {Calls #R$D664 with #R$CE1A set to #N$01.
  $CC43 LD ($CE1A),A  ;
  $CC46 CALL $D664    ; }
- $CC49 LD A,$02      ; {Calls #R$D664 with #R$CE1A set to $02.
+ $CC49 LD A,$02      ; {Calls #R$D664 with #R$CE1A set to #N$02.
  $CC4B LD ($CE1A),A  ;
  $CC4E CALL $D664    ; }
- $CC51 LD A,$03      ; {Jump to #R$D664 with #R$CE1A set to $03.
+ $CC51 LD A,$03      ; {Jump to #R$D664 with #R$CE1A set to #N$03.
  $CC53 LD ($CE1A),A  ;
  $CC56 JP $D664      ; }
 
@@ -6828,8 +6828,8 @@ g$CC59 DEFB $00
 ;
 ; Set up counter=$05 screen buffer=$50B6.
 @label=Life_Images
-c$CC5A LD B,$05      ; #REGb=$05.
- $CC5C LD HL,$50B6   ; #REGhl=$50B6.
+c$CC5A LD B,$05      ; #REGb=#N$05.
+ $CC5C LD HL,$50B6   ; #REGhl=#N$50B6.
 @label=Life_Images_Loop
 *$CC5F PUSH BC       ; Push the counter onto the stack.
  $CC60 LD DE,$5B00   ; #REGde=#R$5B00.
@@ -6941,7 +6941,7 @@ c$CC9B LD A,($D45C)  ; {Converts #R$D45C into cash deposit box flag address
  $CCDF RET Z         ; }
  $CCE0 INC DE        ; {Move onto the next cashbox (loop back to #R$CCDD) or
  $CCE1 DJNZ $CCDD    ; continue once all 12 are checked.}
- $CCE3 LD (HL),A     ; {Write #REGa ($01) to #R$CA80.
+ $CCE3 LD (HL),A     ; {Write #REGa (#N$01) to #R$CA80.
  $CCE4 RET           ; }
 @label=Draw_GameCashbox
 *$CCE5 ADD A,A       ; {Determines whether to send #R$FF78 or #R$FF98 to
@@ -6983,8 +6983,8 @@ c$CC9B LD A,($D45C)  ; {Converts #R$D45C into cash deposit box flag address
 @label=Flash_Lives
 c$CD1B LD B,$0A      ; {Short pause.
  $CD1D CALL $CD64    ; }
- $CD20 LD HL,$CC59   ; {Point to #R$CC59. Set a counter for $05 times and stash
- $CD23 LD B,$05      ; it.
+ $CD20 LD HL,$CC59   ; {Point to #R$CC59. Set a counter for #N$05 times and
+ $CD23 LD B,$05      ; stash it.
 @label=Flash_Lives_Loop
 *$CD25 PUSH BC       ; }
  $CD26 DEC (HL)      ; {Decrease the number of lives by one, stash the lives
@@ -7060,7 +7060,7 @@ c$CD68 LD IX,$D165   ; {Call #R$D8A1 using #REGix=#R$D165.
 ;       seem to be called from anywhere).
 ;       At a guess, it was probably used for "testing" text messages and outputs during development.
 @label=Debugger
-c$CD7E LD A,(HL)     ; {Grab a byte from #REGhl return if it's $FF (our
+c$CD7E LD A,(HL)     ; {Grab a byte from #REGhl return if it's #N$FF (our
  $CD7F CP $FF        ; termination character).
  $CD81 RET Z         ; }
  $CD82 RST $10       ; #HTML(Print to screen (see <a
@@ -7120,11 +7120,11 @@ c$CD90 LD HL,$CD8B   ; {Starting values; #TABLE(default,centre,centre,centre,cen
 ; Used by the routines at #R$CBD0 and #R$CD90.
 @label=Draw_Number
 c$CDAE PUSH DE       ; {Using $C000 as a base address, this works out the character set memory address from a given index passed
- $CDAF LD H,$00      ;           in #REGa. To give an example using "2" ($25 - see #R$CD90);
+ $CDAF LD H,$00      ;           in #REGa. To give an example using "2" (#N$25 - see #R$CD90);
  $CDB1 LD L,A        ; #LIST
- $CDB2 ADD HL,HL     ; { #HTML(Loads <strong>$25</strong> as the low-order byte; #REGhl=$0025) }
- $CDB3 ADD HL,HL     ; { #HTML(Times by <strong>$10</strong>; #REGhl=$250) }
- $CDB4 ADD HL,HL     ; { #HTML(Add <strong>$C000</strong>=#R$C250) }
+ $CDB2 ADD HL,HL     ; { #HTML(Loads <strong>#N$25</strong> as the low-order byte; #REGhl=#N($0025,$04,$04)) }
+ $CDB3 ADD HL,HL     ; { #HTML(Times by <strong>#N$10</strong>; #REGhl=#N$0250) }
+ $CDB4 ADD HL,HL     ; { #HTML(Add <strong>#N$C000</strong>=#R$C250) }
  $CDB5 ADD HL,HL     ; LIST#
  $CDB6 LD DE,$C000   ; This is then passed to #R$D5E6.
  $CDB9 ADD HL,DE     ;
@@ -7164,7 +7164,7 @@ c$CDC3 LD IX,$D165     ; {Calls #R$CDDC three times with #REGix containing;
 *$CDF7 LD A,(HL)       ; {Pass the current score digit to #R$CE08 and overwrite
  $CDF8 CALL $CE08      ; the digit with the result.
  $CDFB LD (HL),A       ; }
- $CDFC LD E,$05        ; Sets a counter to $05 (5 more digits in the score).
+ $CDFC LD E,$05        ; Sets a counter to #N$05 (5 more digits in the score).
 @label=Scoring_Apply_Loop
 *$CDFE INC HL          ; Move onto the next scoring digit.
  $CDFF LD A,(HL)       ; {Pass the current score digit to #R$CE08 and overwrite
@@ -7227,11 +7227,11 @@ g$CE1A DEFB $03      ; #TABLE(default,centre,centre)
 ; Basic door speed multiplier for opening doors - always 3.
 g$CE1B DEFB $03
 
-; Game speed. Starts at $500 for phase one, then gradually gets faster. Adjusted by calls to #R$C941.
+; Game speed. Starts at #N$500 for phase one, then gradually gets faster.
 g$CE1C DEFW $0380
 
 ; Current door speed multiplier (larger = slower). Cycles between the value in #R$CE1B and 1,
-; allowing doors to open at different times. 
+;       allowing doors to open at different times.
 g$CE1E DEFB $03
 ; Defines the entry point for the choosing routines. Note, this isn't for one choice - they chain into each other
 ;       this simply points to where the chain starts.
@@ -7252,14 +7252,14 @@ g$CE1E DEFB $03
 ; { #R$D18A | Door 3 }
 ; TABLE#
 @label=Character_Chooser
-c$CE21 LD HL,$CE1E   ; {Decrease the door speed value.
+c$CE21 LD HL,$CE1E   ; {Decrease #R$CE1E by one.
  $CE24 LD A,(HL)     ;
  $CE25 DEC A         ;
  $CE26 LD (HL),A     ; }
  $CE27 RET NZ        ; Return if not zero.
- $CE28 LD A,($CE1B)  ; {Otherwise, set it back to the base speed
+ $CE28 LD A,($CE1B)  ; {Copies #R$CE1B into #R$CE1E.
  $CE2B LD (HL),A     ; }
- $CE2C LD A,(IX+$09) ; {Decrease the current door's wait factor by one.
+ $CE2C LD A,(IX+$09) ; {Decrease ????? by one.
  $CE2F DEC A         ; #TABLE(default,centre,centre)
  $CE30 LD (IX+$09),A ; { =h Address | =h Door }
                      ; { #R$D16E | Door 1 }
@@ -7269,16 +7269,16 @@ c$CE21 LD HL,$CE1E   ; {Decrease the door speed value.
  $CE33 RET NZ        ; Return if not zero.
 ; f
 @label=Chooser
- $CE34 CALL $D8B0    ; Generate a random number for the next waiting time.
+ $CE34 CALL $D8B0    ; Call #R$D8B0.
  $CE37 AND $1F       ; Keep bits 0-4 (so 0-31).
- $CE39 OR $08        ; {Set bit 3 and write the new wait factor to;
+ $CE39 OR $08        ; {Set bit 3 and write the resulting value to;
  $CE3B LD (IX+$09),A ; #TABLE(default,centre,centre)
                      ; { =h Address | =h Door }
                      ; { #R$D16E | Door 1 }
                      ; { #R$D17C | Door 2 }
                      ; { #R$D18A | Door 3 }
                      ; TABLE#}
- $CE3E LD HL,($CE1F) ; {Jump to the active character choosing routine pointed by #R$CE1F.
+ $CE3E LD HL,($CE1F) ; {Jump to the memory address contained at #R$CE1F.
  $CE41 JP (HL)       ; }
 ; Handles choosing one of the initial "default" characters. A
 ;       character is always chosen here, so this is the end of the
@@ -7297,21 +7297,21 @@ c$CE21 LD HL,$CE1E   ; {Decrease the door speed value.
                      ; TABLE#}
 ; Handles whether or not to choose Julius. Only active on phase 3 and above.
 @label=Choose_Julius
-*$CE55 CALL $D8B0    ; Generate a random number.
+*$CE55 CALL $D8B0    ; Call #R$D8B0.
  $CE58 AND $0C       ; {Keep only bits 2 and 3. Jump to the next character "test" if
  $CE5A JR NZ,$CE5F   ; this is a non-zero number at #R$CE5F.}
  $CE5C JP $CFB7      ; Jump to #R$CFB7.
-; Handles whether or not to choose Bandit 2.
+; Handles whether or not to choose Bandit 2. Only active on phase 3 and above.
 @label=Choose_Bandit_02
-*$CE5F CALL $D8B0    ; Generate a random number.
+*$CE5F CALL $D8B0    ; Call #R$D8B0.
  $CE62 AND $98       ; {Keep only bits 3, 4 and 7. Jump to the next character "test" if
  $CE64 JR NZ,$CE6F   ; this is a non-zero number at #R$CE6F.}
  $CE66 LD HL,$D119   ; Set source character data to #R$D119.
  $CE69 LD DE,$D124   ; Set target character buffer to #R$D124.
  $CE6C JP $CEA9      ; Jump to #R$CEA9.
-; Handles whether or not to choose Bandit 3. Only active on phase 3 and above.
+; Handles whether or not to choose Bandit 3. Only active on phase 2 and above.
 @label=Choose_Bandit_03
-*$CE6F CALL $D8B0    ; Generate a random number.
+*$CE6F CALL $D8B0    ; Call #R$D8B0.
  $CE72 AND $31       ; {Keep only bits 0, 4 and 5. Jump to the next character "test" if
  $CE74 JR NZ,$CE42   ;           this is a non-zero number then jump back to the #R$CE42.
                      ; }
@@ -7320,7 +7320,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the door speed value.
  $CE7C JR $CEA9      ; Jump to #R$CEA9.
 ; Handles whether or not to choose Bandit 4. Only active on phase 4 and above.
 @label=Choose_Bandit_04
-*$CE7E CALL $D8B0    ; Generate a random number.
+*$CE7E CALL $D8B0    ; Call #R$D8B0.
  $CE81 AND $83       ; {Keep only bits 0, 1 and 7. Jump to the next character "test" if
  $CE83 JR NZ,$CE55   ; this is a non-zero number #R$CE55.}
  $CE85 LD HL,$D0D7   ; Set source character data to #R$D0D7.
@@ -7328,7 +7328,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the door speed value.
  $CE8B JR $CEA9      ; Jump to #R$CEA9.
 ; Handles whether or not to choose Bandit 5. Only active on phase 5 and above.
 @label=Choose_Bandit_05
-*$CE8D CALL $D8B0    ; Generate a random number.
+*$CE8D CALL $D8B0    ; Call #R$D8B0.
  $CE90 AND $58       ; {Keep only bits 3, 4 and 6. Jump to the next character "test" if
  $CE92 JR NZ,$CE7E   ; this is a non-zero number #R$CE7E.}
  $CE94 LD HL,$D0ED   ; Set source character data to #R$D0ED.
@@ -7336,7 +7336,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the door speed value.
  $CE9A JR $CEA9      ; Jump to #R$CEA9.
 ; Handles whether or not to choose Bandit 6. Only active on phase 6 and above.
 @label=Choose_Bandit_06
- $CE9C CALL $D8B0    ; Generate a random number.
+ $CE9C CALL $D8B0    ; Call #R$D8B0.
  $CE9F AND $71       ; {Keep only bits 0, 4, 5 and 6. Jump to the next character "test" if
  $CEA1 JR NZ,$CE8D   ; this is a non-zero number #R$CE8D.}
  $CEA3 LD HL,$D103   ; Set source character data to #R$D103.
@@ -7422,8 +7422,8 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF07 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF08 CALL $D8B0      ; Generate a random number
- $CF0B AND $08         ; Keep only bit 3, so Bowie will have money instead of a bomb 1/16 of the time.
+ $CF08 CALL $D8B0      ;
+ $CF0B AND $08         ;
  $CF0D LD HL,$D084     ;
  $CF10 LD (HL),$00     ;
  $CF12 JR Z,$CF16      ;
@@ -7447,8 +7447,8 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF36 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF37 CALL $D8B0      ; Generate a random number, to see if Jack Vicious turns up instead.
- $CF3A AND $82         ; Keep bits 7 and 1
+ $CF37 CALL $D8B0      ;
+ $CF3A AND $82         ;
  $CF3C LD HL,$D0A1     ;
  $CF3F LD (HL),$00     ;
  $CF41 JR NZ,$CF45     ;
@@ -7475,7 +7475,7 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF69 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF6A CALL $D8B0      ; Generate a random number
+ $CF6A CALL $D8B0      ;
  $CF6D AND $41         ;
  $CF6F LD HL,$D092     ;
  $CF72 LD (HL),$00     ;
@@ -7529,8 +7529,8 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
                        ; TABLE#}
  $CFC3 LD HL,$D0AE     ;
  $CFC6 LD (HL),$00     ;
- $CFC8 CALL $D8B0      ; Generate a random number to determine if Julius will give money or shoot.
- $CFCB AND $20         ; Keep bits 2 and 4
+ $CFC8 CALL $D8B0      ;
+ $CFCB AND $20         ;
  $CFCD JR NZ,$CFD1     ;
  $CFCF LD (HL),$01     ;
 @label=Init_Julius_Open_Set_Flag
@@ -9140,24 +9140,24 @@ c$D8A1 LD L,(IX+$00) ; {Blanks the 16 bit address pointed to by one of the
  $D8AA LD (HL),A     ; }
  $D8AB RET           ; Return.
 
-; Hash values for the random number generator
+; Hash values for random number generator
 g$D8AC DEFB $EE,$92,$1B,$E5
 
-; Generate a random number
+; Routine at D8B0
 ;
 ; Used by the routines at #R$C9B7, #R$CE21, #R$CEB8 and #R$DAEF.
 ;
 ; .
 ;
-; On exit, A holds a random number between $00 and $FF
+; On exit, holds a random number between $00 and $FF.
 @label=Random_Number
 c$D8B0 PUSH BC       ; {Stashes #REGbc and #REGhl for later.
  $D8B1 PUSH HL       ; }
- $D8B2 LD A,($D8AE)  ; {Decrease hash value 2 at #R$D8AC by one.
+ $D8B2 LD A,($D8AE)  ; {Decrease #N$D8AE by one.
  $D8B5 DEC A         ;
  $D8B6 LD ($D8AE),A  ; }
  $D8B9 JR NZ,$D8C8   ; If the result is not zero jump to #R$D8C8.
- $D8BB LD HL,($D8AC) ; Get the two bytes at hash value 0 at #R$D8AC.
+ $D8BB LD HL,($D8AC) ;
  $D8BE INC HL        ;
  $D8BF PUSH HL       ;
  $D8C0 POP BC        ;

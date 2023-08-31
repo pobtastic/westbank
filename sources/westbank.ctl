@@ -148,14 +148,14 @@ i $6302
 
 c $6380 Level Selection
 @ $6380 label=LevelSelect
-  $6380 #REGhl points to $5B80 on entry as #REGde is also $5B80 - this does nothing, it just creates a very short pause.
-  $6388,$0D Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").
-  $6395,$0D Writes $28 to $58A0 in the attribute buffer $100 times.
+  $6380 #REGhl points to #R$5B80 on entry as #REGde is also #R$5B80 - this does nothing, it just creates a very short pause.
+  $6388,$0D Writes #N$00 to all #N$1AFF bytes of the screen buffer (i.e. "blanks it").
+  $6395,$0D Writes #N$28 to #R$58A0 in the attribute buffer #N$100 times.
 . #TABLE(default,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
 . { #N$28 | #N$00 | #N$05 | #N$00 }
 . TABLE#
-  $63A2,$07 ...and $20 to the attribute buffer another $5F times (following on from the previous location).
+  $63A2,$07 ...and #N$20 to the attribute buffer another #N$5F times (following on from the previous location).
 . #TABLE(default,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
 . { #N$20 | #N$00 | #N$04 | #N$00 }
@@ -198,11 +198,11 @@ N $63F4 Act on level being selected.
   $63F4,$09 Store $01 at #R$5CB1 and call #R$6427 with (#R$B660(shot | #N$26)) for index "1".
   $63FD,$08 Jump to #R$6457 with #REGhl=#R$64AC and #REGa=$01.
 @ $6405 label=LevelSelect_Level_03
-  $6405,$09 Store $02 at #R$5CB1 and call #R$6427 with (#R$7A90(shot | #N$09)) for index "2".
+  $6405,$09 Store #N$02 at #R$5CB1 and call #R$6427 with (#R$7A90(shot | #N$09)) for index "2".
   $640E,$08 Jump to #R$6457 with #REGhl=#R$64B3 and #REGa=$02.
 @ $6416 label=LevelSelect_Level_06
-  $6416,$09 Store $03 at #R$5CB1 and call #R$6427 with (#R$9DA0(shot | #N$1A)) for index "3".
-  $641F,$08 Jump to #R$6457 with #REGhl=#R$64BA and #REGa=$03.
+  $6416,$09 Store #N$03 at #R$5CB1 and call #R$6427 with (#R$9DA0(shot | #N$1A)) for index "3".
+  $641F,$08 Jump to #R$6457 with #REGhl=#R$64BA and #REGa=#N$03.
 
 N $6427 Animates the selected bandit being shot.
 @ $6427 label=LS_AnimateShot
@@ -219,9 +219,9 @@ N $643A Prints the images to the screen.
   $6440,$0F Work out which screen position to use;
 . #TABLE(default,centre)
 . { =h #REGa | =h Screen Address }
-. { #N$01 | $40A2 }
-. { #N$02 | $40AD }
-. { #N$03 | $40B8 }
+. { #N$01 | #N$40A2 }
+. { #N$02 | #N$40AD }
+. { #N$03 | #N$40B8 }
 . TABLE#
 @ $644F label=LevelSelect_Graphics_Skip
   $644F,$07 Set the dimensions and call #R$5B92.
@@ -233,7 +233,7 @@ N $6457 Flashes the selected level text.
 @ $6462 label=LevelSelect_Flash_Halt_Loop_01
 @ $6470 label=LevelSelect_Flash_Halt_Loop_02
   $6457,$24 This prints #R$64C1 and the passed level copy alternately with a delay caused by a HALT loop
-.           (which continues execution after an interrupt is fired), the sequence repeats $08 times.
+.           (which continues execution after an interrupt is fired), the sequence repeats #N$08 times.
   $647B,$01 Return.
 
 N $647C Print level select copy to the screen.
@@ -241,9 +241,9 @@ N $647C Print level select copy to the screen.
   $647C,$0F First, work out which screen position to use;
 . #TABLE(default,centre)
 . { =h #REGa | =h Screen Address }
-. { #N$01 | $5022 }
-. { #N$02 | $502D }
-. { #N$03 | $5038 }
+. { #N$01 | #N$5022 }
+. { #N$02 | #N$502D }
+. { #N$03 | #N$5038 }
 . TABLE#
   $648B,$06 Then call the print routine at #R$5B80.
 . #TABLE(default,centre)
@@ -302,7 +302,7 @@ N $6547 Shot sound 3.
 
 @ $654F label=Play_Shot_Sound
   $654F,$03 Call #R$655E.
-  $6552,$08 Increase #REGix by $04.
+  $6552,$08 Increase #REGix by #N$04.
   $655A,$03 Call #R$655E.
   $655D,$01 Return.
 
@@ -748,24 +748,24 @@ N $C300 #UDGTABLE(default,centre) { =h Playfield Output } { #CALL:playfield(play
   $C300,$09 Set #R$D5E6 as the destination address at #R$C3B7.
   $C309,$0D Clears the screen buffer by writing $00 to all 6912 memory locations.
 N $C316 Draws the numbering of the deposit boxes on the left and right of the screen.
-  $C316,$0C Points #REGhl to $4001 (screen buffer) and #REGde to #R$DFA0, then calls the routine at #R$C3B7.
-  $C322,$0C Points #REGhl to $4013 (screen buffer) and #REGde to #R$E000, then calls the routine at #R$C3B7.
+  $C316,$0C Points #REGhl to #N$4001 (screen buffer) and #REGde to #R$DFA0, then calls the routine at #R$C3B7.
+  $C322,$0C Points #REGhl to #N$4013 (screen buffer) and #REGde to #R$E000, then calls the routine at #R$C3B7.
 N $C32E Draws the centrepiece "till" image.
-  $C32E,$0D Points #REGhl to $400E (screen buffer) and #REGde to #R$E060, then calls the routine at #R$C3B7.
+  $C32E,$0D Points #REGhl to #N$400E (screen buffer) and #REGde to #R$E060, then calls the routine at #R$C3B7.
 N $C33B Draws the game play area (doors and wall sections).
-  $C33B,$0C Points #REGhl to $4060 (screen buffer) and #REGde to #R$E0C0, then calls the routine at #R$C3B7.
-  $C347,$0D Points #REGhl to $4080 (screen buffer) and #REGde to #R$E1C0, then calls the routine at #R$C3B7.
-  $C354,$0D Points #REGhl to $4089 (screen buffer) and #REGde to #R$E270, then calls the routine at #R$C3B7.
-  $C361,$0D Points #REGhl to $4094 (screen buffer) and #REGde to #R$E270, then calls the routine at #R$C3B7.
-  $C36E,$0D Points #REGhl to $409F (screen buffer) and #REGde to #R$E3D0, then calls the routine at #R$C3B7.
-  $C37B,$0C Points #REGhl to $48E0 (screen buffer) and #REGde to #R$E428, then calls the routine at #R$C3B7.
+  $C33B,$0C Points #REGhl to #N$4060 (screen buffer) and #REGde to #R$E0C0, then calls the routine at #R$C3B7.
+  $C347,$0D Points #REGhl to #N$4080 (screen buffer) and #REGde to #R$E1C0, then calls the routine at #R$C3B7.
+  $C354,$0D Points #REGhl to #N$4089 (screen buffer) and #REGde to #R$E270, then calls the routine at #R$C3B7.
+  $C361,$0D Points #REGhl to #N$4094 (screen buffer) and #REGde to #R$E270, then calls the routine at #R$C3B7.
+  $C36E,$0D Points #REGhl to #N$409F (screen buffer) and #REGde to #R$E3D0, then calls the routine at #R$C3B7.
+  $C37B,$0C Points #REGhl to #N$48E0 (screen buffer) and #REGde to #R$E428, then calls the routine at #R$C3B7.
 N $C387 Draws the Bank Teller desks.
-  $C387,$0C Points #REGhl to $5020 (screen buffer) and #REGde to #R$E528, then calls the routine at #R$C3B7.
+  $C387,$0C Points #REGhl to #N$5020 (screen buffer) and #REGde to #R$E528, then calls the routine at #R$C3B7.
 N $C393 Writes the "SCORE" and "LIVES" labels (these aren't text, they're images).
-  $C393,$0C Points #REGhl to $50C1 (screen buffer) and #REGde to #R$E928, then calls the routine at #R$C3B7.
-  $C39F,$0C Points #REGhl to $50B0 (screen buffer) and #REGde to #R$E988, then calls the routine at #R$C3B7.
+  $C393,$0C Points #REGhl to #N$50C1 (screen buffer) and #REGde to #R$E928, then calls the routine at #R$C3B7.
+  $C39F,$0C Points #REGhl to #N$50B0 (screen buffer) and #REGde to #R$E988, then calls the routine at #R$C3B7.
 N $C3AB Copies attribute data to the screen.
-  $C3AB,$0B Copies $300 bytes of attribute data from #R$ED00 to $5800.
+  $C3AB,$0B Copies #N$300 bytes of attribute data from #R$ED00 to #N$5800.
   $C3B6,$01 Return.
 N $C3B7 An alias which just calls the normal #R$D5E6.
   $C3B7,$03 Draws the image pointed to in #REGde to the screen location in #REGhl using the dimensions in #REGbc.
@@ -782,7 +782,7 @@ c $C3C0
 @ $C3C9 label=Rebuild
   $C3C9,$05 Interrupt driven HALT loop ($20 cycles).
 @ $C3CB label=Rebuild_Halt_Loop
-  $C3CF,$06 Is #R$CC59 more than $06?
+  $C3CF,$06 Is #R$CC59 more than #N$06?
   $C3D5,$02 If so, jump to #R$C3D8.
   $C3D8,$03 If #R$CC59 is zero then return.
   $C3DB,$02 Set the carry flag and return.
@@ -790,7 +790,7 @@ c $C3C0
 N $C3DD Kicks off the duelling bonus round.
 @ $C3DD label=Init_Duel
   $C3DD,$02 Stashes #REGbc and #REGde.
-  $C3DF,$08 Copies $1B of data from #REGhl to #R$5B80.
+  $C3DF,$08 Copies #N$1B of data from #REGhl to #R$5B80.
   $C3E7,$03 Jump to #R$C422.
 
 c $C3EA Duel Bonus Round Data
@@ -839,31 +839,31 @@ B $C421,$01
 
 c $C422 Duel Bonus Round
 @ $C422 label=Duel_Prep
-  $C422,$0B Copies $33 bytes of data from #R$C3EA to #R$5BC0 (and across all three duellists).
+  $C422,$0B Copies #N$33 bytes of data from #R$C3EA to #R$5BC0 (and across all three duellists).
 
   $C430,$07 Calls #R$C67F with #R$5BC0.
   $C438,$07 Calls #R$C67F with #R$5BD1.
   $C440,$07 Calls #R$C67F with #R$5BE2.
-  $C447,$09 Reset the flags (writes $00 to #R$C6E2, #R$C6E3 and #R$C6E4).
+  $C447,$09 Reset the flags (writes #N$00 to #R$C6E2, #R$C6E3 and #R$C6E4).
   $C450,$03 #R$C421.
 @ $C460 label=Duel_Prep_Loop
 
 @ $C463 label=Duel_Clear_Screen
   $C463,$04 ....
 N $C467 Clears down the screen buffer.
-  $C467,$0D Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").
+  $C467,$0D Writes #N$00 to all #N$1AFF bytes of the screen buffer (i.e. "blanks it").
 N $C474 Writes the attributes for the playfield (sky, grass, footer).
-  $C474,$0D Writes $28 to $5880 in the attribute buffer $180 times...
+  $C474,$0D Writes #N$28 to #N$5880 in the attribute buffer #N$180 times...
 . #TABLE(default,centre,centre,centre,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
 . { #N$00 | #N$05 | #N$00 | #N$00 }
 . TABLE#
-  $C481,$07 ...continuing, writes $20 $80 times...
+  $C481,$07 ...continuing, writes #N$20 #N$80 times...
 . #TABLE(default,centre,centre,centre,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
 . { #N$00 | #N$04 | #N$00 | #N$00 }
 . TABLE#
-  $C488,$07 ...and finally, writes $07 $7F times.
+  $C488,$07 ...and finally, writes #N$07 #N$7F times.
 . #TABLE(default,centre,centre,centre,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
 . { #N$07 | #N$00 | #N$00 | #N$00 }
@@ -886,15 +886,15 @@ N $C4A7 Initialise duellers.
   $C4BB,$0A Initialise #R$5BE2 (draws frame 1).
 
 N $C4C5 Count down 5-4-3-2-1...0!
-  $C4C5,$06 Initialise countdown to "5" seconds ($35 in ASCII), hold this at #R$C6E0.
+  $C4C5,$06 Initialise countdown to "5" seconds (#N$35 in ASCII), hold this at #R$C6E0.
 @ $C4C5 label=Countdown_Initialise
 @ $C4C7 label=Countdown_Loop
 
   $C4CE,$05 Short halt loop (1 second pause).
 @ $C4D0 label=Countdown_Halt_Loop
-  $C4D3,$06 Keep looping back to #R$C4C7 until the countdown is "0" ($30 in ASCII).
+  $C4D3,$06 Keep looping back to #R$C4C7 until the countdown is "0" (#N$30 in ASCII).
 
-  $C4D9,$08 Blank the countdown timer by printing a "SPACE" ($20 in ASCII) over the top of it.
+  $C4D9,$08 Blank the countdown timer by printing a "SPACE" (#N$20 in ASCII) over the top of it.
   $C4E1,$02 Jump to #R$C4F9 and start the duel!
 
 @ $C4E3 label=Duel_Loop
@@ -917,13 +917,13 @@ W $C52E,$02
 @ $C543 label=Duel_Action_01
   $C543,$03 Calls #R$5B88.
   $C546,$03 Return if bit 4 of #REGa is zero.
-  $C549,$05 If bit 0 is not zero then return setting #REGa to $03.
+  $C549,$05 If bit 0 is not zero then return setting #REGa to #N$03.
   $C54E,$02 Set #REGa to zero and return.
 
 @ $C550 label=Duel_Action_02
   $C550,$03 Calls #R$5B88.
   $C553,$03 Return if bit 4 of #REGa is zero.
-  $C556,$05 If bit 1 is not zero then return setting #REGa to $01.
+  $C556,$05 If bit 1 is not zero then return setting #REGa to #N$01.
   $C55B,$02 Set #REGa to zero and return.
 
 @ $C55D label=Duel_Action_03
@@ -936,14 +936,14 @@ W $C52E,$02
 
 @ $C575 label=Duel_Dunno
   $C575
-  $C57F,$03 Set dueller state to $01.
+  $C57F,$03 Set dueller state to #N$01.
   $C582,$01 Return.
 
   $C58B,$05 If IX+$08 is zero then return.
-  $C590,$06 If dueller frame index is $01 then jump to #R$C5A1.
-  $C596,$03 If dueller frame index is $02 then jump to #R$C5B5.
-  $C599,$03 If dueller frame index is $03 then jump to #R$C5BD.
-  $C59C,$03 If dueller frame index is $04 then jump to #R$C5CF.
+  $C590,$06 If dueller frame index is #N$01 then jump to #R$C5A1.
+  $C596,$03 If dueller frame index is #N$02 then jump to #R$C5B5.
+  $C599,$03 If dueller frame index is #N$03 then jump to #R$C5BD.
+  $C59C,$03 If dueller frame index is #N$04 then jump to #R$C5CF.
   $C59F,$02 Jump to #R$C5DD.
 
   $C5A1,$03 #R$C6E5.
@@ -960,7 +960,7 @@ N $C5F6 Not related?
 c $C607 Displays The Bonus Score Text
 @ $C607 label=Print_BonusScore
   $C607,$09 Stores the ASCII representation of the number at #R$C41D (it adds ASCII "0") so for example 1 ends up being
-.           1 + $30 = $31 (e.g. "1" in ASCII).
+.           1 + #N$30 = #N$31 (e.g. "1" in ASCII).
   $C610,$06 Print using #R$5B80.
 . #TABLE(default,centre,centre,centre,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
@@ -984,7 +984,7 @@ D $C628 Handles whether to display points or "EXTRA" above each downed Bandit.
 . { #N$2A | #N$02 | #N$05 | #N$00 }
 . { #N$29 | #N$01 | #N$05 | #N$00 }
 . TABLE#
-  $C644,$05 Writes $01 to #R$C6E4.
+  $C644,$05 Writes #N$01 to #R$C6E4.
   $C649,$03 Move onto the next frame.
   $C64C,$01 Return.
 
@@ -1001,9 +1001,9 @@ c $C661 Draw Duel Bandit
   $C661,$03 Fetch the address of the character from the given index in #REGa.
   $C665,$03 Retrieve the character position.
 
-  $C668,$06 If this character is in position "1" then point to the screen buffer at $4804 and jump to #R$C677.
-  $C66E,$06 If this character is in position "2" then point to the screen buffer at $480C and jump to #R$C677.
-  $C674,$03 Else this character is in position "3" so point to the screen buffer at $4814.
+  $C668,$06 If this character is in position "1" then point to the screen buffer at #N$4804 and jump to #R$C677.
+  $C66E,$06 If this character is in position "2" then point to the screen buffer at #N$480C and jump to #R$C677.
+  $C674,$03 Else this character is in position "3" so point to the screen buffer at #N$4814.
 
   $C677,$07 Call the draw routine with the image dimensions.
 @ $C677 label=Duel_Draw_Bandit
@@ -1062,7 +1062,7 @@ B $C6E0,$01
 B $C6E1,$01
 g $C6E2 Duel Shot Flag
 D $C6E2 See #R$C690 for the clearest example of usage.
-B $C6E2,$01 Holds $00/ $01 to indicate player has been shot.
+B $C6E2,$01 Holds #N$00/ #N$01 to indicate player has been shot.
 @ $C6E2 label=Duel_Bang_Flag
 g $C6E3 Duel Lost Life Flag
 D $C6E3 See #R$C690 for the clearest example of usage.
@@ -1070,13 +1070,13 @@ B $C6E3,$01 Holds $00/ $01 to indicate player should lose a life (as they shot t
 @ $C6E3 label=Duel_Lose_Life
 g $C6E4 Duel Extra Life Flag
 D $C6E4 See #R$C690 for the clearest example of usage.
-B $C6E4,$01 Holds $00/ $01 to indicate player has gained an extra life.
+B $C6E4,$01 Holds #N$00/ #N$01 to indicate player has gained an extra life.
 @ $C6E4 label=Duel_Extra_Life
 
 c $C6E5 Process Dueller Shot
 @ $C6E5 label=Dueller_Shot
-  $C6E5,$05 Writes $04 to #R$C6E3.
-  $C6EA,$03 Sets the dueller frame index to $04.
+  $C6E5,$05 Writes #N$04 to #R$C6E3.
+  $C6EA,$03 Sets the dueller frame index to #N$04.
   $C6ED,$03 Jump to #R$C583.
 
 c $C6F0 Flash Life Image
@@ -1102,7 +1102,7 @@ b $C71E
 
 c $C720 Sheriff's Star Page
 @ $C720 label=Sheriff_Star
-  $C720,$0D Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").
+  $C720,$0D Writes #N$00 to all #N$1AFF bytes of the screen buffer (i.e. "blanks it").
   $C72D,$07 Continues into the attributes buffer, and writes $06 to every location.
 . #TABLE(default,centre,centre,centre,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
@@ -1145,7 +1145,7 @@ c $C7C0 New Game
   $C7C3,$03 Write it to #R$D8AC.
   $C7C6,$03 Call #R$C7E5.
   $C7C9,$0D Clears the screen buffer by writing $00 to all 6912 memory locations.
-  $C7D6,$05 Calls #R$CD64 with the counter $80.
+  $C7D6,$05 Calls #R$CD64 with the counter #N$80.
   $C7DB,$0A Jump to #R$FA00 with #REGhl=#R$CBB4 and #REGix=#R$CD86.
 
 c $C7E5 Display title screen
@@ -1160,22 +1160,22 @@ N $C7FC Resets all game variables/ states ready for a new game.
   $C7FC,$0D Clears the score (writes $00 over seven bytes from #R$CD86).
 
 @ $C809 label=Starting_Lives
-  $C809,$05 Initialise #R$CC59 to $03.
+  $C809,$05 Initialise #R$CC59 to #N$03.
 
-  $C80E,$06 Initialise #R$D45C to $0101.
+  $C80E,$06 Initialise #R$D45C to #N$0101.
 
-  $C814,$0C Clears #R$CE14, #R$CE16 and #R$CE18 (sets them to $0000).
+  $C814,$0C Clears #R$CE14, #R$CE16 and #R$CE18 (sets them to #N($0000,$04,$04)).
 
-  $C820,$09 Clear #R$CA58 and #R$CA5A to $2020 (ASCII space-space).
+  $C820,$09 Clear #R$CA58 and #R$CA5A to #N$2020 (ASCII space-space).
 
-  $C829,$0D Clear down the deposit flags (copies $00 to each from #R$CC8D).
+  $C829,$0D Clear down the deposit flags (copies #N$00 to each from #R$CC8D).
 
   $C836,$03 Set the border to black.
-  $C839,$04 Write $01 to #R$CBCF.
+  $C839,$04 Write #N$01 to #R$CBCF.
 
-  $C846,$05 Writes $03 to #R$CE1B.
-  $C84B,$06 Writes $0500 to #R$CE1C.
-  $C851,$05 Writes $01 to #R$D191.
+  $C846,$05 Writes #N$03 to #R$CE1B.
+  $C84B,$06 Writes #N$0500 to #R$CE1C.
+  $C851,$05 Writes #N$01 to #R$D191.
   $C856,$09 Grabs the #R$5CB1, if it's level 1 then jump to #R$C878 with #REGhl=#R$CA4A.
 
 @ $C878 label=Level_01
@@ -1201,9 +1201,9 @@ N $C7FC Resets all game variables/ states ready for a new game.
 
 c $C941 Make the game run faster
 N $C941 This routine is called at the start of each phase, and makes it faster
-        than than the previous by decreasing the wait time.
-        This starts at $500 (slowest) and is decreased by $40 for each call,
-        so things generally open faster.
+.       than than the previous by decreasing the wait time.
+.       This starts at #N$500 (slowest) and is decreased by #N$40 for each call,
+.       so things generally open faster.
 @ $CE941 label=Run_Speed_Delay
 
 c $C959 Door Attributes
@@ -1232,19 +1232,19 @@ B $C99F,$18,$08 The attributes for the "night" state.
 c $C9B7 Prepare To Display The Current Phase
 N $C9B7 Clears the cashbox flags, clears the screen and displays the phase number.
 @ $C9B7 label=Prep_Display_Phase
-  $C9B7,$06 Writes $01 to both #R$D45C and #R$D45D.
-  $C9BD,$0D Clear down the deposit flags (copies $00 to each from #R$CC8D).
-  $C9CA,$04 Call #R$C9D0 (using $00).
+  $C9B7,$06 Writes #N$01 to both #R$D45C and #R$D45D.
+  $C9BD,$0D Clear down the deposit flags (copies #N$00 to each from #R$CC8D).
+  $C9CA,$04 Call #R$C9D0 (using #N$00).
   $C9CE,$02 Jump to #R$C9DD.
 
 N $C9D0 This routine has the ability to write any value across the screen buffer, however it's only ever called with
-.       #REGa=$00 (clear screen).
+.       #REGa=#N$00 (clear screen).
 @ $C9D0 label=Clear_Screen
-  $C9D0,$0D Clears the screen buffer by writing $00 to all 6912 memory locations.
+  $C9D0,$0D Clears the screen buffer by writing #N$00 to all 6912 memory locations.
 
 N $C9DD Displays the current "phase".
 @ $C9DD label=Display_Phase
-  $C9DD,$0B Copies #R$CA4E into #R$CA5C ($05 bytes of text data).
+  $C9DD,$0B Copies #R$CA4E into #R$CA5C (#N$05 bytes of text data).
   $C9E8,$06 Writes #R$CA5A to #R$CA5C (at $CA61 - just overwriting the numeric part).
   $C9EE,$06 Call #R$CA19 with #R$CA4A.
   $C9F4,$06 Writes $CA61 back to #R$CA5A.
@@ -1262,18 +1262,18 @@ N $CA19 This routine is for converting progress numbers into ASCII. On entry #RE
 @ $CA19 label=Progress_Base_10
   $CA19,$06 If the passed number is not more than 10 jump to #R$CA27.
   $CA1F,$06 Stores the ASCII representation of the number at $CA62 (for #R$CA5C). It adds ASCII "0" so for example 1
-.           ends up being 1 + $30 = $31 (e.g. "1" in ASCII).
+.           ends up being 1 + #N$30 = #N$31 (e.g. "1" in ASCII).
   $CA25,$02 Jump to #R$CA38.
 
 N $CA27 Ensures the progress digit remains 0-9. On entry #REGhl will be either #R$CA4A or #R$CA4C.
 @ $CA27 label=Progress_Divisible_10
-  $CA27,$02 Reset the current progress digit to $00.
+  $CA27,$02 Reset the current progress digit to #N$00.
   $CA29,$01 Use the secondary digit of the currently focused progress.
 N $CA2A Note this doesn't account for a third digit and so leads to eventual corruption. Once past day/ phase "99", this
 .       will display "00" and past "09" the first ASCII digit doesn't point to any usable image data. Note however, this
 .       occurs after ~4 hours of game play so isn't especially an issue.
   $CA2A,$01 Increase this second digit by one.
-  $CA2B,$06 Add ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII). Write this number to $CA61
+  $CA2B,$06 Add ASCII "0" so for example 1 ends up being 1 + #N$30 = #N$31 (e.g. "1" in ASCII). Write this number to #N$CA61
 .           (for #R$CA5C).
   $CA31,$01 Move back to point to the original location of #REGhl.
   $CA32,$06 Again, add ASCII "0" for this digit too. Write this number to $CA62 (for #R$CA5C).
@@ -1314,7 +1314,7 @@ N $CA64 Clears the screen and displays the day number.
 N $CA6C Clear down the day/ progress states.
 @ $CA6C label=Init_Progress
   $CA6C,$09 Clears #R$CA4A and #R$CA4C (writes $0000 to them).
-  $CA75,$0A Writes ASCII space ($20) to $CA61 and ASCII "0" ($30) to $CA62 (i.e. writes " 0" to the numeric portion of
+  $CA75,$0A Writes ASCII space (#N$20) to #N$CA61 and ASCII "0" (#N$30) to #N$CA62 (i.e. writes " 0" to the numeric portion of
 .           #R$CA5C).
   $CA7F,$01 Return.
 
@@ -1390,7 +1390,7 @@ W $CBD0 Stores the attributes; top attribute/ bottom attribute.
 @ $CBD2 label=Print_TwoToneText
   $CBD2,$04 Stash the attributes at #R$CBD0.
 @ $CBD6 label=Print_TwoToneText_Loop
-  $CBD6,$04 Grab the next character in the string, if it's $FF then return.
+  $CBD6,$04 Grab the next character in the string, if it's #N$FF then return.
 
 @ $CBFC label=Print_TwoToneText_SpaceCheck
   $CBFC,$04 If the character is a space then jump forward to #R$CC0E.
@@ -1408,9 +1408,9 @@ c $CC3A Main Playfield Initialisation
 N $CC3A Draws Main Playfield with all three doors closed.
 @ $CC3A label=Draw_PlayWithDoors
   $CC3A,$07 Draw the main game playfield.
-  $CC41,$08 Calls #R$D664 with #R$CE1A set to $01.
-  $CC49,$08 Calls #R$D664 with #R$CE1A set to $02.
-  $CC51,$08 Jump to #R$D664 with #R$CE1A set to $03.
+  $CC41,$08 Calls #R$D664 with #R$CE1A set to #N$01.
+  $CC49,$08 Calls #R$D664 with #R$CE1A set to #N$02.
+  $CC51,$08 Jump to #R$D664 with #R$CE1A set to #N$03.
 
 @ $CC59 label=Lives
 g $CC59 Number of lives remaining
@@ -1418,8 +1418,8 @@ g $CC59 Number of lives remaining
 c $CC5A Display The "Life" Images
 @ $CC5A label=Life_Images
 N $CC5A Set up counter=$05 screen buffer=$50B6.
-  $CC5A,$02 #REGb=$05.
-  $CC5C,$03 #REGhl=$50B6.
+  $CC5A,$02 #REGb=#N$05.
+  $CC5C,$03 #REGhl=#N$50B6.
 @ $CC5F label=Life_Images_Loop
   $CC5F,$01 Push the counter onto the stack.
   $CC60,$03 #REGde=#R$5B00.
@@ -1479,7 +1479,7 @@ c $CC9B Draws Deposit Cashboxes
   $CCDB,$02 Testing against all 12 cashboxes.
   $CCDD,$03 Fetch the cashbox flag, return if its zero.
   $CCE0,$03 Move onto the next cashbox (loop back to #R$CCDD) or continue once all 12 are checked.
-  $CCE3,$02 Write #REGa ($01) to #R$CA80.
+  $CCE3,$02 Write #REGa (#N$01) to #R$CA80.
 @ $CCDD label=Cashboxescomplete_Loop
 @ $CCE5 label=Draw_GameCashbox
   $CCE5,$15 Determines whether to send #R$FF78 or #R$FF98 to #R$D5E6.
@@ -1497,7 +1497,7 @@ N $CCFB Draws all the cashboxes in two blocks of 6.
 c $CD1B Flash Lives/ Lose Life
 @ $CD1B label=Flash_Lives
   $CD1B,$05 Short pause.
-  $CD20,$06 Point to #R$CC59. Set a counter for $05 times and stash it.
+  $CD20,$06 Point to #R$CC59. Set a counter for #N$05 times and stash it.
 @ $CD25 label=Flash_Lives_Loop
   $CD26,$05 Decrease the number of lives by one, stash the lives memory location and draw the decreased life images.
   $CD2B,$05 Short pause.
@@ -1530,7 +1530,7 @@ c $CD7E Debugger
 D $CD7E As the game uses its own character set, it's unlikely this routine was/ is used for the actual game (it doesn't
 .       seem to be called from anywhere).
 .       At a guess, it was probably used for "testing" text messages and outputs during development.
-  $CD7E,$04 Grab a byte from #REGhl return if it's $FF (our termination character).
+  $CD7E,$04 Grab a byte from #REGhl return if it's #N$FF (our termination character).
   $CD82,$01 #HTML(Print to screen (see <a href="https://skoolkid.github.io/rom/asm/0010.html">PRINT_A_1</a>).)
   $CD83,$03 Increase #REGhl by one and loop back to #R$CD7E.
 
@@ -1572,11 +1572,11 @@ c $CD90 Draw Score To The Screen
 c $CDAE Draw Numbering from Character Set Index
 @ $CDAE label=Draw_Number
   $CDAE,$14 Using $C000 as a base address, this works out the character set memory address from a given index passed
-.           in #REGa. To give an example using "2" ($25 - see #R$CD90);
+.           in #REGa. To give an example using "2" (#N$25 - see #R$CD90);
 . #LIST
-. { #HTML(Loads <strong>$25</strong> as the low-order byte; #REGhl=$0025) }
-. { #HTML(Times by <strong>$10</strong>; #REGhl=$250) }
-. { #HTML(Add <strong>$C000</strong>=#R$C250) }
+. { #HTML(Loads <strong>#N$25</strong> as the low-order byte; #REGhl=#N($0025,$04,$04)) }
+. { #HTML(Times by <strong>#N$10</strong>; #REGhl=#N$0250) }
+. { #HTML(Add <strong>#N$C000</strong>=#R$C250) }
 . LIST#
 . This is then passed to #R$D5E6.
   $CDC2,$01 Return.
@@ -1605,7 +1605,7 @@ N $CDDC Passes the higher and lower score values to #R$CDF7 for the current door
 N $CDF7 Applies the door scores into the player score.
 @ $CDF7 label=Scoring_Apply
   $CDF7,$05 Pass the current score digit to #R$CE08 and overwrite the digit with the result.
-  $CDFC,$02 Sets a counter to $05 (5 more digits in the score).
+  $CDFC,$02 Sets a counter to #N$05 (5 more digits in the score).
 @ $CDFE label=Scoring_Apply_Loop
   $CDFE,$01 Move onto the next scoring digit.
   $CDFF,$05 Pass the current score digit to #R$CE08 and overwrite the digit with the result.
@@ -1656,10 +1656,10 @@ B $CE1A,$01 #TABLE(default,centre,centre)
 
 g $CE1B Basic door speed multiplier for opening doors - always 3.
 B $CE1B,$01
-g $CE1C Game speed. Starts at $500 for phase one, then gradually gets faster.
+g $CE1C Game speed. Starts at #N$500 for phase one, then gradually gets faster.
 W $CE1C,$02
 g $CE1E Current door speed multiplier (larger = slower). Cycles between the value in #R$CE1B and 1,
-        allowing doors to open at different times.
+.       allowing doors to open at different times.
 B $CE1E,$01
 N $CE1F Defines the entry point for the choosing routines. Note, this isn't for one choice - they chain into each other
 .       this simply points to where the chain starts.
@@ -2987,7 +2987,7 @@ c $D8B0
 @ $D8B0 label=Random_Number
 N $D8B0 On exit, holds a random number between $00 and $FF.
   $D8B0,$02 Stashes #REGbc and #REGhl for later.
-  $D8B2,$07 Decrease #R$D8AE by one.
+  $D8B2,$07 Decrease #N$D8AE by one.
   $D8B9,$02 If the result is not zero jump to #R$D8C8.
 @ $D8C8 label=Random_Number_01
 @ $D8D7 label=Random_Number_02
