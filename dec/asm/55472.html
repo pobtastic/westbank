@@ -26,7 +26,7 @@ gtag('config', 'G-75RERFCHBG');
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="55470.html">55470</a>
+Prev: <a href="55468.html">55468</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#55472">Map</a></td>
 <td class="next">
@@ -34,7 +34,7 @@ Next: <a href="55525.html">55525</a>
 </td>
 </tr>
 </table>
-<div class="description">55472: Routine at D8B0</div>
+<div class="description">55472: Generate a random number</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -50,7 +50,7 @@ Used by the routines at <a href="51639.html">Prep_Display_Phase</a>, <a href="52
 <span id="55472"></span>
 <div class="comments">
 <div class="paragraph">
-f
+On exit, A holds a random number between $00 and $FF
 </div>
 </div>
 </td>
@@ -70,7 +70,7 @@ f
 <td class="asm-label"></td>
 <td class="address-1"><span id="55474"></span>55474</td>
 <td class="instruction">LD A,(55470)</td>
-<td class="comment-1" rowspan="3">Decrease <a href="55470.html">55470</a> by one.</td>
+<td class="comment-1" rowspan="3">Decrease hash value 2 at <a href="55468.html">55468</a> by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -92,7 +92,7 @@ f
 <td class="asm-label"></td>
 <td class="address-1"><span id="55483"></span>55483</td>
 <td class="instruction">LD HL,(55468)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the two bytes at hash value 0 at <a href="55468.html">55468</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -290,7 +290,7 @@ f
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="55470.html">55470</a>
+Prev: <a href="55468.html">55468</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#55472">Map</a></td>
 <td class="next">
@@ -301,7 +301,7 @@ Next: <a href="55525.html">55525</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.9.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
 <div><a href="../../asm/D8B0.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

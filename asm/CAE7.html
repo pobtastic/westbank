@@ -238,31 +238,27 @@ Used by the routine at <a href="C9B7.html">Prep_Display_Phase</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="cb0e"></span>CB0E</td>
 <td class="instruction">LD BC,($CE1C)</td>
-<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="CE1B.html#ce1c">CE1C</a>.</td>
+<td class="comment-1" rowspan="5">Get the game speed and delay for that period of time ... ... until we're done</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-2"><span id="cb12"></span>CB12</td>
 <td class="instruction">DEC BC</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cb13"></span>CB13</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cb14"></span>CB14</td>
 <td class="instruction">OR C</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cb15"></span>CB15</td>
 <td class="instruction">JR NZ,<a href="CAE7.html#cb12">$CB12</a></td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -714,7 +710,7 @@ Next: <a href="CBD0.html">CBD0</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.9.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
 <div><a href="../dec/asm/51943.html">Switch to decimal</a>.</div>
 </footer>
 </body>

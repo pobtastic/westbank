@@ -261,9 +261,27 @@ Only one door is "active" at a time, this status buffer points to the "currently
 </tr>
 <tr>
 <td class="map-g"><span id="ce1b"></span><a href="../asm/CE1B.html">CE1B</a></td>
-<td class="map-length">6</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/CE1B.html">Game status buffer entry at CE1B</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/CE1B.html">Basic door speed multiplier for opening doors - always 3.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="ce1c"></span><a href="../asm/CE1C.html">CE1C</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/CE1C.html">Game speed. Starts at $500 for phase one, then gradually gets faster. Adjusted by calls to <a href="../asm/C941.html">C941</a>.</a></div>
+<div class="map-entry-desc">
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="ce1e"></span><a href="../asm/CE1E.html">CE1E</a></td>
+<td class="map-length">3</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/CE1E.html">Current door speed multiplier (larger = slower). Cycles between the value in <a href="../asm/CE1B.html">CE1B</a> and 1, allowing doors to open at different times.</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -360,18 +378,9 @@ Only one door is "active" at a time, this status buffer points to the "currently
 </tr>
 <tr>
 <td class="map-g"><span id="d8ac"></span><a href="../asm/D8AC.html">D8AC</a></td>
-<td class="map-length">2</td>
+<td class="map-length">4</td>
 <td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/D8AC.html">Game status buffer entry at D8AC</a></div>
-<div class="map-entry-desc">
-</div>
-</td>
-</tr>
-<tr>
-<td class="map-g"><span id="d8ae"></span><a href="../asm/D8AE.html">D8AE</a></td>
-<td class="map-length">2</td>
-<td class="map-g-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/D8AE.html">Game status buffer entry at D8AE</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/D8AC.html">Hash values for the random number generator</a></div>
 <div class="map-entry-desc">
 </div>
 </td>
@@ -380,7 +389,7 @@ Only one door is "active" at a time, this status buffer points to the "currently
 <footer>
 <div class="release"></div>
 <div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.9.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
 <div><a href="../dec/buffers/gbuffer.html">Switch to decimal</a>.</div>
 </footer>
 </body>

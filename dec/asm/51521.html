@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>West Bank: Routine at 51521</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../westbank.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51173.html">51173</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51521">Map</a></td>
+<td class="next">
+Next: <a href="51545.html">51545</a>
+</td>
+</tr>
+</table>
+<div class="description">51521: Make the game run faster</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51173.html">Init_Title_Screen</a>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51521"></span>
+<div class="comments">
+<div class="paragraph">
+This routine is called at the start of each phase, and makes it faster than than the previous by decreasing the wait time. This starts at $500 (slowest) and is decreased by $40 for each call, so things generally run faster.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="51521"></span>51521</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="2">Remember these</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51522"></span>51522</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51523"></span>51523</td>
+<td class="instruction">LD HL,(52764)</td>
+<td class="comment-1" rowspan="1">Get the current speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51526"></span>51526</td>
+<td class="instruction">LD BC,64</td>
+<td class="comment-1" rowspan="1">Decrease it by this</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51529"></span>51529</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1">Clear the carry flag so next instruction works</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51530"></span>51530</td>
+<td class="instruction">SBC HL,BC</td>
+<td class="comment-1" rowspan="1">Drop the speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51532"></span>51532</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="2">Is it zero?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51533"></span>51533</td>
+<td class="instruction">OR L</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51534"></span>51534</td>
+<td class="instruction">JR NZ,<a href="51521.html#51539">51539</a></td>
+<td class="comment-1" rowspan="1">No, so move on</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51536"></span>51536</td>
+<td class="instruction">LD HL,64</td>
+<td class="comment-1" rowspan="1">The game speed cannot be 0, it's impossible, so make it $40.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="51539"></span>51539</td>
+<td class="instruction">LD (52764),HL</td>
+<td class="comment-1" rowspan="1">Store it back</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51542"></span>51542</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Restore used registers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51543"></span>51543</td>
+<td class="instruction">POP AF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="51544"></span>51544</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51173.html">51173</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51521">Map</a></td>
+<td class="next">
+Next: <a href="51545.html">51545</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
+<div><a href="../../asm/C941.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

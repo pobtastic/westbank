@@ -30,7 +30,7 @@ Prev: <a href="C7C0.html">C7C0</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#c7e5">Map</a></td>
 <td class="next">
-Next: <a href="C959.html">C959</a>
+Next: <a href="C941.html">C941</a>
 </td>
 </tr>
 </table>
@@ -259,7 +259,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c846"></span>C846</td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-1" rowspan="2">Writes $03 to <a href="CE1B.html">CE1B</a>.</td>
+<td class="comment-1" rowspan="2">Reset door speed multiplier at <a href="CE1B.html">CE1B</a> to the default $03.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -270,7 +270,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c84b"></span>C84B</td>
 <td class="instruction">LD HL,$0500</td>
-<td class="comment-1" rowspan="2">Writes $0500 to <a href="CE1B.html#ce1c">CE1C</a>.</td>
+<td class="comment-1" rowspan="2">Writes the default game speed ($0500) to <a href="CE1C.html">CE1C</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -281,7 +281,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c851"></span>C851</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="2">Writes $01 to <a href="D191.html">D191</a>.</td>
+<td class="comment-1" rowspan="2">Writes that this is day 2 to the day indicator at <a href="D191.html">D191</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -312,7 +312,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c85f"></span>C85F</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -324,7 +324,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c863"></span>C863</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -348,7 +348,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c86a"></span>C86A</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -360,7 +360,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c86e"></span>C86E</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -372,7 +372,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c872"></span>C872</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -391,7 +391,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label">Level_01</td>
 <td class="address-2"><span id="c878"></span>C878</td>
 <td class="instruction">LD HL,$CE42</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce42">Choose_Default_Set</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce42">Choose_Default_Set</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -414,7 +414,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c882"></span>C882</td>
 <td class="instruction">LD HL,$CE6F</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce6f">Choose_Bandit_03</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce6f">Choose_Bandit_03</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -424,7 +424,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c888"></span>C888</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -443,7 +443,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label">Init_Title_Screen_0</td>
 <td class="address-2"><span id="c88f"></span>C88F</td>
 <td class="instruction">LD HL,$CE5F</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce5f">Choose_Bandit_02</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce5f">Choose_Bandit_02</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -453,7 +453,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c895"></span>C895</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -472,7 +472,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c89c"></span>C89C</td>
 <td class="instruction">LD HL,$CE55</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce55">Choose_Julius</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce55">Choose_Julius</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -482,7 +482,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8a2"></span>C8A2</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -501,7 +501,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8a9"></span>C8A9</td>
 <td class="instruction">LD HL,$CE7E</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce7e">Choose_Bandit_04</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce7e">Choose_Bandit_04</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -511,7 +511,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8af"></span>C8AF</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -530,7 +530,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label">Init_Title_Screen_1</td>
 <td class="address-2"><span id="c8b6"></span>C8B6</td>
 <td class="instruction">LD HL,$CE8D</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce8d">Choose_Bandit_05</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce8d">Choose_Bandit_05</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -540,7 +540,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8bc"></span>C8BC</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -559,7 +559,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8c3"></span>C8C3</td>
 <td class="instruction">LD HL,$CE9C</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce9c">Choose_Bandit_06</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce9c">Choose_Bandit_06</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -569,7 +569,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8c9"></span>C8C9</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -588,7 +588,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8d0"></span>C8D0</td>
 <td class="instruction">LD HL,$CE9C</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce9c">Choose_Bandit_06</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce9c">Choose_Bandit_06</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -598,7 +598,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8d6"></span>C8D6</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -623,7 +623,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8e0"></span>C8E0</td>
 <td class="instruction">LD HL,$CE9C</td>
-<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce9c">Choose_Bandit_06</a> to <a href="CE1B.html#ce1f">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Writes <a href="CE21.html#ce9c">Choose_Bandit_06</a> to <a href="CE1E.html#ce1f">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -633,7 +633,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8e6"></span>C8E6</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -705,7 +705,7 @@ Resets all game variables/ states ready for a new game.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c8ff"></span>C8FF</td>
-<td class="instruction">CALL <a href="C7E5.html#c941">Init_Title_Screen_5</a></td>
+<td class="instruction">CALL <a href="C941.html">$C941</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
@@ -760,37 +760,34 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c913"></span>C913</td>
 <td class="instruction">LD HL,$D191</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="4">Having got through all the phases, are we on day 2?</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c916"></span>C916</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c917"></span>C917</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c919"></span>C919</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c91a"></span>C91A</td>
 <td class="instruction">JR Z,<a href="C7E5.html#c8f0">Init_Title_Screen_2</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Jump back if we're not</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c91c"></span>C91C</td>
 <td class="instruction">LD HL,$CBB4</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">We have completed two days, display the reward screen.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -882,90 +879,6 @@ Resets all game variables/ states ready for a new game.
 <td class="instruction">JR <a href="C7E5.html#c8f0">Init_Title_Screen_2</a></td>
 <td class="comment-1" rowspan="1"></td>
 </tr>
-<tr>
-<td class="asm-label">Init_Title_Screen_5</td>
-<td class="address-2"><span id="c941"></span>C941</td>
-<td class="instruction">PUSH AF</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c942"></span>C942</td>
-<td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c943"></span>C943</td>
-<td class="instruction">LD HL,($CE1C)</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c946"></span>C946</td>
-<td class="instruction">LD BC,$0040</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c949"></span>C949</td>
-<td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c94a"></span>C94A</td>
-<td class="instruction">SBC HL,BC</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c94c"></span>C94C</td>
-<td class="instruction">LD A,H</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c94d"></span>C94D</td>
-<td class="instruction">OR L</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c94e"></span>C94E</td>
-<td class="instruction">JR NZ,<a href="C7E5.html#c953">Init_Title_Screen_6</a></td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c950"></span>C950</td>
-<td class="instruction">LD HL,$0040</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label">Init_Title_Screen_6</td>
-<td class="address-2"><span id="c953"></span>C953</td>
-<td class="instruction">LD ($CE1C),HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c956"></span>C956</td>
-<td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c957"></span>C957</td>
-<td class="instruction">POP AF</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
-<tr>
-<td class="asm-label"></td>
-<td class="address-1"><span id="c958"></span>C958</td>
-<td class="instruction">RET</td>
-<td class="comment-1" rowspan="1"></td>
-</tr>
 </table>
 <table class="asm-navigation">
 <tr>
@@ -974,14 +887,14 @@ Prev: <a href="C7C0.html">C7C0</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#c7e5">Map</a></td>
 <td class="next">
-Next: <a href="C959.html">C959</a>
+Next: <a href="C941.html">C941</a>
 </td>
 </tr>
 </table>
 <footer>
 <div class="release"></div>
 <div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.9.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
 <div><a href="../dec/asm/51173.html">Switch to decimal</a>.</div>
 </footer>
 </body>

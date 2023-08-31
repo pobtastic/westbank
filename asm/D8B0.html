@@ -26,7 +26,7 @@ gtag('config', 'G-75RERFCHBG');
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="D8AE.html">D8AE</a>
+Prev: <a href="D8AC.html">D8AC</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#d8b0">Map</a></td>
 <td class="next">
@@ -34,7 +34,7 @@ Next: <a href="D8E5.html">D8E5</a>
 </td>
 </tr>
 </table>
-<div class="description">D8B0: Routine at D8B0</div>
+<div class="description">D8B0: Generate a random number</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -50,7 +50,7 @@ Used by the routines at <a href="C9B7.html">Prep_Display_Phase</a>, <a href="CE2
 <span id="d8b0"></span>
 <div class="comments">
 <div class="paragraph">
-f
+On exit, A holds a random number between $00 and $FF
 </div>
 </div>
 </td>
@@ -70,7 +70,7 @@ f
 <td class="asm-label"></td>
 <td class="address-1"><span id="d8b2"></span>D8B2</td>
 <td class="instruction">LD A,($D8AE)</td>
-<td class="comment-1" rowspan="3">Decrease <a href="D8AE.html">D8AE</a> by one.</td>
+<td class="comment-1" rowspan="3">Decrease hash value 2 at <a href="D8AC.html">D8AC</a> by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -92,7 +92,7 @@ f
 <td class="asm-label"></td>
 <td class="address-1"><span id="d8bb"></span>D8BB</td>
 <td class="instruction">LD HL,($D8AC)</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Get the two bytes at hash value 0 at <a href="D8AC.html">D8AC</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -290,7 +290,7 @@ f
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="D8AE.html">D8AE</a>
+Prev: <a href="D8AC.html">D8AC</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#d8b0">Map</a></td>
 <td class="next">
@@ -301,7 +301,7 @@ Next: <a href="D8E5.html">D8E5</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.9.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
 <div><a href="../dec/asm/55472.html">Switch to decimal</a>.</div>
 </footer>
 </body>

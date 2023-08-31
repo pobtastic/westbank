@@ -360,13 +360,13 @@ Writes "Bowie" to the door flags/ cache.
 <td class="asm-label"></td>
 <td class="address-1"><span id="53000"></span>53000</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Generate a random number</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="53003"></span>53003</td>
 <td class="instruction">AND 8</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Keep only bit 3, so Bowie will have money instead of a bomb 1/16 of the time.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -506,13 +506,13 @@ Writes a "customer opening the door" to the door flags/ cache.
 <td class="asm-label"></td>
 <td class="address-1"><span id="53047"></span>53047</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Generate a random number, to see if Jack Vicious turns up instead.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="53050"></span>53050</td>
 <td class="instruction">AND 130</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Keep bits 7 and 1</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -670,7 +670,7 @@ Writes a "customer closing the door" to the door flags/ cache.
 <td class="asm-label"></td>
 <td class="address-1"><span id="53098"></span>53098</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Generate a random number</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -983,13 +983,13 @@ Writes "Julius opening the door" to the door flags/ cache.
 <td class="asm-label"></td>
 <td class="address-1"><span id="53192"></span>53192</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Generate a random number to determine if Julius will give money or shoot.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="53195"></span>53195</td>
 <td class="instruction">AND 32</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Keep bits 2 and 4</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1247,7 +1247,7 @@ Next: <a href="53273.html">53273</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.9.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
 <div><a href="../../asm/CEB8.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

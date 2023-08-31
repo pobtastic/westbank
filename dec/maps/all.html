@@ -649,6 +649,14 @@ gtag('config', 'G-75RERFCHBG');
 </tr>
 <tr>
 <td class="map-page">201</td>
+<td class="map-byte">65</td>
+<td class="map-c"><span id="51521"></span><a href="../asm/51521.html">51521</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/51521.html">Make the game run faster</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">201</td>
 <td class="map-byte">89</td>
 <td class="map-c"><span id="51545"></span><a href="../asm/51545.html">51545</a></td>
 <td class="map-c-desc">
@@ -860,7 +868,23 @@ gtag('config', 'G-75RERFCHBG');
 <td class="map-byte">27</td>
 <td class="map-g"><span id="52763"></span><a href="../asm/52763.html">52763</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52763.html">Game status buffer entry at CE1B</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52763.html">Basic door speed multiplier for opening doors - always 3.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">206</td>
+<td class="map-byte">28</td>
+<td class="map-g"><span id="52764"></span><a href="../asm/52764.html">52764</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52764.html">Game speed. Starts at $500 for phase one, then gradually gets faster. Adjusted by calls to <a href="../asm/51521.html">51521</a>.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">206</td>
+<td class="map-byte">30</td>
+<td class="map-g"><span id="52766"></span><a href="../asm/52766.html">52766</a></td>
+<td class="map-g-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/52766.html">Current door speed multiplier (larger = slower). Cycles between the value in <a href="../asm/52763.html">52763</a> and 1, allowing doors to open at different times.</a></div>
 </td>
 </tr>
 <tr>
@@ -1180,15 +1204,7 @@ gtag('config', 'G-75RERFCHBG');
 <td class="map-byte">172</td>
 <td class="map-g"><span id="55468"></span><a href="../asm/55468.html">55468</a></td>
 <td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55468.html">Game status buffer entry at D8AC</a></div>
-</td>
-</tr>
-<tr>
-<td class="map-page">216</td>
-<td class="map-byte">174</td>
-<td class="map-g"><span id="55470"></span><a href="../asm/55470.html">55470</a></td>
-<td class="map-g-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55470.html">Game status buffer entry at D8AE</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55468.html">Hash values for the random number generator</a></div>
 </td>
 </tr>
 <tr>
@@ -1196,7 +1212,7 @@ gtag('config', 'G-75RERFCHBG');
 <td class="map-byte">176</td>
 <td class="map-c"><span id="55472"></span><a href="../asm/55472.html">55472</a></td>
 <td class="map-c-desc">
-<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55472.html">Routine at D8B0</a></div>
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/55472.html">Generate a random number</a></div>
 </td>
 </tr>
 <tr>
@@ -1491,7 +1507,7 @@ gtag('config', 'G-75RERFCHBG');
 <footer>
 <div class="release"></div>
 <div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.9.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
 <div><a href="../../maps/all.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

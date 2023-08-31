@@ -26,7 +26,7 @@ gtag('config', 'G-75RERFCHBG');
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="52763.html">52763</a>
+Prev: <a href="52766.html">52766</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#52769">Map</a></td>
 <td class="next">
@@ -50,7 +50,7 @@ Used by the routine at <a href="51943.html">51943</a>.
 <span id="52769"></span>
 <div class="comments">
 <div class="paragraph">
-The characters available on a particular level are determined by <a href="52763.html#52767">Chooser_Routine_Buffer</a>. <table class="default">
+The characters available on a particular level are determined by <a href="52766.html#52767">Chooser_Routine_Buffer</a>. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Initialisation Routine</th>
 <th colspan="1" rowspan="1">Door</th>
@@ -76,7 +76,7 @@ The characters available on a particular level are determined by <a href="52763.
 <td class="asm-label">Character_Chooser</td>
 <td class="address-2"><span id="52769"></span>52769</td>
 <td class="instruction">LD HL,52766</td>
-<td class="comment-1" rowspan="4">Decrease <a href="52763.html#52766">52766</a> by one.</td>
+<td class="comment-1" rowspan="4">Decrease the door speed value.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -103,7 +103,7 @@ The characters available on a particular level are determined by <a href="52763.
 <td class="asm-label"></td>
 <td class="address-1"><span id="52776"></span>52776</td>
 <td class="instruction">LD A,(52763)</td>
-<td class="comment-1" rowspan="2">Copies <a href="52763.html">52763</a> into <a href="52763.html#52766">52766</a>.</td>
+<td class="comment-1" rowspan="2">Otherwise, set it back to the base speed</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -114,7 +114,7 @@ The characters available on a particular level are determined by <a href="52763.
 <td class="asm-label"></td>
 <td class="address-1"><span id="52780"></span>52780</td>
 <td class="instruction">LD A,(IX+9)</td>
-<td class="comment-1" rowspan="3">Decrease ????? by one. <table class="default">
+<td class="comment-1" rowspan="3">Decrease the current door's wait factor by one. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
@@ -163,7 +163,7 @@ f
 <td class="asm-label">Chooser</td>
 <td class="address-1"><span id="52788"></span>52788</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
+<td class="comment-1" rowspan="1">Generate a random number for the next waiting time.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -175,7 +175,7 @@ f
 <td class="asm-label"></td>
 <td class="address-1"><span id="52793"></span>52793</td>
 <td class="instruction">OR 8</td>
-<td class="comment-1" rowspan="2">Set bit 3 and write the resulting value to; <table class="default">
+<td class="comment-1" rowspan="2">Set bit 3 and write the new wait factor to; <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
@@ -203,7 +203,7 @@ f
 <td class="asm-label"></td>
 <td class="address-1"><span id="52798"></span>52798</td>
 <td class="instruction">LD HL,(52767)</td>
-<td class="comment-1" rowspan="2">Jump to the memory address contained at <a href="52763.html#52767">Chooser_Routine_Buffer</a>.</td>
+<td class="comment-1" rowspan="2">Jump to the active character choosing routine pointed by <a href="52766.html#52767">Chooser_Routine_Buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -294,7 +294,7 @@ Handles choosing one of the initial "default" characters. A character is always 
 <span id="52821"></span>
 <div class="comments">
 <div class="paragraph">
-Handles whether or not to choose Julius.
+Handles whether or not to choose Julius. Only active on phase 3 and above.
 </div>
 </div>
 </td>
@@ -303,7 +303,7 @@ Handles whether or not to choose Julius.
 <td class="asm-label">Choose_Julius</td>
 <td class="address-2"><span id="52821"></span>52821</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
+<td class="comment-1" rowspan="1">Generate a random number.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -336,7 +336,7 @@ Handles whether or not to choose Bandit 2.
 <td class="asm-label">Choose_Bandit_02</td>
 <td class="address-2"><span id="52831"></span>52831</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
+<td class="comment-1" rowspan="1">Generate a random number.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -372,7 +372,7 @@ Handles whether or not to choose Bandit 2.
 <span id="52847"></span>
 <div class="comments">
 <div class="paragraph">
-Handles whether or not to choose Bandit 3.
+Handles whether or not to choose Bandit 3. Only active on phase 3 and above.
 </div>
 </div>
 </td>
@@ -381,7 +381,7 @@ Handles whether or not to choose Bandit 3.
 <td class="asm-label">Choose_Bandit_03</td>
 <td class="address-2"><span id="52847"></span>52847</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
+<td class="comment-1" rowspan="1">Generate a random number.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -417,7 +417,7 @@ Handles whether or not to choose Bandit 3.
 <span id="52862"></span>
 <div class="comments">
 <div class="paragraph">
-Handles whether or not to choose Bandit 4.
+Handles whether or not to choose Bandit 4. Only active on phase 4 and above.
 </div>
 </div>
 </td>
@@ -426,7 +426,7 @@ Handles whether or not to choose Bandit 4.
 <td class="asm-label">Choose_Bandit_04</td>
 <td class="address-2"><span id="52862"></span>52862</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
+<td class="comment-1" rowspan="1">Generate a random number.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -462,7 +462,7 @@ Handles whether or not to choose Bandit 4.
 <span id="52877"></span>
 <div class="comments">
 <div class="paragraph">
-Handles whether or not to choose Bandit 5.
+Handles whether or not to choose Bandit 5. Only active on phase 5 and above.
 </div>
 </div>
 </td>
@@ -471,7 +471,7 @@ Handles whether or not to choose Bandit 5.
 <td class="asm-label">Choose_Bandit_05</td>
 <td class="address-2"><span id="52877"></span>52877</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
+<td class="comment-1" rowspan="1">Generate a random number.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -507,7 +507,7 @@ Handles whether or not to choose Bandit 5.
 <span id="52892"></span>
 <div class="comments">
 <div class="paragraph">
-Handles whether or not to choose Bandit 6.
+Handles whether or not to choose Bandit 6. Only active on phase 6 and above.
 </div>
 </div>
 </td>
@@ -516,7 +516,7 @@ Handles whether or not to choose Bandit 6.
 <td class="asm-label">Choose_Bandit_06</td>
 <td class="address-1"><span id="52892"></span>52892</td>
 <td class="instruction">CALL <a href="55472.html">Random_Number</a></td>
-<td class="comment-1" rowspan="1">Call <a href="55472.html">Random_Number</a>.</td>
+<td class="comment-1" rowspan="1">Generate a random number.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -617,7 +617,7 @@ Stashes the chosen character source/ buffer to the door state buffer.
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="52763.html">52763</a>
+Prev: <a href="52766.html">52766</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#52769">Map</a></td>
 <td class="next">
@@ -628,7 +628,7 @@ Next: <a href="52920.html">52920</a>
 <footer>
 <div class="release"></div>
 <div class="copyright">&copy; DINAMIC SOFTWARE 1985 &copy; 2023 ArcadeGeek LTD.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.9.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.10.</div>
 <div><a href="../../asm/CE21.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>
