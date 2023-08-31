@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -49,7 +50,7 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 <td class="asm-label">Duel_Prep</td>
 <td class="address-2"><span id="c422"></span>C422</td>
 <td class="instruction">LD HL,$C3EA</td>
-<td class="comment-1" rowspan="4">Copies $33 bytes of data from <a href="C3EA.html">Duel_Data</a> to <a href="5BC0.html">Dueller_01</a> (and across all three duellists).</td>
+<td class="comment-1" rowspan="4">Copies 33 bytes of data from <a href="C3EA.html">Duel_Data</a> to <a href="5BC0.html">Dueller_01</a> (and across all three duellists).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -133,7 +134,7 @@ Used by the routine at <a href="C3C0.html">C3C0</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c447"></span>C447</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="7">Reset the flags (writes $00 to <a href="C6E2.html">Duel_Bang_Flag</a>, <a href="C6E3.html">Duel_Lose_Life</a> and <a href="C6E4.html">Duel_Extra_Life</a>).</td>
+<td class="comment-1" rowspan="7">Reset the flags (writes 00 to <a href="C6E2.html">Duel_Bang_Flag</a>, <a href="C6E3.html">Duel_Lose_Life</a> and <a href="C6E4.html">Duel_Extra_Life</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -239,7 +240,7 @@ Clears down the screen buffer.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c467"></span>C467</td>
 <td class="instruction">LD HL,$4000</td>
-<td class="comment-1" rowspan="6">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
+<td class="comment-1" rowspan="6">Writes 00 to all 1AFF bytes of the screen buffer (i.e. "blanks it").</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -280,7 +281,7 @@ Writes the attributes for the playfield (sky, grass, footer).
 <td class="asm-label"></td>
 <td class="address-1"><span id="c474"></span>C474</td>
 <td class="instruction">LD HL,$5880</td>
-<td class="comment-1" rowspan="5">Writes $28 to $5880 in the attribute buffer $180 times... <table class="default">
+<td class="comment-1" rowspan="5">Writes 28 to 5880 in the attribute buffer 0180 times... <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -319,7 +320,7 @@ Writes the attributes for the playfield (sky, grass, footer).
 <td class="asm-label"></td>
 <td class="address-1"><span id="c481"></span>C481</td>
 <td class="instruction">LD (HL),$20</td>
-<td class="comment-1" rowspan="3">...continuing, writes $20 $80 times... <table class="default">
+<td class="comment-1" rowspan="3">...continuing, writes 20 80 times... <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -348,7 +349,7 @@ Writes the attributes for the playfield (sky, grass, footer).
 <td class="asm-label"></td>
 <td class="address-1"><span id="c488"></span>C488</td>
 <td class="instruction">LD (HL),$07</td>
-<td class="comment-1" rowspan="3">...and finally, writes $07 $7F times. <table class="default">
+<td class="comment-1" rowspan="3">...and finally, writes 07 7F times. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -518,7 +519,7 @@ Count down 5-4-3-2-1...0!
 <td class="asm-label">Countdown_Initialise</td>
 <td class="address-1"><span id="c4c5"></span>C4C5</td>
 <td class="instruction">LD A,$35</td>
-<td class="comment-1" rowspan="3">Initialise countdown to "5" seconds ($35 in ASCII), hold this at <a href="C6E0.html">Duel_Timer</a>.</td>
+<td class="comment-1" rowspan="3">Initialise countdown to "5" seconds (35 in ASCII), hold this at <a href="C6E0.html">Duel_Timer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label">Countdown_Loop</td>
@@ -556,7 +557,7 @@ Count down 5-4-3-2-1...0!
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4d3"></span>C4D3</td>
 <td class="instruction">POP AF</td>
-<td class="comment-1" rowspan="4">Keep looping back to <a href="C422.html#c4c7">Countdown_Loop</a> until the countdown is "0" ($30 in ASCII).</td>
+<td class="comment-1" rowspan="4">Keep looping back to <a href="C422.html#c4c7">Countdown_Loop</a> until the countdown is "0" (30 in ASCII).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -577,7 +578,7 @@ Count down 5-4-3-2-1...0!
 <td class="asm-label"></td>
 <td class="address-1"><span id="c4d9"></span>C4D9</td>
 <td class="instruction">LD A,$20</td>
-<td class="comment-1" rowspan="3">Blank the countdown timer by printing a "SPACE" ($20 in ASCII) over the top of it.</td>
+<td class="comment-1" rowspan="3">Blank the countdown timer by printing a "SPACE" (20 in ASCII) over the top of it.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -832,7 +833,7 @@ DRAW!
 <td class="asm-label"></td>
 <td class="address-1"><span id="c549"></span>C549</td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-1" rowspan="3">If bit 0 is not zero then return setting <span class="register">A</span> to $03.</td>
+<td class="comment-1" rowspan="3">If bit 0 is not zero then return setting <span class="register">A</span> to 03.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -876,7 +877,7 @@ DRAW!
 <td class="asm-label"></td>
 <td class="address-1"><span id="c556"></span>C556</td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-1" rowspan="3">If bit 1 is not zero then return setting <span class="register">A</span> to $01.</td>
+<td class="comment-1" rowspan="3">If bit 1 is not zero then return setting <span class="register">A</span> to 01.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1004,7 +1005,7 @@ DRAW!
 <td class="asm-label"></td>
 <td class="address-1"><span id="c57f"></span>C57F</td>
 <td class="instruction">LD (IX+$00),A</td>
-<td class="comment-1" rowspan="1">Set dueller state to $01.</td>
+<td class="comment-1" rowspan="1">Set dueller state to 01.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1066,7 +1067,7 @@ This entry point is used by the routines at <a href="C607.html">Print_BonusScore
 <td class="asm-label"></td>
 <td class="address-1"><span id="c590"></span>C590</td>
 <td class="instruction">LD A,(IX+$09)</td>
-<td class="comment-1" rowspan="3">If dueller frame index is $01 then jump to <a href="C422.html#c5a1">Duel_Prep_2</a>.</td>
+<td class="comment-1" rowspan="3">If dueller frame index is 01 then jump to <a href="C422.html#c5a1">Duel_Prep_2</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1082,7 +1083,7 @@ This entry point is used by the routines at <a href="C607.html">Print_BonusScore
 <td class="asm-label"></td>
 <td class="address-1"><span id="c596"></span>C596</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="2">If dueller frame index is $02 then jump to <a href="C422.html#c5b5">Duel_Prep_3</a>.</td>
+<td class="comment-1" rowspan="2">If dueller frame index is 02 then jump to <a href="C422.html#c5b5">Duel_Prep_3</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1093,7 +1094,7 @@ This entry point is used by the routines at <a href="C607.html">Print_BonusScore
 <td class="asm-label"></td>
 <td class="address-1"><span id="c599"></span>C599</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="2">If dueller frame index is $03 then jump to <a href="C422.html#c5bd">Duel_Prep_4</a>.</td>
+<td class="comment-1" rowspan="2">If dueller frame index is 03 then jump to <a href="C422.html#c5bd">Duel_Prep_4</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1104,7 +1105,7 @@ This entry point is used by the routines at <a href="C607.html">Print_BonusScore
 <td class="asm-label"></td>
 <td class="address-1"><span id="c59c"></span>C59C</td>
 <td class="instruction">DEC A</td>
-<td class="comment-1" rowspan="2">If dueller frame index is $04 then jump to <a href="C422.html#c5cf">Duel_Prep_5</a>.</td>
+<td class="comment-1" rowspan="2">If dueller frame index is 04 then jump to <a href="C422.html#c5cf">Duel_Prep_5</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>

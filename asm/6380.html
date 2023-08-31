@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -49,7 +50,7 @@ Used by the routine at <a href="FE00.html">TitleScreen</a>.
 <td class="asm-label">LevelSelect</td>
 <td class="address-2"><span id="6380"></span>6380</td>
 <td class="instruction">LD DE,$5B80</td>
-<td class="comment-1" rowspan="3"><span class="register">HL</span> points to $5B80 on entry as <span class="register">DE</span> is also $5B80 - this does nothing, it just creates a very short pause.</td>
+<td class="comment-1" rowspan="3"><span class="register">HL</span> points to <a href="5B80.html">Print_TwoToneText_Alias</a> on entry as <span class="register">DE</span> is also <a href="5B80.html">Print_TwoToneText_Alias</a> - this does nothing, it just creates a very short pause.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -65,7 +66,7 @@ Used by the routine at <a href="FE00.html">TitleScreen</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="6388"></span>6388</td>
 <td class="instruction">LD HL,$4000</td>
-<td class="comment-1" rowspan="5">Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").</td>
+<td class="comment-1" rowspan="5">Writes 00 to all 1AFF bytes of the screen buffer (i.e. "blanks it").</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -91,7 +92,7 @@ Used by the routine at <a href="FE00.html">TitleScreen</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="6395"></span>6395</td>
 <td class="instruction">LD HL,$58A0</td>
-<td class="comment-1" rowspan="5">Writes $28 to $58A0 in the attribute buffer $100 times. <table class="default">
+<td class="comment-1" rowspan="5">Writes 28 to <a href="4000.html#58a0">58A0</a> in the attribute buffer 0100 times. <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -130,7 +131,7 @@ Used by the routine at <a href="FE00.html">TitleScreen</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="63a2"></span>63A2</td>
 <td class="instruction">LD (HL),$20</td>
-<td class="comment-1" rowspan="3">...and $20 to the attribute buffer another $5F times (following on from the previous location). <table class="default">
+<td class="comment-1" rowspan="3">...and 20 to the attribute buffer another 5F times (following on from the previous location). <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Value</th>
 <th colspan="1" rowspan="1">Ink</th>
@@ -448,7 +449,7 @@ Act on level being selected.
 <td class="asm-label">LevelSelect_Level_03</td>
 <td class="address-2"><span id="6405"></span>6405</td>
 <td class="instruction">LD (HL),$02</td>
-<td class="comment-1" rowspan="4">Store $02 at <a href="5CB1.html">Level</a> and call <a href="6380.html#6427">LS_AnimateShot</a> with (<a href="7880.html#7a90">shot | 09</a>) for index "2".</td>
+<td class="comment-1" rowspan="4">Store 02 at <a href="5CB1.html">Level</a> and call <a href="6380.html#6427">LS_AnimateShot</a> with (<a href="7880.html#7a90">shot | 09</a>) for index "2".</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -485,7 +486,7 @@ Act on level being selected.
 <td class="asm-label">LevelSelect_Level_06</td>
 <td class="address-2"><span id="6416"></span>6416</td>
 <td class="instruction">LD (HL),$03</td>
-<td class="comment-1" rowspan="4">Store $03 at <a href="5CB1.html">Level</a> and call <a href="6380.html#6427">LS_AnimateShot</a> with (<a href="9980.html#9da0">shot | 1A</a>) for index "3".</td>
+<td class="comment-1" rowspan="4">Store 03 at <a href="5CB1.html">Level</a> and call <a href="6380.html#6427">LS_AnimateShot</a> with (<a href="9980.html#9da0">shot | 1A</a>) for index "3".</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -506,7 +507,7 @@ Act on level being selected.
 <td class="asm-label"></td>
 <td class="address-1"><span id="641f"></span>641F</td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-1" rowspan="3">Jump to <a href="6380.html#6457">LevelSelect_Text_Flash</a> with <span class="register">HL</span>=<a href="6492.html#64ba">LevelSelect_Six</a> and <span class="register">A</span>=$03.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="6380.html#6457">LevelSelect_Text_Flash</a> with <span class="register">HL</span>=<a href="6492.html#64ba">LevelSelect_Six</a> and <span class="register">A</span>=03.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -629,15 +630,15 @@ Prints the images to the screen.
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">01</td>
-<td class="" colspan="1" rowspan="1">$40A2</td>
+<td class="" colspan="1" rowspan="1">40A2</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">02</td>
-<td class="" colspan="1" rowspan="1">$40AD</td>
+<td class="" colspan="1" rowspan="1">40AD</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">03</td>
-<td class="" colspan="1" rowspan="1">$40B8</td>
+<td class="" colspan="1" rowspan="1">40B8</td>
 </tr>
 </table></td>
 </tr>
@@ -707,7 +708,7 @@ Flashes the selected level text.
 <td class="asm-label">LevelSelect_Text_Flash</td>
 <td class="address-2"><span id="6457"></span>6457</td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-1" rowspan="22">This prints <a href="6492.html#64c1">LevelSelect_Whitespace</a> and the passed level copy alternately with a delay caused by a HALT loop (which continues execution after an interrupt is fired), the sequence repeats $08 times.</td>
+<td class="comment-1" rowspan="22">This prints <a href="6492.html#64c1">LevelSelect_Whitespace</a> and the passed level copy alternately with a delay caused by a HALT loop (which continues execution after an interrupt is fired), the sequence repeats 08 times.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -841,15 +842,15 @@ Print level select copy to the screen.
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">01</td>
-<td class="" colspan="1" rowspan="1">$5022</td>
+<td class="" colspan="1" rowspan="1">5022</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">02</td>
-<td class="" colspan="1" rowspan="1">$502D</td>
+<td class="" colspan="1" rowspan="1">502D</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1">03</td>
-<td class="" colspan="1" rowspan="1">$5038</td>
+<td class="" colspan="1" rowspan="1">5038</td>
 </tr>
 </table></td>
 </tr>

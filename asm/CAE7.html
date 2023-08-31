@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -238,27 +239,31 @@ Used by the routine at <a href="C9B7.html">Prep_Display_Phase</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="cb0e"></span>CB0E</td>
 <td class="instruction">LD BC,($CE1C)</td>
-<td class="comment-1" rowspan="5">Get the game speed and delay for that period of time ... ... until we're done</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="CE1C.html">CE1C</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-2"><span id="cb12"></span>CB12</td>
 <td class="instruction">DEC BC</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cb13"></span>CB13</td>
 <td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cb14"></span>CB14</td>
 <td class="instruction">OR C</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="cb15"></span>CB15</td>
 <td class="instruction">JR NZ,<a href="CAE7.html#cb12">$CB12</a></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>

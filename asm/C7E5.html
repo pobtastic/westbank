@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -134,7 +135,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label">Starting_Lives</td>
 <td class="address-1"><span id="c809"></span>C809</td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-1" rowspan="2">Initialise <a href="CC59.html">Lives</a> to $03.</td>
+<td class="comment-1" rowspan="2">Initialise <a href="CC59.html">Lives</a> to 03.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -145,7 +146,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c80e"></span>C80E</td>
 <td class="instruction">LD HL,$0101</td>
-<td class="comment-1" rowspan="2">Initialise <a href="D45C.html">CashboxReference_Inactive</a> to $0101.</td>
+<td class="comment-1" rowspan="2">Initialise <a href="D45C.html">CashboxReference_Inactive</a> to 0101.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -156,7 +157,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c814"></span>C814</td>
 <td class="instruction">LD HL,$0000</td>
-<td class="comment-1" rowspan="4">Clears <a href="CE14.html">Door_Routine_01</a>, <a href="CE14.html#ce16">Door_Routine_02</a> and <a href="CE14.html#ce18">Door_Routine_03</a> (sets them to $0000).</td>
+<td class="comment-1" rowspan="4">Clears <a href="CE14.html">Door_Routine_01</a>, <a href="CE14.html#ce16">Door_Routine_02</a> and <a href="CE14.html#ce18">Door_Routine_03</a> (sets them to 0000).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -177,7 +178,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c820"></span>C820</td>
 <td class="instruction">LD HL,$2020</td>
-<td class="comment-1" rowspan="3">Clear <a href="C9B7.html#ca58">Day_ASCII</a> and <a href="C9B7.html#ca5a">Phase_ASCII</a> to $2020 (ASCII space-space).</td>
+<td class="comment-1" rowspan="3">Clear <a href="C9B7.html#ca58">Day_ASCII</a> and <a href="C9B7.html#ca5a">Phase_ASCII</a> to 2020 (ASCII space-space).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -193,7 +194,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c829"></span>C829</td>
 <td class="instruction">LD HL,$CC8D</td>
-<td class="comment-1" rowspan="5">Clear down the deposit flags (copies $00 to each from <a href="CC8D.html">DoorDeposited_01</a>).</td>
+<td class="comment-1" rowspan="5">Clear down the deposit flags (copies 00 to each from <a href="CC8D.html">DoorDeposited_01</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -230,7 +231,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c839"></span>C839</td>
 <td class="instruction">INC A</td>
-<td class="comment-1" rowspan="2">Write $01 to <a href="CAE7.html#cbcf">CBCF</a>.</td>
+<td class="comment-1" rowspan="2">Write 01 to <a href="CAE7.html#cbcf">CBCF</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -259,7 +260,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c846"></span>C846</td>
 <td class="instruction">LD A,$03</td>
-<td class="comment-1" rowspan="2">Reset door speed multiplier at <a href="CE1B.html">CE1B</a> to the default $03.</td>
+<td class="comment-1" rowspan="2">Writes 03 to <a href="CE1B.html">CE1B</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -270,7 +271,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c84b"></span>C84B</td>
 <td class="instruction">LD HL,$0500</td>
-<td class="comment-1" rowspan="2">Writes the default game speed ($0500) to <a href="CE1C.html">CE1C</a>.</td>
+<td class="comment-1" rowspan="2">Writes 0500 to <a href="CE1C.html">CE1C</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -281,7 +282,7 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c851"></span>C851</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-1" rowspan="2">Writes that this is day 2 to the day indicator at <a href="D191.html">D191</a>.</td>
+<td class="comment-1" rowspan="2">Writes 01 to <a href="D191.html">D191</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -760,34 +761,37 @@ Resets all game variables/ states ready for a new game.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c913"></span>C913</td>
 <td class="instruction">LD HL,$D191</td>
-<td class="comment-1" rowspan="4">Having got through all the phases, are we on day 2?</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c916"></span>C916</td>
 <td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c917"></span>C917</td>
 <td class="instruction">LD (HL),$00</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c919"></span>C919</td>
 <td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c91a"></span>C91A</td>
 <td class="instruction">JR Z,<a href="C7E5.html#c8f0">Init_Title_Screen_2</a></td>
-<td class="comment-1" rowspan="1">Jump back if we're not</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="c91c"></span>C91C</td>
 <td class="instruction">LD HL,$CBB4</td>
-<td class="comment-1" rowspan="1">We have completed two days, display the reward screen.</td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label"></td>

@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../westbank.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
@@ -56,7 +57,7 @@ Clears the cashbox flags, clears the screen and displays the phase number.
 <td class="asm-label">Prep_Display_Phase</td>
 <td class="address-2"><span id="c9b7"></span>C9B7</td>
 <td class="instruction">LD HL,$0101</td>
-<td class="comment-1" rowspan="2">Writes $01 to both <a href="D45C.html">CashboxReference_Inactive</a> and <a href="D45C.html#d45d">CashboxReference_Active</a>.</td>
+<td class="comment-1" rowspan="2">Writes 01 to both <a href="D45C.html">CashboxReference_Inactive</a> and <a href="D45C.html#d45d">CashboxReference_Active</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -67,7 +68,7 @@ Clears the cashbox flags, clears the screen and displays the phase number.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c9bd"></span>C9BD</td>
 <td class="instruction">LD HL,$CC8D</td>
-<td class="comment-1" rowspan="5">Clear down the deposit flags (copies $00 to each from <a href="CC8D.html">DoorDeposited_01</a>).</td>
+<td class="comment-1" rowspan="5">Clear down the deposit flags (copies 00 to each from <a href="CC8D.html">DoorDeposited_01</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -93,7 +94,7 @@ Clears the cashbox flags, clears the screen and displays the phase number.
 <td class="asm-label"></td>
 <td class="address-1"><span id="c9ca"></span>C9CA</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="2">Call <a href="C9B7.html#c9d0">Clear_Screen</a> (using $00).</td>
+<td class="comment-1" rowspan="2">Call <a href="C9B7.html#c9d0">Clear_Screen</a> (using 00).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -111,7 +112,7 @@ Clears the cashbox flags, clears the screen and displays the phase number.
 <span id="c9d0"></span>
 <div class="comments">
 <div class="paragraph">
-This routine has the ability to write any value across the screen buffer, however it's only ever called with <span class="register">A</span>=$00 (clear screen).
+This routine has the ability to write any value across the screen buffer, however it's only ever called with <span class="register">A</span>=00 (clear screen).
 </div>
 </div>
 </td>
@@ -120,7 +121,7 @@ This routine has the ability to write any value across the screen buffer, howeve
 <td class="asm-label">Clear_Screen</td>
 <td class="address-2"><span id="c9d0"></span>C9D0</td>
 <td class="instruction">LD HL,$4000</td>
-<td class="comment-1" rowspan="6">Clears the screen buffer by writing $00 to all 6912 memory locations.</td>
+<td class="comment-1" rowspan="6">Clears the screen buffer by writing 00 to all 6912 memory locations.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -161,7 +162,7 @@ Displays the current "phase".
 <td class="asm-label">Display_Phase</td>
 <td class="address-2"><span id="c9dd"></span>C9DD</td>
 <td class="instruction">LD HL,$CA4E</td>
-<td class="comment-1" rowspan="4">Copies <a href="C9B7.html#ca4e">Phase_Copy</a> into <a href="C9B7.html#ca5c">Progress_Buffer</a> ($05 bytes of text data).</td>
+<td class="comment-1" rowspan="4">Copies <a href="C9B7.html#ca4e">Phase_Copy</a> into <a href="C9B7.html#ca5c">Progress_Buffer</a> (05 bytes of text data).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -322,7 +323,7 @@ This routine is for converting progress numbers into ASCII. On entry <span class
 <td class="asm-label"></td>
 <td class="address-1"><span id="ca1f"></span>CA1F</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-1" rowspan="3">Stores the ASCII representation of the number at $CA62 (for <a href="C9B7.html#ca5c">Progress_Buffer</a>). It adds ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII).</td>
+<td class="comment-1" rowspan="3">Stores the ASCII representation of the number at $CA62 (for <a href="C9B7.html#ca5c">Progress_Buffer</a>). It adds ASCII "0" so for example 1 ends up being 1 + 30 = 31 (e.g. "1" in ASCII).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -354,7 +355,7 @@ Ensures the progress digit remains 0-9. On entry <span class="register">HL</span
 <td class="asm-label">Progress_Divisible_10</td>
 <td class="address-2"><span id="ca27"></span>CA27</td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-1" rowspan="1">Reset the current progress digit to $00.</td>
+<td class="comment-1" rowspan="1">Reset the current progress digit to 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -382,7 +383,7 @@ Note this doesn't account for a third digit and so leads to eventual corruption.
 <td class="asm-label"></td>
 <td class="address-1"><span id="ca2b"></span>CA2B</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="3">Add ASCII "0" so for example 1 ends up being 1 + $30 = $31 (e.g. "1" in ASCII). Write this number to $CA61 (for <a href="C9B7.html#ca5c">Progress_Buffer</a>).</td>
+<td class="comment-1" rowspan="3">Add ASCII "0" so for example 1 ends up being 1 + 30 = 31 (e.g. "1" in ASCII). Write this number to CA61 (for <a href="C9B7.html#ca5c">Progress_Buffer</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -593,7 +594,7 @@ Clear down the day/ progress states.
 <td class="asm-label"></td>
 <td class="address-1"><span id="ca75"></span>CA75</td>
 <td class="instruction">LD A,$20</td>
-<td class="comment-1" rowspan="6">Writes ASCII space ($20) to $CA61 and ASCII "0" ($30) to $CA62 (i.e. writes " 0" to the numeric portion of <a href="C9B7.html#ca5c">Progress_Buffer</a>).</td>
+<td class="comment-1" rowspan="6">Writes ASCII space (20) to CA61 and ASCII "0" (30) to CA62 (i.e. writes " 0" to the numeric portion of <a href="C9B7.html#ca5c">Progress_Buffer</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
