@@ -1199,6 +1199,13 @@ N $C7FC Resets all game variables/ states ready for a new game.
 
   $C927,$03 Call #R$C720.
 
+c $C941 Make the game run faster
+N $C941 This routine is called at the start of each phase, and makes it faster
+        than than the previous by decreasing the wait time.
+        This starts at $500 (slowest) and is decreased by $40 for each call,
+        so things generally open faster.
+@ $CE941 label=Run_Speed_Delay
+
 c $C959 Door Attributes
 N $C959 Sets the door attributes for the "time of day".
 @ $C959 label=Set_Day_Attributes
@@ -1647,9 +1654,12 @@ B $CE1A,$01 #TABLE(default,centre,centre)
 . { #N$03 | Door 3 }
 . TABLE#
 
-g $CE1B
+g $CE1B Basic door speed multiplier for opening doors - always 3.
 B $CE1B,$01
+g $CE1C Game speed. Starts at $500 for phase one, then gradually gets faster.
 W $CE1C,$02
+g $CE1E Current door speed multiplier (larger = slower). Cycles between the value in #R$CE1B and 1,
+        allowing doors to open at different times. 
 B $CE1E,$01
 N $CE1F Defines the entry point for the choosing routines. Note, this isn't for one choice - they chain into each other
 .       this simply points to where the chain starts.
@@ -1705,14 +1715,14 @@ N $CE42 Handles choosing one of the initial "default" characters. A
 . { #N$03 | #R$CF2B }
 . TABLE#
 
-N $CE55 Handles whether or not to choose Julius.
+N $CE55 Handles whether or not to choose Julius. Only active on phase 3 and above.
 @ $CE55 label=Choose_Julius
   $CE55,$03 Call #R$D8B0.
   $CE58,$04 Keep only bits 2 and 3. Jump to the next character "test" if
 .           this is a non-zero number at #R$CE5F.
   $CE5C,$03 Jump to #R$CFB7.
 
-N $CE5F Handles whether or not to choose Bandit 2.
+N $CE5F Handles whether or not to choose Bandit 2. Only active on phase 3 and above.
 @ $CE5F label=Choose_Bandit_02
   $CE5F,$03 Call #R$D8B0.
   $CE62,$04 Keep only bits 3, 4 and 7. Jump to the next character "test" if
@@ -1721,7 +1731,7 @@ N $CE5F Handles whether or not to choose Bandit 2.
   $CE69,$03 Set target character buffer to #R$D124.
   $CE6C,$03 Jump to #R$CEA9.
 
-N $CE6F Handles whether or not to choose Bandit 3.
+N $CE6F Handles whether or not to choose Bandit 3. Only active on phase 2 and above.
 @ $CE6F label=Choose_Bandit_03
   $CE6F,$03 Call #R$D8B0.
   $CE72,$04 Keep only bits 0, 4 and 5. Jump to the next character "test" if
@@ -1730,7 +1740,7 @@ N $CE6F Handles whether or not to choose Bandit 3.
   $CE79,$03 Set target character buffer to #R$D0CC.
   $CE7C,$02 Jump to #R$CEA9.
 
-N $CE7E Handles whether or not to choose Bandit 4.
+N $CE7E Handles whether or not to choose Bandit 4. Only active on phase 4 and above.
 @ $CE7E label=Choose_Bandit_04
   $CE7E,$03 Call #R$D8B0.
   $CE81,$04 Keep only bits 0, 1 and 7. Jump to the next character "test" if
@@ -1739,7 +1749,7 @@ N $CE7E Handles whether or not to choose Bandit 4.
   $CE88,$03 Set target character buffer to #R$D0E2.
   $CE8B,$02 Jump to #R$CEA9.
 
-N $CE8D Handles whether or not to choose Bandit 5.
+N $CE8D Handles whether or not to choose Bandit 5. Only active on phase 5 and above.
 @ $CE8D label=Choose_Bandit_05
   $CE8D,$03 Call #R$D8B0.
   $CE90,$04 Keep only bits 3, 4 and 6. Jump to the next character "test" if
@@ -1748,7 +1758,7 @@ N $CE8D Handles whether or not to choose Bandit 5.
   $CE97,$03 Set target character buffer to #R$D0F8.
   $CE9A,$02 Jump to #R$CEA9.
 
-N $CE9C Handles whether or not to choose Bandit 6.
+N $CE9C Handles whether or not to choose Bandit 6. Only active on phase 6 and above.
 @ $CE9C label=Choose_Bandit_06
   $CE9C,$03 Call #R$D8B0.
   $CE9F,$04 Keep only bits 0, 4, 5 and 6. Jump to the next character "test" if
@@ -2971,14 +2981,11 @@ c $D8A1
   $D8A1,$0A Blanks the 16 bit address pointed to by one of the passed door flags (i.e. writes $0000 to one of #R$CE14, #R$CE16, #R$CE18).
   $D8AB,$01 Return.
 
-g $D8AC
-W $D8AC,$02
-g $D8AE
-W $D8AE,$02
+g $D8AC Hash values for random number generator
 
 c $D8B0
 @ $D8B0 label=Random_Number
-N $D8B0 f
+N $D8B0 On exit, holds a random number between $00 and $FF.
   $D8B0,$02 Stashes #REGbc and #REGhl for later.
   $D8B2,$07 Decrease #R$D8AE by one.
   $D8B9,$02 If the result is not zero jump to #R$D8C8.

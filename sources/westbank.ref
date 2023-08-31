@@ -81,7 +81,8 @@ Z 8 52544 0 0
 NDon't die in duels
 M 8 50829 0 0
 Z 8 50931 0 0
-
+NChange the game's speed to 'n' (higher = slower)
+Z 8 51277 5 n
 
 [Page:Changelog]
 SectionType=BulletPoints

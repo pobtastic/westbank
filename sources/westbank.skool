@@ -6248,11 +6248,11 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C83D CALL $CA6C    ;
  $C840 CALL $C959    ;
  $C843 CALL $CA64    ;
- $C846 LD A,$03      ; {Writes $03 to #R$CE1B.
+ $C846 LD A,$03      ; {Reset door speed multiplier at #R$CE1B to the default $03.
  $C848 LD ($CE1B),A  ; }
- $C84B LD HL,$0500   ; {Writes $0500 to #R$CE1C.
+ $C84B LD HL,$0500   ; {Writes the default game speed ($0500) to #R$CE1C.
  $C84E LD ($CE1C),HL ; }
- $C851 LD A,$01      ; {Writes $01 to #R$D191.
+ $C851 LD A,$01      ; {Writes that this is day 2 to the day indicator at #R$D191.
  $C853 LD ($D191),A  ; }
  $C856 LD A,($5CB1)  ; {Grabs the #R$5CB1, if it's level 1 then jump to #R$C878
  $C859 LD HL,$CA4A   ; with #REGhl=#R$CA4A.
@@ -6335,12 +6335,12 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C90C CALL $C963    ;
  $C90F CALL $CA81    ;
  $C912 RET C         ;
- $C913 LD HL,$D191   ;
- $C916 LD A,(HL)     ;
+ $C913 LD HL,$D191   ; {Having got through all the phases,
+ $C916 LD A,(HL)     ; are we on day 2?
  $C917 LD (HL),$00   ;
- $C919 AND A         ;
- $C91A JR Z,$C8F0    ;
- $C91C LD HL,$CBB4   ;
+ $C919 AND A         ; }
+ $C91A JR Z,$C8F0    ; Jump back if we're not
+ $C91C LD HL,$CBB4   ; We have completed two days, display the reward screen.
  $C91F LD DE,$5B80   ;
  $C922 LD BC,$0040   ;
  $C925 LDIR          ;
@@ -6356,19 +6356,30 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C93C JR Z,$C936    ;
  $C93E NOP           ;
  $C93F JR $C8F0      ;
-*$C941 PUSH AF       ;
- $C942 PUSH HL       ;
- $C943 LD HL,($CE1C) ;
- $C946 LD BC,$0040   ;
- $C949 AND A         ;
- $C94A SBC HL,BC     ;
- $C94C LD A,H        ;
- $C94D OR L          ;
- $C94E JR NZ,$C953   ;
- $C950 LD HL,$0040   ;
-*$C953 LD ($CE1C),HL ;
- $C956 POP HL        ;
- $C957 POP AF        ;
+
+; Make the game run faster
+; 
+; Used by the routine at #R$C7E5
+;
+; .
+;
+; This routine is called at the start of each phase, and makes it faster
+; than than the previous by decreasing the wait time.
+; This starts at $500 (slowest) and is decreased by $40 for each call,
+; so things generally run faster.
+c$C941 PUSH AF       ; { Remember these
+ $C942 PUSH HL       ; }
+ $C943 LD HL,($CE1C) ; Get the current speed
+ $C946 LD BC,$0040   ; Decrease it by this
+ $C949 AND A         ; Clear the carry flag so next instruction works
+ $C94A SBC HL,BC     ; Drop the speed
+ $C94C LD A,H        ; {Is it zero?
+ $C94D OR L          ; }
+ $C94E JR NZ,$C953   ; No, so move on
+ $C950 LD HL,$0040   ; The game speed cannot be 0, it's impossible, so make it $40.
+*$C953 LD ($CE1C),HL ; Store it back
+ $C956 POP HL        ; { Restore used registers
+ $C957 POP AF        ; }
  $C958 RET           ;
 
 ; Door Attributes
@@ -6628,11 +6639,11 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB07 BIT 2,A                              ;
  $CB09 JR NZ,$CB03                          ;
 *$CB0B CALL $D2CF                           ; Call #R$D2CF.
- $CB0E LD BC,($CE1C)                        ; #REGbc=#R$CE1C.
-*$CB12 DEC BC                               ;
- $CB13 LD A,B                               ;
- $CB14 OR C                                 ;
- $CB15 JR NZ,$CB12                          ;
+ $CB0E LD BC,($CE1C)                        ; { Get the game speed
+*$CB12 DEC BC                               ; and delay for that period of time
+ $CB13 LD A,B                               ; ...
+ $CB14 OR C                                 ; ...
+ $CB15 JR NZ,$CB12                          ; until we're done }
  $CB17 CALL $D411                           ;
  $CB1A CALL $CBA6                           ; Call #R$CBA6.
  $CB1D LD IX,$D165                          ; #REGix=#R$D165.
@@ -7213,10 +7224,15 @@ g$CE1A DEFB $03      ; #TABLE(default,centre,centre)
                      ; { #N$03 | Door 3 }
                      ; TABLE#
 
-; Game status buffer entry at CE1B
+; Basic door speed multiplier for opening doors - always 3.
 g$CE1B DEFB $03
- $CE1C DEFW $0380
- $CE1E DEFB $03
+
+; Game speed. Starts at $500 for phase one, then gradually gets faster. Adjusted by calls to #R$C941.
+g$CE1C DEFW $0380
+
+; Current door speed multiplier (larger = slower). Cycles between the value in #R$CE1B and 1,
+; allowing doors to open at different times. 
+g$CE1E DEFB $03
 ; Defines the entry point for the choosing routines. Note, this isn't for one choice - they chain into each other
 ;       this simply points to where the chain starts.
 @label=Chooser_Routine_Buffer
@@ -7236,14 +7252,14 @@ g$CE1B DEFB $03
 ; { #R$D18A | Door 3 }
 ; TABLE#
 @label=Character_Chooser
-c$CE21 LD HL,$CE1E   ; {Decrease #R$CE1E by one.
+c$CE21 LD HL,$CE1E   ; {Decrease the door speed value.
  $CE24 LD A,(HL)     ;
  $CE25 DEC A         ;
  $CE26 LD (HL),A     ; }
  $CE27 RET NZ        ; Return if not zero.
- $CE28 LD A,($CE1B)  ; {Copies #R$CE1B into #R$CE1E.
+ $CE28 LD A,($CE1B)  ; {Otherwise, set it back to the base speed
  $CE2B LD (HL),A     ; }
- $CE2C LD A,(IX+$09) ; {Decrease ????? by one.
+ $CE2C LD A,(IX+$09) ; {Decrease the current door's wait factor by one.
  $CE2F DEC A         ; #TABLE(default,centre,centre)
  $CE30 LD (IX+$09),A ; { =h Address | =h Door }
                      ; { #R$D16E | Door 1 }
@@ -7253,16 +7269,16 @@ c$CE21 LD HL,$CE1E   ; {Decrease #R$CE1E by one.
  $CE33 RET NZ        ; Return if not zero.
 ; f
 @label=Chooser
- $CE34 CALL $D8B0    ; Call #R$D8B0.
+ $CE34 CALL $D8B0    ; Generate a random number for the next waiting time.
  $CE37 AND $1F       ; Keep bits 0-4 (so 0-31).
- $CE39 OR $08        ; {Set bit 3 and write the resulting value to;
+ $CE39 OR $08        ; {Set bit 3 and write the new wait factor to;
  $CE3B LD (IX+$09),A ; #TABLE(default,centre,centre)
                      ; { =h Address | =h Door }
                      ; { #R$D16E | Door 1 }
                      ; { #R$D17C | Door 2 }
                      ; { #R$D18A | Door 3 }
                      ; TABLE#}
- $CE3E LD HL,($CE1F) ; {Jump to the memory address contained at #R$CE1F.
+ $CE3E LD HL,($CE1F) ; {Jump to the active character choosing routine pointed by #R$CE1F.
  $CE41 JP (HL)       ; }
 ; Handles choosing one of the initial "default" characters. A
 ;       character is always chosen here, so this is the end of the
@@ -7279,48 +7295,48 @@ c$CE21 LD HL,$CE1E   ; {Decrease #R$CE1E by one.
  $CE51 DEC A         ; { #N$02 | #R$CF5E }
  $CE52 JP $CF2B      ; { #N$03 | #R$CF2B }
                      ; TABLE#}
-; Handles whether or not to choose Julius.
+; Handles whether or not to choose Julius. Only active on phase 3 and above.
 @label=Choose_Julius
-*$CE55 CALL $D8B0    ; Call #R$D8B0.
+*$CE55 CALL $D8B0    ; Generate a random number.
  $CE58 AND $0C       ; {Keep only bits 2 and 3. Jump to the next character "test" if
  $CE5A JR NZ,$CE5F   ; this is a non-zero number at #R$CE5F.}
  $CE5C JP $CFB7      ; Jump to #R$CFB7.
 ; Handles whether or not to choose Bandit 2.
 @label=Choose_Bandit_02
-*$CE5F CALL $D8B0    ; Call #R$D8B0.
+*$CE5F CALL $D8B0    ; Generate a random number.
  $CE62 AND $98       ; {Keep only bits 3, 4 and 7. Jump to the next character "test" if
  $CE64 JR NZ,$CE6F   ; this is a non-zero number at #R$CE6F.}
  $CE66 LD HL,$D119   ; Set source character data to #R$D119.
  $CE69 LD DE,$D124   ; Set target character buffer to #R$D124.
  $CE6C JP $CEA9      ; Jump to #R$CEA9.
-; Handles whether or not to choose Bandit 3.
+; Handles whether or not to choose Bandit 3. Only active on phase 3 and above.
 @label=Choose_Bandit_03
-*$CE6F CALL $D8B0    ; Call #R$D8B0.
+*$CE6F CALL $D8B0    ; Generate a random number.
  $CE72 AND $31       ; {Keep only bits 0, 4 and 5. Jump to the next character "test" if
  $CE74 JR NZ,$CE42   ;           this is a non-zero number then jump back to the #R$CE42.
                      ; }
  $CE76 LD HL,$D0C1   ; Set source character data to #R$D0C1.
  $CE79 LD DE,$D0CC   ; Set target character buffer to #R$D0CC.
  $CE7C JR $CEA9      ; Jump to #R$CEA9.
-; Handles whether or not to choose Bandit 4.
+; Handles whether or not to choose Bandit 4. Only active on phase 4 and above.
 @label=Choose_Bandit_04
-*$CE7E CALL $D8B0    ; Call #R$D8B0.
+*$CE7E CALL $D8B0    ; Generate a random number.
  $CE81 AND $83       ; {Keep only bits 0, 1 and 7. Jump to the next character "test" if
  $CE83 JR NZ,$CE55   ; this is a non-zero number #R$CE55.}
  $CE85 LD HL,$D0D7   ; Set source character data to #R$D0D7.
  $CE88 LD DE,$D0E2   ; Set target character buffer to #R$D0E2.
  $CE8B JR $CEA9      ; Jump to #R$CEA9.
-; Handles whether or not to choose Bandit 5.
+; Handles whether or not to choose Bandit 5. Only active on phase 5 and above.
 @label=Choose_Bandit_05
-*$CE8D CALL $D8B0    ; Call #R$D8B0.
+*$CE8D CALL $D8B0    ; Generate a random number.
  $CE90 AND $58       ; {Keep only bits 3, 4 and 6. Jump to the next character "test" if
  $CE92 JR NZ,$CE7E   ; this is a non-zero number #R$CE7E.}
  $CE94 LD HL,$D0ED   ; Set source character data to #R$D0ED.
  $CE97 LD DE,$D0F8   ; Set target character buffer to #R$D0F8.
  $CE9A JR $CEA9      ; Jump to #R$CEA9.
-; Handles whether or not to choose Bandit 6.
+; Handles whether or not to choose Bandit 6. Only active on phase 6 and above.
 @label=Choose_Bandit_06
- $CE9C CALL $D8B0    ; Call #R$D8B0.
+ $CE9C CALL $D8B0    ; Generate a random number.
  $CE9F AND $71       ; {Keep only bits 0, 4, 5 and 6. Jump to the next character "test" if
  $CEA1 JR NZ,$CE8D   ; this is a non-zero number #R$CE8D.}
  $CEA3 LD HL,$D103   ; Set source character data to #R$D103.
@@ -7406,8 +7422,8 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF07 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF08 CALL $D8B0      ;
- $CF0B AND $08         ;
+ $CF08 CALL $D8B0      ; Generate a random number
+ $CF0B AND $08         ; Keep only bit 3, so Bowie will have money instead of a bomb 1/16 of the time.
  $CF0D LD HL,$D084     ;
  $CF10 LD (HL),$00     ;
  $CF12 JR Z,$CF16      ;
@@ -7431,8 +7447,8 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF36 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF37 CALL $D8B0      ;
- $CF3A AND $82         ;
+ $CF37 CALL $D8B0      ; Generate a random number, to see if Jack Vicious turns up instead.
+ $CF3A AND $82         ; Keep bits 7 and 1
  $CF3C LD HL,$D0A1     ;
  $CF3F LD (HL),$00     ;
  $CF41 JR NZ,$CF45     ;
@@ -7459,7 +7475,7 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF69 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF6A CALL $D8B0      ;
+ $CF6A CALL $D8B0      ; Generate a random number
  $CF6D AND $41         ;
  $CF6F LD HL,$D092     ;
  $CF72 LD (HL),$00     ;
@@ -7513,8 +7529,8 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
                        ; TABLE#}
  $CFC3 LD HL,$D0AE     ;
  $CFC6 LD (HL),$00     ;
- $CFC8 CALL $D8B0      ;
- $CFCB AND $20         ;
+ $CFC8 CALL $D8B0      ; Generate a random number to determine if Julius will give money or shoot.
+ $CFCB AND $20         ; Keep bits 2 and 4
  $CFCD JR NZ,$CFD1     ;
  $CFCF LD (HL),$01     ;
 @label=Init_Julius_Open_Set_Flag
@@ -9124,27 +9140,24 @@ c$D8A1 LD L,(IX+$00) ; {Blanks the 16 bit address pointed to by one of the
  $D8AA LD (HL),A     ; }
  $D8AB RET           ; Return.
 
-; Game status buffer entry at D8AC
-g$D8AC DEFW $92EE
+; Hash values for the random number generator
+g$D8AC DEFB $EE,$92,$1B,$E5
 
-; Game status buffer entry at D8AE
-g$D8AE DEFW $E51B
-
-; Routine at D8B0
+; Generate a random number
 ;
 ; Used by the routines at #R$C9B7, #R$CE21, #R$CEB8 and #R$DAEF.
 ;
 ; .
 ;
-; f
+; On exit, A holds a random number between $00 and $FF
 @label=Random_Number
 c$D8B0 PUSH BC       ; {Stashes #REGbc and #REGhl for later.
  $D8B1 PUSH HL       ; }
- $D8B2 LD A,($D8AE)  ; {Decrease #R$D8AE by one.
+ $D8B2 LD A,($D8AE)  ; {Decrease hash value 2 at #R$D8AC by one.
  $D8B5 DEC A         ;
  $D8B6 LD ($D8AE),A  ; }
  $D8B9 JR NZ,$D8C8   ; If the result is not zero jump to #R$D8C8.
- $D8BB LD HL,($D8AC) ;
+ $D8BB LD HL,($D8AC) ; Get the two bytes at hash value 0 at #R$D8AC.
  $D8BE INC HL        ;
  $D8BF PUSH HL       ;
  $D8C0 POP BC        ;
