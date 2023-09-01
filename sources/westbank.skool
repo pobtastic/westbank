@@ -7748,7 +7748,7 @@ b$D076 DEFB $01                             ; default state
  $D11B DEFB $08                             ; sprite ID : draw
  $D11C DEFB $09                             ; sprite ID : shot
  $D11D DEFB $07                             ; sprite ID : floor
- $D11E DEFB $01                             ; sprite ID : default state
+ $D11E DEFB $01                             ; default state
  $D11F DEFB $08,$08,$08,$01,$30             ; state times
  $D124 DEFB $00                             ; unused
  $D125 DEFB $08                             ; "shot" sprite ID : stand off
