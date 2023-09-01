@@ -6577,7 +6577,7 @@ c$C9B7 LD HL,$0101        ; {Writes $01 to both #R$D45C and #R$D45D.
  $CAC5 JP $CC9B           ; Jump to #R$CC9B.
 *$CAC8 CALL $C9B7         ;
 ; This entry point is used by the routines at #R$CD1B and #R$CD47.
-*$CACB XOR A              ; {Writes $00 to #R$D2FE.
+*$CACB XOR A              ; {Clear the "mistakes" bit field at #R$D2FE.
  $CACC LD ($D2FE),A       ; }
  $CACF CALL $CAD4         ;
  $CAD2 JR $CAE7           ;
@@ -6683,10 +6683,10 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB7F LD ($CE1A),A                         ;
  $CB82 JP (HL)                              ;
 *$CB83 LD A,($D2FE)                         ; {If bit 0 of #R$D2FE is not zero
- $CB86 BIT 0,A                              ; then jump to #R$CD47.
+ $CB86 BIT 0,A                              ; then jump to #R$CD47 and lose a life.
  $CB88 JP NZ,$CD47                          ; }
  $CB8B BIT 1,A                              ; {Else if bit 1 is not zero, jump
- $CB8D JP NZ,$CD1B                          ; to #R$CD1B.}
+ $CB8D JP NZ,$CD1B                          ; to #R$CD1B and flash a life counter.}
  $CB90 CALL $CDC3                           ; Call #R$CDC3.
  $CB93 LD HL,$D190                          ; {If #R$D190 is not zero then call
  $CB96 LD A,(HL)                            ; #R$CBA0 (also, writes $00 to
@@ -7013,7 +7013,7 @@ c$CD1B LD B,$0A      ; {Short pause.
 ; Lose a life
 ;
 ; Used by the routine at #R$CAE7.
-c$CD47 LD A,($D2FE)  ; {If bit 2 of #R$D2FE is zero then jump to #R$CD53.
+c$CD47 LD A,($D2FE)  ; {If bit 2 of #R$D2FE is zero then jump to #R$CD53 and print BANG! instead.
  $CD4A BIT 2,A       ;
  $CD4C JR Z,$CD53    ; }
  $CD4E CALL $F880    ;
@@ -8085,7 +8085,7 @@ c$D2D7 LD C,A        ;
 ; #TABLE(default,centre,centre)
 ; { =h Bit | =h Reason }
 ; { 0 | Shot by a bandit }
-; { 1 | Shot a customer or "good" Julius }
+; { 1 | Shot a customer, a bandit who hasn't drawn, or "good" Julius }
 ; { 2 | Shot a bomb }
 ; TABLE#
 @label=Mistakes
@@ -8626,8 +8626,8 @@ c$D48F DEFB $03        ; Character frame index 1.
  $D593 RET NZ          ; }
  $D594 LD A,($D493)    ; Grab the character frame index from #R$D493.
  $D597 CALL $D6ED      ; Call #R$D6ED.
- $D59A LD A,$02        ; {Writes $02 to #R$D2FE.
- $D59C LD ($D2FE),A    ; }
+ $D59A LD A,$02        ; {Write the "shot someone by mistake" flag into #R$D2FE,
+ $D59C LD ($D2FE),A    ; and lose a life.}
  $D59F CALL $D8A1      ; {Call #R$D8A1 and return.
  $D5A2 RET             ; }
 
@@ -9005,8 +9005,8 @@ c$D71E DEFB $04      ; The current character state.
  $D764 DEC A         ;
  $D765 LD ($D722),A  ;
  $D768 RET NZ        ; }
- $D769 INC A         ; {Writes $01 to #R$D2FE.
- $D76A LD ($D2FE),A  ; }
+ $D769 INC A         ; {Writes bit 0 (shot at) to #R$D2FE,
+ $D76A LD ($D2FE),A  ; which will print BANG! and lose a life.}
  $D76D CALL $D8A1    ; Call #R$D8A1.
  $D770 RET           ; Return.
 ; This routine looks at the current character state and routes to the correct
@@ -9187,8 +9187,8 @@ c$D7C5 DEFB $01        ; If this is $00 then Bowie is "good". If this is $01
  $D85B JR $D821        ; Jump to #R$D821.
 ; Handles marking this as something unshootable.
 @label=Bowie_Bomb_Action
- $D85D LD A,$05        ; {Writes $05 to #R$D2FE and return.
- $D85F LD ($D2FE),A    ;
+ $D85D LD A,$05        ; {Sets the "shot the bomb" flag (bit 2) in #R$D2FE,.
+ $D85F LD ($D2FE),A    ; which will lose a life.
  $D862 RET             ; }
 ; Handles both shooting the hats off Bowie's head, and checking/ routing on the
 ; last frame for the "surprise".
@@ -9425,8 +9425,8 @@ c$D8E5 DEFB $00        ; If this is $00 then Julius is "good". If this is $01
  $D98A DEC A           ; zero.
  $D98B LD ($D8EE),A    ;
  $D98E RET NZ          ; }
- $D98F INC A           ; Move onto next character state.
- $D990 LD ($D2FE),A    ; Write $01 to #R$D2FE.
+ $D98F INC A           ; { Set bit 0 (shot at) in #R$D2FE,
+ $D990 LD ($D2FE),A    ; which will print BANG! and lose a life. }
  $D993 CALL $D8A1      ; Call #R$D8A1.
  $D996 RET             ; Return.
 ; This routine looks at the current character state and routes to the correct
@@ -9462,13 +9462,13 @@ c$D8E5 DEFB $00        ; If this is $00 then Julius is "good". If this is $01
  $D9C0 INC (HL)        ; Move onto next character state.
  $D9C1 LD A,$27        ; {Pass character index #R$B870(floor | #N$27) to
  $D9C3 CALL $D6ED      ; #R$D6ED.}
- $D9C6 LD A,($D8E6)    ; {Return if #R$D8E6 is zero.
+ $D9C6 LD A,($D8E6)    ; {Return if Julius drew first (flag at #R$D8E6 is zero).
  $D9C9 AND A           ;
  $D9CA RET Z           ; }
- $D9CB INC A           ; {Else write #R$D8E6+1 to #R$D2FE, call #R$D8A1 and
- $D9CC LD ($D2FE),A    ; return.
- $D9CF CALL $D8A1      ;
- $D9D2 RET             ; }
+ $D9CB INC A           ; { Else set bit 1 (shot by mistake) in #R$D2FE, which will
+ $D9CC LD ($D2FE),A    ; flash the life counter and lose a life }.
+ $D9CF CALL $D8A1      ; Remove the character from the door
+ $D9D2 RET             ; 
 ; Handle door frame 4 countdown/ transition to door frame 3.
 @label=Julius_Close_03
 *$D9D3 LD A,($D8EA)    ; {Decrease #R$D8EA by one, return if result is not
@@ -9596,10 +9596,10 @@ c$DA0C DEFB $00      ;
  $DA78 DEC A         ;
  $DA79 LD ($DA16),A  ;
  $DA7C RET NZ        ; }
- $DA7D INC A         ; {Else write $01 to #R$D2FE, call #R$D8A1 and return.
- $DA7E LD ($D2FE),A  ;
- $DA81 CALL $D8A1    ;
- $DA84 RET           ; }
+ $DA7D INC A         ; {Set bit 0 (player shot at) in #R$D2FE
+ $DA7E LD ($D2FE),A  ; which will print BANG! and lose a life. }
+ $DA81 CALL $D8A1    ; Remove character from the door
+ $DA84 RET           ; 
 ; This routine looks at the current character state and routes to the correct
 ; subroutine.
 @label=Bandit_Draw_Close_Routing
@@ -9636,8 +9636,8 @@ c$DA0C DEFB $00      ;
  $DAB6 LD A,($DA0C)  ; {Return if #R$DA0C is zero.
  $DAB9 AND A         ;
  $DABA RET Z         ; }
- $DABB INC A         ; {Else write $01 to #R$D2FE and return.
- $DABC LD ($D2FE),A  ;
+ $DABB INC A         ; {Set bit 0 (shot at) in #R$D2FE,
+ $DABC LD ($D2FE),A  ; which will print BANG! and lose a life.
  $DABF RET           ; }
 ; Handle door frame 4 countdown/ transition to door frame 3.
 @label=Bandit_Draw_Close_03

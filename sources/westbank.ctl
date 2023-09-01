@@ -2344,7 +2344,7 @@ R $D2D7 A Bits set, depending on user input
 g $D2FE Player mistakes
 D $D2FE If any of these bits are set, the player loses a life:
 D $D2FE Bit 0 : Shot by a bandit
-D $D2FE Bit 1 : Shot a customer or "good" Julius
+D $D2FE Bit 1 : Shot a customer, a bandit who hasn't drawn,  or "good" Julius
 D $D2FE Bit 2 : Shot a bomb
 
 g $D2FF Most recent user input for gun
