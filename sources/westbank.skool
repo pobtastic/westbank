@@ -5281,9 +5281,9 @@ c$C000 CALL $C046                           ; Clear the screen.
  $C041 LD B,$40                             ; {Jump to #R$C06D.
  $C043 JP $C06D                             ; }
 @label=Prep_Bang
-*$C046 LD HL,$4000                          ; {Writes $00 to all 6144 bytes of
- $C049 LD DE,$4001                          ; the screen buffer (i.e. "blanks
- $C04C LD BC,$17FF                          ; it").
+*$C046 LD HL,$4000                          ; {Writes #N$00 to all 6144 bytes
+ $C049 LD DE,$4001                          ; of the screen buffer (i.e.
+ $C04C LD BC,$17FF                          ; "blanks it").
  $C04F LD (HL),$00                          ;
  $C051 LDIR                                 ; }
  $C053 LD HL,$5800                          ; {Continues into the attributes buffer, and writes $02 (red ink) to every location.
@@ -5488,7 +5488,7 @@ c$C2E0 NOP           ;
 c$C300 LD L,(IX+$00) ; {Set #R$D5E6 as the destination address at #R$C3B7.
  $C303 LD H,(IX+$01) ;
  $C306 LD ($C3B8),HL ; }
- $C309 LD HL,$4000   ; {Clears the screen buffer by writing $00 to all 6912
+ $C309 LD HL,$4000   ; {Clears the screen buffer by writing #N$00 to all 6912
  $C30C LD DE,$4001   ; memory locations.
  $C30F LD BC,$1AFF   ;
  $C312 LD (HL),$00   ;
@@ -6081,8 +6081,8 @@ g$C6E2 DEFB $00      ; Holds #N$00/ #N$01 to indicate player has been shot.
 ;
 ; See #R$C690 for the clearest example of usage.
 @label=Duel_Lose_Life
-g$C6E3 DEFB $00      ; Holds $00/ $01 to indicate player should lose a life (as
-                     ; they shot too quickly).
+g$C6E3 DEFB $00      ; Holds #N$00/ #N$01 to indicate player should lose a life
+                     ; (as they shot too quickly).
 
 ; Duel Extra Life Flag
 ;
@@ -6192,7 +6192,7 @@ c$C7C0 LD HL,($5C78) ; #HTML(Fetch <a
                      ; as a random number seed.)
  $C7C3 LD ($D8AC),HL ; Write it to #R$D8AC.
  $C7C6 CALL $C7E5    ; Call #R$C7E5.
- $C7C9 LD HL,$4000   ; {Clears the screen buffer by writing $00 to all 6912
+ $C7C9 LD HL,$4000   ; {Clears the screen buffer by writing #N$00 to all 6912
  $C7CC LD DE,$4001   ; memory locations.
  $C7CF LD BC,$1AFF   ;
  $C7D2 LD (HL),$00   ;
@@ -6219,7 +6219,7 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
 @label=Set_Control_Alias
 *$C7F9 LD ($CE12),HL ; }
 ; Resets all game variables/ states ready for a new game.
- $C7FC LD HL,$CD86   ; {Clears the score (writes $00 over seven bytes from
+ $C7FC LD HL,$CD86   ; {Clears the score (writes #N$00 over seven bytes from
  $C7FF LD DE,$CD87   ; #R$CD86).
  $C802 LD (HL),$00   ;
  $C804 LD BC,$0006   ;
@@ -6532,14 +6532,14 @@ c$C9B7 LD HL,$0101        ; {Writes #N$01 to both #R$D45C and #R$D45D.
                           ; "#STR#(#PC),$08($b==$FF)".
 ; Clears the screen and displays the day number.
 @label=Prep_Display_Day
-*$CA64 XOR A              ; {Clears the screen by passing $00 to #R$C9D0.
+*$CA64 XOR A              ; {Clears the screen by passing #N$00 to #R$C9D0.
  $CA65 CALL $C9D0         ; }
  $CA68 CALL $C9FB         ; Call #R$C9FB.
  $CA6B RET                ; Return.
 ; Clear down the day/ progress states.
 @label=Init_Progress
-*$CA6C LD HL,$0000        ; {Clears #R$CA4A and #R$CA4C (writes $0000 to them).
- $CA6F LD ($CA4A),HL      ;
+*$CA6C LD HL,$0000        ; {Clears #R$CA4A and #R$CA4C (writes
+ $CA6F LD ($CA4A),HL      ; #N($0000,$04,$04) to them).
  $CA72 LD ($CA4C),HL      ; }
  $CA75 LD A,$20           ; {Writes ASCII space (#N$20) to #N$CA61 and ASCII "0" (#N$30) to #N$CA62 (i.e. writes " 0" to the numeric portion of
  $CA77 LD HL,$CA61        ;           #R$CA5C).
@@ -6589,7 +6589,7 @@ c$C9B7 LD HL,$0101        ; {Writes #N$01 to both #R$D45C and #R$D45D.
  $CAC5 JP $CC9B           ; Jump to #R$CC9B.
 *$CAC8 CALL $C9B7         ;
 ; This entry point is used by the routines at #R$CD1B and #R$CD47.
-*$CACB XOR A              ; {Writes $00 to #R$D2FE.
+*$CACB XOR A              ; {Writes #N$00 to #R$D2FE.
  $CACC LD ($D2FE),A       ; }
  $CACF CALL $CAD4         ;
  $CAD2 JR $CAE7           ;
@@ -6701,7 +6701,7 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB8D JP NZ,$CD1B                          ; to #R$CD1B.}
  $CB90 CALL $CDC3                           ; Call #R$CDC3.
  $CB93 LD HL,$D190                          ; {If #R$D190 is not zero then call
- $CB96 LD A,(HL)                            ; #R$CBA0 (also, writes $00 to
+ $CB96 LD A,(HL)                            ; #R$CBA0 (also, writes #N$00 to
  $CB97 AND A                                ; #R$D190 to clear it).
  $CB98 LD (HL),$00                          ;
  $CB9A CALL NZ,$CBA0                        ; }
@@ -6932,7 +6932,7 @@ c$CC9B LD A,($D45C)  ; {Converts #R$D45C into cash deposit box flag address
  $CCD0 CALL $CCFB    ;
 @label=Cashboxescomplete
  $CCD3 LD DE,$CC8D   ; Points to the cashbox flags (beginning at #R$CC8D).
- $CCD6 LD HL,$CA80   ; {Write $00 to #R$CA80.
+ $CCD6 LD HL,$CA80   ; {Write #N$00 to #R$CA80.
  $CCD9 LD (HL),$00   ; }
  $CCDB LD B,$0C      ; Testing against all 12 cashboxes.
 @label=Cashboxescomplete_Loop
@@ -7377,7 +7377,7 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CEC3 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CEC4 LD HL,$D076     ; {Handles copying $0007 bytes of data from the address contained
+ $CEC4 LD HL,$D076     ; {Handles copying #N($0007,$04,$04) bytes of data from the address contained
  $CEC7 LD E,(IX+$02)   ;           at (depending on which door is currently being actioned);
  $CECA LD D,(IX+$03)   ; #TABLE(default,centre,centre)
  $CECD LD BC,$0007     ; { =h Address | =h Door }
@@ -7399,7 +7399,7 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CEE3 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CEE4 LD HL,$D07D     ; {Handles copying $0007 bytes of data from the address contained
+ $CEE4 LD HL,$D07D     ; {Handles copying #N($0007,$04,$04) bytes of data from the address contained
  $CEE7 LD E,(IX+$02)   ;           at (depending on which door is currently being actioned);
  $CEEA LD D,(IX+$03)   ; #TABLE(default,centre,centre)
  $CEED LD BC,$0007     ; { =h Address | =h Door }
@@ -7551,7 +7551,7 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CFED LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CFEE LD HL,$D0B8     ; {Handles copying $0009 bytes of data from the address (plus 1) contained
+ $CFEE LD HL,$D0B8     ; {Handles copying #N($0009,$04,$04) bytes of data from the address (plus 1) contained
  $CFF1 LD E,(IX+$02)   ;           at (depending on which door is currently being actioned);
  $CFF4 LD D,(IX+$03)   ; #TABLE(default,centre,centre)
  $CFF7 INC DE          ; { =h Address | =h Door }
@@ -7585,7 +7585,7 @@ c$D019 LD DE,$D289   ; {Writes #R$D289 to the address contained
  $D024 LD (HL),D     ; { #R$D173 | Door 2 | #R$CE16 }
                      ; { #R$D181 | Door 3 | #R$CE18 }
                      ; TABLE#}
- $D025 LD L,(IX+$0C) ; {Copies $000B bytes of data from (depending on which door is currently being actioned);
+ $D025 LD L,(IX+$0C) ; {Copies #N($000B,$04,$04) bytes of data from (depending on which door is currently being actioned);
  $D028 LD H,(IX+$0D) ; #TABLE(default,centre,centre)
  $D02B LD E,(IX+$02) ; { =h Source | =h Destination | =h Door }
  $D02E LD D,(IX+$03) ; { #R$D171 | #R$D167 | Door 1 }
@@ -7615,7 +7615,7 @@ c$D037 LD A,$01        ; {Writes $01 to the address contained
                        ; TABLE#
                        ; This is copying the actual source data into the cache where it can be manipulated by the game events.
                        ; }
- $D04C LD L,(IX+$0A)   ; {Copies $000B bytes of data from (depending on which door is currently being actioned);
+ $D04C LD L,(IX+$0A)   ; {Copies #N($000B,$04,$04) bytes of data from (depending on which door is currently being actioned);
  $D04F LD H,(IX+$0B)   ; #TABLE(default,centre,centre)
  $D052 LD E,(IX+$02)   ; { =h Source | =h Destination | =h Door }
  $D055 LD D,(IX+$03)   ; { #R$D16F | #R$D167 | Door 1 }
@@ -7758,7 +7758,7 @@ g$D191 DEFB $01
 ;
 ; Handles copying a "normal" bandit into the bandit state cache at #R$D71E.
 @label=Prep_Bandit_Open
-c$D192 LD L,(IX+$02) ; {Handles copying $0007 bytes of data from the address contained
+c$D192 LD L,(IX+$02) ; {Handles copying #N($0007,$04,$04) bytes of data from the address contained
  $D195 LD H,(IX+$03) ;           at (depending on which door is currently being actioned);
  $D198 LD DE,$D71E   ; #TABLE(default,centre,centre)
  $D19B LD BC,$0007   ; { =h Address | =h Door }
@@ -7772,7 +7772,7 @@ c$D192 LD L,(IX+$02) ; {Handles copying $0007 bytes of data from the address con
  $D1A7 POP DE        ;
  $D1A8 POP HL        ; }
  $D1A9 EX DE,HL      ; Swap the source and target.
- $D1AA LD A,($D18F)  ; {Check if #R$D18F is zero. Write $00 to it. If it wasn't zero
+ $D1AA LD A,($D18F)  ; {Check if #R$D18F is zero. Write #N$00 to it. If it wasn't zero
  $D1AD AND A         ;           then return.
  $D1AE LD A,$00      ;
  $D1B0 LD ($D18F),A  ;
@@ -7781,7 +7781,7 @@ c$D192 LD L,(IX+$02) ; {Handles copying $0007 bytes of data from the address con
  $D1B6 RET           ; and return.}
 ; And copying a successful bandit encounter to close the door.
 @label=Prep_Bandit_Close
- $D1B7 LD L,(IX+$02) ; {Handles copying $0007 bytes of data from the address contained
+ $D1B7 LD L,(IX+$02) ; {Handles copying #N($0007,$04,$04) bytes of data from the address contained
  $D1BA LD H,(IX+$03) ;           at (depending on which door is currently being actioned);
  $D1BD LD DE,$D71E   ; #TABLE(default,centre,centre)
  $D1C0 LD BC,$0007   ; { =h Address | =h Door }

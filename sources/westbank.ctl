@@ -638,7 +638,7 @@ c $C000 BANG!
 
   $C046 Prepares For BANG!
 @ $C046 label=Prep_Bang
-  $C046,$0D Writes $00 to all 6144 bytes of the screen buffer (i.e. "blanks it").
+  $C046,$0D Writes #N$00 to all 6144 bytes of the screen buffer (i.e. "blanks it").
   $C053,$0D Continues into the attributes buffer, and writes $02 (red ink) to every location.
 . #TABLE(default,centre)
 . { =h Value | =h Ink | =h Paper | =h Bright }
@@ -746,7 +746,7 @@ c $C300 Draw Playfield
 N $C300 #UDGTABLE(default,centre) { =h Playfield Output } { #CALL:playfield(playfield) } UDGTABLE#
 @ $C300 label=Draw_Playfield
   $C300,$09 Set #R$D5E6 as the destination address at #R$C3B7.
-  $C309,$0D Clears the screen buffer by writing $00 to all 6912 memory locations.
+  $C309,$0D Clears the screen buffer by writing #N$00 to all 6912 memory locations.
 N $C316 Draws the numbering of the deposit boxes on the left and right of the screen.
   $C316,$0C Points #REGhl to #N$4001 (screen buffer) and #REGde to #R$DFA0, then calls the routine at #R$C3B7.
   $C322,$0C Points #REGhl to #N$4013 (screen buffer) and #REGde to #R$E000, then calls the routine at #R$C3B7.
@@ -1066,7 +1066,7 @@ B $C6E2,$01 Holds #N$00/ #N$01 to indicate player has been shot.
 @ $C6E2 label=Duel_Bang_Flag
 g $C6E3 Duel Lost Life Flag
 D $C6E3 See #R$C690 for the clearest example of usage.
-B $C6E3,$01 Holds $00/ $01 to indicate player should lose a life (as they shot too quickly).
+B $C6E3,$01 Holds #N$00/ #N$01 to indicate player should lose a life (as they shot too quickly).
 @ $C6E3 label=Duel_Lose_Life
 g $C6E4 Duel Extra Life Flag
 D $C6E4 See #R$C690 for the clearest example of usage.
@@ -1144,7 +1144,7 @@ c $C7C0 New Game
   $C7C0,$03 #HTML(Fetch <a href="https://skoolkid.github.io/rom/asm/5C78.html">FRAMES</a> as a random number seed.)
   $C7C3,$03 Write it to #R$D8AC.
   $C7C6,$03 Call #R$C7E5.
-  $C7C9,$0D Clears the screen buffer by writing $00 to all 6912 memory locations.
+  $C7C9,$0D Clears the screen buffer by writing #N$00 to all 6912 memory locations.
   $C7D6,$05 Calls #R$CD64 with the counter #N$80.
   $C7DB,$0A Jump to #R$FA00 with #REGhl=#R$CBB4 and #REGix=#R$CD86.
 
@@ -1157,7 +1157,7 @@ D $C7E5 Displays the title screen and on return, sets the control method and ini
   $C7F6,$06 Write #R$D392 to #R$CE12.
 @ $C7F9 label=Set_Control_Alias
 N $C7FC Resets all game variables/ states ready for a new game.
-  $C7FC,$0D Clears the score (writes $00 over seven bytes from #R$CD86).
+  $C7FC,$0D Clears the score (writes #N$00 over seven bytes from #R$CD86).
 
 @ $C809 label=Starting_Lives
   $C809,$05 Initialise #R$CC59 to #N$03.
@@ -1307,13 +1307,13 @@ T $CA5C,$08 This is a buffer - so text changes during play: "#STR#(#PC),$08($b==
 
 N $CA64 Clears the screen and displays the day number.
 @ $CA64 label=Prep_Display_Day
-  $CA64,$04 Clears the screen by passing $00 to #R$C9D0.
+  $CA64,$04 Clears the screen by passing #N$00 to #R$C9D0.
   $CA68,$03 Call #R$C9FB.
   $CA6B,$01 Return.
 
 N $CA6C Clear down the day/ progress states.
 @ $CA6C label=Init_Progress
-  $CA6C,$09 Clears #R$CA4A and #R$CA4C (writes $0000 to them).
+  $CA6C,$09 Clears #R$CA4A and #R$CA4C (writes #N($0000,$04,$04) to them).
   $CA75,$0A Writes ASCII space (#N$20) to #N$CA61 and ASCII "0" (#N$30) to #N$CA62 (i.e. writes " 0" to the numeric portion of
 .           #R$CA5C).
   $CA7F,$01 Return.
@@ -1328,7 +1328,7 @@ B $CA80,$01
 @ $CAB9 label=Deposit_Flash_Prep
   $CAC5,$03 Jump to #R$CC9B.
 
-  $CACB,$04 Writes $00 to #R$D2FE.
+  $CACB,$04 Writes #N$00 to #R$D2FE.
 
   $CAD4,$03 Call #R$CD68.
   $CAD7,$03 Call #R$CC3A.
@@ -1376,7 +1376,7 @@ c $CAE7 A
   $CB8B,$05 Else if bit 1 is not zero, jump to #R$CD1B.
   $CB90,$03 Call #R$CDC3.
 
-  $CB93,$0A If #R$D190 is not zero then call #R$CBA0 (also, writes $00 to #R$D190 to clear it).
+  $CB93,$0A If #R$D190 is not zero then call #R$CBA0 (also, writes #N$00 to #R$D190 to clear it).
 
   $CBA6,$0E Blanks $FF bytes from #R$5B00 onwards, then returns.
 
@@ -1475,7 +1475,7 @@ c $CC9B Draws Deposit Cashboxes
 
 @ $CCD3 label=Cashboxescomplete
   $CCD3,$03 Points to the cashbox flags (beginning at #R$CC8D).
-  $CCD6,$05 Write $00 to #R$CA80.
+  $CCD6,$05 Write #N$00 to #R$CA80.
   $CCDB,$02 Testing against all 12 cashboxes.
   $CCDD,$03 Fetch the cashbox flag, return if its zero.
   $CCE0,$03 Move onto the next cashbox (loop back to #R$CCDD) or continue once all 12 are checked.
@@ -1800,7 +1800,7 @@ N $CEB8 Writes a "bandit opening the door" to the door flags/ cache.
 . { #R$D173 | Door 2 | #R$CE16 }
 . { #R$D181 | Door 3 | #R$CE18 }
 . TABLE#
-  $CEC4,$0E Handles copying $0007 bytes of data from the address contained
+  $CEC4,$0E Handles copying #N($0007,$04,$04) bytes of data from the address contained
 .           at (depending on which door is currently being actioned);
 . #TABLE(default,centre,centre)
 . { =h Address | =h Door }
@@ -1821,7 +1821,7 @@ N $CED8 Writes a "bandit closing the door" to the door flags/ cache.
 . { #R$D173 | Door 2 | #R$CE16 }
 . { #R$D181 | Door 3 | #R$CE18 }
 . TABLE#
-  $CEE4,$0E Handles copying $0007 bytes of data from the address contained
+  $CEE4,$0E Handles copying #N($0007,$04,$04) bytes of data from the address contained
 .           at (depending on which door is currently being actioned);
 . #TABLE(default,centre,centre)
 . { =h Address | =h Door }
@@ -1908,7 +1908,7 @@ N $CFDD Writes "Julius closing the door" to the door flags/ cache.
 . { #R$D173 | Door 2 | #R$CE16 }
 . { #R$D181 | Door 3 | #R$CE18 }
 . TABLE#
-  $CFEE,$0F Handles copying $0009 bytes of data from the address (plus 1) contained
+  $CFEE,$0F Handles copying #N($0009,$04,$04) bytes of data from the address (plus 1) contained
 .           at (depending on which door is currently being actioned);
 . #TABLE(default,centre,centre)
 . { =h Address | =h Door }
@@ -1931,7 +1931,7 @@ c $D019
 . { #R$D173 | Door 2 | #R$CE16 }
 . { #R$D181 | Door 3 | #R$CE18 }
 . TABLE#
-  $D025,$11 Copies $000B bytes of data from (depending on which door is currently being actioned);
+  $D025,$11 Copies #N($000B,$04,$04) bytes of data from (depending on which door is currently being actioned);
 . #TABLE(default,centre,centre)
 . { =h Source | =h Destination | =h Door }
 . { #R$D171 | #R$D167 | Door 1 }
@@ -1962,7 +1962,7 @@ c $D037
 . TABLE#
 . This is copying the actual source data into the cache where it can be manipulated by the game events.
 
-  $D04C,$11 Copies $000B bytes of data from (depending on which door is currently being actioned);
+  $D04C,$11 Copies #N($000B,$04,$04) bytes of data from (depending on which door is currently being actioned);
 . #TABLE(default,centre,centre)
 . { =h Source | =h Destination | =h Door }
 . { #R$D16F | #R$D167 | Door 1 }
@@ -2064,7 +2064,7 @@ g $D191
 c $D192 Copy Source Character Data To Character State Data
 N $D192 Handles copying a "normal" bandit into the bandit state cache at #R$D71E.
 @ $D192 label=Prep_Bandit_Open
-  $D192,$11 Handles copying $0007 bytes of data from the address contained
+  $D192,$11 Handles copying #N($0007,$04,$04) bytes of data from the address contained
 .           at (depending on which door is currently being actioned);
 . #TABLE(default,centre,centre)
 . { =h Address | =h Door }
@@ -2076,13 +2076,13 @@ N $D192 Handles copying a "normal" bandit into the bandit state cache at #R$D71E
   $D1A3,$03 Call #R$D725 to begin this characters actions.
   $D1A6,$03 Restore the source, target and counter from above.
   $D1A9,$01 Swap the source and target.
-  $D1AA,$0A Check if #R$D18F is zero. Write $00 to it. If it wasn't zero
+  $D1AA,$0A Check if #R$D18F is zero. Write #N$00 to it. If it wasn't zero
 .           then return.
   $D1B4,$03 Else copy the (swapped) source back to the new target and return.
 
 N $D1B7 And copying a successful bandit encounter to close the door.
 @ $D1B7 label=Prep_Bandit_Close
-  $D1B7,$11 Handles copying $0007 bytes of data from the address contained
+  $D1B7,$11 Handles copying #N($0007,$04,$04) bytes of data from the address contained
 .           at (depending on which door is currently being actioned);
 . #TABLE(default,centre,centre)
 . { =h Address | =h Door }
