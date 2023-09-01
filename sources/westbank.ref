@@ -90,3 +90,5 @@ SectionType=BulletPoints
 - First draft created in SkoolKit 8.2.
 [Changelog:20230426]
 - Major updates, altered a lot of the formatting to latest versions.
+[Changelog:20230901]
+- Most entry points documented

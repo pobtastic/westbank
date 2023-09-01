@@ -740,7 +740,7 @@ N $C240 Numbering.
 @ $C2D0 label=Char_0
   $C2D0 #CHARACTERSET,7(char-0) Number "0".
 
-c $C2E0
+u $C2E0
 
 c $C300 Draw Playfield
 N $C300 #UDGTABLE(default,centre) { =h Playfield Output } { #CALL:playfield(playfield) } UDGTABLE#
@@ -776,7 +776,7 @@ u $C3BB Unused
 C $C3BB,$03 Jump to #R$EA90.
 W $C3BE,$02 Empty 16 bit address cache?
 
-c $C3C0
+c $C3C0 Start the duel
   $C3C0,$03 Call #R$C3DD.
   $C3C3,$03 Grab #R$C421.
 @ $C3C9 label=Rebuild
@@ -1098,7 +1098,7 @@ D $C6F0 This routine flashes the last life image eight times, and returns with l
 
 i $C712
 
-b $C71E
+u $C71E
 
 c $C720 Sheriff's Star Page
 @ $C720 label=Sheriff_Star
@@ -1384,20 +1384,29 @@ B $CBB4 Copied to $5B80.
 @ $CBB4 label=Copied_5B80
 B $CBCF
 
-c $CBD0 Draw Text
-@ $CBD0 label=TwoTone_Attributes_Buffer
-W $CBD0 Stores the attributes; top attribute/ bottom attribute.
+g $CBD0 Current text attributes
+
+c $CBD2 Draw Text
+R $CBD2)HL Pointer to string to print
+R $CBD2 DE Location on screen to draw
+R $CBD2 B Attribute for top of character
+R $CBD2 C Attribute for bottom of character
+@ $CBD2 label=TwoTone_Attributes_Buffer
+W $CBD2 Stores the attributes; top attribute/ bottom attribute.
 @ $CBD2 label=Print_TwoToneText
   $CBD2,$04 Stash the attributes at #R$CBD0.
 @ $CBD6 label=Print_TwoToneText_Loop
   $CBD6,$04 Grab the next character in the string, if it's $FF then return.
+c $CBFC Draw a character
+R $CBFC DE Location on screen to draw
+R $CBFC A Character to print, in ASCII
 
 @ $CBFC label=Print_TwoToneText_SpaceCheck
   $CBFC,$04 If the character is a space then jump forward to #R$CC0E.
   $CC20,$0A Load the stored top/ bottom attribute bytes back into #REGbc and write them to the screen.
   $CC2A,$01 Return.
 
-c $CC2B
+c $CC2B Get the attribute address from a screen address
   $CC37,$01 Return.
 
 g $CC38 Buffer for holding #R$D5E6 address
@@ -1508,7 +1517,7 @@ c $CD1B Flash Lives/ Lose Life
   $CD3F,$06 Finally decrease lives by one and if they are not zero jump to #R$CACB.
   $CD45,$02 Set the carry flag and return.
 
-c $CD47
+c $CD47 Lose a life
   $CD47,$07 If bit 2 of #R$D2FE is zero then jump to #R$CD53.
 
 c $CD64 Configurable "pause"
@@ -1922,7 +1931,8 @@ N $CFDD Writes "Julius closing the door" to the door flags/ cache.
   $D018,$01 Return.
 
 
-c $D019
+N $D019 Writes "Bandit opening the door" to the door flags/ cache;
+@ $D019 label=Init_Bandit_Open
   $D019,$0C Writes #R$D289 to the address contained
 .           at (depending on which door is currently being actioned);
 . #TABLE(default,centre,centre,centre)
@@ -1940,7 +1950,7 @@ c $D019
 . TABLE#
   $D036,$01 Return.
 
-c $D037
+N $D037 Writes "Bandit closing the door" to the door flags/ cache;
 @ $D037 label=Todo_Door_Reset
   $D037,$09 Writes $01 to the address contained
 .           at (depending on which door is currently being actioned);
@@ -1985,38 +1995,143 @@ c $D037
   $D069,$04
   $D075,$01 Return.
 
-b $D076
+b $D076 Character Defaults
 
-b $D07D
+N $D076 Jack Vicious
+  $D076,$01 "normal" default state
+  $D077,$06 "normal" state times
+  $D07D,$01 "shot" default state
+  $D07E,$06 "shot" state times
 
-  $D0B8,$09 ??
+N $D084 Bowie
+  $D084,$01 money / bomb flag
+  $D085,$01 default sprite ID
+  $D086,$01 default state
+  $D087,$01 state times
 
-  $D0AB,$03 Source
-  $D0AE
+N $D08D Daisy
+  $D08D,$01 sprite ID : depositing
+  $D08E,$01 sprite ID : hands up
+  $D08F,$01 sprite ID : uncover
+  $D090,$01 sprite ID : shot
+  $D091,$01 sprite ID : floor
+  $D092,$01 unused flag
+  $D093,$01 default state
+  $D094,$08 state times
+
+N $D09C Green Jordan
+  $D09C,$01 sprite ID : depositing
+  $D09D,$01 sprite ID : hands up
+  $D09E,$01 sprite ID : uncover
+  $D09F,$01 sprite ID : shot
+  $D0A0,$01 sprite ID : dead
+  $D0A1,$01 unused flag
+  $D0A2,$01 default state
+  $D083,$08 state times
+
+N $D0AB Shot customer
+  $D0AB,$01 default state
+  $D08C,$02 state times
+
+N $D0AE Julius
+  $D0AE,$01 unused flag
+  $D0AF,$01 unused flag
+  $D0B0,$01 "normal" default state
+  $D0B1,$07 "normal" state times
+
+  $D0B8,$01 "shot" unused flag 
+  $D0B9,$01 "shot" default state
+  $D0BA,$07 "shot" state times
 
 N $D0C1 Bandit 3.
-  $D0C1,$0B Bandit 3 source data.
-  $D0CC,$0B Bandit 3 buffer.
+  $D0C1,$01 unused flag
+  $D0C2,$01 sprite ID : stand off
+  $D0C3,$01 sprite ID : draw
+  $D0C3,$01 sprite ID : shot
+  $D0C4,$01 sprite ID : floor
+  $D0C5,$01 default state
+  $D0C5,$05 state times
+
+  $D0CC,$01 "shot" unused flag
+  $D0CD,$01 "shot" sprite ID : stand off
+  $D0CE,$01 "shot" sprite ID : draw
+  $D0CF,$01 "shot" sprite ID : shot
+  $D0D0,$01 "shot" sprite ID " floor
+  $D0D0,$01 "shot" default state
+  $D0D1,$05 "shot" state times
 
 N $D0D7 Bandit 4.
-  $D0D7,$0B Bandit 4 source data.
-  $D0E2,$0B Bandit 4 buffer.
+  $D0D7,$01 unused flag
+  $D0D8,$01 sprite ID : stand off
+  $D0D9,$01 sprite ID : draw
+  $D0DA,$01 sprite ID : shot
+  $D0DB,$01 sprite ID : floor
+  $D0DC,$01 default state
+  $D0DD,$05 state times
+
+  $D0E2,$01 "shot" unused flag
+  $D0E3,$01 "shot" sprite ID : stand off
+  $D0E4,$01 "shot" sprite ID : draw
+  $D0E5,$01 "shot" sprite ID : shot
+  $D0E6,$01 "shot" sprite ID " floor
+  $D0E7,$01 "shot" default state
+  $D0E8,$05 "shot" state times
 
 N $D0ED Bandit 5.
-  $D0ED,$0B Bandit 5 source data.
-  $D0F8,$0B Bandit 5 buffer.
+  $D0ED,$01 unused flag
+  $D0EE,$01 sprite ID : stand off
+  $D0EF,$01 sprite ID : draw
+  $D0F0,$01 sprite ID : shot
+  $D0F1,$01 sprite ID : floor
+  $D0F2,$01 default state
+  $D0F3,$05 state times
+
+  $D0F8,$01 "shot" unused flag
+  $D0F9,$01 "shot" sprite ID : stand off
+  $D0FA,$01 "shot" sprite ID : draw
+  $D0FB,$01 "shot" sprite ID : shot
+  $D0FC,$01 "shot" sprite ID " floor
+  $D0FD,$01 "shot" default state
+  $D0FE,$05 "shot" state times
 
 N $D103 Bandit 6.
-  $D103,$0B Bandit 6 source data.
-  $D10E,$0B Bandit 6 buffer.
+  $D103,$01 unused flag
+  $D104,$01 sprite ID : stand off
+  $D105,$01 sprite ID : draw
+  $D106,$01 sprite ID : shot
+  $D107,$01 sprite ID : floor
+  $D108,$01 default state
+  $D109,$05 state times
+
+  $D10E,$01 "shot" unused flag
+  $D10F,$01 "shot" sprite ID : stand off
+  $D110,$01 "shot" sprite ID : draw
+  $D111,$01 "shot" sprite ID : shot
+  $D112,$01 "shot" sprite ID " dead
+  $D113,$01 "shot" default state
+  $D114,$05 "shot" state times
 
 N $D119 Bandit 2.
-  $D119,$0B Bandit 2 source data.
-  $D124,$0B Bandit 2 buffer.
+  $D119,$01 unused flag
+  $D11A,$01 sprite ID : stand off
+  $D11B,$01 sprite ID : draw
+  $D11C,$01 sprite ID : shot
+  $D11D,$01 sprite ID : floor
+  $D11E,$01 default state
+  $D11F,$05 state times
 
-  $D141,$0B
+  $D124,$01 "shot" unused flag
+  $D125,$01 "shot" sprite ID : stand off
+  $D126,$01 "shot" sprite ID : draw
+  $D127,$01 "shot" sprite ID : shot
+  $D128,$01 "shot" sprite ID " dead
+  $D129,$01 "shot" default state
+  $D12A,$05 "shot" state times
 
-  $D153,$0B Target
+g $D12F,$36 Door data values
+N $D12F,$12 Door 1
+N $D141,$12 Door 2
+N $D153,$12 Door 3
 
 g $D165 Door 1 Flags
 @ $D165 label=Door_Flags_01
@@ -2055,11 +2170,11 @@ B $D189,$01
 B $D18A,$01
 W $D18B,$04
 
-g $D18F
+g $D18F Set to 1 if state times should not be copied back after being run
 
-g $D190
+g $D190 Set to 1 if money should be collected from this door
 
-g $D191
+g $D191 Set to 1 if two days have been completed and the reward screen should be shown
 
 c $D192 Copy Source Character Data To Character State Data
 N $D192 Handles copying a "normal" bandit into the bandit state cache at #R$D71E.
@@ -2217,17 +2332,22 @@ N $D2AD And copying a successful "drawing bandit" encounter to close the door.
   $D2C4,$08 Check if #R$D18F is zero. If it wasn't zero then return.
   $D2CC,$03 Copy the source to the target again and return.
 
-c $D2CF 
+c $D2CF Run the appropriate keyboard or joystick routine
 @ $D2CF label=Controls
   $D2CF,$03 #R$CE12
   $D2D2,$04 Stash #R$D2D7 on the stack.
   $D2D6,$01 Jumps to the control routine for whatever is in-use (either #R$D392 or #R$D39B).
-W $D2D7,$02
 
-c $D2D9
+c $D2D7 Take action on player input
+R $D2D7 A Bits set, depending on user input
 
-B $D2FE,$01
-B $D2FF,$01
+g $D2FE Player mistakes
+D $D2FE If any of these bits are set, the player loses a life:
+D $D2FE Bit 0 : Shot by a bandit
+D $D2FE Bit 1 : Shot a customer or "good" Julius
+D $D2FE Bit 2 : Shot a bomb
+
+g $D2FF Most recent user input for gun
 
 g $D300 Player Shot
 @ $D300 label=Hit
@@ -2384,7 +2504,7 @@ c $D3E2 Reads In-Game Controls (Left + Right)
 
   $D3E9,$01 Return.
 
-c $D3EA
+c $D3EA Scan the doors to see if they are closed, and take action if so
 @ $D3EA label=Door_Prep_01
   $D3EA,$03 #R$CE14
   $D3ED,$03 Sets #REGa=0 and #REGb=$06 (counter).
@@ -2646,7 +2766,7 @@ c $D5FA Merge Gun Shot Onto Background
   $D60C,$03 Decrease the #REGb counter by one and loop back to #R$D5FA until it is zero.
   $D60F,$01 Return.
 
-c $D610
+c $D610 Adjust a screen address across a boundary
 @ $D610 label=Calc_Attribute
 N $D610 On entry #REGhl points to an address in the screen attribute buffer.
   $D610 Let's use $58C8 as an example;
@@ -2976,7 +3096,8 @@ N $D88F Handle displaying bomb character frame.
   $D897,$09 Writes #R$D85D to the current door flags (e.g. #R$D169, #R$D177 or #R$D185).
   $D8A0,$01 Return.
 
-c $D8A1
+c $D8A1 Remove a character from a door
+R $D8A1 IX Pointer to door
 @ $D8A1 label=Reset___
   $D8A1,$0A Blanks the 16 bit address pointed to by one of the passed door flags (i.e. writes $0000 to one of #R$CE14, #R$CE16, #R$CE18).
   $D8AB,$01 Return.
@@ -3251,9 +3372,10 @@ N $DAE0 Handle door frame 2 countdown/ transition to door frame 1.
   $DAE8,$03 Call #R$D664 (i.e. no character/ door is shut).
   $DAEB,$04 Call #R$D8A1 and return.
 
-c $DAEF
+c $DAEF Generate a random number between 0 - 3
 
-b $DAFE
+u $DAFE
+S $DAFE
 
 b $DFA0 Slot Numbering
 @ $DFA0 label=SlotNumbers_Left
@@ -3440,7 +3562,7 @@ t $FB78 High Score Table Name Entry
 @ $FBB5 label=HighScore_Sub_Head
   $FBB5,$20 "#STR#(#PC),$08($b==$FF)".
 
-c $FBD5
+c $FBD5 Print a high score entry
   $FBD5,$03 #REGhl=#R$FBF0.
   $FBE2,$07 Sends #REGhl to #R$5B80.
 . #TABLE(default,centre)
@@ -3459,7 +3581,7 @@ W $FBF0,$02 Cache
 u $FC67
 i $FC6A
 
-b $FD00
+u $FD00 Unused
   $FD00,$7F,$07
 
 c $FD80 Blah
@@ -3507,7 +3629,7 @@ N $FDB7 Set the border to black and blank the screen buffer.
 u $FDCE Unused
 C $FDCE,$03 Jump to #R$EA90.
 
-b $FDD1
+u $FDD1 Unused
 
 c $FE00 Title Screen
 @ $FE00 label=TitleScreen

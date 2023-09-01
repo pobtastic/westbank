@@ -5450,21 +5450,9 @@ b$C0A0 DEFB $00,$00,$28,$6C,$AA,$C6,$82,$44 ; {#CHARACTERSET,7(char-A) Letter
  $C2D0 DEFB $00,$00,$38,$7C,$AA,$C6,$C6,$C6 ; {#CHARACTERSET,7(char-0) Number
  $C2D8 DEFB $C6,$C6,$C6,$AA,$7C,$38,$00,$00 ; "0".}
 
-; Routine at C2E0
-c$C2E0 NOP           ;
- $C2E1 NOP           ;
- $C2E2 NOP           ;
- $C2E3 NOP           ;
- $C2E4 NOP           ;
- $C2E5 NOP           ;
- $C2E6 NOP           ;
- $C2E7 NOP           ;
- $C2E8 NOP           ;
- $C2E9 NOP           ;
- $C2EA NOP           ;
- $C2EB NOP           ;
- $C2EC NOP           ;
- $C2ED NOP           ;
+; Unused
+u$C2E0 DEFS $0E      ;
+
  $C2EE LD A,($C8FD)  ;
  $C2F1 LD L,A        ;
  $C2F2 LD H,$00      ;
@@ -5567,7 +5555,7 @@ c$C300 LD L,(IX+$00) ; {Set #R$D5E6 as the destination address at #R$C3B7.
 u$C3BB JP $EA90      ; Jump to #R$EA90.
  $C3BE DEFW $0000    ; Empty 16 bit address cache?
 
-; Routine at C3C0
+; Start the duel
 ;
 ; Used by the routine at #R$C9B7.
 c$C3C0 CALL $C3DD    ; Call #R$C3DD.
@@ -6131,8 +6119,8 @@ c$C6F0 LD HL,($5B86) ; {Decrease #R$CC59 by one.
 
 i$C712
 
-; Data block at C71E
-b$C71E DEFB $22,$FB
+; Unused
+u$C71E DEFB $22,$FB
 
 ; Sheriff's Star Page
 ;
@@ -6271,91 +6259,91 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C872 CALL $C941    ;
  $C875 INC (HL)      ;
  $C876 JR $C8B6      ;
-@label=Level_01
-*$C878 LD HL,$CE42   ; {Writes #R$CE42 to #R$CE1F.
+@label=Phase_01
+*$C878 LD HL,$CE42   ; {Writes the character choosing routine #R$CE42 to #R$CE1F.
  $C87B LD ($CE1F),HL ; }
- $C87E CALL $CA81    ;
- $C881 RET C         ;
- $C882 LD HL,$CE6F   ; {Writes #R$CE6F to #R$CE1F.
+ $C87E CALL $CA81    ; Run this phase.
+ $C881 RET C         ; Return if the game's over.
+ $C882 LD HL,$CE6F   ; {Writes the character choosing routine #R$CE6F to #R$CE1F.
  $C885 LD ($CE1F),HL ; }
- $C888 CALL $C941    ;
- $C88B CALL $CA81    ;
- $C88E RET C         ;
-*$C88F LD HL,$CE5F   ; {Writes #R$CE5F to #R$CE1F.
+ $C888 CALL $C941    ; Speed the game up.
+ $C88B CALL $CA81    ; Run this phase.
+ $C88E RET C         ; Return if the game's over.
+*$C88F LD HL,$CE5F   ; {Writes the character choosing routine #R$CE5F to #R$CE1F.
  $C892 LD ($CE1F),HL ; }
- $C895 CALL $C941    ;
- $C898 CALL $CA81    ;
- $C89B RET C         ;
- $C89C LD HL,$CE55   ; {Writes #R$CE55 to #R$CE1F.
+ $C895 CALL $C941    ; Speed the game up.
+ $C898 CALL $CA81    ; Run this phase.
+ $C89B RET C         ; Return if the game's over.
+ $C89C LD HL,$CE55   ; {Writes the character choosing routine #R$CE55 to #R$CE1F.
  $C89F LD ($CE1F),HL ; }
- $C8A2 CALL $C941    ;
- $C8A5 CALL $CA81    ;
- $C8A8 RET C         ;
- $C8A9 LD HL,$CE7E   ; {Writes #R$CE7E to #R$CE1F.
+ $C8A2 CALL $C941    ; Speed the game up.
+ $C8A5 CALL $CA81    ; Run this phase.
+ $C8A8 RET C         ; Return if the game's over.
+ $C8A9 LD HL,$CE7E   ; {Writes the character choosing routine #R$CE7E to #R$CE1F.
  $C8AC LD ($CE1F),HL ; }
- $C8AF CALL $C941    ;
- $C8B2 CALL $CA81    ;
- $C8B5 RET C         ;
-*$C8B6 LD HL,$CE8D   ; {Writes #R$CE8D to #R$CE1F.
+ $C8AF CALL $C941    ; Speed the game up.
+ $C8B2 CALL $CA81    ; Run this phase.
+ $C8B5 RET C         ; Return if the game's over.
+*$C8B6 LD HL,$CE8D   ; {Writes the character choosing routine #R$CE8D to #R$CE1F.
  $C8B9 LD ($CE1F),HL ; }
- $C8BC CALL $C941    ;
- $C8BF CALL $CA81    ;
- $C8C2 RET C         ;
- $C8C3 LD HL,$CE9C   ; {Writes #R$CE9C to #R$CE1F.
+ $C8BC CALL $C941    ; Speed the game up.
+ $C8BF CALL $CA81    ; Run this phase.
+ $C8C2 RET C         ; Return if the game's over.
+ $C8C3 LD HL,$CE9C   ; {Writes the character choosing routine #R$CE9C to #R$CE1F.
  $C8C6 LD ($CE1F),HL ; }
- $C8C9 CALL $C941    ;
- $C8CC CALL $CA81    ;
- $C8CF RET C         ;
- $C8D0 LD HL,$CE9C   ; {Writes #R$CE9C to #R$CE1F.
+ $C8C9 CALL $C941    ; Speed the game up.
+ $C8CC CALL $CA81    ; Run this phase.
+ $C8CF RET C         ; Return if the game's over.
+ $C8D0 LD HL,$CE9C   ; {Writes the character choosing routine #R$CE9C to #R$CE1F.
  $C8D3 LD ($CE1F),HL ; }
- $C8D6 CALL $C941    ;
- $C8D9 CALL $C95E    ;
- $C8DC CALL $CA81    ;
- $C8DF RET C         ;
- $C8E0 LD HL,$CE9C   ; {Writes #R$CE9C to #R$CE1F.
+ $C8D6 CALL $C941    ; Speed the game up.
+ $C8D9 CALL $C95E    ; Change from day to dusk.
+ $C8DC CALL $CA81    ; Run this phase.
+ $C8DF RET C         ; Return if the game's over.
+ $C8E0 LD HL,$CE9C   ; {Writes the character choosing routine #R$CE9C to #R$CE1F.
  $C8E3 LD ($CE1F),HL ; }
- $C8E6 CALL $C941    ;
- $C8E9 CALL $C963    ;
- $C8EC CALL $CA81    ;
- $C8EF RET C         ;
-*$C8F0 CALL $C959    ;
- $C8F3 CALL $CA64    ;
- $C8F6 LD B,$07      ;
-*$C8F8 PUSH BC       ;
- $C8F9 CALL $CA81    ;
- $C8FC POP BC        ;
- $C8FD RET C         ;
- $C8FE PUSH BC       ;
- $C8FF CALL $C941    ;
- $C902 POP BC        ;
- $C903 DJNZ $C8F8    ;
- $C905 CALL $C95E    ;
- $C908 CALL $CA81    ;
- $C90B RET C         ;
- $C90C CALL $C963    ;
- $C90F CALL $CA81    ;
- $C912 RET C         ;
+ $C8E6 CALL $C941    ; Speed the game up.
+ $C8E9 CALL $C963    ; Change from dusk to night.
+ $C8EC CALL $CA81    ; Run this phase.
+ $C8EF RET C         ; Return if the game's over.
+*$C8F0 CALL $C959    ; Change from night back to day.
+ $C8F3 CALL $CA64    ; New day (day 2).
+ $C8F6 LD B,$07      ; Seven daytime phases on day 2, all with every character.
+*$C8F8 PUSH BC       ; Remember this
+ $C8F9 CALL $CA81    ; Run this phase.
+ $C8FC POP BC        ; Restore phase counter (so stack is correct for next instruction).
+ $C8FD RET C         ; Return if the game's over.
+ $C8FE PUSH BC       ; Remember counter again.
+ $C8FF CALL $C941    ; Speed the game up.
+ $C902 POP BC        ; Restore phase counter again.
+ $C903 DJNZ $C8F8    ; Loop back if there are more phases to run
+ $C905 CALL $C95E    ; Change from day to dusk.
+ $C908 CALL $CA81    ; Run this phase.
+ $C90B RET C         ; Return if the game's over.
+ $C90C CALL $C963    ; Change from dusk to night.
+ $C90F CALL $CA81    ; Run this phase.
+ $C912 RET C         ; Return if the game's over.
  $C913 LD HL,$D191   ; {Having got through all the phases,
  $C916 LD A,(HL)     ; are we on day 2?
- $C917 LD (HL),$00   ;
+ $C917 LD (HL),$00   ; 
  $C919 AND A         ; }
  $C91A JR Z,$C8F0    ; Jump back if we're not
  $C91C LD HL,$CBB4   ; We have completed two days, display the reward screen.
  $C91F LD DE,$5B80   ;
  $C922 LD BC,$0040   ;
  $C925 LDIR          ;
- $C927 CALL $C720    ; Call #R$C720.
- $C92A CALL $CD64    ;
+ $C927 CALL $C720    ; Display the reward screen.
+ $C92A CALL $CD64    ; { Wait for $400 cycles 
  $C92D CALL $CD64    ;
  $C930 CALL $CD64    ;
- $C933 CALL $CD64    ;
-*$C936 XOR A         ;
- $C937 IN A,($FE)    ;
- $C939 OR $E0        ;
- $C93B INC A         ;
- $C93C JR Z,$C936    ;
+ $C933 CALL $CD64    ; }
+*$C936 XOR A         ; { Wait for a key to be pressed.
+ $C937 IN A,($FE)    ; Read the keyboard to bits 0-4 ...
+ $C939 OR $E0        ; ... and turn on bits 5-7.
+ $C93B INC A         ; If no key is pressed, this will set A to 0.
+ $C93C JR Z,$C936    ; Loop round if this is the case. }
  $C93E NOP           ;
- $C93F JR $C8F0      ;
+ $C93F JR $C8F0      ; Loop back for another day.
 
 ; Make the game run faster
 ; 
@@ -6721,58 +6709,72 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CBCC DEFB $C3,$90,$CD                     ; }
  $CBCF DEFB $01                             ;
 
-; Draw Text
+; Current text attributes 
 @label=TwoTone_Attributes_Buffer
-c$CBD0 DEFW $0705    ; Stores the attributes; top attribute/ bottom attribute.
-; This entry point is used by the routines at #R$5B80 and #R$C9B7.
+g$CBD0 DEFB $07,05    ; Stores the attributes; top attribute/ bottom attribute.
+
+; Draw Text in two colours
+;
+; Used by the routines at #R$5B80 and #R$C9B7.
+;
+; HL Pointer to string to print
+; DE Location on screen to draw
+; B Attribute for top of character
+; C Attribute for bottom of character
 @label=Print_TwoToneText
-*$CBD2 LD ($CBD0),BC ; Stash the attributes at #R$CBD0.
+c$CBD2 LD ($CBD0),BC ; Stash the attributes at #R$CBD0.
 @label=Print_TwoToneText_Loop
 *$CBD6 LD A,(HL)     ; {Grab the next character in the string, if it's $FF then
  $CBD7 CP $FF        ; return.
  $CBD9 RET Z         ; }
- $CBDA CP $30        ;
- $CBDC JR NZ,$CBE0   ;
- $CBDE LD A,$3A      ;
-*$CBE0 PUSH HL       ;
- $CBE1 PUSH DE       ;
+ $CBDA CP $30        ; { Swap $30 (ASCII '0') for $3A 
+ $CBDC JR NZ,$CBE0   ; ('0' in the custom characer set)
+ $CBDE LD A,$3A      ; }
+*$CBE0 PUSH HL       ; { Remember these values 
+ $CBE1 PUSH DE       ; }
  $CBE2 CALL $CBFC    ;
- $CBE5 POP DE        ;
- $CBE6 POP HL        ;
- $CBE7 INC HL        ;
- $CBE8 INC E         ;
- $CBE9 LD A,E        ;
- $CBEA AND $1F       ;
- $CBEC JR NZ,$CBD6   ;
- $CBEE LD A,E        ;
+ $CBE5 POP DE        ; { Restore values 
+ $CBE6 POP HL        ; }
+ $CBE7 INC HL        ; Onto the next character
+ $CBE8 INC E         ; Move to next row
+ $CBE9 LD A,E        ; { Have we reached an 8 row boundary?
+ $CBEA AND $1F       ; }
+ $CBEC JR NZ,$CBD6   ; Loop back if not.
+ $CBEE LD A,E        ; { Adjust the screen address for the next row 
  $CBEF ADD A,$20     ;
- $CBF1 LD E,A        ;
- $CBF2 AND $E0       ;
- $CBF4 JR NZ,$CBD6   ;
- $CBF6 LD A,D        ;
+ $CBF1 LD E,A        ; }
+ $CBF2 AND $E0       ; Have we reached a 64 row boundary?
+ $CBF4 JR NZ,$CBD6   ; Loop back if not.
+ $CBF6 LD A,D        ; { Adjust for the next third of the screen
  $CBF7 ADD A,$08     ;
- $CBF9 LD D,A        ;
- $CBFA JR $CBD6      ;
-; This entry point is used by the routine at #R$5B9B.
+ $CBF9 LD D,A        ; }
+ $CBFA JR $CBD6      ; Back for next character
+
+; Draw a Character
+;
+; Used by the routine at #R$5B9B.
+;
+; DE Location on screen to print
+; A Character to print, in ASCII
 @label=Print_TwoToneText_SpaceCheck
-*$CBFC CP $20        ; {If the character is a space then jump forward to
+c$CBFC CP $20        ; {If the character isnot a space then jump forward to
  $CBFE JR NZ,$CC0E   ; #R$CC0E.}
- $CC00 LD HL,$5B00   ;
- $CC03 LD BC,$1001   ;
- $CC06 EX DE,HL      ;
+ $CC00 LD HL,$5B00   ; Point to empty space
+ $CC03 LD BC,$1001   ; $10 rows, $01 characters
+ $CC06 EX DE,HL      ; { Print a blank space on screen.
  $CC07 PUSH HL       ;
  $CC08 CALL $D5E6    ;
- $CC0B POP HL        ;
- $CC0C JR $CC1D      ;
-*$CC0E CP $41        ;
- $CC10 JR NC,$CC14   ;
- $CC12 ADD A,$2A     ;
-*$CC14 SUB $41       ;
- $CC16 ADD A,$0A     ;
- $CC18 PUSH DE       ;
- $CC19 CALL $CDAE    ;
- $CC1C POP HL        ;
-*$CC1D CALL $CC2B    ;
+ $CC0B POP HL        ; }
+ $CC0C JR $CC1D      ; Move forward.
+*$CC0E CP $41        ; Is this a letter?
+ $CC10 JR NC,$CC14   ; Jump forward if so.
+ $CC12 ADD A,$2A     ; Adjust numbers to be in the right place in the character set.
+*$CC14 SUB $41       ; { Convert from ASCII 
+ $CC16 ADD A,$0A     ; to index in the character set. }
+ $CC18 PUSH DE       ; Remember the screen address.
+ $CC19 CALL $CDAE    ; Copy the character to screen.
+ $CC1C POP HL        ; Restore screen address in HL.
+*$CC1D CALL $CC2B    ; Get the attribute address from the screen address.
  $CC20 LD BC,($CBD0) ; {Load the stored top/ bottom attribute bytes back into
  $CC24 LD (HL),B     ; #REGbc and write them to the screen.
  $CC25 LD DE,$0020   ;
@@ -6780,7 +6782,7 @@ c$CBD0 DEFW $0705    ; Stores the attributes; top attribute/ bottom attribute.
  $CC29 LD (HL),C     ; }
  $CC2A RET           ; Return.
 
-; Routine at CC2B
+; Get the attribute address from a screen address
 ;
 ; Used by the routine at #R$CBD0.
 c$CC2B LD A,H        ;
@@ -7008,7 +7010,7 @@ c$CD1B LD B,$0A      ; {Short pause.
  $CD45 SCF           ; {Set the carry flag and return.
  $CD46 RET           ; }
 
-; Routine at CD47
+; Lose a life
 ;
 ; Used by the routine at #R$CAE7.
 c$CD47 LD A,($D2FE)  ; {If bit 2 of #R$D2FE is zero then jump to #R$CD53.
@@ -7573,11 +7575,11 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $D014 LD (IX+$06),A   ;
  $D017 LD (HL),A       ;
  $D018 RET             ; Return.
-
-; Routine at D019
+; Writes "Bandit opening the door" to the door flags/ cache.
 ;
-; Used by the routine at #R$CE21.
-c$D019 LD DE,$D289   ; {Writes #R$D289 to the address contained
+; This entry point is used by the routine at #R$CAE7.
+@label=Init_Bandit_Open
+*$D019 LD DE,$D289   ; {Writes #R$D289 to the address contained
  $D01C LD L,(IX+$00) ;           at (depending on which door is currently being actioned);
  $D01F LD H,(IX+$01) ; #TABLE(default,centre,centre,centre)
  $D022 LD (HL),E     ; { =h Address | =h Door | =h Target }
@@ -7593,10 +7595,9 @@ c$D019 LD DE,$D289   ; {Writes #R$D289 to the address contained
  $D034 LDIR          ; { #R$D18D | #R$D183 | Door 3 }
                      ; TABLE#}
  $D036 RET           ; Return.
-
-; Routine at D037
+; Writes "Bandit closing the door" to the door flags/ cache;
 @label=Todo_Door_Reset
-c$D037 LD A,$01        ; {Writes $01 to the address contained
+*$D037 LD A,$01        ; {Writes $01 to the address contained
  $D039 LD L,(IX+$0A)   ;           at (depending on which door is currently being actioned);
  $D03C LD H,(IX+$0B)   ; #TABLE(default,centre,centre)
  $D03F LD (HL),A       ; { =h Address | =h Door }
@@ -7640,55 +7641,137 @@ c$D037 LD A,$01        ; {Writes $01 to the address contained
  $D073 LD (HL),$00     ;
  $D075 RET             ; Return.
 
-; Data block at D076
-b$D076 DEFB $01,$08,$08,$08,$60,$08,$08
+; Character Defaults
+;
+; Jack Vicious
+b$D076 DEFB $01                             ; default state
+ $D077 DEFB $08,$08,$08,$60,$08,$08         ; state times
+ $D07D DEFB $01                             ; "shot" default state
+ $D07E DEFB $0B,$0B,$0B,$0B,$0B,$0B         ; "shot" state times
+; Bowie
+*$D084 DEFB $01                             ; unused
+ $D085 DEFB $1B                             ; default sprite ID
+ $D086 DEFB $01                             ; default state
+ $D087 DEFB $08,$08,$08,$80,$08,$08         ; state times
+; Daisy
+*$D08D DEFB $0A                             ; sprite ID : depositing
+ $D08E DEFB $0B                             ; sprite ID : hands up
+ $D08F DEFB $0C                             ; sprite ID : uncover
+ $D090 DEFB $0D                             ; sprite ID : shot
+ $D091 DEFB $0E                             ; sprite ID : floor
+ $D092 DEFB $00                             ; unused
+ $D093 DEFB $01                             ; default state
+ $D094 DEFB $08,$08,$08,$40,$10,$08,$08,$08 ; state times
+; Green Jordan
+*$D09C DEFB $03                             ; sprite ID : depositing
+ $D09D DEFB $04                             ; sprite ID : hands up
+ $D09E DEFB $05                             ; sprite ID : uncover
+ $D09F DEFB $06                             ; sprite ID : shot
+ $D0A0 DEFB $07                             ; sprite ID : floor
+ $D0A1 DEFB $01                             ; unused
+ $D0A2 DEFB $01                             ; default state
+ $D0A3 DEFB $08,$08,$08,$38,$0C,$06,$08,$08 ; state times
+; Shot customer
+*$D0AB DEFB $01                             ; default state
+ $D0AC DEFB $0B,$0B                         ; state times
+; Julius
+*$D0AE DEFB $00                             ; unused
+ $D0AF DEFB $00                             ; unused
+ $D0B0 DEFB $01                             ; default state
+ $D0B1 DEFB $08,$08,$08,$50,$08,$08,$80     ; state times
+ $D0B8 DEFB $00                             ; unused
+ $D0B9 DEFB $01                             ; "shot" default state
+ $D0BA DEFB $0B,$0B,$0B,$0B,$0B,$0B,$0B     ; "shot" state times
+; Bandit 3
+*$D0C1 DEFB $00                             ; unused
+ $D0C2 DEFB $10                             ; sprite ID : stand off
+ $D0C3 DEFB $0F                             ; sprite ID : draw
+ $D0C4 DEFB $11                             ; sprite ID : shot   
+ $D0C5 DEFB $02                             ; sprite ID : floor
+ $D0C6 DEFB $01                             ; default state
+ $D0C7 DEFB $08,$08,$08,$40,$40             ; state times
+ $D0CC DEFB $00                             ; unused
+ $D0CD DEFB $10                             ; "shot" sprite ID : stand off
+ $D0CE DEFB $0F                             ; "shot" sprite ID : draw
+ $D0CF DEFB $11                             ; "shot" sprite ID : shot
+ $D0D0 DEFB $02                             ; "shot" sprite ID : floor
+ $D0D1 DEFB $01                             ; "shot" default state
+ $D0D2 DEFB $0B,$0B,$0B,$0B,$0B             ; "shot" state times
+; Bandit 4
+*$D0D7 DEFB $00                             ; unused
+ $D0D8 DEFB $12                             ; sprite ID : stand off
+ $D0D9 DEFB $13                             ; sprite ID : draw
+ $D0DA DEFB $14                             ; sprite ID : shot
+ $D0DB DEFB $02                             ; sprite ID : floor
+ $D0DC DEFB $01                             ; default state
+ $D0DD DEFB $08,$08,$08,$30,$40             ; state times
+ $D0E2 DEFB $00                             ; unused
+ $D0E3 DEFB $12                             ; "shot" sprite ID : stand off
+ $D0E4 DEFB $13                             ; "shot" sprite ID : draw
+ $D0E5 DEFB $14                             ; "shot" sprite ID : shot
+ $D0E6 DEFB $02                             ; "shot" sprite ID : floor
+ $D0E7 DEFB $01                             ; "shot" default state
+ $D0E8 DEFB $0B,$0B,$0B,$0B,$0B             ; "shot" state times
+; Bandit 5
+*$D0ED DEFB $00                             ; unused
+ $D0EE DEFB $15                             ; sprite ID : stand off
+ $D0EF DEFB $16                             ; sprite ID : draw
+ $D0F0 DEFB $17                             ; sprite ID : shot
+ $D0F1 DEFB $02                             ; sprite ID : floor
+ $D0F2 DEFB $01                             ; default state
+ $D0F3 DEFB $08,$08,$08,$20,$38             ; state times
+ $D0F8 DEFB $00                             ; unused
+ $D0F9 DEFB $15                             ; "shot" sprite ID : stand off
+ $D0FA DEFB $16                             ; "shot" sprite ID : draw
+ $D0FB DEFB $17                             ; "shot" sprite ID : shot
+ $D0FC DEFB $02                             ; "shot" sprite ID : floor
+ $D0FD DEFB $01                             ; "shot" default state
+ $D0FE DEFB $0B,$0B,$0B,$0B,$0B             ; "shot" state times
+; Bandit 6
+*$D103 DEFB $00                             ; unused
+ $D104 DEFB $18                             ; sprite ID : stand off
+ $D105 DEFB $19                             ; sprite ID : draw
+ $D106 DEFB $1A                             ; sprite ID : shot
+ $D107 DEFB $02                             ; sprite ID : floor
+ $D108 DEFB $01                             ; default state
+ $D109 DEFB $08,$08,$08,$10,$38             ; state times
+ $D10E DEFB $00                             ; unused
+ $D10F DEFB $18                             ; "shot" sprite ID : stand off
+ $D110 DEFB $19                             ; "shot" sprite ID : draw
+ $D111 DEFB $1A                             ; "shot" sprite ID : shot
+ $D112 DEFB $02                             ; "shot" sprite ID : floor
+ $D113 DEFB $01                             ; "shot" default state
+ $D114 DEFB $0B,$0B,$0B,$0B,$0B             ; "shot" state times
+; Bandit 2
+*$D119 DEFB $00                             ; unused
+ $D11A DEFB $08                             ; sprite ID : stand off
+ $D11B DEFB $08                             ; sprite ID : draw
+ $D11C DEFB $09                             ; sprite ID : shot
+ $D11D DEFB $07                             ; sprite ID : floor
+ $D11E DEFB $01                             ; sprite ID : default state
+ $D11F DEFB $08,$08,$08,$01,$30             ; state times
+ $D124 DEFB $00                             ; unused
+ $D125 DEFB $08                             ; "shot" sprite ID : stand off
+ $D126 DEFB $08                             ; "shot" sprite ID : draw
+ $D127 DEFB $09                             ; "shot" sprite ID : shot
+ $D128 DEFB $07                             ; "shot" sprite ID : floor
+ $D129 DEFB $01                             ; "shot" default state
+ $D12A DEFB $0B,$0B,$0B,$0B,$0B             ; "shot" state times
 
-; Data block at D07D
-b$D07D DEFB $01,$0B,$0B,$0B,$0B,$0B,$0B,$01
- $D085 DEFB $1B,$01,$08,$08,$08,$80,$08,$08
- $D08D DEFB $0A,$0B,$0C,$0D,$0E,$00,$01,$08
- $D095 DEFB $08,$08,$40,$10,$08,$08,$08,$03
- $D09D DEFB $04,$05,$06,$07,$01,$01,$08,$08
- $D0A5 DEFB $08,$38,$0C,$06,$08,$08
- $D0AB DEFB $01,$0B,$0B                     ; Source
- $D0AE DEFB $00,$00,$01,$08,$08,$08,$50,$08
- $D0B6 DEFB $08,$80
- $D0B8 DEFB $00,$01,$0B,$0B,$0B,$0B,$0B,$0B ; {??
- $D0C0 DEFB $0B                             ; }
-; Bandit 3.
- $D0C1 DEFB $00,$10,$0F,$11,$02,$01,$08,$08 ; {Bandit 3 source data.
- $D0C9 DEFB $08,$40,$40                     ; }
- $D0CC DEFB $00,$10,$0F,$11,$02,$01,$0B,$0B ; {Bandit 3 buffer.
- $D0D4 DEFB $0B,$0B,$0B                     ; }
-; Bandit 4.
- $D0D7 DEFB $00,$12,$13,$14,$02,$01,$08,$08 ; {Bandit 4 source data.
- $D0DF DEFB $08,$30,$40                     ; }
- $D0E2 DEFB $00,$12,$13,$14,$02,$01,$0B,$0B ; {Bandit 4 buffer.
- $D0EA DEFB $0B,$0B,$0B                     ; }
-; Bandit 5.
- $D0ED DEFB $00,$15,$16,$17,$02,$01,$08,$08 ; {Bandit 5 source data.
- $D0F5 DEFB $08,$20,$38                     ; }
- $D0F8 DEFB $00,$15,$16,$17,$02,$01,$0B,$0B ; {Bandit 5 buffer.
- $D100 DEFB $0B,$0B,$0B                     ; }
-; Bandit 6.
- $D103 DEFB $00,$18,$19,$1A,$02,$01,$08,$08 ; {Bandit 6 source data.
- $D10B DEFB $08,$10,$38                     ; }
- $D10E DEFB $00,$18,$19,$1A,$02,$01,$0B,$0B ; {Bandit 6 buffer.
- $D116 DEFB $0B,$0B,$0B                     ; }
-; Bandit 2.
- $D119 DEFB $00,$08,$08,$09,$07,$01,$08,$08 ; {Bandit 2 source data.
- $D121 DEFB $08,$01,$30                     ; }
- $D124 DEFB $00,$08,$08,$09,$07,$01,$0B,$0B ; {Bandit 2 buffer.
- $D12C DEFB $0B,$0B,$0B                     ; }
- $D12F DEFB $00,$10,$0F,$11,$02,$04,$00,$00
+; Door data values
+;
+; Door 1
+g$D12F DEFB $00,$10,$0F,$11,$02,$04,$00,$00
  $D137 DEFB $00,$0D,$40,$10,$08,$00,$00,$20
  $D13F DEFB $20,$20
- $D141 DEFB $00,$08,$08,$09,$07,$05,$00,$00
- $D149 DEFB $00,$00,$00
- $D14C DEFB $10,$08,$00,$00,$20,$20,$20
- $D153 DEFB $03,$04,$05,$06,$07,$01,$02,$0B ; {Target
- $D15B DEFB $00,$00,$1E                     ; }
- $D15E DEFB $0C,$06,$08,$08,$20,$20,$20
+; Door 2
+*$D141 DEFB $00,$08,$08,$09,$07,$05,$00,$00
+ $D149 DEFB $00,$00,$00,$10,$08,$00,$00,$20
+ $D151 DEFB $20,$20
+; Door 3
+*$D153 DEFB $03,$04,$05,$06,$07,$01,$02,$0B
+ $D15B DEFB $00,$00,$1E,$0C,$06,$08,$08,$20
+ $D163 DEFB $20,$20
 
 ; Door 1 Flags
 @label=Door_Flags_01
@@ -7741,13 +7824,13 @@ g$D181 DEFW $CE18
 @label=Door_Char_Source_03
  $D18D DEFW $D0C1
 
-; Game status buffer entry at D18F
+; Set to 1 if state times should not be copied back after being run
 g$D18F DEFB $00
 
-; Game status buffer entry at D190
+; Set to 1 if money should be collected from this door
 g$D190 DEFB $00
 
-; Game status buffer entry at D191
+; Set to 1 if two days have been completed and the reward screen should be shown
 g$D191 DEFB $01
 
 ; Copy Source Character Data To Character State Data
@@ -7955,19 +8038,25 @@ c$D192 LD L,(IX+$02) ; {Handles copying $0007 bytes of data from the address con
  $D2CC LDIR          ; {Copy the source to the target again and return.
  $D2CE RET           ; }
 
-; Routine at D2CF
+; Run the appropriate keyboard or joystick routine
 ;
 ; Used by the routines at #R$CAE7 and #R$D3EA.
 @label=Controls
 c$D2CF LD HL,($CE12) ; #R$CE12
- $D2D2 LD DE,$D2D7   ; {Stash #R$D2D7 on the stack.
- $D2D5 PUSH DE       ; }
+ $D2D2 LD DE,$D2D7   ; {Stash #R$D2D7 on the stack. Control returns there
+ $D2D5 PUSH DE       ; after the keyboard or joystick is read.}
  $D2D6 JP (HL)       ; Jumps to the control routine for whatever is in-use
                      ; (either #R$D392 or #R$D39B).
  $D2D7 DEFW $AF4F    ;
 
-; Routine at D2D9
-c$D2D9 LD HL,$D2FF   ;
+; Take action on player input
+;
+; This routine is called indirectly from #R$D2CF
+;
+; A Bits set, depending on user input
+c$D2D7 LD C,A        ;
+ $D2D8 XOR A         ;
+ $D2D9 LD HL,$D2FF   ;
  $D2DC LD (HL),A     ;
  $D2DD INC HL        ;
  $D2DE LD (HL),A     ;
@@ -7989,8 +8078,21 @@ c$D2D9 LD HL,$D2FF   ;
  $D2F8 BIT 1,A       ;
  $D2FA JP NZ,$D38C   ;
  $D2FD RET           ;
- $D2FE DEFB $02      ;
- $D2FF DEFB $00      ;
+
+; Player mistakes
+;
+; If any of these bits are set, the player loses a life:
+; #TABLE(default,centre,centre)
+; { =h Bit | =h Reason }
+; { 0 | Shot by a bandit }
+; { 1 | Shot a customer or "good" Julius }
+; { 2 | Shot a bomb }
+; TABLE#
+@label=Mistakes
+g$D2FE DEFB $02      ;
+
+; Most recent user input for gun
+g$D2FF DEFB $00      ;
 
 ; Player Shot
 @label=Hit
@@ -8216,7 +8318,7 @@ c$D3E2 LD A,$DF      ; {Read from the keyboard;
                      ; "O" for left and right).
  $D3E9 RET           ; Return.
 
-; Routine at D3EA
+; Scan the doors to see if they are closed, and take action if so
 @label=Door_Prep_01
 c$D3EA LD HL,$CE14   ; #R$CE14
  $D3ED XOR A         ; {Sets #REGa=0 and #REGb=$06 (counter).
@@ -8652,7 +8754,7 @@ c$D5FA PUSH BC       ; {Store #REGbc and #REGhl for later.
  $D60D DJNZ $D5FA    ; #R$D5FA until it is zero.}
  $D60F RET           ; Return.
 
-; Routine at D610
+; Adjust a screen address across a boundary
 ;
 ; Used by the routines at #R$D5E6 and #R$D5FA.
 ;
@@ -9127,10 +9229,12 @@ c$D7C5 DEFB $01        ; If this is $00 then Bowie is "good". If this is $01
  $D89D LD (IX+$05),H   ; }
  $D8A0 RET             ; Return.
 
-; Routine at D8A1
+; Remove a character from a door
 ;
 ; Used by the routines at #R$CD68, #R$D48F, #R$D71E, #R$D7C5, #R$D8E5 and
 ; #R$DA0C.
+;
+; IX Pointer to door
 @label=Reset___
 c$D8A1 LD L,(IX+$00) ; {Blanks the 16 bit address pointed to by one of the
  $D8A4 LD H,(IX+$01) ; passed door flags (i.e. writes $0000 to one of #R$CE14,
@@ -9565,7 +9669,7 @@ c$DA0C DEFB $00      ;
  $DAEB CALL $D8A1    ; {Call #R$D8A1 and return.
  $DAEE RET           ; }
 
-; Routine at DAEF
+; Generate a random number between 0 - 3
 ;
 ; Used by the routine at #R$CE21.
 c$DAEF CALL $D8B0    ;
@@ -9577,156 +9681,8 @@ c$DAEF CALL $D8B0    ;
  $DAFC ADD A,C       ;
  $DAFD RET           ;
 
-; Data block at DAFE
-b$DAFE DEFB $00,$3E,$C3,$00,$00,$00,$00,$00
- $DB06 DEFB $31,$FF,$5F,$21,$82,$FD,$E5,$DD
- $DB0E DEFB $21,$00,$40,$11,$00,$C0,$3E,$FF
- $DB16 DEFB $37,$CD,$1D,$DB,$C3,$00,$00,$21
- $DB1E DEFB $80,$1F,$CB,$7F,$28,$03,$21,$98
- $DB26 DEFB $0C,$08,$13,$DD,$2B,$F3,$3E,$02
- $DB2E DEFB $47,$10,$FE,$D3,$FE,$EE,$0F,$06
- $DB36 DEFB $A4,$2D,$20,$F5,$05,$25,$F2,$2F
- $DB3E DEFB $DB,$06,$2F,$10,$FE,$D3,$FE,$3E
- $DB46 DEFB $0D,$06,$37,$10,$FE,$D3,$FE,$01
- $DB4E DEFB $0E,$1D,$08,$6F,$C3,$5E,$DB,$7A
- $DB56 DEFB $B3,$28,$0C,$DD,$6E,$00,$7C,$AD
- $DB5E DEFB $67,$3E,$01,$37,$C3,$7C,$DB,$6C
- $DB66 DEFB $18,$F4,$79,$CB,$78,$10,$FE,$30
- $DB6E DEFB $04,$06,$24,$10,$FE,$D3,$FE,$06
- $DB76 DEFB $20,$20,$EF,$05,$AF,$3C,$CB,$15
- $DB7E DEFB $C2,$6B,$DB,$1B,$DD,$23,$06,$13
- $DB86 DEFB $3E,$7F,$DB,$FE,$1F,$D0,$7A,$3C
- $DB8E DEFB $C2,$55,$DB,$06,$3B,$10,$FE,$C9
- $DB96 DEFB $F5,$3A,$48,$5C,$E6,$38,$0F,$0F
- $DB9E DEFB $0F,$D3,$FE,$3E,$7F,$DB,$FE,$1F
- $DBA6 DEFB $FB,$38,$02,$CF,$0C,$F1,$C9,$00
- $DBAE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBB6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBBE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBC6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBCE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBD6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBDE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBE6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBEE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBF6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DBFE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DC06 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DC0E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DC16 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DC1E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DC26 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DC2E DEFB $00,$00,$00,$00,$31,$FF,$5F,$21
- $DC36 DEFB $00,$40,$11,$01,$40,$01,$FF,$1A
- $DC3E DEFB $36,$00,$ED,$B0,$AF,$32,$3D,$5C
- $DC46 DEFB $31,$FF,$5F,$DD,$21,$00,$40,$11
- $DC4E DEFB $00,$C0,$3E,$FF,$37,$CD,$59,$DC
- $DC56 DEFB $C3,$00,$00,$14,$08,$15,$F3,$3E
- $DC5E DEFB $0F,$D3,$FE,$DB,$FE,$1F,$E6,$20
- $DC66 DEFB $F6,$02,$4F,$BF,$C0,$CD,$E7,$05
- $DC6E DEFB $30,$FA,$21,$15,$04,$10,$FE,$2B
- $DC76 DEFB $7C,$B5,$20,$F9,$CD,$E3,$05,$30
- $DC7E DEFB $EB,$06,$9C,$CD,$E3,$05,$30,$E4
- $DC86 DEFB $3E,$C6,$B8,$30,$E0,$24,$20,$F1
- $DC8E DEFB $06,$C9,$CD,$E7,$05,$30,$D5,$78
- $DC96 DEFB $FE,$D4,$30,$F4,$CD,$E7,$05,$D0
- $DC9E DEFB $79,$EE,$02,$4F,$26,$00,$06,$D8
- $DCA6 DEFB $18,$1F,$08,$20,$07,$30,$0F,$DD
- $DCAE DEFB $75,$00,$18,$0F,$CB,$11,$AD,$C0
- $DCB6 DEFB $79,$1F,$4F,$13,$18,$07,$DD,$7E
- $DCBE DEFB $00,$AD,$C0,$DD,$23,$1B,$08,$06
- $DCC6 DEFB $DA,$2E,$01,$CD,$E2,$DC,$D0,$3E
- $DCCE DEFB $E5,$B8,$CB,$15,$06,$D8,$D2,$C9
- $DCD6 DEFB $DC,$7C,$AD,$67,$7A,$B3,$20,$CA
- $DCDE DEFB $AF,$D3,$FE,$C9,$CD,$E6,$DC,$D0
- $DCE6 DEFB $00,$00,$00,$3A,$3D,$5C,$B7,$C2
- $DCEE DEFB $00,$00,$3E,$0A,$3D,$20,$FD,$A7
- $DCF6 DEFB $04,$C8,$3E,$7F,$DB,$FE,$1F,$D0
- $DCFE DEFB $A9,$E6,$20,$28,$F3,$79,$2F,$4F
- $DD06 DEFB $E6,$07,$F6,$08,$D3,$FE,$37,$C9
- $DD0E DEFB $50,$69,$73,$73,$20,$6F,$66,$66
- $DD16 DEFB $20,$79,$6F,$75,$20,$44,$61,$79
- $DD1E DEFB $67,$6F,$20,$54,$77,$61,$74,$73
- $DD26 DEFB $21,$00,$00,$00,$00,$00,$00,$00
- $DD2E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD36 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD3E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD46 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD4E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD56 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD5E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD66 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD6E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD76 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD7E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD86 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD8E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD96 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DD9E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDA6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDAE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDB6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDBE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDC6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDCE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDD6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDDE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDE6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDEE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDF6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DDFE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE06 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE0E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE16 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE1E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE26 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE2E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE36 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE3E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE46 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE4E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE56 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE5E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE66 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE6E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE76 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE7E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE86 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE8E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE96 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DE9E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEA6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEAE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEB6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEBE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEC6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DECE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DED6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEDE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEE6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEEE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEF6 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DEFE DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF06 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF0E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF16 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF1E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF26 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF2E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF36 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF3E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF46 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF4E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF56 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF5E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF66 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF6E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF76 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF7E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF86 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF8E DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF96 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $DF9E DEFB $00,$00
+; Unused
+u$DAFE DEFS $04A2
 
 ; Slot Numbering
 @label=SlotNumbers_Left
@@ -11055,7 +11011,7 @@ t$FB78 DEFM "  WRITE YOUR NAME PLEASE   ",$FF      ; "#STR#(#PC),$08($b==$FF)".
 @label=HighScore_Sub_Head
  $FBB5 DEFM "     THESE ARE THE BEST        ",$FF  ; "#STR#(#PC),$08($b==$FF)".
 
-; Routine at FBD5
+; Print a high score entry
 ;
 ; Used by the routine at #R$FA00.
 c$FBD5 LD HL,($FBF0) ; #REGhl=#R$FBF0.
@@ -11164,8 +11120,8 @@ u$FC67 DEFB $C3,$90,$EA
 
 i$FC6A
 
-; Data block at FD00
-b$FD00 DEFB $A7,$C2,$0F,$FC,$3A,$0A,$FC
+; Unused
+u$FD00 DEFB $A7,$C2,$0F,$FC,$3A,$0A,$FC
  $FD07 DEFB $F6,$01,$D3,$7F,$3A,$0C,$FC
  $FD0E DEFB $CB,$7F,$20,$06,$CD,$54,$1F
  $FD15 DEFB $D2,$30,$FD,$DB,$FB,$E6,$01
@@ -11239,8 +11195,8 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
 ; Unused
 u$FDCE JP $EA90      ; Jump to #R$EA90.
 
-; Data block at FDD1
-b$FDD1 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+; Unused
+u$FDD1 DEFB $00,$00,$00,$00,$00,$00,$00,$00
  $FDD9 DEFB $00,$00,$00,$00,$00,$00,$00,$00
  $FDE1 DEFB $00,$00,$00,$00,$00,$00,$00,$00
  $FDE9 DEFB $00,$00,$00,$00,$00,$00,$00,$00
