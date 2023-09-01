@@ -5,3 +5,5 @@ dist
 
 *.z80
 *.tzx
+
+.DS_Store

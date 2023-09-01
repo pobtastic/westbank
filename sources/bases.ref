@@ -6,7 +6,6 @@ alt_dir=#MAP({vars[pub]}&3)(..,1:hex,2:dec)/
 
 [Paths+]
 CodeFiles={address#IF({mode[base]}==16)(:04X)}.html
-AudioPath=#IF({vars[pub]}>2)(../)audio
 ImagePath=#IF({vars[pub]}>2)(../)images
 
 [Template:footer]
