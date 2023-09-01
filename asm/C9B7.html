@@ -545,7 +545,7 @@ Clears the screen and displays the day number.
 <td class="asm-label">Prep_Display_Day</td>
 <td class="address-2"><span id="ca64"></span>CA64</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="2">Clears the screen by passing $00 to <a href="C9B7.html#c9d0">Clear_Screen</a>.</td>
+<td class="comment-1" rowspan="2">Clears the screen by passing 00 to <a href="C9B7.html#c9d0">Clear_Screen</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -578,7 +578,7 @@ Clear down the day/ progress states.
 <td class="asm-label">Init_Progress</td>
 <td class="address-2"><span id="ca6c"></span>CA6C</td>
 <td class="instruction">LD HL,$0000</td>
-<td class="comment-1" rowspan="3">Clears <a href="C9B7.html#ca4a">Phase</a> and <a href="C9B7.html#ca4c">Day</a> (writes $0000 to them).</td>
+<td class="comment-1" rowspan="3">Clears <a href="C9B7.html#ca4a">Phase</a> and <a href="C9B7.html#ca4c">Day</a> (writes 0000 to them).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -857,7 +857,7 @@ This entry point is used by the routines at <a href="CD1B.html">Flash_Lives</a> 
 <td class="asm-label">Prep_Display_Phase_1</td>
 <td class="address-2"><span id="cacb"></span>CACB</td>
 <td class="instruction">XOR A</td>
-<td class="comment-1" rowspan="2">Writes $00 to <a href="D2D9.html#d2fe">D2FE</a>.</td>
+<td class="comment-1" rowspan="2">Writes 00 to <a href="D2D9.html#d2fe">D2FE</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>

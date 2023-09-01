@@ -57,7 +57,7 @@ Handles copying a "normal" bandit into the bandit state cache at <a href="55070.
 <td class="asm-label">Prep_Bandit_Open</td>
 <td class="address-2"><span id="53650"></span>53650</td>
 <td class="instruction">LD L,(IX+2)</td>
-<td class="comment-1" rowspan="8">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="8">Handles copying 0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
@@ -143,7 +143,7 @@ Handles copying a "normal" bandit into the bandit state cache at <a href="55070.
 <td class="asm-label"></td>
 <td class="address-1"><span id="53674"></span>53674</td>
 <td class="instruction">LD A,(53647)</td>
-<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write $00 to it. If it wasn't zero then return.</td>
+<td class="comment-1" rowspan="5">Check if <a href="53647.html">53647</a> is zero. Write 0 to it. If it wasn't zero then return.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -190,7 +190,7 @@ And copying a successful bandit encounter to close the door.
 <td class="asm-label">Prep_Bandit_Close</td>
 <td class="address-1"><span id="53687"></span>53687</td>
 <td class="instruction">LD L,(IX+2)</td>
-<td class="comment-1" rowspan="8">Handles copying $0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
+<td class="comment-1" rowspan="8">Handles copying 0007 bytes of data from the address contained at (depending on which door is currently being actioned); <table class="default">
 <tr>
 <th colspan="1" rowspan="1">Address</th>
 <th colspan="1" rowspan="1">Door</th>
