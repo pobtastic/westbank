@@ -6708,13 +6708,14 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB88 JP NZ,$CD47                          ; }
  $CB8B BIT 1,A                              ; {Else if bit 1 is not zero, jump
  $CB8D JP NZ,$CD1B                          ; to #R$CD1B and flash a life counter.}
- $CB90 CALL $CDC3                           ; Call #R$CDC3.
+ $CB90 CALL $CDC3                           ; Apply scoring.
  $CB93 LD HL,$D190                          ; {If we got money (set by 01 in #R$D190), collect it. 
  $CB96 LD A,(HL)                            ; 
  $CB97 AND A                                ; 
  $CB98 LD (HL),$00                          ;
  $CB9A CALL NZ,$CBA0                        ; }
  $CB9D JP $CAE7                             ; Go round the main loop again.
+; This routine plays the "collect" effect and redraws the money boxes.
 *$CBA0 CALL $F960                           ; Play the "collect money" effect.
  $CBA3 JP $CC9B                             ; Redraw the cash boxes.
 ; This routine is called each time round the loop,
@@ -7027,29 +7028,29 @@ c$CD1B LD B,$0A      ; {Short pause.
  $CD3C POP BC        ; {Loop back until the counter is zero.
  $CD3D DJNZ $CD25    ; }
  $CD3F LD A,(HL)     ; {Finally decrease lives by one and if they are not zero
- $CD40 DEC A         ; jump to #R$CACB.
+ $CD40 DEC A         ; jump to #R$CACB to restart the phase.
  $CD41 LD (HL),A     ;
  $CD42 JP NZ,$CACB   ; }
- $CD45 SCF           ; {Set the carry flag and return.
+ $CD45 SCF           ; {Set the carry flag to note the game is over, and return.
  $CD46 RET           ; }
 
-; Lose a life
+; Dramatic effect / Lose a life
 ;
 ; Used by the routine at #R$CAE7.
-c$CD47 LD A,($D2FE)  ; {If bit 2 of #R$D2FE is zero then jump to #R$CD53 and print BANG! instead.
+c$CD47 LD A,($D2FE)  ; {Is bit 2 (shot the bomb) of #R$D2FE set?
  $CD4A BIT 2,A       ;
  $CD4C JR Z,$CD53    ; }
- $CD4E CALL $F880    ;
- $CD51 JR $CD56      ;
-*$CD53 CALL $C000    ;
-*$CD56 CALL $CD68    ;
- $CD59 LD HL,$CC59   ;
- $CD5C LD A,(HL)     ;
- $CD5D DEC A         ;
- $CD5E LD (HL),A     ;
- $CD5F JP NZ,$CACB   ;
- $CD62 SCF           ;
- $CD63 RET           ;
+ $CD4E CALL $F880    ; { Display the "shot the bomb" effect.
+ $CD51 JR $CD56      ; }
+*$CD53 CALL $C000    ; Otherwise - BANG!
+*$CD56 CALL $CD68    ; Initialize the door flags.
+ $CD59 LD HL,$CC59   ; {Finally decrease lives by one and if they are not zero
+ $CD5C LD A,(HL)     ; jump to #R$CACB to restart the phase.
+ $CD5D DEC A         ; 
+ $CD5E LD (HL),A     ; 
+ $CD5F JP NZ,$CACB   ; }
+ $CD62 SCF           ; { Set the carry flag to note the game is over, and return.
+ $CD63 RET           ; }
 
 ; Configurable "pause"
 ;
@@ -7310,7 +7311,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
 ;       character is always chosen here, so this is the end of the
 ;       choosing routine.
 @label=Choose_Default_Set
-*$CE42 CALL $DAEF    ; Call #R$DAEF.
+*$CE42 CALL $DAEF    ; Generate a random number.
  $CE45 AND $03       ; Keep only bits 0 and 1 (which determine the type of
                      ; character).
  $CE47 JR Z,$CEB8    ; {Determines which character initialisation to run;
@@ -7385,7 +7386,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
                      ; { #R$D17D | Door 2 }
                      ; { #R$D18B | Door 3 }
                      ; TABLE#}
- $CEB5 JP $D019      ; Jump to #R$D019.
+ $CEB5 JP $D019      ; Put the bandit in the door.
 
 ; Character Initialisations
 ;
@@ -9714,16 +9715,16 @@ c$DA0C DEFB $00      ;
  $DAEB CALL $D8A1    ; {Call #R$D8A1 and return.
  $DAEE RET           ; }
 
-; Generate a random number between 0 - 3
+; Generate a random number added to the system clock.
 ;
 ; Used by the routine at #R$CE21.
-c$DAEF CALL $D8B0    ;
- $DAF2 LD C,A        ;
- $DAF3 LD A,($5C78)  ;
- $DAF6 RR C          ;
+c$DAEF CALL $D8B0    ; Generate a random number.
+ $DAF2 LD C,A        ; Put this in C.
+ $DAF3 LD A,($5C78)  ; FRAMES - Frame counter.
+ $DAF6 RR C          ; { Remember the top 5 bits.
  $DAF8 RR C          ;
- $DAFA RR C          ;
- $DAFC ADD A,C       ;
+ $DAFA RR C          ; }
+ $DAFC ADD A,C       ; Add the frame counter.
  $DAFD RET           ;
 
 ; Unused
@@ -10564,7 +10565,7 @@ b$F600 DEFB $00,$00,$00,$00,$00,$00,$00,$00 ; {#UDGARRAY8,attr=6,scale=4,step=8;
  $F870 DEFB $00,$00,$00,$00,$00,$00,$00,$00 ;
  $F878 DEFB $00,$00,$00,$00,$00,$00,$00,$00 ; }
 
-; ff
+; Display the "blown up" effect after shooting the bomb
 ;
 ; Used by the routine at #R$CD47.
 c$F880 LD B,$0C      ;
