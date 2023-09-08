@@ -7235,10 +7235,11 @@ g$CE1C DEFW $0380
 ; Current door speed multiplier (larger = slower). Cycles between the value in #R$CE1B and 1,
 ;       allowing doors to open at different times.
 g$CE1E DEFB $03
+
 ; Defines the entry point for the choosing routines. Note, this isn't for one choice - they chain into each other
 ;       this simply points to where the chain starts.
 @label=Chooser_Routine_Buffer
- $CE1F DEFW $CE8D
+g$CE1F DEFW $CE8D
 
 ; Choose Door Character
 ;
