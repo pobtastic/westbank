@@ -176,6 +176,44 @@ take care that the bottom hat doesn't conceal a bomb or you will lose a life.</p
 </table>
 )
 
+[Objects:Doors]
+#HTML(
+<table>
+  <tr><th>(#R$BA80(frame 1))</th><th>(#R$BCE8(frame 2))</th><th>(#R$BEA0(frame 3))</th><th>(#R$BFA8(frame 4))</th></tr>
+  <tr>
+    <td><img src="./images/udgs/door-1.png"/></td>
+    <td><img src="./images/udgs/door-2.png"/></td>
+    <td><img src="./images/udgs/door-3.png"/></td>
+    <td><img src="./images/udgs/door-4.png"/></td>
+  </tr>
+</table>
+)
+
+[Objects:Door Layout]
+#HTML(
+<table>
+  <tr><th>(#R$E0C0(top))</th></tr>
+  <tr><td><img src="./images/udgs/doors-top.png" width=800/></td></tr>
+  <tr>
+    <table>
+      <tr><th>(#R$E1C0(left))</th><th>(#R$E270(middle))</th><th>(#R$E3D0(right))</th></tr>
+      <tr>
+        <td><img src="./images/udgs/wall-left.png" height=200/></td>
+        <td><img src="./images/udgs/wall-middle.png" height=200/></td>
+        <td><img src="./images/udgs/door-side.png" height=200/></td>
+      </tr>
+    </table>
+  <tr/>
+  <tr><th>(#R$E428(bottom))</th></tr>
+  <tr><td><img src="./images/udgs/doors-bottom.png" width=800/></td></tr>
+  <tr><th>(#R$E528(tellers))</th></tr>
+  <tr><td><img src="./images/udgs/tellers.png" width=800/></td></tr>
+</table>
+)
+
+[Objects:Sherrif's Badge]
+#HTML((#R$F600)<br/><img src="./images/udgs/badge.png">)
+
 [Playfield:Playfield]
 #CALL:play_area(playarea)
 

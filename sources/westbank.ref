@@ -34,12 +34,14 @@ Reference
 [Index:Graphics:Graphics]
 Bandits
 Customers
+Objects
 Playfield
 Bang
 
 [Links]
 Bandits=[Bandits]
 Customers=[Customers]
+Objects=[Objects]
 Playfield=[Playfield]
 Bang=[Bang]
 
@@ -49,6 +51,9 @@ SectionPrefix=Bandits
 [Page:Customers]
 SectionPrefix=Customers
 
+[Page:Objects]
+SectionPrefix=Objects
+
 [Page:Playfield]
 SectionPrefix=Playfield
 
@@ -57,6 +62,22 @@ SectionPrefix=Bang
 
 [Page:Pokes]
 SectionType=ListItems
+
+[Fact:Number of characters]
+The instructions say there is a ninth mystery character. However, there are in fact two - the only "drawing" bandits documented are Joe and Alfred Dalton
+
+[Fact:Bandit 2 behaviour]
+MACKEYHAM is described as "shoot as quickly as you can". However, it uses the same code as the four "drawing" bandits. The state machine time
+at #R$D11F for state 4 ("stand off") is set to 1, meaning the character moves to state 5 ("draw") as quickly as possible. Additionally, the
+sprite IDs for "stand off" (#R$D11A) and "draw" (#R$D11B) are the same.
+
+[Fact:States for Jack Vicious]
+JACK VICIOUS uses six state times (defined in #R$D076). However, the final two (which would involve closing the door) are never called, as the game prints BANG!
+as soon as state 4 finishes.
+
+[Poke:Cheats]
+While playing a game, hold down A+ENTER, and while holding those keys down, press BREAK (CAPS + SPACE). You'll then have 255 lives.
+
 [Poke:Pokes]
 Assorted POKEs for the game
 <p>Starting lives;<br>#TABLE(default) { =h Address | =h Poke/ Alteration | =h New Code | =h Old Code } { 51210 | #SPACE(1) | #SPACE(1) | LD A, <i>$FF</i> } { $6317 | <i>$FF</i> (or whatever you want it to be) | LD A, $FF | ^^ } TABLE#</p>
@@ -83,6 +104,10 @@ M 8 50829 0 0
 Z 8 50931 0 0
 NChange the game's speed to 'n' (higher = slower)
 Z 8 51277 5 n
+N Green Jordan never gets surprised by Jack Vicious
+Z 8 53057 32 24
+N Daisy never gets surprised by Jack Vicious
+Z 8 53108 32 24
 
 [Page:Changelog]
 SectionType=BulletPoints

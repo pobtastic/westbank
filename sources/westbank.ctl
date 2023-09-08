@@ -1320,7 +1320,8 @@ N $CA6C Clear down the day/ progress states.
 
 B $CA80,$01
 @ $CA80 label=Cashboxes_Completed_Flag
-  $CA81
+
+c $CA81 Run a phase and bonus level until completed or game over
 @ $CA81 label=Cashboxes_Completed
 @ $CA87 label=Cashboxes_Flash_Loop
 
@@ -1338,7 +1339,7 @@ B $CA80,$01
   $CAE3,$03 Call #R$D45E.
   $CAE6,$01 Return.
 
-c $CAE7 A
+c $CAE7 Main game loop
   $CAE7,$04 Read from the keyboard;
 . #TABLE(default,centre,centre,centre,centre,centre,centre)
 . { =h,r2 Port Number | =h,c5 Bit }
@@ -2506,6 +2507,14 @@ c $D3EA Scan the doors to see if they are closed, and take action if so
   $D3EA,$03 #R$CE14
   $D3ED,$03 Sets #REGa=0 and #REGb=$06 (counter).
   $D3F0
+
+c $D407 Return with the carry flag set if the phase is complete
+
+c $D411 See if all doors are closed, then check for movement
+
+c $D42D Move left
+
+c $D449 Move right
 
 g $D45C Cash Deposit Box Reference
 @ $D45C label=CashboxReference_Inactive
