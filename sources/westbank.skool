@@ -7449,20 +7449,20 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF07 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF08 CALL $D8B0      ;
- $CF0B AND $08         ;
- $CF0D LD HL,$D084     ;
+ $CF08 CALL $D8B0      ; {Generate a random number. 
+ $CF0B AND $08         ; If bit 3 is set, Bowie will have a bomb instead of money.
+ $CF0D LD HL,$D084     ; Set the "money / bomb" flag for Bowie in #R$D084.
  $CF10 LD (HL),$00     ;
  $CF12 JR Z,$CF16      ;
- $CF14 LD (HL),$01     ;
+ $CF14 LD (HL),$01     ; }
 @label=Init_Bowie_Set_Flag
-*$CF16 LD E,(IX+$02)   ;
- $CF19 LD D,(IX+$03)   ;
- $CF1C LD BC,$0009     ;
- $CF1F LDIR            ;
- $CF21 LD DE,$D863     ;
- $CF24 LD (IX+$04),E   ;
- $CF27 LD (IX+$05),D   ;
+*$CF16 LD E,(IX+$02)   ; { Copy to the values for this door.
+ $CF19 LD D,(IX+$03)   ; }
+ $CF1C LD BC,$0009     ; 3 values.
+ $CF1F LDIR            ; Do the copy.
+ $CF21 LD DE,$D863     ; { Copy the routine at #R$D863 (shot Bowie) to the door's
+ $CF24 LD (IX+$04),E   ; "gun action" routine. 
+ $CF27 LD (IX+$05),D   ; }
  $CF2A RET             ;
 ; Writes "Green Jordan opening the door" to the door flags/ cache.
 @label=Init_Customer_Open
@@ -7554,17 +7554,17 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CFC2 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CFC3 LD HL,$D0AE     ;
- $CFC6 LD (HL),$00     ;
- $CFC8 CALL $D8B0      ;
+ $CFC3 LD HL,$D0AE     ; Defaults for Julius.
+ $CFC6 LD (HL),$00     ; { Generate a random number.
+ $CFC8 CALL $D8B0      ; If bit 5 is set, Julius will be "bad" and draw a gun.
  $CFCB AND $20         ;
  $CFCD JR NZ,$CFD1     ;
- $CFCF LD (HL),$01     ;
+ $CFCF LD (HL),$01     ; }
 @label=Init_Julius_Open_Set_Flag
-*$CFD1 LD E,(IX+$02)   ;
- $CFD4 LD D,(IX+$03)   ;
- $CFD7 LD BC,$000A     ;
- $CFDA LDIR            ;
+*$CFD1 LD E,(IX+$02)   ; { Copy to the values for this door.
+ $CFD4 LD D,(IX+$03)   ; }
+ $CFD7 LD BC,$000A     ; 10 values.
+ $CFDA LDIR            ; Do the copy.
  $CFDC RET             ;
 ; Writes "Julius closing the door" to the door flags/ cache.
 @label=Init_Julius_Close
@@ -7785,6 +7785,33 @@ b$D076 DEFB $01                             ; default state
 
 ; Door data values
 ;
+; The values contain custom flags for each character, plus the working
+; current state and state machine times. The number of bytes used depends
+; on the character.
+; 
+; .
+;
+; #TABLE(default,centre,centre,centre)
+; { =h Source | =h Length | =h Character type }
+; { #R$D076 | 07 | Jack Vicious }
+; { #R$D07D | 07 | Jack Vicious (shot) }
+; { #R$D084 | 09 | Bowie }
+; { #R$D08D | 0F | Daisy }
+; { #R$D09C | 0F | Green Jordan }
+; { #R$D0AB | 03 | shot customer }
+; { #R$D0AE | 0A | Julius }
+; { #R$D0B8 | 09 | Julius (shot) }
+; { #R$D0C1 | 0B | Bandit 3 }
+; { #R$D0CC | 0B | Bandit 3 (shot) }
+; { #R$D0D7 | 0B | Bandit 4 }
+; { #R$D0E2 | 0B | Bandit 4 (shot) }
+; { #R$D0ED | 0B | Bandit 5 }
+; { #R$D0F8 | 0B | Bandit 5 (shot) }
+; { #R$D103 | 0B | Bandit 6 }
+; { #R$D10E | 0B | Bandit 6 (shot) }
+; { #R$D119 | 0B | Bandit 2 }
+; { #R$D124 | 0B | Bandit 2 (shot) }
+; TABLE#
 ; Door 1
 g$D12F DEFB $00,$10,$0F,$11,$02,$04,$00,$00
  $D137 DEFB $00,$0D,$40,$10,$08,$00,$00,$20
@@ -7800,54 +7827,54 @@ g$D12F DEFB $00,$10,$0F,$11,$02,$04,$00,$00
 
 ; Door 1 Flags
 @label=Door_Flags_01
-g$D165 DEFW $CE14
+g$D165 DEFW $CE14               ; Current door routine in play (#R$CE14)
 @label=Door_Source_01
- $D167 DEFW $D12F
+ $D167 DEFW $D12F               ; Pointer to data values
 @label=Door_Bowie_Action_01
- $D169 DEFW $D85D
+ $D169 DEFW $D85D               ; Routine to call if player shot Bowie
 @label=Door_Scoring_01
- $D16B DEFW $0000
+ $D16B DEFB $00,$00             ; Score given by this character (tens then hundreds)
 @label=Door_Cash_Action_01
- $D16D DEFB $00
- $D16E DEFB $08
+ $D16D DEFB $00                 ; Set to 1 if this character should give money
+ $D16E DEFB $08                 ; Number of cycles to wait until door opens
 @label=Door_Char_Buffer_01
- $D16F DEFW $D0CC
-@label=Door_Char_Source_01
- $D171 DEFW $D0C1
+ $D16F DEFW $D0CC               ; Pointer to custom flags for bandits (shot)
+@label=Door_Char_Source_01      
+ $D171 DEFW $D0C1               ; Pointer to custom flags for bandits (not shot)
 
 ; Door 2 Flags
 @label=Door_Flags_02
-g$D173 DEFW $CE16
+g$D173 DEFW $CE16               ; Current door routine in play (#R$CE16)
 @label=Door_Source_02
- $D175 DEFW $D141
+ $D175 DEFW $D141               ; Pointer to data values
 @label=Door_Bowie_Action_02
- $D177 DEFW $D85D
+ $D177 DEFW $D85D               ; Routine to call if player shot Bowie
 @label=Door_Scoring_02
- $D179 DEFW $0000
+ $D179 DEFB $00,$00             ; Score given by this character (tens then hundreds)
 @label=Door_Cash_Action_02
- $D17B DEFB $00
- $D17C DEFB $06
+ $D17B DEFB $00                 ; Set to 1 if this character should give money
+ $D17C DEFB $06                 ; Number of cycles to wait until door opens
 @label=Door_Char_Buffer_02
- $D17D DEFW $D124
+ $D17D DEFW $D124               ; Pointer to custom flags for bandits (shot)
 @label=Door_Char_Source_02
- $D17F DEFW $D119
+ $D17F DEFW $D119               ; Pointer to custom flags for bandits (not shot)
 
 ; Door 3 Flags
 @label=Door_Flags_03
-g$D181 DEFW $CE18
+g$D181 DEFW $CE18               ; Current door routine in play (#R$CE18)
 @label=Door_Source_03
- $D183 DEFW $D153
+ $D183 DEFW $D153               ; Pointer to data values
 @label=Door_Bowie_Action_03
- $D185 DEFW $D85D
+ $D185 DEFW $D85D               ; Routine to call if player shot Bowie
 @label=Door_Scoring_03
- $D187 DEFW $0000
+ $D187 DEFB $00,$00             ; Score given by this character (tens then hundreds)
 @label=Door_Cash_Action_03
- $D189 DEFB $00
- $D18A DEFB $1D
+ $D189 DEFB $00                 ; Set to 1 if this character should give money
+ $D18A DEFB $1D                 ; Number of cycles to wait until door opens
 @label=Door_Char_Buffer_03
- $D18B DEFW $D0CC
+ $D18B DEFW $D0CC               ; Pointer to custom flags for bandits (shot)
 @label=Door_Char_Source_03
- $D18D DEFW $D0C1
+ $D18D DEFW $D0C1               ; Pointer to custom flags for bandits (not shot)
 
 ; Set to 1 if state times should not be copied back after being run
 g$D18F DEFB $00
