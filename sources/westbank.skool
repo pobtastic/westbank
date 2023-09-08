@@ -6658,7 +6658,7 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB2B PUSH AF                              ; Remember the flags.
  $CB2C CALL Z,$CE21                         ; If the door is empty, look at putting a character in.
  $CB2F POP AF                               ; Restore the flags.
- $CB30 JR Z,$CB3F                           ; If the door is still empty, skip the next bit.
+ $CB30 JR Z,$CB3F                           ; If the door was empty, skip the next bit.
 ; There's somebody at the door.
  $CB32 LD HL,($CE14)                        ; Get the contents of the first door.
  $CB35 LD DE,$CB3F                          ; { Remember a return to #R$CB3F on the stack.
@@ -6676,7 +6676,7 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB4D PUSH AF                              ; Remember the flags.
  $CB4E CALL Z,$CE21                         ; If the door is empty, look at putting a character in.
  $CB51 POP AF                               ; Restore the flags.
- $CB52 JR Z,$CB61                           ; If the door is still empty, skip the next bit.
+ $CB52 JR Z,$CB61                           ; If the door was empty, skip the next bit.
 ; There's somebody at the door.
  $CB54 LD HL,($CE16)                        ; Get the contents of the second door.
  $CB57 LD DE,$CB61                          ; { Remember a return to #R$CB61 on the stack.
@@ -6694,7 +6694,7 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB6F PUSH AF                              ; Remember the flags.
  $CB70 CALL Z,$CE21                         ; If the door is empty, look at putting a character in.
  $CB73 POP AF                               ; Restore the flags.
- $CB74 JR Z,$CB83                           ; If the door is still empty, skip the next bit.
+ $CB74 JR Z,$CB83                           ; If the door was empty, skip the next bit.
 ; There's somebody at the door.
  $CB76 LD HL,($CE18)                        ; Get the contents of the door.
  $CB79 LD DE,$CB83                          ; { Remember a return to #R$CB83 on the stack.
