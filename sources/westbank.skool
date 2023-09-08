@@ -6536,11 +6536,16 @@ c$C9B7 LD HL,$0101        ; {Writes #N$01 to both #R$D45C and #R$D45D.
  $CA7C LD A,$30           ;
  $CA7E LD (HL),A          ; }
  $CA7F RET                ; Return.
+
+; Set to 1 if this phase is complete
 @label=Cashboxes_Completed_Flag
- $CA80 DEFB $00           ;
-; This entry point is used by the routine at #R$C7E5.
+g$CA80 DEFB $00           ;
+
+; Run a phase and bonus level until completed or game over
+;
+; Used by the routine at #R$C7E5.
 @label=Cashboxes_Completed
-*$CA81 CALL $CAC8         ;
+c$CA81 CALL $CAC8         ;
  $CA84 RET C              ;
  $CA85 LD B,$10           ;
 @label=Cashboxes_Flash_Loop
@@ -6589,7 +6594,7 @@ c$C9B7 LD HL,$0101        ; {Writes #N$01 to both #R$D45C and #R$D45D.
  $CAE3 CALL $D45E         ; Call #R$D45E.
  $CAE6 RET                ; Return.
 
-; A
+; Run a phase and bonus level until completed or game over
 ;
 ; Used by the routine at #R$C9B7.
 c$CAE7 LD A,$7F                             ; {Read from the keyboard;
@@ -8320,72 +8325,93 @@ c$D3E2 LD A,$DF      ; {Read from the keyboard;
  $D3E9 RET           ; Return.
 
 ; Scan the doors to see if they are closed, and take action if so
+;
+; Used by the routine at #R$D411.
 @label=Door_Prep_01
 c$D3EA LD HL,$CE14   ; #R$CE14
- $D3ED XOR A         ; {Sets #REGa=0 and #REGb=$06 (counter).
- $D3EE LD B,$06      ; }
-*$D3F0 OR (HL)       ;
- $D3F1 INC HL        ;
- $D3F2 DJNZ $D3F0    ;
- $D3F4 AND A         ;
- $D3F5 POP BC        ;
- $D3F6 RET NZ        ;
- $D3F7 PUSH BC       ;
- $D3F8 LD HL,$D8AC   ;
- $D3FB INC (HL)      ;
- $D3FC LD DE,$0400   ;
- $D3FF CALL $D407    ;
- $D402 RET NC        ;
- $D403 POP AF        ;
- $D404 POP AF        ;
- $D405 AND A         ;
+ $D3ED XOR A         ; Sets #REGa=0 to set the zero flag.
+ $D3EE LD B,$06      ; { Loop round six bytes (ie: 3 pointers). If all doors are closed,
+*$D3F0 OR (HL)       ; they will all contain 0000, and the zero flag will be kept.
+ $D3F1 INC HL        ;  
+ $D3F2 DJNZ $D3F0    ; }
+ $D3F4 AND A         ; Are all the doors closed?
+ $D3F5 POP BC        ; { If not, wind the stack back to do 
+ $D3F6 RET NZ        ; an early return from the calling routine at #R$CAE7.}
+ $D3F7 PUSH BC       ; Redo the stack.
+ $D3F8 LD HL,$D8AC   ; { Change the random number seeds, so things
+ $D3FB INC (HL)      ; happen differently from here on. }
+ $D3FC LD DE,$0400   ; Set up a pause interval (used by the calling routine at #R$D411).
+ $D3FF CALL $D407  ; Is the phase complete?
+ $D402 RET NC        ; No, so return.
+ $D403 POP AF        ; { Wind the stack back
+ $D404 POP AF        ; to do an early return from the calling routine at #R$C9B7.}
+ $D405 AND A         ; Clear the carry flag.
  $D406 RET           ;
-*$D407 LD HL,$CA80   ;
- $D40A LD A,(HL)     ;
- $D40B AND A         ;
- $D40C RET Z         ;
- $D40D LD (HL),$00   ;
- $D40F SCF           ;
- $D410 RET           ;
-; This entry point is used by the routine at #R$CAE7.
-*$D411 CALL $D3EA    ;
-*$D414 PUSH DE       ;
- $D415 CALL $D2CF    ;
- $D418 LD A,($D301)  ;
- $D41B AND A         ;
- $D41C CALL NZ,$D42D ;
- $D41F LD A,($D302)  ;
- $D422 AND A         ;
- $D423 CALL NZ,$D449 ;
- $D426 POP DE        ;
- $D427 DEC DE        ;
- $D428 LD A,D        ;
- $D429 OR E          ;
- $D42A RET Z         ;
- $D42B JR $D414      ;
-*$D42D CALL $6600    ;
+
+; Return with the carry flag set if the phase is complete
+;
+; Used by the routine at #R$D3EA
+c$D407 LD HL,$CA80   ; #R$CA80
+ $D40A LD A,(HL)     ; { Is the value zero?
+ $D40B AND A         ; }
+ $D40C RET Z         ; Return if it is
+ $D40D LD (HL),$00   ; { Otherwise, set the carry flag
+ $D40F SCF           ; to note that this phase is done
+ $D410 RET           ; }
+
+; See if all doors are closed, then check for movement
+;
+; Used by the routine at #R$CAE7.
+c$D411 CALL $D3EA      ; Check the doors are closed.
+                       ; If not, this routine will exit because of the POP BC instruction at #R$D3F5. 
+                       ; If the doors are closed AND there is money in every slot, the routine will exit out further because of the two POP AF instructions at #R$D403 and #R$D404.
+                       ; Note - #HTML(<a href=https://en.wikipedia.org/wiki/Stack_buffer_overflow>Don't try this at home</a>).
+*$D414 PUSH DE         ; Remember DE.
+ $D415 CALL $D2CF      ; Get user input.
+ $D418 LD A,($D301)    ; {Has the player pressed "right"? (#R$D301)
+ $D41B AND A           ; }
+ $D41C CALL NZ,$D42D   ; Move right if so
+ $D41F LD A,($D302)    ; {Has the player pressed "left"? (#R$D301)
+ $D422 AND A           ; }
+ $D423 CALL NZ,$D449   ; Move right if so
+ $D426 POP DE          ; Restore DE.
+ $D427 DEC DE          ; { Loop $400 times (was set up at #R$D3FC).
+ $D428 LD A,D          ;
+ $D429 OR E            ;
+ $D42A RET Z           ; }
+ $D42B JR $D414        ; Check input again. Will exit this routine when a door is open or the game is complete.
+
+; Move right
+;
+; Used by the routine at #R$D411
+c$D42D CALL $6600    ; Scroll the screen right.
  $D430 LD DE,$0400   ;
- $D433 LD HL,$D45D   ;
- $D436 LD A,(HL)     ;
+ $D433 LD HL,$D45D   ; Point to the cash deposit box reference at #R$D45D.
+ $D436 LD A,(HL)     ; { Move up a box.
  $D437 INC A         ;
- $D438 LD (HL),A     ;
- $D439 CP $0D        ;
+ $D438 LD (HL),A     ; }
+ $D439 CP $0D        ; { If we went past box 12, go back to box 1
  $D43B JR C,$D43F    ;
- $D43D LD (HL),$01   ;
-*$D43F CALL $D45E    ;
- $D442 LD A,($D45D)  ;
- $D445 LD ($D45C),A  ;
+ $D43D LD (HL),$01   ; }
+; This entry point is used by the routine at #R$D449.
+*$D43F CALL $D45E    ; Highlight the active doors.
+ $D442 LD A,($D45D)  ; { Put a copy of the current index in #R$D45C. 
+ $D445 LD ($D45C),A  ; }
  $D448 RET           ;
-*$D449 CALL $6700    ;
+
+; Move left
+;
+; Used by the routine at #R$D411
+c$D449 CALL $6700    ; Scroll the screen left.
  $D44C LD DE,$0400   ;
- $D44F LD HL,$D45D   ;
- $D452 LD A,(HL)     ;
+ $D44F LD HL,$D45D   ; Point to the cash deposit box reference at #R$D45D.
+ $D452 LD A,(HL)     ; { Move down a box.
  $D453 DEC A         ;
- $D454 LD (HL),A     ;
- $D455 AND A         ;
+ $D454 LD (HL),A     ; }
+ $D455 AND A         ; { If we went past box 1, go back to box 12.
  $D456 JR NZ,$D43F   ;
- $D458 LD (HL),$0C   ;
- $D45A JR $D43F      ;
+ $D458 LD (HL),$0C   ; }
+ $D45A JR $D43F      ; The code from here is the same as moving right.
 
 ; Cash Deposit Box Reference
 @label=CashboxReference_Inactive
