@@ -7337,13 +7337,13 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
                      ; TABLE#}
 ; Handles whether or not to choose Julius. Only active on phase 4 and above.
 @label=Choose_Julius
-*$CE55 CALL $D8B0    ; Call #R$D8B0.
+*$CE55 CALL $D8B0    ; Generate a random number.
  $CE58 AND $0C       ; {Keep only bits 2 and 3. Jump to the next character "test" if
  $CE5A JR NZ,$CE5F   ; this is a non-zero number at #R$CE5F.}
  $CE5C JP $CFB7      ; Jump to #R$CFB7.
 ; Handles whether or not to choose Bandit 2. Only active on phase 3 and above.
 @label=Choose_Bandit_02
-*$CE5F CALL $D8B0    ; Call #R$D8B0.
+*$CE5F CALL $D8B0    ; Generate a random number.
  $CE62 AND $98       ; {Keep only bits 3, 4 and 7. Jump to the next character "test" if
  $CE64 JR NZ,$CE6F   ; this is a non-zero number at #R$CE6F.}
  $CE66 LD HL,$D119   ; Set source character data to #R$D119.
@@ -7351,7 +7351,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE6C JP $CEA9      ; Jump to #R$CEA9.
 ; Handles whether or not to choose Bandit 3. Only active on phase 2 and above.
 @label=Choose_Bandit_03
-*$CE6F CALL $D8B0    ; Call #R$D8B0.
+*$CE6F CALL $D8B0    ; Generate a random number.
  $CE72 AND $31       ; {Keep only bits 0, 4 and 5. Jump to the next character "test" if
  $CE74 JR NZ,$CE42   ;           this is a non-zero number then jump back to the #R$CE42.
                      ; }
@@ -7360,7 +7360,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE7C JR $CEA9      ; Jump to #R$CEA9.
 ; Handles whether or not to choose Bandit 4. Only active on phase 5 and above.
 @label=Choose_Bandit_04
-*$CE7E CALL $D8B0    ; Call #R$D8B0.
+*$CE7E CALL $D8B0    ; Generate a random number.
  $CE81 AND $83       ; {Keep only bits 0, 1 and 7. Jump to the next character "test" if
  $CE83 JR NZ,$CE55   ; this is a non-zero number #R$CE55.}
  $CE85 LD HL,$D0D7   ; Set source character data to #R$D0D7.
@@ -7368,7 +7368,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE8B JR $CEA9      ; Jump to #R$CEA9.
 ; Handles whether or not to choose Bandit 5. Only active on phase 6 and above.
 @label=Choose_Bandit_05
-*$CE8D CALL $D8B0    ; Call #R$D8B0.
+*$CE8D CALL $D8B0    ; Generate a random number.
  $CE90 AND $58       ; {Keep only bits 3, 4 and 6. Jump to the next character "test" if
  $CE92 JR NZ,$CE7E   ; this is a non-zero number #R$CE7E.}
  $CE94 LD HL,$D0ED   ; Set source character data to #R$D0ED.
@@ -7376,7 +7376,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE9A JR $CEA9      ; Jump to #R$CEA9.
 ; Handles whether or not to choose Bandit 6. Only active on phase 7 and above.
 @label=Choose_Bandit_06
- $CE9C CALL $D8B0    ; Call #R$D8B0.
+ $CE9C CALL $D8B0    ; Generate a random number.
  $CE9F AND $71       ; {Keep only bits 0, 4, 5 and 6. Jump to the next character "test" if
  $CEA1 JR NZ,$CE8D   ; this is a non-zero number #R$CE8D.}
  $CEA3 LD HL,$D103   ; Set source character data to #R$D103.
