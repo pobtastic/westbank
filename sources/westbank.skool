@@ -6545,8 +6545,8 @@ g$CA80 DEFB $00           ;
 ;
 ; Used by the routine at #R$C7E5.
 @label=Cashboxes_Completed
-c$CA81 CALL $CAC8         ;
- $CA84 RET C              ;
+c$CA81 CALL $CAC8         ; Initialize everything.
+ $CA84 RET C              ; Return we've run out of lives.
  $CA85 LD B,$10           ;
 @label=Cashboxes_Flash_Loop
 *$CA87 PUSH BC            ;
@@ -6561,7 +6561,7 @@ c$CA81 CALL $CAC8         ;
  $CA98 CALL $CD64         ;
  $CA9B LD A,B             ;
  $CA9C CALL $CAB9         ;
- $CA9F CALL $D8B0         ;
+ $CA9F CALL $D8B0         ; Generate a random number
  $CAA2 LD B,A             ;
  $CAA3 LD A,R             ;
  $CAA5 LD C,A             ;
@@ -6569,7 +6569,7 @@ c$CA81 CALL $CAC8         ;
  $CAA7 LD D,A             ;
  $CAA8 LD A,($CBCF)       ;
  $CAAB LD HL,$CBB4        ;
- $CAAE CALL $C3C0         ;
+ $CAAE CALL $C3C0         ; Run the duel
  $CAB1 LD ($CBCF),A       ;
  $CAB4 LD B,$00           ;
  $CAB6 JP $CD64           ;
@@ -6580,12 +6580,15 @@ c$CA81 CALL $CAC8         ;
  $CAC2 LD (HL),A          ;
  $CAC3 LDIR               ; }
  $CAC5 JP $CC9B           ; Jump to #R$CC9B.
+; Initialize the phase and run it.
 *$CAC8 CALL $C9B7         ;
+; Initialize the state of play, either from starting a new phase or losing a life.
+;
 ; This entry point is used by the routines at #R$CD1B and #R$CD47.
 *$CACB XOR A              ; {Clear the "mistakes" bit field at #R$D2FE.
  $CACC LD ($D2FE),A       ; }
  $CACF CALL $CAD4         ;
- $CAD2 JR $CAE7           ;
+ $CAD2 JR $CAE7           ; Jump to the main loop.
 *$CAD4 CALL $CD68         ; Call #R$CD68.
  $CAD7 CALL $CC3A         ; Call #R$CC3A.
  $CADA CALL $CC5A         ; Call #R$CC5A.
@@ -6596,7 +6599,7 @@ c$CA81 CALL $CAC8         ;
 
 ; Main game loop
 ;
-; Used by the routine at #R$C9B7.
+; Used by the routine at #R$CAC8.
 c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CAE9 IN A,($FE)                           ; #TABLE(default,centre,centre,centre,centre,centre,centre)
                                             ; { =h,r2 Port Number | =h,c5 Bit }
@@ -6632,75 +6635,87 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB07 BIT 2,A                              ;
  $CB09 JR NZ,$CB03                          ;
 *$CB0B CALL $D2CF                           ; Call #R$D2CF.
- $CB0E LD BC,($CE1C)                        ; #REGbc=#R$CE1C.
-*$CB12 DEC BC                               ;
+ $CB0E LD BC,($CE1C)                        ; { Get the game speed from #R$CE1C
+*$CB12 DEC BC                               ; and delay for that amount of time.
  $CB13 LD A,B                               ;
  $CB14 OR C                                 ;
- $CB15 JR NZ,$CB12                          ;
- $CB17 CALL $D411                           ;
- $CB1A CALL $CBA6                           ; Call #R$CBA6.
- $CB1D LD IX,$D165                          ; #REGix=#R$D165.
+ $CB15 JR NZ,$CB12                          ; }
+ $CB17 CALL $D411                           ; Check for closed doors and movement.
+                                            ; This routine exits here if all doors are closed and all money is collected.
+; At this point, the player is not moving and the phase is still in play,
+; so look at the doors.
+ $CB1A CALL $CBA6                           ; Clear the temporary storage from #R$5B00 to $5BFF.
+; Look at door 1.
+ $CB1D LD IX,$D165                          ; Point to the first door at #R$D165.
  $CB21 LD (IX+$08),$00                      ;
- $CB25 LD HL,$CE14                          ; #REGhl=#R$CE14.
- $CB28 LD A,(HL)                            ;
- $CB29 INC HL                               ;
- $CB2A OR (HL)                              ;
- $CB2B PUSH AF                              ;
- $CB2C CALL Z,$CE21                         ;
- $CB2F POP AF                               ;
- $CB30 JR Z,$CB3F                           ;
- $CB32 LD HL,($CE14)                        ;
- $CB35 LD DE,$CB3F                          ;
- $CB38 PUSH DE                              ;
- $CB39 LD A,$01                             ;
- $CB3B LD ($CE1A),A                         ;
- $CB3E JP (HL)                              ;
-*$CB3F LD IX,$D173                          ;
+ $CB25 LD HL,$CE14                          ; Check the contents of the first door at #R$CE14.
+ $CB28 LD A,(HL)                            ; { If there no character at this door, the door will point to $0000,
+ $CB29 INC HL                               ; and the zero flag will be set.
+ $CB2A OR (HL)                              ; }
+ $CB2B PUSH AF                              ; Remember the flags.
+ $CB2C CALL Z,$CE21                         ; If the door is empty, look at putting a character in.
+ $CB2F POP AF                               ; Restore the flags.
+ $CB30 JR Z,$CB3F                           ; If the door is still empty, skip the next bit.
+; There's somebody at the door.
+ $CB32 LD HL,($CE14)                        ; Get the contents of the first door.
+ $CB35 LD DE,$CB3F                          ; { Remember a return to #R$CB3F on the stack.
+ $CB38 PUSH DE                              ; }
+ $CB39 LD A,$01                             ; { Looking at the first door.
+ $CB3B LD ($CE1A),A                         ; }
+ $CB3E JP (HL)                              ; Do the action.
+; Look at door 2.
+*$CB3F LD IX,$D173                          ; Point to the second door at #R$D173.
  $CB43 LD (IX+$08),$00                      ;
- $CB47 LD HL,$CE16                          ;
- $CB4A LD A,(HL)                            ;
- $CB4B INC HL                               ;
- $CB4C OR (HL)                              ;
- $CB4D PUSH AF                              ;
- $CB4E CALL Z,$CE21                         ;
- $CB51 POP AF                               ;
- $CB52 JR Z,$CB61                           ;
- $CB54 LD HL,($CE16)                        ;
- $CB57 LD DE,$CB61                          ;
- $CB5A PUSH DE                              ;
- $CB5B LD A,$02                             ;
- $CB5D LD ($CE1A),A                         ;
- $CB60 JP (HL)                              ;
-*$CB61 LD IX,$D181                          ;
- $CB65 LD (IX+$08),$00                      ;
- $CB69 LD HL,$CE18                          ;
- $CB6C LD A,(HL)                            ;
- $CB6D INC HL                               ;
- $CB6E OR (HL)                              ;
- $CB6F PUSH AF                              ;
- $CB70 CALL Z,$CE21                         ;
- $CB73 POP AF                               ;
- $CB74 JR Z,$CB83                           ;
- $CB76 LD HL,($CE18)                        ;
- $CB79 LD DE,$CB83                          ;
- $CB7C PUSH DE                              ;
- $CB7D LD A,$03                             ;
- $CB7F LD ($CE1A),A                         ;
- $CB82 JP (HL)                              ;
+ $CB47 LD HL,$CE16                          ; Check the contents of the second door at #R$CE16.
+ $CB4A LD A,(HL)                            ; { If there no character at this door, the door will point to $0000,
+ $CB4B INC HL                               ; and the zero flag will be set.
+ $CB4C OR (HL)                              ; }
+ $CB4D PUSH AF                              ; Remember the flags.
+ $CB4E CALL Z,$CE21                         ; If the door is empty, look at putting a character in.
+ $CB51 POP AF                               ; Restore the flags.
+ $CB52 JR Z,$CB61                           ; If the door is still empty, skip the next bit.
+; There's somebody at the door.
+ $CB54 LD HL,($CE16)                        ; Get the contents of the second door.
+ $CB57 LD DE,$CB61                          ; { Remember a return to #R$CB61 on the stack.
+ $CB5A PUSH DE                              ; }
+ $CB5B LD A,$02                             ; { Looking at the second door.
+ $CB5D LD ($CE1A),A                         ; }
+ $CB60 JP (HL)                              ; Do the action.
+; Look at door 3.
+*$CB61 LD IX,$D181                          ; Point to the thrd door at #R$D181.
+ $CB65 LD (IX+$08),$00                      ; 
+ $CB69 LD HL,$CE18                          ; Check the contents of the thrd door at #R$CE18.
+ $CB6C LD A,(HL)                            ; { If there no character at this door, the door will point to $0000,
+ $CB6D INC HL                               ; and the zero flag will be set.
+ $CB6E OR (HL)                              ; }
+ $CB6F PUSH AF                              ; Remember the flags.
+ $CB70 CALL Z,$CE21                         ; If the door is empty, look at putting a character in.
+ $CB73 POP AF                               ; Restore the flags.
+ $CB74 JR Z,$CB83                           ; If the door is still empty, skip the next bit.
+; There's somebody at the door.
+ $CB76 LD HL,($CE18)                        ; Get the contents of the door.
+ $CB79 LD DE,$CB83                          ; { Remember a return to #R$CB83 on the stack.
+ $CB7C PUSH DE                              ; }
+ $CB7D LD A,$03                             ; { Looking at the third door.
+ $CB7F LD ($CE1A),A                         ; }
+ $CB82 JP (HL)                              ; Do the action.
+; After taking action on all three doors, see if the player made a mistake.
 *$CB83 LD A,($D2FE)                         ; {If bit 0 of #R$D2FE is not zero
  $CB86 BIT 0,A                              ; then jump to #R$CD47 and lose a life.
  $CB88 JP NZ,$CD47                          ; }
  $CB8B BIT 1,A                              ; {Else if bit 1 is not zero, jump
  $CB8D JP NZ,$CD1B                          ; to #R$CD1B and flash a life counter.}
  $CB90 CALL $CDC3                           ; Call #R$CDC3.
- $CB93 LD HL,$D190                          ; {If #R$D190 is not zero then call
- $CB96 LD A,(HL)                            ; #R$CBA0 (also, writes #N$00 to
- $CB97 AND A                                ; #R$D190 to clear it).
+ $CB93 LD HL,$D190                          ; {If we got money (set by 01 in #R$D190), collect it. 
+ $CB96 LD A,(HL)                            ; 
+ $CB97 AND A                                ; 
  $CB98 LD (HL),$00                          ;
  $CB9A CALL NZ,$CBA0                        ; }
- $CB9D JP $CAE7                             ;
-*$CBA0 CALL $F960                           ;
- $CBA3 JP $CC9B                             ;
+ $CB9D JP $CAE7                             ; Go round the main loop again.
+*$CBA0 CALL $F960                           ; Play the "collect money" effect.
+ $CBA3 JP $CC9B                             ; Redraw the cash boxes.
+; This routine is called each time round the loop,
+; and clears out any temporary storage used when acting on a character.
 *$CBA6 LD HL,$5B00                          ; {Blanks $FF bytes from #R$5B00
  $CBA9 LD DE,$5B01                          ; onwards, then returns.
  $CBAC LD BC,$00FF                          ;
@@ -9274,7 +9289,7 @@ c$D8A1 LD L,(IX+$00) ; {Blanks the 16 bit address pointed to by one of the
 ; Hash values for random number generator
 g$D8AC DEFB $EE,$92,$1B,$E5
 
-; Routine at D8B0
+; Generate a random number
 ;
 ; Used by the routines at #R$C9B7, #R$CE21, #R$CEB8 and #R$DAEF.
 ;
