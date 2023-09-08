@@ -1926,8 +1926,9 @@ b$6E30 DEFB $00,$00,$00,$00,$00,$00 ; {#CHARACTERS(character-03*)
 
 ; Bandit 2
 ;
-; ALFRED DALTON - A real baddie. Shoot as soon as he takes out his
-;       gun!
+;  MACKEYHAM - The bloodthirsty villain. Everyone trembles when
+;       they come up against him. Don't hesitate or it
+;       might be too late. Shoot as quickly as you can.
 ;
 ; .
 ;
@@ -2575,8 +2576,8 @@ b$7CA0 DEFB $00,$06,$0C,$38,$1C,$00 ; {#CHARACTERS(character-10*)
 
 ; Bandit 3
 ;
-; JOE DALTON - Alfred Dalton's brother. It runs in the family.
-;       Shoot as soon as he takes out his gun.
+; ALFRED DALTON - A real baddie. Shoot as soon as he takes out his
+;       gun!
 ;
 ; .
 ;
@@ -2854,9 +2855,8 @@ b$86F0 DEFB $00,$00,$00,$00,$00,$00 ; {#CHARACTERS(character-15*)
 
 ; Bandit 4
 ;
-; MACKEYHAM - The bloodthirsty villain. Everyone trembles when
-;       they come up against him. Don't hesitate or it
-;       might be too late. Shoot as quickly as you can.
+; JOE DALTON - Alfred Dalton's brother. It runs in the family.
+;       Shoot as soon as he takes out his gun.
 ;
 ; .
 ;
