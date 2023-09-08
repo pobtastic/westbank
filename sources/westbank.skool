@@ -6606,35 +6606,38 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
                                             ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
                                             ; { #N$7F | SPACE | FULL-STOP | M | N | B }
                                             ; TABLE#}
- $CAEB RRA                                  ; {If "SPACE" is pressed.
- $CAEC JR C,$CAFB                           ; }
+ $CAEB RRA                                  ; Was "SPACE" pressed?
+ $CAEC JR C,$CAFB                           ; Jump forward if not.
  $CAEE LD A,$FE                             ; {Read from the keyboard;
  $CAF0 IN A,($FE)                           ; #TABLE(default,centre,centre,centre,centre,centre,centre)
                                             ; { =h,r2 Port Number | =h,c5 Bit }
                                             ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
                                             ; { #N$FE | SHIFT | Z | X | C | V }
                                             ; TABLE#}
- $CAF2 RRA                                  ;
- $CAF3 JR C,$CAFB                           ;
- $CAF5 LD HL,$CBB4                          ;
- $CAF8 CALL $FD80                           ;
+ $CAF2 RRA                                  ; Was "CAPS SHIFT" pressed?
+ $CAF3 JR C,$CAFB                           ; Jump forward if not.
+ $CAF5 LD HL,$CBB4                          ; { CAPS + SPACE pressed = BREAK. Abort the game.
+ $CAF8 CALL $FD80                           ; }
+; The game has not been aborted.
+; Check if it is paused and loop round if so until it is unpaused.
 *$CAFB LD A,$FE                             ; {Read from the keyboard;
  $CAFD IN A,($FE)                           ; #TABLE(default,centre,centre,centre,centre,centre,centre)
                                             ; { =h,r2 Port Number | =h,c5 Bit }
                                             ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
                                             ; { #N$FE | SHIFT | Z | X | C | V }
                                             ; TABLE#}
- $CAFF BIT 1,A                              ;
- $CB01 JR NZ,$CB0B                          ;
+ $CAFF BIT 1,A                              ; Was 'Z' pressed? (PAUSE)
+ $CB01 JR NZ,$CB0B                          ; Jump forward if not.
 *$CB03 LD A,$FE                             ; {Read from the keyboard;
  $CB05 IN A,($FE)                           ; #TABLE(default,centre,centre,centre,centre,centre,centre)
                                             ; { =h,r2 Port Number | =h,c5 Bit }
                                             ; { =h 0 | =h 1 | =h 2 | =h 3 | =h 4 }
                                             ; { #N$FE | SHIFT | Z | X | C | V }
                                             ; TABLE#}
- $CB07 BIT 2,A                              ;
- $CB09 JR NZ,$CB03                          ;
-*$CB0B CALL $D2CF                           ; Call #R$D2CF.
+ $CB07 BIT 2,A                              ; was 'X' pressed? (UNPAUSE)
+ $CB09 JR NZ,$CB03                          ; Loop back round if not.
+; The game is running.
+*$CB0B CALL $D2CF                           ; Get the keyboard or joystick input from the player.
  $CB0E LD BC,($CE1C)                        ; { Get the game speed from #R$CE1C
 *$CB12 DEC BC                               ; and delay for that amount of time.
  $CB13 LD A,B                               ;
@@ -6647,7 +6650,7 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB1A CALL $CBA6                           ; Clear the temporary storage from #R$5B00 to $5BFF.
 ; Look at door 1.
  $CB1D LD IX,$D165                          ; Point to the first door at #R$D165.
- $CB21 LD (IX+$08),$00                      ;
+ $CB21 LD (IX+$08),$00                      ; Clear "deposit made" flag on this door.
  $CB25 LD HL,$CE14                          ; Check the contents of the first door at #R$CE14.
  $CB28 LD A,(HL)                            ; { If there no character at this door, the door will point to $0000,
  $CB29 INC HL                               ; and the zero flag will be set.
@@ -6665,7 +6668,7 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB3E JP (HL)                              ; Do the action.
 ; Look at door 2.
 *$CB3F LD IX,$D173                          ; Point to the second door at #R$D173.
- $CB43 LD (IX+$08),$00                      ;
+ $CB43 LD (IX+$08),$00                      ; Clear "deposit made" flag on this door.
  $CB47 LD HL,$CE16                          ; Check the contents of the second door at #R$CE16.
  $CB4A LD A,(HL)                            ; { If there no character at this door, the door will point to $0000,
  $CB4B INC HL                               ; and the zero flag will be set.
@@ -6683,7 +6686,7 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CB60 JP (HL)                              ; Do the action.
 ; Look at door 3.
 *$CB61 LD IX,$D181                          ; Point to the thrd door at #R$D181.
- $CB65 LD (IX+$08),$00                      ; 
+ $CB65 LD (IX+$08),$00                      ; Clear "deposit made" flag on this door.
  $CB69 LD HL,$CE18                          ; Check the contents of the thrd door at #R$CE18.
  $CB6C LD A,(HL)                            ; { If there no character at this door, the door will point to $0000,
  $CB6D INC HL                               ; and the zero flag will be set.
@@ -7275,33 +7278,33 @@ g$CE1F DEFW $CE8D
 ; { #R$D18A | Door 3 }
 ; TABLE#
 @label=Character_Chooser
-c$CE21 LD HL,$CE1E   ; {Decrease #R$CE1E by one.
+c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE24 LD A,(HL)     ;
  $CE25 DEC A         ;
  $CE26 LD (HL),A     ; }
- $CE27 RET NZ        ; Return if not zero.
- $CE28 LD A,($CE1B)  ; {Copies #R$CE1B into #R$CE1E.
+ $CE27 RET NZ        ; Return if it not time to open a door yet.
+ $CE28 LD A,($CE1B)  ; {Restore the basic timer value from #R$CE1B into #R$CE1E.
  $CE2B LD (HL),A     ; }
- $CE2C LD A,(IX+$09) ; {Decrease ????? by one.
+ $CE2C LD A,(IX+$09) ; {Decrease the timer to open this door by one.
  $CE2F DEC A         ; #TABLE(default,centre,centre)
  $CE30 LD (IX+$09),A ; { =h Address | =h Door }
                      ; { #R$D16E | Door 1 }
                      ; { #R$D17C | Door 2 }
                      ; { #R$D18A | Door 3 }
                      ; TABLE#}
- $CE33 RET NZ        ; Return if not zero.
-; f
+ $CE33 RET NZ        ; Return if it is not time to open a door yet.
+; It's time to open this door. Choose a character and put them in it.
 @label=Chooser
- $CE34 CALL $D8B0    ; Call #R$D8B0.
+ $CE34 CALL $D8B0    ; Generate a random number.
  $CE37 AND $1F       ; Keep bits 0-4 (so 0-31).
- $CE39 OR $08        ; {Set bit 3 and write the resulting value to;
+ $CE39 OR $08        ; {Set bit 3 and write the new wait time on this door to;
  $CE3B LD (IX+$09),A ; #TABLE(default,centre,centre)
                      ; { =h Address | =h Door }
                      ; { #R$D16E | Door 1 }
                      ; { #R$D17C | Door 2 }
                      ; { #R$D18A | Door 3 }
                      ; TABLE#}
- $CE3E LD HL,($CE1F) ; {Jump to the memory address contained at #R$CE1F.
+ $CE3E LD HL,($CE1F) ; {Jump to the current character action routine for this phase contained at #R$CE1F.
  $CE41 JP (HL)       ; }
 ; Handles choosing one of the initial "default" characters. A
 ;       character is always chosen here, so this is the end of the
@@ -7312,11 +7315,11 @@ c$CE21 LD HL,$CE1E   ; {Decrease #R$CE1E by one.
                      ; character).
  $CE47 JR Z,$CEB8    ; {Determines which character initialisation to run;
  $CE49 DEC A         ; #TABLE(default,centre,centre)
- $CE4A JP Z,$CEFC    ; { =h #REGa | =h Initialisation Routine }
- $CE4D DEC A         ; { #N$00 | #R$CEB8 }
- $CE4E JP Z,$CF5E    ; { #N$01 | #R$CEFC }
- $CE51 DEC A         ; { #N$02 | #R$CF5E }
- $CE52 JP $CF2B      ; { #N$03 | #R$CF2B }
+ $CE4A JP Z,$CEFC    ; { =h #REGa | =h Initialisation Routine | =h Character }
+ $CE4D DEC A         ; { #N$00 | #R$CEB8 | Jack Vicious }
+ $CE4E JP Z,$CF5E    ; { #N$01 | #R$CEFC | Bowie }
+ $CE51 DEC A         ; { #N$02 | #R$CF5E | Daisy }
+ $CE52 JP $CF2B      ; { #N$03 | #R$CF2B | Green Jordan }
                      ; TABLE#}
 ; Handles whether or not to choose Julius. Only active on phase 3 and above.
 @label=Choose_Julius
@@ -11184,7 +11187,7 @@ u$FD00 DEFB $A7,$C2,$0F,$FC,$3A,$0A,$FC
  $FD7E DEFB $32
  $FD7F DEFB $0C
 
-; Blah
+; Abort the game after pressing break (CAPS + SPACE)
 ;
 ; Used by the routine at #R$CAE7.
 c$FD80 JR $FD84      ; Jump to #R$FD84.
