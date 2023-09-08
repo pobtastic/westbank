@@ -34,12 +34,14 @@ Reference
 [Index:Graphics:Graphics]
 Bandits
 Customers
+Objects
 Playfield
 Bang
 
 [Links]
 Bandits=[Bandits]
 Customers=[Customers]
+Objects=[Objects]
 Playfield=[Playfield]
 Bang=[Bang]
 
@@ -48,6 +50,9 @@ SectionPrefix=Bandits
 
 [Page:Customers]
 SectionPrefix=Customers
+
+[Page:Objects]
+SectionPrefix=Objects
 
 [Page:Playfield]
 SectionPrefix=Playfield
