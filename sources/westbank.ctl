@@ -1339,7 +1339,7 @@ c $CA81 Run a phase and bonus level until completed or game over
   $CAE3,$03 Call #R$D45E.
   $CAE6,$01 Return.
 
-c $CAE7 A
+c $CAE7 Main game loop
   $CAE7,$04 Read from the keyboard;
 . #TABLE(default,centre,centre,centre,centre,centre,centre)
 . { =h,r2 Port Number | =h,c5 Bit }

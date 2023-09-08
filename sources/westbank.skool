@@ -6594,7 +6594,7 @@ c$CA81 CALL $CAC8         ;
  $CAE3 CALL $D45E         ; Call #R$D45E.
  $CAE6 RET                ; Return.
 
-; Run a phase and bonus level until completed or game over
+; Main game loop
 ;
 ; Used by the routine at #R$C9B7.
 c$CAE7 LD A,$7F                             ; {Read from the keyboard;
