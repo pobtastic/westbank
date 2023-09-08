@@ -7335,7 +7335,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE51 DEC A         ; { #N$02 | #R$CF5E | Daisy }
  $CE52 JP $CF2B      ; { #N$03 | #R$CF2B | Green Jordan }
                      ; TABLE#}
-; Handles whether or not to choose Julius. Only active on phase 3 and above.
+; Handles whether or not to choose Julius. Only active on phase 4 and above.
 @label=Choose_Julius
 *$CE55 CALL $D8B0    ; Call #R$D8B0.
  $CE58 AND $0C       ; {Keep only bits 2 and 3. Jump to the next character "test" if
@@ -7358,7 +7358,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE76 LD HL,$D0C1   ; Set source character data to #R$D0C1.
  $CE79 LD DE,$D0CC   ; Set target character buffer to #R$D0CC.
  $CE7C JR $CEA9      ; Jump to #R$CEA9.
-; Handles whether or not to choose Bandit 4. Only active on phase 4 and above.
+; Handles whether or not to choose Bandit 4. Only active on phase 5 and above.
 @label=Choose_Bandit_04
 *$CE7E CALL $D8B0    ; Call #R$D8B0.
  $CE81 AND $83       ; {Keep only bits 0, 1 and 7. Jump to the next character "test" if
@@ -7366,7 +7366,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE85 LD HL,$D0D7   ; Set source character data to #R$D0D7.
  $CE88 LD DE,$D0E2   ; Set target character buffer to #R$D0E2.
  $CE8B JR $CEA9      ; Jump to #R$CEA9.
-; Handles whether or not to choose Bandit 5. Only active on phase 5 and above.
+; Handles whether or not to choose Bandit 5. Only active on phase 6 and above.
 @label=Choose_Bandit_05
 *$CE8D CALL $D8B0    ; Call #R$D8B0.
  $CE90 AND $58       ; {Keep only bits 3, 4 and 6. Jump to the next character "test" if
@@ -7374,7 +7374,7 @@ c$CE21 LD HL,$CE1E   ; {Decrease the current door timer value at #R$CE1E by one.
  $CE94 LD HL,$D0ED   ; Set source character data to #R$D0ED.
  $CE97 LD DE,$D0F8   ; Set target character buffer to #R$D0F8.
  $CE9A JR $CEA9      ; Jump to #R$CEA9.
-; Handles whether or not to choose Bandit 6. Only active on phase 6 and above.
+; Handles whether or not to choose Bandit 6. Only active on phase 7 and above.
 @label=Choose_Bandit_06
  $CE9C CALL $D8B0    ; Call #R$D8B0.
  $CE9F AND $71       ; {Keep only bits 0, 4, 5 and 6. Jump to the next character "test" if
