@@ -6213,15 +6213,15 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C804 LD BC,$0006   ;
  $C807 LDIR          ; }
 @label=Starting_Lives
- $C809 LD A,$03      ; {Initialise #R$CC59 to #N$03.
+ $C809 LD A,$03      ; {Initialise number of lives (#R$CC59) to #N$03.
  $C80B LD ($CC59),A  ; }
- $C80E LD HL,$0101   ; {Initialise #R$D45C to #N$0101.
- $C811 LD ($D45C),HL ; }
- $C814 LD HL,$0000   ; {Clears #R$CE14, #R$CE16 and #R$CE18 (sets them to
- $C817 LD ($CE14),HL ; #N($0000,$04,$04)).
+ $C80E LD HL,$0101   ; {Initialise cash deposit box position (#R$D45C) to #N$0101.
+ $C811 LD ($D45C),HL ; (position 1) }
+ $C814 LD HL,$0000   ; {Flag all doors as being empty.
+ $C817 LD ($CE14),HL ; 
  $C81A LD ($CE16),HL ;
  $C81D LD ($CE18),HL ; }
- $C820 LD HL,$2020   ; {Clear #R$CA58 and #R$CA5A to #N$2020 (ASCII
+ $C820 LD HL,$2020   ; {Clear day / phase text buffers at #R$CA58 and #R$CA5A to #N$2020 (ASCII
  $C823 LD ($CA58),HL ; space-space).
  $C826 LD ($CA5A),HL ; }
  $C829 LD HL,$CC8D   ; {Clear down the deposit flags (copies #N$00 to each from
@@ -6726,12 +6726,25 @@ c$CAE7 LD A,$7F                             ; {Read from the keyboard;
  $CBAF LD (HL),$00                          ;
  $CBB1 LDIR                                 ;
  $CBB3 RET                                  ; }
+; This code and data is copied to #R$5B80.
 @label=Copied_5B80
- $CBB4 DEFB $C3,$D2,$CB,$C3,$5A,$CC,$59,$CC ; {Copied to $5B80.
- $CBBC DEFB $2A,$12,$CE,$E9,$C3,$DC,$CD,$C3 ;
- $CBC4 DEFB $B0,$D5,$C3,$E6,$D5,$C3,$FA,$D5 ;
- $CBCC DEFB $C3,$90,$CD                     ; }
- $CBCF DEFB $01                             ;
+*$CBB4 JP $CBD2      ;
+ $CBB7 JP $CC5A      ;
+ $CBBA DEFW $CC59    ;
+ $CBBC LD HL,($CE12) ;
+ $CBBF JP (HL)       ;
+ $CBC0 JP $CDDC      ;
+ $CBC3 JP $D5B0      ;
+ $CBC6 JP $D5E6      ;
+ $CBC9 JP $D5FA      ;
+ $CBCC JP $CD90      ;
+
+; Unused
+;
+; Set to 1 when running the main game at #R$C839, but reset to 0 if the
+; player didn't complete the duel successfully. However, the
+; value is never used and the routine at #R$C3C0 does not read it.
+u$CBCF DEFB $01                             ;
 
 ; Current text attributes 
 @label=TwoTone_Attributes_Buffer
@@ -11218,8 +11231,15 @@ u$FD00 DEFB $A7,$C2,$0F,$FC,$3A,$0A,$FC
 ; Abort the game after pressing break (CAPS + SPACE)
 ;
 ; Used by the routine at #R$CAE7.
+;
+; .
+;
+; On initialisation, #REGhl=#R$CBB4.
 c$FD80 JR $FD84      ; Jump to #R$FD84.
- $FD82 JR $FDA8      ; Jump to #R$FDA8.
+; This code is never executed. What probably should have happened is code calling #R$FD80 should have
+; been changed to #R$FD82 in production, but this didn't occur.
+ $FD82 JR $FDA8      ; Jump to #R$FDA8, bypassing the "cheat mode" code
+; Code continues from #R$FD80.
 *$FD84 LD A,$FD      ; {Read from the keyboard;
  $FD86 IN A,($FE)    ; #TABLE(default,centre,centre,centre,centre,centre,centre)
                      ; { =h,r2 Port Number | =h,c5 Bit }
@@ -11240,9 +11260,9 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
  $FD94 RET           ; Return.
 *$FD95 LD DE,$5B80   ; #REGde=#R$5B80.
  $FD98 LD BC,$0040   ; #REGbc=#N$0040.
- $FD9B LDIR          ; Copy...
- $FD9D LD HL,($5B86) ; Load the contents of #R$5B86 into #REGhl.
- $FDA0 LD (HL),$FF   ; Write #N$FF to #REGhl.
+ $FD9B LDIR          ; Copy the status flags into #R$5B80.
+ $FD9D LD HL,($5B86) ; { Put 255 lives in the copy of the life counter 
+ $FDA0 LD (HL),$FF   ; so the game will start with this many.}
  $FDA2 RET           ; Return.
 *$FDA3 LD SP,$5FF0   ; #REGsp=#N$5FF0.
  $FDA6 JR $FDBC      ; Jump to #R$FDBC.
