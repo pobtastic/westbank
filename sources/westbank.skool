@@ -7464,7 +7464,7 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF24 LD (IX+$04),E   ;
  $CF27 LD (IX+$05),D   ;
  $CF2A RET             ;
-; Writes a "customer opening the door" to the door flags/ cache.
+; Writes "Green Jordan opening the door" to the door flags/ cache.
 @label=Init_Customer_Open
 *$CF2B LD L,(IX+$00)   ; {Writes #R$D201 to the address contained
  $CF2E LD H,(IX+$01)   ;           at (depending on which door is currently being actioned);
@@ -7474,25 +7474,25 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF36 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF37 CALL $D8B0      ;
- $CF3A AND $82         ;
- $CF3C LD HL,$D0A1     ;
- $CF3F LD (HL),$00     ;
- $CF41 JR NZ,$CF45     ;
- $CF43 LD (HL),$01     ;
+ $CF37 CALL $D8B0      ; { Generate a random number. 
+ $CF3A AND $82         ; If bits 2 and 7 are not set, then Jack Vicious will turn up.
+ $CF3C LD HL,$D0A1     ; Set the "surprised" flag for Green Jordan in #R$D0A1.
+ $CF3F LD (HL),$00     ; 
+ $CF41 JR NZ,$CF45     ; 
+ $CF43 LD (HL),$01     ; }
 @label=Init_Customer_Open_Set_Flag
-*$CF45 LD HL,$D09C     ;
- $CF48 LD E,(IX+$02)   ;
- $CF4B LD D,(IX+$03)   ;
- $CF4E LD BC,$000F     ;
- $CF51 LD A,($D18F)    ;
+*$CF45 LD HL,$D09C     ; Character defaults for Green Jordan.
+ $CF48 LD E,(IX+$02)   ; { Copy to the values for this door.
+ $CF4B LD D,(IX+$03)   ; }
+ $CF4E LD BC,$000F     ; 15 values.
+ $CF51 LD A,($D18F)    ; { If the "don't copy values" flag is set, return early.
  $CF54 AND A           ;
  $CF55 LD A,$00        ;
  $CF57 LD ($D18F),A    ;
- $CF5A RET NZ          ;
- $CF5B LDIR            ;
- $CF5D RET             ;
-; Writes a "customer closing the door" to the door flags/ cache.
+ $CF5A RET NZ          ; }
+ $CF5B LDIR            ; { Do the copy and return.
+ $CF5D RET             ; }
+; Writes "Daisy opening the door" to the door flags/ cache.
 @label=Init_Customer_Close
 *$CF5E LD L,(IX+$00)   ; {Writes #R$D201 to the address contained
  $CF61 LD H,(IX+$01)   ;           at (depending on which door is currently being actioned);
@@ -7502,24 +7502,24 @@ c$CEB8 LD DE,$D192     ; {Writes #R$D192 to the address contained
  $CF69 LD (HL),D       ; { #R$D173 | Door 2 | #R$CE16 }
                        ; { #R$D181 | Door 3 | #R$CE18 }
                        ; TABLE#}
- $CF6A CALL $D8B0      ;
- $CF6D AND $41         ;
- $CF6F LD HL,$D092     ;
- $CF72 LD (HL),$00     ;
+ $CF6A CALL $D8B0      ; { Generate a random number.
+ $CF6D AND $41         ; If bits 1 and 6 are not set, then Jack Vicious will turn up.
+ $CF6F LD HL,$D092     ; Set the "surprised" flag for Daisy in #R$D092.
+ $CF72 LD (HL),$00     ; 
  $CF74 JR NZ,$CF78     ;
- $CF76 LD (HL),$01     ;
+ $CF76 LD (HL),$01     ; }
 @label=Init_Customer_Close_Set_Flag
-*$CF78 LD HL,$D08D     ;
- $CF7B LD E,(IX+$02)   ;
- $CF7E LD D,(IX+$03)   ;
- $CF81 LD BC,$000F     ;
- $CF84 LD A,($D18F)    ;
+*$CF78 LD HL,$D08D     ; Character defaults for Daisy.
+ $CF7B LD E,(IX+$02)   ; { Copy to the values for this door.
+ $CF7E LD D,(IX+$03)   ; }
+ $CF81 LD BC,$000F     ; 15 values.
+ $CF84 LD A,($D18F)    ; { If the "don't copy values" flag is set, return early.
  $CF87 AND A           ;
  $CF88 LD A,$00        ;
  $CF8A LD ($D18F),A    ;
- $CF8D RET NZ          ;
- $CF8E LDIR            ;
- $CF90 RET             ;
+ $CF8D RET NZ          ; }
+ $CF8E LDIR            ; { Do the copy and return.
+ $CF90 RET             ; }
 ; Writes a "customer being shot" to the door flags/ cache.
 @label=Init_Customer_Shot
  $CF91 LD DE,$D226     ; {Writes #R$D226 to the address contained
