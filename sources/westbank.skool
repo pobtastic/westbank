@@ -7787,7 +7787,7 @@ b$D076 DEFB $01                             ; default state
 ;
 ; The values contain custom flags for each character, plus the working
 ; current state and state machine times. The number of bytes used depends
-; on the character.
+; on the character. These are copied from the following defaults:
 ; 
 ; .
 ;
