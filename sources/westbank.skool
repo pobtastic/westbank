@@ -258,7 +258,7 @@ c$5B88 LD HL,($CE12) ;
 
 ; Scoring Preparation (alias)
 ;
-; Used by the routine at #R$C607.
+; Used by the routine at #R$C5F6.
 @label=Scoring_Prep_Alias
 c$5B8C JP $CDDC      ;
 
@@ -281,7 +281,7 @@ c$5B95 JP $D5FA      ;
 
 ; Display The "Score" Images (alias)
 ;
-; Used by the routines at #R$C422 and #R$C607.
+; Used by the routines at #R$C422 and #R$C5F6.
 @label=Draw_Score_Alias
 c$5B98 JP $CD90      ;
 
@@ -321,69 +321,69 @@ c$5B9B LD BC,$0705   ; {Stashes a text attribute at #R$CBD0.
 
 ; Dueller Number 1
 ;
-; Populated initially by #R$C3EA.
+; Populated initially by #R$C3EA. Used by the routines at #R$C530, #R$C58B, #R$C661 and #R$C67F. 
 @label=Dueller_01
-g$5BC0 DEFB $00      ; Dueller state ("0" is complete).
- $5BC1 DEFB $00      ; Dueller timer.
- $5BC2 DEFB $00
- $5BC3 DEFB $00      ; Dueller position.
+g$5BC0 DEFB $00      ; Set to "1" if the player fired at this dueller.
+ $5BC1 DEFB $00      ; Time left on state 1.
+ $5BC2 DEFB $00      ; Time left on state 3.
+ $5BC3 DEFB $00      ; Dueller position (1-3).
  $5BC4 DEFW $0000    ; Screen position above dueller to display "EXTRA" or
                      ; points.
- $5BC6 DEFB $00
+ $5BC6 DEFB $00      ; Not used,
  $5BC7 DEFB $00      ; Bonus points (x100, e.g. "9" == "900").
- $5BC8 DEFB $00
- $5BC9 DEFB $00      ; Current frame?
+ $5BC8 DEFB $00      ; Set to "1" if dueller is standing, or "0" if floored.
+ $5BC9 DEFB $00      ; Current state (1-5).
  $5BCA DEFB $00      ; Character index frame 1.
  $5BCB DEFB $00      ; Character index frame 2.
  $5BCC DEFB $00      ; Character index frame 3.
- $5BCD DEFB $00
- $5BCE DEFB $00
- $5BCF DEFB $00
- $5BD0 DEFB $00
+ $5BCD DEFB $00      ; Set to "1" if the dueller is being fired at.
+ $5BCE DEFB $00      ; Time left on state 4.
+ $5BCF DEFB $00      ; Time left on state 5.
+ $5BD0 DEFB $00      ; Time left on state 2.
 
 ; Dueller Number 2
 ;
-; Populated initially by #R$C3EA.
+; Populated initially by #R$C3EA. Used by the routines at #R$C530, #R$C58B, #R$C661 and #R$C67F.
 @label=Dueller_02
-g$5BD1 DEFB $00      ; Dueller state ("0" is complete).
- $5BD2 DEFB $00      ; Dueller timer.
- $5BD3 DEFB $00
- $5BD4 DEFB $00      ; Dueller position.
+g$5BD1 DEFB $00      ; Set to "1" if the player fired at this dueller.
+ $5BD2 DEFB $00      ; Time left on state 1.
+ $5BD3 DEFB $00;     ; Time left on state 3.
+ $5BD4 DEFB $00      ; Dueller position (1-3).
  $5BD5 DEFW $0000    ; Screen position above dueller to display "EXTRA" or
                      ; points.
- $5BD7 DEFB $00
+ $5BD7 DEFB $00      ; Not used.
  $5BD8 DEFB $00      ; Bonus points (x100, e.g. "9" == "900").
- $5BD9 DEFB $00
- $5BDA DEFB $00      ; Current frame?
+ $5BD9 DEFB $00      ; Set to "1" if dueller is standing, or "0" if floored.
+ $5BDA DEFB $00      ; Current state (1-5).
  $5BDB DEFB $00      ; Character index frame 1.
  $5BDC DEFB $00      ; Character index frame 2.
  $5BDD DEFB $00      ; Character index frame 3.
- $5BDE DEFB $00
- $5BDF DEFB $00
- $5BE0 DEFB $00
- $5BE1 DEFB $00
+ $5BDE DEFB $00      ; Set to "1" if the dueller is being fired at.
+ $5BDF DEFB $00      ; Time left on state 4.
+ $5BE0 DEFB $00      ; Time left on state 5.
+ $5BE1 DEFB $00      ; Time left on state 2.
 
 ; Dueller Number 3
 ;
-; Populated initially by #R$C3EA.
+; Populated initially by #R$C3EA. Used by the routines at #R$C530, #R$C58B, #R$C661 and #R$C67F.
 @label=Dueller_03
-g$5BE2 DEFB $00      ; Dueller state ("0" is complete).
- $5BE3 DEFB $00      ; Dueller timer.
- $5BE4 DEFB $00
- $5BE5 DEFB $00      ; Dueller position.
+g$5BE2 DEFB $00      ; Set to "1" if the player fired at this dueller.
+ $5BE3 DEFB $00      ; Time left on state 1.
+ $5BE4 DEFB $00      ; Time left on state 3.
+ $5BE5 DEFB $00      ; Dueller position (1-3).
  $5BE6 DEFW $0000    ; Screen position above dueller to display "EXTRA" or
                      ; points.
- $5BE8 DEFB $00
+ $5BE8 DEFB $00      ; Not used.
  $5BE9 DEFB $00      ; Bonus points (x100, e.g. "9" == "900").
- $5BEA DEFB $00
- $5BEB DEFB $00      ; Current frame?
+ $5BEA DEFB $00      ; Set to "1" if dueller is standing, or "0" if floored.
+ $5BEB DEFB $00      ; Current state (1-5).
  $5BEC DEFB $00      ; Character index frame 1.
  $5BED DEFB $00      ; Character index frame 2.
  $5BEE DEFB $00      ; Character index frame 3.
- $5BEF DEFB $00
- $5BF0 DEFB $00
- $5BF1 DEFB $00
- $5BF2 DEFB $00
+ $5BEF DEFB $00      ; Set to "1" if the dueller is being fired at.
+ $5BF0 DEFB $00      ; Time left on state 4.
+ $5BF1 DEFB $00      ; Time left on state 5.
+ $5BF2 DEFB $00      ; Time left on state 2.
 
 ; Data block at 5BF3
 b$5BF3 DEFB $00,$00,$00,$00,$00,$00,$00,$00
@@ -5837,7 +5837,7 @@ c$C422 LD HL,$C3EA     ; {Copies #N$33 bytes of data from #R$C3EA to #R$5BC0
 
 ; Play a gunshot sound
 ;
-; This entry point is used by the routines at #R$C607 and #R$C6E5.
+; This entry point is used by the routines at #R$C5F6 and #R$C6E5.
 c$C583 PUSH IX         ;
  $C585 CALL $6500      ;
  $C588 POP IX          ;
@@ -5858,40 +5858,40 @@ c$C58B LD A,(IX+$08)   ; {If the dueller is shot and has hit the floor, there's 
  $C597 JR Z,$C5B5      ; }
  $C599 DEC A           ; {If state is #N$03 (shooting) then jump to #R$C5BD.
  $C59A JR Z,$C5BD      ; }
- $C59C DEC A           ; {If state is #N$04 (shot) then jump to #R$C5CF.
+ $C59C DEC A           ; {If state is #N$04 (player shot) then jump to #R$C5CF.
  $C59D JR Z,$C5CF      ; }
- $C59F JR $C5DD        ; State must be #N$05 (floor) so jump to #R$C5DD.
+ $C59F JR $C5DD        ; State must be #N$05 (shot) so jump to #R$C5DD.
 ; Update a dueller in "stand off" state
 *$C5A1 LD HL,$C6E5     ; {If the player shot this dueller, call #R$C6E5 and exit.
  $C5A4 CALL $C5EB      ; Oops, too early!}
- $C5A7 DEC (IX+$01)    ; Decrease the time left before drawing.
+ $C5A7 DEC (IX+$01)    ; Decrease the time left in this state.
  $C5AA RET NZ          ; Return if not there yet.
  $C5AB INC (IX+$09)    ; Otherwise move to the next state.
  $C5AE LD A,(IX+$0B)   ; { Redraw the dueller as drawing and return.
  $C5B1 CALL $C661      ;
  $C5B4 RET             ; }
 ; Update a dueller in "draw" state
-*$C5B5 DEC (IX+$10)    ; Decrease the time left before shooting.
+*$C5B5 DEC (IX+$10)    ; Decrease the time left in this state.
  $C5B8 RET NZ          ; Return if not there yet.
  $C5B9 INC (IX+$09)    ; Move to the next state.
  $C5BC RET             ;
 ; Update a dueller in "shooting" state
 *$C5BD LD HL,$C5F6     ; {If the player shot this dueller, call #R$C5F6 and exit.
  $C5C0 CALL $C5EB      ; Nice one!}
- $C5C3 DEC (IX+$02)    ; Decrease the time between shooting and BANG!
+ $C5C3 DEC (IX+$02)    ; Decrease the time left in this state.
  $C5C6 RET NZ          ; Return if not there yet.
  $C5C7 LD (IX+$08),A   ; Reset the "dueller standing" flag
  $C5CA INC A           ; { Set the "player shot" flag
  $C5CB LD ($C6E2),A    ; which will cause a BANG!
  $C5CE RET             ; then return }
-; Update a dueller in "shot" state
-*$C5CF DEC (IX+$0E)    ; Decrease the time between shot and floor.
+; Update a dueller in "player shot first" state
+*$C5CF DEC (IX+$0E)    ; Decrease the time left in this state.
  $C5D2 RET NZ          ; Return if not there yet.
- $C5D3 INC (IX+$09)    ; Move state between shooting and shot.
+ $C5D3 INC (IX+$09)    ; Move state between draw and shot.
  $C5D6 LD A,(IX+$0C)   ; { Redraw the dueller as shot and return.
  $C5D9 CALL $C661      ;
  $C5DC RET             ; }
-; Update a dueller in "floor" state
+; Update a dueller in "shot" state
 *$C5DD DEC (IX+$0F)    ; Decrease the time left in this state.
  $C5E0 RET NZ          ; Return if not there yet.
  $C5E1 LD A,$02        ; { Redraw the dueller as "floor"
@@ -5916,7 +5916,10 @@ c$C5EB LD A,(IX+$00) ; {Check if the player fired at this dueller,
 
 ; Player shot a dueller after they drew, so award a bonus.
 ;
+; Used by the routine at #R$C58B.
+;
 ; IX Pointer to dueller data
+@label=Print_BonusScore
 c$C5F6 LD A,(IX+$02) ; Take the time left for the dueller to shoot (#N$00 to #N$20).
  $C5F9 SRL A         ; { Halve the value to give a score (divided by 100).}
  $C5FB CP $09        ; { Set the carry flag if it's over 9.}
@@ -5924,15 +5927,8 @@ c$C5F6 LD A,(IX+$02) ; Take the time left for the dueller to shoot (#N$00 to #N$
  $C600 LD D,(IX+$05) ; }
  $C603 JR NC,$C628   ; If the score is higher than 9, display "EXTRA" instead.
  $C605 OR $01        ; Set bit 1 to denote a bonus.
-
 ; Displays The Bonus Score Text
-;
-; Used by the routine at #R$C628.
-;
-; DE Location to draw the text
-; A The value to print
-@label=Print_BonusScore
-c$C607 LD (IX+$07),A ; {Stores the ASCII representation of the number at #R$C41D (it adds ASCII "0") so for example 1 ends up being
+*$C607 LD (IX+$07),A ; {Stores the ASCII representation of the number at #R$C41D (it adds ASCII "0") so for example 1 ends up being
  $C60A LD HL,$C41D   ;           1 + #N$30 = #N$31 (e.g. "1" in ASCII).
  $C60D ADD A,$30     ;
  $C60F LD (HL),A     ; }
@@ -5944,7 +5940,7 @@ c$C607 LD (IX+$07),A ; {Stores the ASCII representation of the number at #R$C41D
                      ; TABLE#}
  $C616 CALL $5B8C    ;
  $C619 CALL $5B98    ;
- $C61C INC (IX+$09)  ;
+ $C61C INC (IX+$09)  ; Move onto the next state.
  $C61F JP $C583      ; Jump to #R$C583.
 
 ; "Extra" text
@@ -5952,6 +5948,10 @@ c$C607 LD (IX+$07),A ; {Stores the ASCII representation of the number at #R$C41D
 t$C622 DEFM "EXTRA",$FF ; "#STR#(#PC),$08($b==$FF)".
 
 ; Displays "Extra" and Bonus Score text
+;
+; Used by the routine at #R$C5F6.
+;
+;.
 ;
 ; Handles whether to display points or "EXTRA" above each downed Bandit.
 @label=Duel_Points
@@ -5972,7 +5972,7 @@ c$C628 LD A,($C6E4)  ; {If #R$C6E4 is NOT zero then award 9(00) bonus points.
                      ; TABLE#}
  $C644 LD A,$01      ; {Writes #N$01 to #R$C6E4.
  $C646 LD ($C6E4),A  ; }
- $C649 INC (IX+$09)  ; Move onto the next frame.
+ $C649 INC (IX+$09)  ; Move onto the next state.
  $C64C RET           ; Return.
 
 ; Playfield Text
