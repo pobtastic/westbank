@@ -5264,7 +5264,7 @@ c$C000 CALL $C046                           ; Clear the screen.
  $C013 LD B,$03                             ; {Pass #R$F200 to #R$C061.
  $C015 LD HL,$F200                          ;
  $C018 CALL $C061                           ; }
- $C01B CALL $6502                           ; {Calls $6502 twice.
+ $C01B CALL $6502                           ; {Calls #R$6502 twice.
  $C01E CALL $6502                           ; }
  $C021 LD B,$06                             ; {Pass #R$F300 to #R$C061.
  $C023 LD HL,$F300                          ;
@@ -5281,7 +5281,7 @@ c$C000 CALL $C046                           ; Clear the screen.
  $C041 LD B,$40                             ; {Jump to #R$C06D.
  $C043 JP $C06D                             ; }
 @label=Prep_Bang
-*$C046 LD HL,$4000                          ; {Writes #N$00 to all 6144 bytes
+*$C046 LD HL,$4000                          ; {Writes #N$00 to all #N1800 bytes
  $C049 LD DE,$4001                          ; of the screen buffer (i.e.
  $C04C LD BC,$17FF                          ; "blanks it").
  $C04F LD (HL),$00                          ;
