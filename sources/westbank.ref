@@ -80,6 +80,9 @@ sprite IDs for "stand off" (#R$D11A) and "draw" (#R$D11B) are the same.
 JACK VICIOUS uses six state times (defined in #R$D076). However, the final two (which would involve closing the door) are never called, as the game prints BANG!
 as soon as state 4 finishes.
 
+[Fact:High scores]
+The game has 30 high score names, but 43 high score values. The last 13 are not used.
+
 [Poke:Cheats]
 While playing a game, hold down A+ENTER, and while holding those keys down, press BREAK (CAPS + SPACE). You'll then have 255 lives.
 
