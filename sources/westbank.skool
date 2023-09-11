@@ -5597,50 +5597,61 @@ c$C3C0 CALL $C3DD    ; Call #R$C3DD.
 ;
 ; Dueller 1 data.
 @label=Duel_Data
-c$C3EA DEFB $00             ; Dueller state ("0" is complete).
- $C3EB DEFB $80             ; Dueller timer.
- $C3EC DEFB $12             ;
+c$C3EA DEFB $00             ; Set to "1" if the player fired at this dueller.
+ $C3EB DEFB $80             ; Time left on state 1.
+ $C3EC DEFB $12             ; Time left on state 3.
  $C3ED DEFB $01             ; Dueller position (1).
  $C3EE DEFB $C5,$40         ; Screen position above dueller to display "EXTRA"
                             ; or points.
- $C3F0 DEFB $00             ;
+ $C3F0 DEFB $00             ; Not used.
  $C3F1 DEFB $00             ; Bonus points (x100, e.g. "9" == "900").
- $C3F2 DEFB $01             ;
- $C3F3 DEFB $01             ; Current frame?
+ $C3F2 DEFB $01             ; Set to "1" if dueller is standing, or "0" if floored.
+ $C3F3 DEFB $01             ; Current state (1-5).
  $C3F4 DEFB $12,$13,$14     ; Dueller 1 frames.
- $C3F7 DEFB $00,$08,$08,$0A ;
+ $C3F7 DEFB $00             ; Set to "1" if the dueller is being fired at.
+ $C3F8 DEFB $08             ; Time left on state 4.
+ $C3F9 DEFB $08             ; Time left on state 5.
+ $C3FA DEFB $0A             ; Time left on state 2.
 ; Dueller 2 data.
- $C3FB DEFB $00             ; Dueller state ("0" is complete).
- $C3FC DEFB $80             ; Dueller timer.
- $C3FD DEFB $12             ;
+ $C3FB DEFB $00             ; Set to "1" if the player fired at this dueller.
+ $C3FC DEFB $80             ; Time left on state 1.
+ $C3FD DEFB $12             ; Time left on state 3.
  $C3FE DEFB $02             ; Dueller position (2).
  $C3FF DEFB $CD,$40         ; Screen position above dueller to display "EXTRA"
                             ; or points.
- $C401 DEFB $00             ;
+ $C401 DEFB $00             ; Not used.
  $C402 DEFB $00             ; Bonus points (x100, e.g. "9" == "900").
- $C403 DEFB $01             ;
- $C404 DEFB $01             ; Current frame?
+ $C403 DEFB $01             ; Set to "1" if dueller is standing, or "0" if floored.
+ $C404 DEFB $01             ; Current state (1-5).
  $C405 DEFB $15,$16,$17     ; Dueller 2 frames.
- $C408 DEFB $00,$08,$08,$0A ;
+ $C408 DEFB $00             ; Set to "1" if the dueller is being fired at.
+ $C409 DEFB $08             ; Time left on state 4.
+ $C40A DEFB $08             ; Time left on state 5.
+ $C40B DEFB $0A             ; Time left on state 2.
 ; Dueller 3 data.
- $C40C DEFB $00             ; Dueller state ("0" is complete).
- $C40D DEFB $80             ; Dueller timer.
- $C40E DEFB $12             ;
+ $C40C DEFB $00             ; Set to "1" if the player fired at this dueller.
+ $C40D DEFB $80             ; Time left on state 1.
+ $C40E DEFB $12             ; Time left on state 3.
  $C40F DEFB $03             ; Dueller position (3).
  $C410 DEFB $D5,$40         ; Screen position above dueller to display "EXTRA"
                             ; or points.
- $C412 DEFB $00             ;
+ $C412 DEFB $00             ; Not used.
  $C413 DEFB $00             ; Bonus points (x100, e.g. "9" == "900").
- $C414 DEFB $01             ;
- $C415 DEFB $01             ; Current frame?
+ $C414 DEFB $01             ; Set to "1" if dueller is standing, or "0" if floored.
+ $C415 DEFB $01             ; Current state (1-5).
  $C416 DEFB $18,$19,$1A     ; Dueller 3 frames.
- $C419 DEFB $00,$08,$08,$0A ;
+ $C419 DEFB $00             ; Set to "1" if the dueller is being fired at.
+ $C41A DEFB $08             ; Time left on state 4.
+ $C41B DEFB $08             ; Time left on state 5.
+ $C41C DEFB $0A             ; Time left on state 2.
 ; Buffer holding bonus text.
 @label=Duel_Bonus_Text
  $C41D DEFM "900",$FF       ; Bonus text buffer changes during play -
                             ; "#STR#(#PC),$08($b==$FF)".
-; Not sure ... it is used though @todo.
- $C421 DEFB $00             ;
+
+; The speed to run the duel, from #N$01 (slowest) to #N$20 (fastest).
+; It is always set to 1 and never changes.
+g$C421 DEFB $00             ;
 
 ; Duel Bonus Round
 ;
