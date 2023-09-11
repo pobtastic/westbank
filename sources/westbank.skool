@@ -5851,17 +5851,17 @@ c$C583 PUSH IX         ;
 c$C58B LD A,(IX+$08)   ; {If the dueller is shot and has hit the floor, there's nothing to do.
  $C58E AND A           ;
  $C58F RET Z           ; }
- $C590 LD A,(IX+$09)   ; {If state is #N$01 (stand off) then jump to #R$C5A1.
+ $C590 LD A,(IX+$09)   ; {If state 1 (stand off) then jump to #R$C5A1.
  $C593 DEC A           ;
  $C594 JR Z,$C5A1      ; }
- $C596 DEC A           ; {If state is #N$02 (draw) then jump to #R$C5B5.
+ $C596 DEC A           ; {If state 2 (draw) then jump to #R$C5B5.
  $C597 JR Z,$C5B5      ; }
- $C599 DEC A           ; {If state is #N$03 (shooting) then jump to #R$C5BD.
+ $C599 DEC A           ; {If state 3 (shooting) then jump to #R$C5BD.
  $C59A JR Z,$C5BD      ; }
- $C59C DEC A           ; {If state is #N$04 (player shot) then jump to #R$C5CF.
+ $C59C DEC A           ; {If state 4 (bonus) then jump to #R$C5CF.
  $C59D JR Z,$C5CF      ; }
- $C59F JR $C5DD        ; State must be #N$05 (shot) so jump to #R$C5DD.
-; Update a dueller in "stand off" state
+ $C59F JR $C5DD        ; State must be 5 (shot) so jump to #R$C5DD.
+; State 1
 *$C5A1 LD HL,$C6E5     ; {If the player shot this dueller, call #R$C6E5 and exit.
  $C5A4 CALL $C5EB      ; Oops, too early!}
  $C5A7 DEC (IX+$01)    ; Decrease the time left in this state.
@@ -5870,12 +5870,12 @@ c$C58B LD A,(IX+$08)   ; {If the dueller is shot and has hit the floor, there's 
  $C5AE LD A,(IX+$0B)   ; { Redraw the dueller as drawing and return.
  $C5B1 CALL $C661      ;
  $C5B4 RET             ; }
-; Update a dueller in "draw" state
+; State 2
 *$C5B5 DEC (IX+$10)    ; Decrease the time left in this state.
  $C5B8 RET NZ          ; Return if not there yet.
  $C5B9 INC (IX+$09)    ; Move to the next state.
  $C5BC RET             ;
-; Update a dueller in "shooting" state
+; State 3
 *$C5BD LD HL,$C5F6     ; {If the player shot this dueller, call #R$C5F6 and exit.
  $C5C0 CALL $C5EB      ; Nice one!}
  $C5C3 DEC (IX+$02)    ; Decrease the time left in this state.
@@ -5884,14 +5884,14 @@ c$C58B LD A,(IX+$08)   ; {If the dueller is shot and has hit the floor, there's 
  $C5CA INC A           ; { Set the "player shot" flag
  $C5CB LD ($C6E2),A    ; which will cause a BANG!
  $C5CE RET             ; then return }
-; Update a dueller in "player shot first" state
+; State 4
 *$C5CF DEC (IX+$0E)    ; Decrease the time left in this state.
  $C5D2 RET NZ          ; Return if not there yet.
  $C5D3 INC (IX+$09)    ; Move state between draw and shot.
  $C5D6 LD A,(IX+$0C)   ; { Redraw the dueller as shot and return.
  $C5D9 CALL $C661      ;
  $C5DC RET             ; }
-; Update a dueller in "shot" state
+; State 5
 *$C5DD DEC (IX+$0F)    ; Decrease the time left in this state.
  $C5E0 RET NZ          ; Return if not there yet.
  $C5E1 LD A,$02        ; { Redraw the dueller as "floor"
