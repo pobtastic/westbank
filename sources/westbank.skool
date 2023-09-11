@@ -5557,7 +5557,9 @@ u$C3BB JP $EA90      ; Jump to #R$EA90.
 
 ; Start the duel
 ;
-; Used by the routine at #R$C9B7.
+; Used by the routine at #R$CA81.
+;
+; HL On entry contains #R$CBB4
 c$C3C0 CALL $C3DD    ; Call #R$C3DD.
  $C3C3 LD A,($C421)  ; Grab #R$C421.
  $C3C6 JR NC,$C3C9   ;
@@ -5582,7 +5584,7 @@ c$C3C0 CALL $C3DD    ; Call #R$C3DD.
 @label=Init_Duel
 *$C3DD PUSH BC       ; {Stashes #REGbc and #REGde.
  $C3DE PUSH DE       ; }
- $C3DF LD DE,$5B80   ; {Copies #N$1B of data from #REGhl to #R$5B80.
+ $C3DF LD DE,$5B80   ; {Copies #N$1B of data from #REGhl (#R$CBB4) to #R$5B80.
  $C3E2 LD BC,$001B   ;
  $C3E5 LDIR          ; }
  $C3E7 JP $C422      ; Jump to #R$C422.
@@ -5648,8 +5650,9 @@ c$C422 LD HL,$C3EA     ; {Copies #N$33 bytes of data from #R$C3EA to #R$5BC0
  $C425 LD DE,$5BC0     ; (and across all three duellists).
  $C428 LD BC,$0033     ;
  $C42B LDIR            ; }
- $C42D POP DE          ;
- $C42E POP BC          ;
+ $C42D POP DE          ; #REGd contains the time for the third dueller.
+ $C42E POP BC          ; #REGb contains the time for the first dueller.
+                       ; #REGc contains the time for the third dueller.
  $C42F LD A,B          ;
  $C430 LD IX,$5BC0     ; {Calls #R$C67F with #R$5BC0.
  $C434 CALL $C67F      ; }
@@ -5666,18 +5669,18 @@ c$C422 LD HL,$C3EA     ; {Copies #N$33 bytes of data from #R$C3EA to #R$5BC0
  $C44D LD (HL),A       ;
  $C44E INC HL          ;
  $C44F LD (HL),A       ; }
- $C450 LD A,($C421)    ; #R$C421.
- $C453 OR $01          ;
- $C455 CP $20          ;
- $C457 LD DE,$0001     ;
- $C45A JR NC,$C463     ;
- $C45C LD B,A          ;
+ $C450 LD A,($C421)    ; Get the flag at #R$C421, which contains a speed increase factor for the duel.
+ $C453 OR $01          ; Ensure bit 1 is set.
+ $C455 CP $20          ; Are we at maximum speed?
+ $C457 LD DE,$0001     ; { If so, set the speed to 1 (fastest) and move on.
+ $C45A JR NC,$C463     ; }
+ $C45C LD B,A          ; { Subtract the speed increase from the basic speed of #N$20.
  $C45D LD DE,$0020     ;
 @label=Duel_Prep_Loop
 *$C460 DEC DE          ;
- $C461 DJNZ $C460      ;
+ $C461 DJNZ $C460      ; }
 @label=Duel_Clear_Screen
-*$C463 LD ($C52E),DE   ; ....
+*$C463 LD ($C52E),DE   ; Put the speed in #R$C52E.
 ; Clears down the screen buffer.
  $C467 LD HL,$4000     ; {Writes #N$00 to all #N$1AFF bytes of the screen
  $C46A LD DE,$4001     ; buffer (i.e. "blanks it").
@@ -5751,150 +5754,183 @@ c$C422 LD HL,$C3EA     ; {Copies #N$33 bytes of data from #R$C3EA to #R$5BC0
  $C4F8 RET             ; Return.
 ; DRAW!
 @label=Duel_Start
-*$C4F9 LD DE,($C52E)   ; {#REGde=#R$C52E and push it on the stack.
+*$C4F9 LD DE,($C52E)   ; {Get the drawing speed from #R$C52E and push it on the stack.
 @label=Duel_Start_Loop
 *$C4FD PUSH DE         ; }
- $C4FE CALL $C4E3      ;
- $C501 POP DE          ;
+ $C4FE CALL $C4E3      ; Gather user input and set flags if the gun was fired.
+ $C501 POP DE          ; { Restore speed value and loop round.
  $C502 DEC DE          ;
  $C503 LD A,D          ;
  $C504 OR E            ;
- $C505 JR NZ,$C4FD     ;
- $C507 LD IX,$5BC0     ;
- $C50B CALL $C58B      ;
- $C50E LD IX,$5BD1     ;
- $C512 CALL $C58B      ;
- $C515 LD IX,$5BE2     ;
- $C519 CALL $C58B      ;
- $C51C LD IX,$5BC0     ;
+ $C505 JR NZ,$C4FD     ; }
+; A "tick" (defined by the duel speed) has elapsed, so update the characters.
+ $C507 LD IX,$5BC0     ; { Update the first character.
+ $C50B CALL $C58B      ; }
+ $C50E LD IX,$5BD1     ; { Update the second character.
+ $C512 CALL $C58B      ; }
+ $C515 LD IX,$5BE2     ; { Update the third character.
+ $C519 CALL $C58B      ; }
+ $C51C LD IX,$5BC0     ; { Are all three duellers shot?
  $C520 LD A,(IX+$08)   ;
  $C523 OR (IX+$19)     ;
- $C526 OR (IX+$2A)     ;
- $C529 JP Z,$C690      ;
- $C52C JR $C4F9        ;
- $C52E DEFW $001F      ;
+ $C526 OR (IX+$2A)     ; }
+ $C529 JP Z,$C690      ; Jump forward if so.
+ $C52C JR $C4F9        ; Otherwise run the loop again.
+; Holds the speed of the duel, from #N$1F (slowest) to #N$01 (fastest).
+ $C52E DEFW $001F      ; 
+; Run the duel actions.
+;
+; This entry point is used by the routine in #R$C4C5.
 @label=Duel_Actions
-*$C530 CALL $C543      ;
- $C533 CALL $C56B      ;
- $C536 CALL $C550      ;
- $C539 CALL $C56B      ;
- $C53C CALL $C55D      ;
- $C53F CALL $C56B      ;
+*$C530 CALL $C543      ; Check for shooting door 3.
+ $C533 CALL $C56B      ; Take action on this.
+ $C536 CALL $C550      ; Check for shooting door 2.
+ $C539 CALL $C56B      ; Take action on this.
+ $C53C CALL $C55D      ; Check for shooting door 1.
+ $C53F CALL $C56B      ; Take action on this.
  $C542 RET             ; Return.
+; Check for shooting at position 3.
 @label=Duel_Action_01
-*$C543 CALL $5B88      ; Calls #R$5B88.
- $C546 BIT 4,A         ; {Return if bit 4 of #REGa is zero.
- $C548 RET Z           ; }
- $C549 BIT 0,A         ; {If bit 0 is not zero then return setting #REGa to
- $C54B LD A,$03        ; #N$03.
+*$C543 CALL $5B88      ; Check for the player shooting.
+ $C546 BIT 4,A         ; {Return if bit 4 of #REGa is zero,
+ $C548 RET Z           ; meaning the player didn't shoot.}
+ $C549 BIT 0,A         ; {If bit 0 is not zero then user fired at the right position,
+ $C54B LD A,$03        ; so set #REGa to position #N$03.
  $C54D RET NZ          ; }
- $C54E XOR A           ; {Set #REGa to zero and return.
+ $C54E XOR A           ; {Otherwise set #REGa to zero for "didn't shoot" and return.
  $C54F RET             ; }
+; Check for shooting at position 1.
 @label=Duel_Action_02
-*$C550 CALL $5B88      ; Calls #R$5B88.
- $C553 BIT 4,A         ; {Return if bit 4 of #REGa is zero.
- $C555 RET Z           ; }
- $C556 BIT 1,A         ; {If bit 1 is not zero then return setting #REGa to
- $C558 LD A,$01        ; #N$01.
+*$C550 CALL $5B88      ; Check for the player shooting.
+ $C553 BIT 4,A         ; {Return if bit 4 of #REGa is zero,
+ $C555 RET Z           ; meaning the player didn't shoot.}
+ $C556 BIT 1,A         ; {If bit 1 is not zero then user fired at the left position,
+ $C558 LD A,$01        ; so set #REGa to position #N$01.
  $C55A RET NZ          ; }
- $C55B XOR A           ; {Set #REGa to zero and return.
+ $C55B XOR A           ; {Otherwise set #REGa to zero for "didn't shoot" and return.
  $C55C RET             ; }
+; Check for shooting at position 2.
 @label=Duel_Action_03
-*$C55D CALL $5B88      ;
- $C560 BIT 4,A         ;
- $C562 RET Z           ;
- $C563 AND $03         ;
+*$C55D CALL $5B88      ; Check for the player shooting.
+ $C560 BIT 4,A         ; {Return if bit 4 of #REGa is zero,
+ $C562 RET Z           ; meaning the player didn't shoot.}
+ $C563 AND $03         ; {If bits 2 and 3 are set, set #REGa to zero for "didn't shoot" and return.
  $C565 LD A,$00        ;
- $C567 RET NZ          ;
- $C568 LD A,$02        ;
- $C56A RET             ; Return.
+ $C567 RET NZ          ; }
+ $C568 LD A,$02        ; {Otherwise user fired at the middle position, so set #REGa to position #N$02.
+ $C56A RET             ; }
+; Compare a user action with a dueller.
 @label=Duel_Action_04
-*$C56B CP (IX+$03)     ; {If the dueller position has been changed to zero then
+*$C56B CP (IX+$03)     ; {If the user has fired at this dueller then
  $C56E JR Z,$C575      ; jump to #R$C575.}
- $C570 LD (IX+$0D),$00 ;
+ $C570 LD (IX+$0D),$00 ; Set the dueller to "not fired at"
  $C574 RET             ; Return.
-@label=Duel_Dunno
-*$C575 LD A,(IX+$0D)   ;
- $C578 AND A           ;
- $C579 RET NZ          ;
- $C57A LD A,$01        ;
+; Take action after the player shot a dueller.
+@label=Duel_Fired
+*$C575 LD A,(IX+$0D)   ; Get the "fired at" flag.
+ $C578 AND A           ; Is it zero?
+ $C579 RET NZ          ; Return if not.
+ $C57A LD A,$01        ; {Set "fired at" and "fired at by player" flags.
  $C57C LD (IX+$0D),A   ;
- $C57F LD (IX+$00),A   ; Set dueller state to #N$01.
+ $C57F LD (IX+$00),A   ; }
  $C582 RET             ; Return.
+
+; Play a gunshot sound
+;
 ; This entry point is used by the routines at #R$C607 and #R$C6E5.
-*$C583 PUSH IX         ;
+c$C583 PUSH IX         ;
  $C585 CALL $6500      ;
  $C588 POP IX          ;
  $C58A RET             ;
-*$C58B LD A,(IX+$08)   ; {If IX+$08 is zero then return.
+
+; Run the state machine on a dueller
+;
+; This entry point is used by the routine in #R$C4F9.
+;
+; IX Pointer to dueller data.
+c$C58B LD A,(IX+$08)   ; {If the dueller is shot and has hit the floor, there's nothing to do.
  $C58E AND A           ;
  $C58F RET Z           ; }
- $C590 LD A,(IX+$09)   ; {If dueller frame index is #N$01 then jump to #R$C5A1.
+ $C590 LD A,(IX+$09)   ; {If state is #N$01 (stand off) then jump to #R$C5A1.
  $C593 DEC A           ;
  $C594 JR Z,$C5A1      ; }
- $C596 DEC A           ; {If dueller frame index is #N$02 then jump to #R$C5B5.
+ $C596 DEC A           ; {If state is #N$02 (draw) then jump to #R$C5B5.
  $C597 JR Z,$C5B5      ; }
- $C599 DEC A           ; {If dueller frame index is #N$03 then jump to #R$C5BD.
+ $C599 DEC A           ; {If state is #N$03 (shooting) then jump to #R$C5BD.
  $C59A JR Z,$C5BD      ; }
- $C59C DEC A           ; {If dueller frame index is #N$04 then jump to #R$C5CF.
+ $C59C DEC A           ; {If state is #N$04 (shot) then jump to #R$C5CF.
  $C59D JR Z,$C5CF      ; }
- $C59F JR $C5DD        ; Jump to #R$C5DD.
-*$C5A1 LD HL,$C6E5     ; #R$C6E5.
- $C5A4 CALL $C5EB      ;
- $C5A7 DEC (IX+$01)    ;
- $C5AA RET NZ          ;
- $C5AB INC (IX+$09)    ;
- $C5AE LD A,(IX+$0B)   ;
+ $C59F JR $C5DD        ; State must be #N$05 (floor) so jump to #R$C5DD.
+; Update a dueller in "stand off" state
+*$C5A1 LD HL,$C6E5     ; {If the player shot this dueller, call #R$C6E5 and exit.
+ $C5A4 CALL $C5EB      ; Oops, too early!}
+ $C5A7 DEC (IX+$01)    ; Decrease the time left before drawing.
+ $C5AA RET NZ          ; Return if not there yet.
+ $C5AB INC (IX+$09)    ; Otherwise move to the next state.
+ $C5AE LD A,(IX+$0B)   ; { Redraw the dueller as drawing and return.
  $C5B1 CALL $C661      ;
- $C5B4 RET             ;
-*$C5B5 DEC (IX+$10)    ;
- $C5B8 RET NZ          ;
- $C5B9 INC (IX+$09)    ;
+ $C5B4 RET             ; }
+; Update a dueller in "draw" state
+*$C5B5 DEC (IX+$10)    ; Decrease the time left before shooting.
+ $C5B8 RET NZ          ; Return if not there yet.
+ $C5B9 INC (IX+$09)    ; Move to the next state.
  $C5BC RET             ;
-*$C5BD LD HL,$C5F6     ;
- $C5C0 CALL $C5EB      ;
- $C5C3 DEC (IX+$02)    ;
- $C5C6 RET NZ          ;
- $C5C7 LD (IX+$08),A   ;
- $C5CA INC A           ;
- $C5CB LD ($C6E2),A    ;
- $C5CE RET             ;
-*$C5CF DEC (IX+$0E)    ;
- $C5D2 RET NZ          ;
- $C5D3 INC (IX+$09)    ;
- $C5D6 LD A,(IX+$0C)   ;
+; Update a dueller in "shooting" state
+*$C5BD LD HL,$C5F6     ; {If the player shot this dueller, call #R$C5F6 and exit.
+ $C5C0 CALL $C5EB      ; Nice one!}
+ $C5C3 DEC (IX+$02)    ; Decrease the time between shooting and BANG!
+ $C5C6 RET NZ          ; Return if not there yet.
+ $C5C7 LD (IX+$08),A   ; Reset the "dueller standing" flag
+ $C5CA INC A           ; { Set the "player shot" flag
+ $C5CB LD ($C6E2),A    ; which will cause a BANG!
+ $C5CE RET             ; then return }
+; Update a dueller in "shot" state
+*$C5CF DEC (IX+$0E)    ; Decrease the time between shot and floor.
+ $C5D2 RET NZ          ; Return if not there yet.
+ $C5D3 INC (IX+$09)    ; Move state between shooting and shot.
+ $C5D6 LD A,(IX+$0C)   ; { Redraw the dueller as shot and return.
  $C5D9 CALL $C661      ;
- $C5DC RET             ;
-*$C5DD DEC (IX+$0F)    ;
- $C5E0 RET NZ          ;
- $C5E1 LD A,$02        ;
- $C5E3 CALL $C661      ;
- $C5E6 LD (IX+$08),$00 ;
- $C5EA RET             ;
+ $C5DC RET             ; }
+; Update a dueller in "floor" state
+*$C5DD DEC (IX+$0F)    ; Decrease the time left in this state.
+ $C5E0 RET NZ          ; Return if not there yet.
+ $C5E1 LD A,$02        ; { Redraw the dueller as "floor"
+ $C5E3 CALL $C661      ; All characters use the same sprite ID #N$02.}
+ $C5E6 LD (IX+$08),$00 ; {Reset the "dueller still standing" flag and return.
+ $C5EA RET             ; }
 
-; Routine at C5EB
+; Take action on a dueller if the player shot them
 ;
 ; Used by the routine at #R$C422.
+;
+; IX Pointer to dueller data
+; HL Routine to run 
 @label=Dueller_Down
-c$C5EB LD A,(IX+$00) ; {Check if the current duellers state is zero (complete),
- $C5EE AND A         ; return if so.
+c$C5EB LD A,(IX+$00) ; {Check if the player fired at this dueller,
+ $C5EE AND A         ; return if not.
  $C5EF RET Z         ; }
- $C5F0 XOR A         ; {Mark the current dueller as complete.
+ $C5F0 XOR A         ; {Mark the current dueller as not fired at.
  $C5F1 LD (IX+$00),A ; }
- $C5F4 POP AF        ; {Restore #REGa and jump to whatever address is held by
- $C5F5 JP (HL)       ; #REGhl.}
-; Not related?
- $C5F6 LD A,(IX+$02) ;
- $C5F9 SRL A         ;
- $C5FB CP $09        ;
- $C5FD LD E,(IX+$04) ;
- $C600 LD D,(IX+$05) ;
- $C603 JR NC,$C628   ;
- $C605 OR $01        ;
+ $C5F4 POP AF        ; {Clear the stack to return up one level and 
+ $C5F5 JP (HL)       ; jump to whatever address is held by #REGhl.}
+
+; Player shot a dueller after they drew, so award a bonus.
+;
+; IX Pointer to dueller data
+c$C5F6 LD A,(IX+$02) ; Take the time left for the dueller to shoot (#N$00 to #N$20).
+ $C5F9 SRL A         ; { Halve the value to give a score (divided by 100).}
+ $C5FB CP $09        ; { Set the carry flag if it's over 9.}
+ $C5FD LD E,(IX+$04) ; { Get the location to print the score. 
+ $C600 LD D,(IX+$05) ; }
+ $C603 JR NC,$C628   ; If the score is higher than 9, display "EXTRA" instead.
+ $C605 OR $01        ; Set bit 1 to denote a bonus.
 
 ; Displays The Bonus Score Text
 ;
 ; Used by the routine at #R$C628.
+;
+; DE Location to draw the text
+; A The value to print
 @label=Print_BonusScore
 c$C607 LD (IX+$07),A ; {Stores the ASCII representation of the number at #R$C41D (it adds ASCII "0") so for example 1 ends up being
  $C60A LD HL,$C41D   ;           1 + #N$30 = #N$31 (e.g. "1" in ASCII).
@@ -5969,12 +6005,15 @@ c$C661 CALL $5B8F    ; Fetch the address of the character from the given index
  $C67B CALL $5B92    ; }
  $C67E RET           ; Return.
 
-; Routine at C67F
+; Set the time delay for a dueller
 ;
 ; Used by the routine at #R$C422.
+;
+; IX Pointer to dueller data (#R$5BC0, #R$5BD1 or #R$5BE2)
+; A Random time to use
 @label=Update_Duel_Timer
-c$C67F AND $3F       ; {Updates dueller timer.
- $C681 OR $40        ;
+c$C67F AND $3F       ; {Updates dueller timer
+ $C681 OR $40        ; so it is between #N$40 and #N$7F.
  $C683 LD (IX+$01),A ; }
  $C686 RET           ; Return.
 
@@ -6079,9 +6118,9 @@ g$C6E3 DEFB $00      ; Holds #N$00/ #N$01 to indicate player should lose a life
 g$C6E4 DEFB $00      ; Holds #N$00/ #N$01 to indicate player has gained an
                      ; extra life.
 
-; Process Dueller Shot
+; Process Dueller Shot when it's too early
 @label=Dueller_Shot
-c$C6E5 LD A,$04      ; {Writes #N$04 to #R$C6E3.
+c$C6E5 LD A,$04      ; {Writes #N$04 to #R$C6E3, indicating the player will lose a life.
  $C6E7 LD ($C6E3),A  ; }
  $C6EA LD (IX+$09),A ; Sets the dueller frame index to #N$04.
  $C6ED JP $C583      ; Jump to #R$C583.
@@ -6233,79 +6272,91 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C837 OUT ($FE),A   ; }
  $C839 INC A         ; {Write #N$01 to #R$CBCF.
  $C83A LD ($CBCF),A  ; }
- $C83D CALL $CA6C    ;
- $C840 CALL $C959    ;
- $C843 CALL $CA64    ;
- $C846 LD A,$03      ; {Writes #N$03 to #R$CE1B.
- $C848 LD ($CE1B),A  ; }
- $C84B LD HL,$0500   ; {Writes #N$0500 to #R$CE1C.
+ $C83D CALL $CA6C    ; { Set attributes to print "Day" / "Phase".
+ $C840 CALL $C959    ; }
+ $C843 CALL $CA64    ; Print the current day.
+ $C846 LD A,$03      ; {Set the default door speed multiplier in #R$CE1B to #N$03.
+ $C848 LD ($CE1B),A  ; Note that this value never changes.}
+ $C84B LD HL,$0500   ; {Set the default game speed at #R$CE1C to #N$0500.
  $C84E LD ($CE1C),HL ; }
- $C851 LD A,$01      ; {Writes #N$01 to #R$D191.
- $C853 LD ($D191),A  ; }
- $C856 LD A,($5CB1)  ; {Grabs the #R$5CB1, if it's level 1 then jump to #R$C878
- $C859 LD HL,$CA4A   ; with #REGhl=#R$CA4A.
+ $C851 LD A,$01      ; {Writes #N$01 to #R$D191. This indicates the reward screen should be displayed
+ $C853 LD ($D191),A  ; at the end of day 2.}
+ $C856 LD A,($5CB1)  ; {Grabs the chosen starting phase in #R$5CB1, if it's phase 1 then jump to #R$C878.
+ $C859 LD HL,$CA4A   ; #REGhl points to the current phase (#R$CA4A).
  $C85C DEC A         ;
  $C85D JR Z,$C878    ; }
- $C85F CALL $C941    ;
- $C862 INC (HL)      ;
- $C863 CALL $C941    ;
- $C866 INC (HL)      ;
- $C867 DEC A         ;
- $C868 JR Z,$C88F    ;
- $C86A CALL $C941    ;
- $C86D INC (HL)      ;
+; The player has chosen phase 3 or 6, so adjust the gameplay.
+ $C85F CALL $C941    ; { Speed the game up twice (to phase 3) and set the phase counter to 3.
+ $C862 INC (HL)      ; 
+ $C863 CALL $C941    ; 
+ $C866 INC (HL)      ; }
+ $C867 DEC A         ; { If phase 3 then move onto the appropriate logic.
+ $C868 JR Z,$C88F    ; }
+; The player has chosen phase 6, so adjust the gameplay.
+ $C86A CALL $C941    ; { Speed the game up three times (to phase 6) and set the phase counter to 6.
+ $C86D INC (HL)      ; 
  $C86E CALL $C941    ;
  $C871 INC (HL)      ;
  $C872 CALL $C941    ;
- $C875 INC (HL)      ;
- $C876 JR $C8B6      ;
+ $C875 INC (HL)      ; }
+ $C876 JR $C8B6      ; Move forward to the appropriate logic.
+; The player has chosen phase 1, start with the defaults.
 @label=Phase_01
 *$C878 LD HL,$CE42   ; {Writes the character choosing routine #R$CE42 to #R$CE1F.
  $C87B LD ($CE1F),HL ; }
  $C87E CALL $CA81    ; Run this phase.
  $C881 RET C         ; Return if the game's over.
+; Phase 2
  $C882 LD HL,$CE6F   ; {Writes the character choosing routine #R$CE6F to #R$CE1F.
  $C885 LD ($CE1F),HL ; }
  $C888 CALL $C941    ; Speed the game up.
  $C88B CALL $CA81    ; Run this phase.
  $C88E RET C         ; Return if the game's over.
+; Phase 3
 *$C88F LD HL,$CE5F   ; {Writes the character choosing routine #R$CE5F to #R$CE1F.
  $C892 LD ($CE1F),HL ; }
  $C895 CALL $C941    ; Speed the game up.
  $C898 CALL $CA81    ; Run this phase.
  $C89B RET C         ; Return if the game's over.
+; Phase 4
  $C89C LD HL,$CE55   ; {Writes the character choosing routine #R$CE55 to #R$CE1F.
  $C89F LD ($CE1F),HL ; }
  $C8A2 CALL $C941    ; Speed the game up.
  $C8A5 CALL $CA81    ; Run this phase.
  $C8A8 RET C         ; Return if the game's over.
+; Phase 5
  $C8A9 LD HL,$CE7E   ; {Writes the character choosing routine #R$CE7E to #R$CE1F.
  $C8AC LD ($CE1F),HL ; }
  $C8AF CALL $C941    ; Speed the game up.
  $C8B2 CALL $CA81    ; Run this phase.
  $C8B5 RET C         ; Return if the game's over.
+; Phase 6
 *$C8B6 LD HL,$CE8D   ; {Writes the character choosing routine #R$CE8D to #R$CE1F.
  $C8B9 LD ($CE1F),HL ; }
  $C8BC CALL $C941    ; Speed the game up.
  $C8BF CALL $CA81    ; Run this phase.
  $C8C2 RET C         ; Return if the game's over.
+; Phase 7
  $C8C3 LD HL,$CE9C   ; {Writes the character choosing routine #R$CE9C to #R$CE1F.
  $C8C6 LD ($CE1F),HL ; }
  $C8C9 CALL $C941    ; Speed the game up.
  $C8CC CALL $CA81    ; Run this phase.
  $C8CF RET C         ; Return if the game's over.
+; Phase 8
  $C8D0 LD HL,$CE9C   ; {Writes the character choosing routine #R$CE9C to #R$CE1F.
  $C8D3 LD ($CE1F),HL ; }
  $C8D6 CALL $C941    ; Speed the game up.
  $C8D9 CALL $C95E    ; Change from day to dusk.
  $C8DC CALL $CA81    ; Run this phase.
  $C8DF RET C         ; Return if the game's over.
+; Phase 9
  $C8E0 LD HL,$CE9C   ; {Writes the character choosing routine #R$CE9C to #R$CE1F.
  $C8E3 LD ($CE1F),HL ; }
  $C8E6 CALL $C941    ; Speed the game up.
  $C8E9 CALL $C963    ; Change from dusk to night.
  $C8EC CALL $CA81    ; Run this phase.
  $C8EF RET C         ; Return if the game's over.
+; Day 2 / Phase 10 (loops for subsequent days)
 *$C8F0 CALL $C959    ; Change from night back to day.
  $C8F3 CALL $CA64    ; New day (day 2).
  $C8F6 LD B,$07      ; Seven daytime phases on day 2, all with every character.
@@ -6313,19 +6364,23 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
  $C8F9 CALL $CA81    ; Run this phase.
  $C8FC POP BC        ; Restore phase counter (so stack is correct for next instruction).
  $C8FD RET C         ; Return if the game's over.
+; Phase 11 - 16
  $C8FE PUSH BC       ; Remember counter again.
  $C8FF CALL $C941    ; Speed the game up.
  $C902 POP BC        ; Restore phase counter again.
- $C903 DJNZ $C8F8    ; Loop back if there are more phases to run
+ $C903 DJNZ $C8F8    ; Loop back if there are more phases to run.
+; Phase 17
  $C905 CALL $C95E    ; Change from day to dusk.
  $C908 CALL $CA81    ; Run this phase.
  $C90B RET C         ; Return if the game's over.
+; Phase 18
  $C90C CALL $C963    ; Change from dusk to night.
  $C90F CALL $CA81    ; Run this phase.
  $C912 RET C         ; Return if the game's over.
+; Phase 19 and beyond
  $C913 LD HL,$D191   ; {Having got through all the phases,
  $C916 LD A,(HL)     ; are we on day 2?
- $C917 LD (HL),$00   ; 
+ $C917 LD (HL),$00   ; Also reset the flag so the reward screen isn't shown for day 3 and above.
  $C919 AND A         ; }
  $C91A JR Z,$C8F0    ; Jump back if we're not
  $C91C LD HL,$CBB4   ; We have completed two days, display the reward screen.
@@ -6355,19 +6410,19 @@ c$C7E5 LD HL,$CBB4   ; {Calls #R$FE00 with #REGhl=#R$CBB4.
 ;       than than the previous by decreasing the wait time.
 ;       This starts at #N$500 (slowest) and is decreased by #N$40 for each call,
 ;       so things generally open faster.
-c$C941 PUSH AF       ;
- $C942 PUSH HL       ;
- $C943 LD HL,($CE1C) ;
- $C946 LD BC,$0040   ;
- $C949 AND A         ;
- $C94A SBC HL,BC     ;
- $C94C LD A,H        ;
- $C94D OR L          ;
- $C94E JR NZ,$C953   ;
- $C950 LD HL,$0040   ;
-*$C953 LD ($CE1C),HL ;
- $C956 POP HL        ;
- $C957 POP AF        ;
+c$C941 PUSH AF       ; { Remember some registers.
+ $C942 PUSH HL       ; }
+ $C943 LD HL,($CE1C) ; Get the current speed.
+ $C946 LD BC,$0040   ; { Subtract #N$40 from it.
+ $C949 AND A         ; (The AND A clears the carry flag so SBC gives the desired result).
+ $C94A SBC HL,BC     ; }
+ $C94C LD A,H        ; { Is the speed now zero?
+ $C94D OR L          ; }
+ $C94E JR NZ,$C953   ; Jump forward if not.
+ $C950 LD HL,$0040   ; The fastest speed is #N$40.
+*$C953 LD ($CE1C),HL ; Set this as the new speed.
+ $C956 POP HL        ; { Restore registers.
+ $C957 POP AF        ; }
  $C958 RET           ;
 
 ; Door Attributes
@@ -6545,43 +6600,48 @@ g$CA80 DEFB $00           ;
 ;
 ; Used by the routine at #R$C7E5.
 @label=Cashboxes_Completed
-c$CA81 CALL $CAC8         ; Initialize everything.
+c$CA81 CALL $CAC8         ; Initialize everything and run the phase.
  $CA84 RET C              ; Return we've run out of lives.
- $CA85 LD B,$10           ;
+; At this point, the phase has been complete successfully,
+; so flash the deposit boxes.
+ $CA85 LD B,$10           ; Flash the deposit boxes 10 times.
 @label=Cashboxes_Flash_Loop
-*$CA87 PUSH BC            ;
- $CA88 LD A,B             ;
- $CA89 AND $01            ;
- $CA8B CALL $CAB9         ;
- $CA8E LD B,$10           ;
- $CA90 CALL $CD64         ;
- $CA93 POP BC             ;
- $CA94 DJNZ $CA87         ;
- $CA96 LD B,$30           ;
- $CA98 CALL $CD64         ;
- $CA9B LD A,B             ;
- $CA9C CALL $CAB9         ;
- $CA9F CALL $D8B0         ; Generate a random number
- $CAA2 LD B,A             ;
- $CAA3 LD A,R             ;
- $CAA5 LD C,A             ;
- $CAA6 ADD A,B            ;
- $CAA7 LD D,A             ;
- $CAA8 LD A,($CBCF)       ;
- $CAAB LD HL,$CBB4        ;
- $CAAE CALL $C3C0         ; Run the duel
- $CAB1 LD ($CBCF),A       ;
- $CAB4 LD B,$00           ;
- $CAB6 JP $CD64           ;
+*$CA87 PUSH BC            ; Remember this.
+ $CA88 LD A,B             ; { Alternate between 0 and 1 for each iteration.
+ $CA89 AND $01            ; }
+ $CA8B CALL $CAB9         ; Display or hide all boxes.
+ $CA8E LD B,$10           ; { Pause.
+ $CA90 CALL $CD64         ; }
+ $CA93 POP BC             ; Restore number of times.
+ $CA94 DJNZ $CA87         ; Loop if there is more to do.
+ $CA96 LD B,$30           ; { Pause.
+ $CA98 CALL $CD64         ; }
+ $CA9B LD A,B             ; A is now 0.
+ $CA9C CALL $CAB9         ; Set the initial state up and run the phase.
+; Get three random times from three separate sources, and run the duel with them.
+ $CA9F CALL $D8B0         ; Generate a random number.
+ $CAA2 LD B,A             ; Put this in #REGb as the delay before the first dueller draws.
+ $CAA3 LD A,R             ; { Store #REGr in #REGc as the delay before the second dueller draws.
+ $CAA5 LD C,A             ; }
+ $CAA6 ADD A,B            ; Combine the two previous values (ignoring overflow).
+ $CAA7 LD D,A             ; Put this in #REGd as the delay before the third dueller draws.
+ $CAA8 LD A,($CBCF)       ; The value in #R$CBCF is never used.
+ $CAAB LD HL,$CBB4        ; Point to data that will be copied to #R$5B80.
+ $CAAE CALL $C3C0         ; Run the duel.
+ $CAB1 LD ($CBCF),A       ; Set #R$CBCF to 1 if the duel completed successfully, or 0 if player lost a life.
+ $CAB4 LD B,$00           ; { Pause and return. 
+ $CAB6 JP $CD64           ; }
 @label=Deposit_Flash_Prep
+; This routine sets or clears all the deposit flags, then displays them.
+; This is used to flash the display at the end of a phase. 
 *$CAB9 LD HL,$CC8D        ; {Writes #REGa across all the deposit flags (copies
  $CABC LD DE,$CC8E        ; to each from #R$CC8D).
  $CABF LD BC,$000D        ;
  $CAC2 LD (HL),A          ;
  $CAC3 LDIR               ; }
- $CAC5 JP $CC9B           ; Jump to #R$CC9B.
-; Initialize the phase and run it.
-*$CAC8 CALL $C9B7         ;
+ $CAC5 JP $CC9B           ; Redraw the boxes.
+; This entry point is used by the routine in #R$CA81.
+*$CAC8 CALL $C9B7         ; Print "day n" (if required) and "phase n".
 ; Initialize the state of play, either from starting a new phase or losing a life.
 ;
 ; This entry point is used by the routines at #R$CD1B and #R$CD47.
@@ -6589,12 +6649,13 @@ c$CA81 CALL $CAC8         ; Initialize everything.
  $CACC LD ($D2FE),A       ; }
  $CACF CALL $CAD4         ;
  $CAD2 JR $CAE7           ; Jump to the main loop.
-*$CAD4 CALL $CD68         ; Call #R$CD68.
- $CAD7 CALL $CC3A         ; Call #R$CC3A.
- $CADA CALL $CC5A         ; Call #R$CC5A.
- $CADD CALL $CC9B         ; Call #R$CC9B.
- $CAE0 CALL $CD90         ; Call #R$CD90.
- $CAE3 CALL $D45E         ; Call #R$D45E.
+; Initialize some things.
+*$CAD4 CALL $CD68         ; Initialize door flags.
+ $CAD7 CALL $CC3A         ; Initialize the playfield.
+ $CADA CALL $CC5A         ; Display the "life" images.
+ $CADD CALL $CC9B         ; Display the deposit boxes.
+ $CAE0 CALL $CD90         ; Display the score.
+ $CAE3 CALL $D45E         ; Highlight the active doors.
  $CAE6 RET                ; Return.
 
 ; Main game loop
@@ -7895,7 +7956,10 @@ g$D18F DEFB $00
 ; Set to 1 if money should be collected from this door
 g$D190 DEFB $00
 
-; Set to 1 if two days have been completed and the reward screen should be shown
+; Set to 1 if the reward screen should appear at the end of a run of 9 days (for day 2 and above).
+;
+; This is set on starting a new game at #R$C851 and checked / cleared
+; after completing day 2 / phase 18 at #R$C913. 
 g$D191 DEFB $01
 
 ; Copy Source Character Data To Character State Data

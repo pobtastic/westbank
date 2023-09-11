@@ -64,7 +64,12 @@ SectionPrefix=Bang
 SectionType=ListItems
 
 [Fact:Number of characters]
-The instructions say there is a ninth mystery character. However, there are in fact two - the only "drawing" bandits documented are Joe and Alfred Dalton
+The instructions say there is a ninth mystery character. However, there are in fact two - the only "drawing" bandits documented are Joe and Alfred Dalton.
+
+[Fact:Number of phases]
+The instructions say there are two days. However, after completing the second day and receiving the sherrif's badge, after a lengthy pause,
+the user can press a key and restart on day 3, with gameplay as per day 2 but faster. There is no upper limit to the amount of days in the game,
+but the display does not cater for more than 99 days, so will display unusual / corrupted text.
 
 [Fact:Bandit 2 behaviour]
 MACKEYHAM is described as "shoot as quickly as you can". However, it uses the same code as the four "drawing" bandits. The state machine time
