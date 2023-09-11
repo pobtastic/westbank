@@ -84,6 +84,19 @@ as soon as state 4 finishes.
 [Fact:High scores]
 The game has 30 high score names, but 43 high score values. The last 13 are not used.
 
+[Fact:Points]
+The game awards the following points:
+#TABLE(default)
+  { =h Action | =h Score }
+  { Jack Vicious shot | 100 }
+  { Customer deposited | 50 }
+  { Bowie's hat shot | 10 }
+  { Bowie deposited | 150 }
+  { Shot "drawn" bandit | 200 }
+  { Julius deposited | 50 }
+  { Shot "bad" Julius | 250 }
+TABLE#
+
 [Poke:Cheats]
 While playing a game, hold down A+ENTER, and while holding those keys down, press BREAK (CAPS + SPACE). You'll then have 255 lives.
 

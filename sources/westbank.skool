@@ -8509,7 +8509,7 @@ c$D411 CALL $D3EA      ; Check the doors are closed.
  $D422 AND A           ; }
  $D423 CALL NZ,$D449   ; Move right if so
  $D426 POP DE          ; Restore DE.
- $D427 DEC DE          ; { Loop $400 times (was set up at #R$D3FC).
+ $D427 DEC DE          ; { Loop #N$400 times (was set up at #R$D3FC).
  $D428 LD A,D          ;
  $D429 OR E            ;
  $D42A RET Z           ; }
