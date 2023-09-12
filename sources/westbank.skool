@@ -436,107 +436,130 @@ u$5CB2 DEFB $FF,$5F,$FF,$FF,$F4,$09,$A8,$10
  $5CE2 DEFB $66,$3D,$36,$34,$39,$33,$36,$0E
  $5CEA DEFB $00,$00,$A8,$FD,$00,$CC
 
+; Unused
+u$5CF0 DEFB $36,$34,$39,$34,$34,$0E,$00,$00
+ $5CF8 DEFB $B0,$FD,$00,$3A,$F4,$66,$2C,$30
+
+; Startup code (Dinamic)
+;
+; This is the main entry point for the Dinamic release.
+; It is not present on the Gremlin Graphics version.
+c$5D00 LD A,$00         ; { Wait for the user to press any key
+ $5D02 IN A,($FE)       ;
+ $5D04 OR $E0           ;
+ $5D06 INC A            ;
+ $5D07 JR Z,$5D00       ; }
+ $5D09 LD A,$02         ; { Select the SCREEN channel
+ $5D0B CALL $1601       ; by calling #HTML(<a href=https://skoolkid.github.io/rom/asm/1601.html>CHAN-OPEN</a>).}
+ $5D0E LD A,$00         ; { Set black border. 
+ $5D10 CALL $229B       ; Call #HTML(<a href=https://skoolkid.github.io/rom/asm/2294.html>BORDER</a>) routine (not from the start).}
+ $5D13 LD HL,$4000      ; { Blank the screen.
+ $5D16 LD DE,$4001      ;
+ $5D19 LD BC,$1AFF      ;
+ $5D1E LDIR             ; }
+ $5D20 LD HL,$0101      ; { Oddly enable both keyboard and kempston joystick input methods at the same time.
+ $5D23 LD ($5CB0),HL    ; }
+ $5D26 DEFS $0A         ; No-operation.
+*$5D30 LD HL,$4000      ; { Blank the screen.
+ $5D33 LD DE,$4001      ;
+ $5D36 LD BC,$1AFF      ;
+ $5D39 LD (HL),$00      ;
+ $5D3B LDIR             ; }
+ $5D3D CALL $C7C0       ; Run the game.
+ $5D40 JR $5D30         ; Loop round to run another game.
+ $5D42 JP $EA90         ; Not used.
+
 ; Unused/ Stack
 ;
 ; On initialisation the Stack Pointer is set to #N$5FF0.
-u$5CF0 DEFB $36,$34,$39,$34,$34,$0E,$00,$00
- $5CF8 DEFB $B0,$FD,$00,$3A,$F4,$66,$2C,$30
- $5D00 DEFB $0E,$00,$00,$00,$00,$00,$3A,$F3
- $5D08 DEFB $66,$3A,$F4,$36,$34,$39,$33,$36
- $5D10 DEFB $0E,$00,$00,$A8,$FD,$00,$2C,$32
- $5D18 DEFB $35,$31,$0E,$00,$00,$FB,$00,$00
- $5D20 DEFB $3A,$EF,$22,$22,$AA,$3A,$E7,$30
- $5D28 DEFB $0E,$00,$00,$00,$00,$00,$3A,$F2
- $5D30 DEFB $30,$0E,$00,$00,$00,$00,$00,$3A
- $5D38 DEFB $F4,$32,$33,$36,$31,$33,$0E,$00
- $5D40 DEFB $00,$3D,$5C,$00,$2C,$30,$0E,$00
- $5D48 DEFB $00,$00,$00,$00,$3A,$F9,$C0,$35
- $5D50 DEFB $36,$30,$37,$30,$0E,$00,$00,$06
- $5D58 DEFB $DB,$00,$0D,$00,$14,$3B,$00,$F8
- $5D60 DEFB $22,$77,$65,$73,$74,$20,$62,$61
- $5D68 DEFB $6E,$6B,$22,$CA,$31,$30,$0E,$00
- $5D70 DEFB $00,$0A,$00,$00,$3A,$F8,$22,$57
- $5D78 DEFB $45,$53,$54,$20,$42,$41,$4E,$4B
- $5D80 DEFB $22,$AF,$32,$34,$35,$37,$36,$0E
- $5D88 DEFB $00,$00,$00,$60,$00,$2C,$34,$30
- $5D90 DEFB $39,$36,$30,$0E,$00,$00,$00,$A0
- $5D98 DEFB $00,$0D,$03,$E8,$2A,$00,$EB,$66
- $5DA0 DEFB $3D,$32,$35,$37,$34,$36,$0E,$00
- $5DA8 DEFB $00,$92,$64,$00,$CC,$37,$30,$30
- $5DB0 DEFB $30,$30,$0E,$91,$08,$B8,$00,$00
- $5DB8 DEFB $3A,$F5,$66,$3B,$22,$5F,$5F,$22
- $5DC0 DEFB $3B,$C2,$BE,$66,$3A,$F3,$66,$0D
- $5DC8 DEFB $E6,$00,$00,$B1,$FD,$00,$00,$00
- $5DD0 DEFB $B0,$FD,$00,$00,$00,$01,$00,$00
- $5DD8 DEFB $0A,$00,$04,$80,$EF,$22,$22,$0D
- $5DE0 DEFB $80,$00,$00,$06,$DB,$00,$00,$00
- $5DE8 DEFB $00,$00,$00,$20,$00,$1B,$00,$40
- $5DF0 DEFB $00,$00,$03,$AA,$20,$20,$20,$20
- $5DF8 DEFB $20,$20,$20,$20,$20,$00,$1B,$00
- $5E00 DEFB $80,$20,$80,$AA,$23,$5D,$00,$00
- $5E08 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E10 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E18 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E20 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E28 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E30 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E38 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E40 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E48 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E50 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E58 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E60 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E68 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E70 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E78 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E80 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E88 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E90 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5E98 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EA0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EA8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EB0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EB8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EC0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EC8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5ED0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5ED8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EE0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EE8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EF0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5EF8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F00 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F08 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F10 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F18 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F20 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F28 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F30 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F38 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F40 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F48 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F50 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F58 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F60 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F68 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F70 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F78 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F80 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F88 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F90 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5F98 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5FA0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5FA8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5FB0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5FB8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5FC0 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5FC8 DEFB $00,$00,$00,$00,$00,$00,$00,$00
- $5FD0 DEFB $00,$00,$00,$00,$DB,$02,$4D,$00
- $5FD8 DEFB $A0,$3F,$CE,$0B,$6D,$40,$CE,$0B
- $5FE0 DEFB $B7,$2D,$E1,$5D,$DC,$5D,$06,$DB
- $5FE8 DEFB $2B,$2D,$65,$33,$02,$80,$ED,$10
- $5FF0 DEFB $0D,$00,$09,$00,$85,$1C,$10,$1C
- $5FF8 DEFB $52,$1B,$76,$1A,$DB,$82,$FD,$3E
+u$5D45 DEFB $36,$34,$39,$33,$36,$0E,$00,$00
+ $5D4D DEFB $A8,$FD,$00,$2C,$32,$35,$31,$0E
+ $5D55 DEFB $00,$00,$FB,$00,$00,$3A,$EF,$22
+ $5D5D DEFB $22,$AA,$3A,$E7,$30,$0E,$00,$00
+ $5D65 DEFB $00,$00,$00,$3A,$F2,$30,$0E,$00
+ $5D6D DEFB $00,$00,$00,$00,$3A,$F4,$32,$33
+ $5D75 DEFB $36,$31,$33,$0E,$00,$00,$3D,$5C
+ $5D7D DEFB $00,$2C,$30,$0E,$00,$00,$00,$00
+ $5D85 DEFB $00,$3A,$F9,$C0,$35,$36,$30,$37
+ $5D8D DEFB $30,$0E,$00,$00,$06,$DB,$00,$0D
+ $5D95 DEFB $00,$14,$3B,$00,$F8,$22,$77,$65
+ $5D9D DEFB $73,$74,$20,$62,$61,$6E,$6B,$22
+ $5DA5 DEFB $CA,$31,$30,$0E,$00,$00,$0A,$00
+ $5DAD DEFB $00,$3A,$F8,$22,$57,$45,$53,$54
+ $5DB5 DEFB $20,$42,$41,$4E,$4B,$22,$AF,$32
+ $5DBD DEFB $34,$35,$37,$36,$0E,$00,$00,$00
+ $5DC5 DEFB $60,$00,$2C,$34,$30,$39,$36,$30
+ $5DCD DEFB $0E,$00,$00,$00,$A0,$00,$0D,$03
+ $5DD5 DEFB $E8,$2A,$00,$EB,$66,$3D,$32,$35
+ $5DDD DEFB $37,$34,$36,$0E,$00,$00,$92,$64
+ $5DE5 DEFB $00,$CC,$37,$30,$30,$30,$30,$0E
+ $5DED DEFB $91,$08,$B8,$00,$00,$3A,$F5,$66
+ $5DF5 DEFB $3B,$22,$5F,$5F,$22,$3B,$C2,$BE
+ $5DFD DEFB $66,$3A,$F3,$66,$0D,$E6,$00,$00
+ $5E05 DEFB $B1,$FD,$00,$00,$00,$B0,$FD,$00
+ $5E0D DEFB $00,$00,$01,$00,$00,$0A,$00,$04
+ $5E15 DEFB $80,$0D,$80,$22,$0D,$80,$00,$00
+ $5E1D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E25 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E2D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E35 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E3D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E45 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E4D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E55 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E5D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E65 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E6D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E75 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E7D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E85 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E8D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E95 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5E9D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5EA5 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5EAD DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5EB5 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5EBD DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5EC5 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5ECD DEFB $00,$00,$00,$F3,$0D,$CE,$0B,$E0
+ $5ED5 DEFB $50,$21,$17,$DC,$0A,$D7,$18,$06
+ $5EDD DEFB $00,$07,$00,$0D,$19,$16,$5E,$A9
+ $5EE5 DEFB $18,$DB,$02,$4D,$00,$F3,$5C,$DB
+ $5EED DEFB $02,$4D,$00,$87,$00,$20,$17,$FE
+ $5EF5 DEFB $15,$58,$27,$E1,$15,$3B,$0F,$7F
+ $5EFD DEFB $10,$00,$5F,$B4,$12,$00,$00,$00
+ $5F05 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F0D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F15 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F1D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F25 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F2D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F35 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F3D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F45 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F4D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F55 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F5D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F65 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F6D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F75 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F7D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F85 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F8D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F95 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5F9D DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5FA5 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5FAD DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5FB5 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5FBD DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5FC5 DEFB $00,$00,$00,$00,$00,$00,$00,$00
+ $5FCD DEFB $00,$00,$00,$00,$00,$00,$00,$DB
+ $5FD5 DEFB $02,$4D,$00,$A0,$3F,$CE,$0B,$6D
+ $5FDD DEFB $40,$CE,$0B,$B7,$2D,$E1,$5D,$DC
+ $5FE5 DEFB $5D,$06,$DB,$2B,$FB,$18,$02,$ED
+ $5FED DEFB $6F,$18,$02,$ED,$01,$01,$5C,$18
+ $5FF5 DEFB $14,$00,$FF,$17,$01,$0D,$49,$00
+ $5FFD DEFB $DF,$FF,$3E
 
 ; High Score Table
 @label=Highscore_Table_Name
@@ -11310,10 +11333,11 @@ u$FD00 DEFB $A7,$C2,$0F,$FC,$3A,$0A,$FC
 ; .
 ;
 ; On initialisation, #REGhl=#R$CBB4.
+; The code at #R$FD80 and #R$FD82 is not present on the Dinamic release.
 c$FD80 JR $FD84      ; Jump to #R$FD84.
-; This code is never executed. What probably should have happened is code calling #R$FD80 should have
-; been changed to #R$FD82 in production, but this didn't occur.
- $FD82 JR $FDA8      ; Jump to #R$FDA8, bypassing the "cheat mode" code
+; This code is the main entry point for the Gremlin Graphics release.
+; The Dinamic release begins at #R$5D00.
+*$FD82 JR $FDA8      ; Jump to #R$FDA8, bypassing the "cheat mode" code
 ; Code continues from #R$FD80.
 *$FD84 LD A,$FD      ; {Read from the keyboard;
  $FD86 IN A,($FE)    ; #TABLE(default,centre,centre,centre,centre,centre,centre)
@@ -11340,6 +11364,7 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
  $FDA0 LD (HL),$FF   ; so the game will start with this many.}
  $FDA2 RET           ; Return.
 *$FDA3 LD SP,$5FF0   ; #REGsp=#N$5FF0.
+; On the Dinamic release, the jump is to #R$5D30.
  $FDA6 JR $FDBC      ; Jump to #R$FDBC.
 *$FDA8 EI            ; Enable interrupts.
  $FDA9 DEFS $08      ; No-operation.
@@ -11352,13 +11377,18 @@ c$FD80 JR $FD84      ; Jump to #R$FD84.
  $FDB9 CALL $229B    ; #HTML(Call <a
                      ; href="https://skoolkid.github.io/rom/asm/2294.html#229B">BORDER</a>
                      ; routine (not from the start).)
+; Main game loop.
+;
+; .
+;
+; On the Dinamic release, this code is at #R$5D30.
 *$FDBC LD HL,$4000   ; {Writes #N$00 to all #N$1AFF bytes of the screen buffer
  $FDBF LD DE,$4001   ; (i.e. "blanks it").
  $FDC2 LD BC,$1AFF   ;
  $FDC5 LD (HL),$00   ;
  $FDC7 LDIR          ; }
- $FDC9 CALL $C7C0    ; Call #R$C7C0.
- $FDCC JR $FDBC      ; Jump to #R$FDBC.
+ $FDC9 CALL $C7C0    ; Run the game.
+ $FDCC JR $FDBC      ; Jump back to #R$FDBC to run another game.
 
 ; Unused
 u$FDCE JP $EA90      ; Jump to #R$EA90.
