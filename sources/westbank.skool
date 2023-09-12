@@ -6264,7 +6264,7 @@ c$C7C0 LD HL,($5C78) ; #HTML(Fetch <a
  $C7DE LD IX,$CD86   ;
  $C7E2 JP $FA00      ; }
 
-; Display title screen
+; Run the game
 ;
 ; Displays the title screen and on return, sets the control method and
 ; initiates variables for a new game.
