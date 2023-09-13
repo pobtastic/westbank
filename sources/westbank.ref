@@ -64,7 +64,12 @@ SectionPrefix=Bang
 SectionType=ListItems
 
 [Fact:Number of characters]
-The instructions say there is a ninth mystery character. However, there are in fact two - the only "drawing" bandits documented are Joe and Alfred Dalton
+The instructions say there is a ninth mystery character. However, there are in fact two - the only "drawing" bandits documented are Joe and Alfred Dalton.
+
+[Fact:Number of phases]
+The instructions say there are two days. However, after completing the second day and receiving the sherrif's badge, after a lengthy pause,
+the user can press a key and restart on day 3, with gameplay as per day 2 but faster. There is no upper limit to the amount of days in the game,
+but the display does not cater for more than 99 days, so will display unusual / corrupted text.
 
 [Fact:Bandit 2 behaviour]
 MACKEYHAM is described as "shoot as quickly as you can". However, it uses the same code as the four "drawing" bandits. The state machine time
@@ -74,6 +79,22 @@ sprite IDs for "stand off" (#R$D11A) and "draw" (#R$D11B) are the same.
 [Fact:States for Jack Vicious]
 JACK VICIOUS uses six state times (defined in #R$D076). However, the final two (which would involve closing the door) are never called, as the game prints BANG!
 as soon as state 4 finishes.
+
+[Fact:High scores]
+The game has 30 high score names, but 43 high score values. The last 13 are not used.
+
+[Fact:Points]
+The game awards the following points:
+#TABLE(default)
+  { =h Action | =h Score }
+  { Jack Vicious shot | 100 }
+  { Customer deposited | 50 }
+  { Bowie's hat shot | 10 }
+  { Bowie deposited | 150 }
+  { Shot "drawn" bandit | 200 }
+  { Julius deposited | 50 }
+  { Shot "bad" Julius | 250 }
+TABLE#
 
 [Poke:Cheats]
 While playing a game, hold down A+ENTER, and while holding those keys down, press BREAK (CAPS + SPACE). You'll then have 255 lives.
@@ -117,3 +138,5 @@ SectionType=BulletPoints
 - Major updates, altered a lot of the formatting to latest versions.
 [Changelog:20230901]
 - Most entry points documented
+[Changelog:20230911]
+- All routines and most data buffers documented
